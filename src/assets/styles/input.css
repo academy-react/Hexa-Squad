@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    @font-face {
+        font-family: B-Yekan;
+        src: url("../fonts/Yekan.ttf");
+    }
+}
+@layer components{
+    .auth-image-side{
+        @apply bg-gradient-to-l from-newPurple from-[0.8%] via-newPurple via-[0.9%] to-transparentPurple to-[150%] flex items-center justify-center
+    }
+    .form-section-auth{
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
+        @apply  w-[380px] bg-[#fff]  min-h-[450px] max-h-[550px] relative  rounded-xl  py-5 font-[B-Yekan] text-lightblue
+    }
+    .field-input{
+        @apply text-right w-full py-1 px-2 pr-7 h-full rounded-md border-b-2 bg-[#F6F7FC] absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66]
+    }
+    .primary-button{
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.20);
+        @apply cursor-pointer text-[#fff] bg-gradient-to-br from-[#AA54FF] from-[11%] via-[#6514FF] via-[51%] to-[#4445F2] to-[111%] rounded-lg hover:bg-lightblue 
+    }
+}
