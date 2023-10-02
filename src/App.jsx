@@ -20,7 +20,6 @@ const App = () => {
   return (
     <div className="app-Body">
       <RouterProvider router={Router} />
-      <Register/>
     </div>
   );
 };
