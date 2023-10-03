@@ -9,7 +9,8 @@ export default {
       "lightblue":"#3F40EA",
     },
     boxShadow:{
-      "shadow-auth":"0px 5px 10px 0px rgba(0, 0, 0, 0.25)"
+      "shadow-auth":"0px 5px 10px 0px rgba(0, 0, 0, 0.25)",
+      "shadow-transparent":"0px 5px 10px 0px rgba(0, 0, 0, 0)"
     },
     extend: {},
   },

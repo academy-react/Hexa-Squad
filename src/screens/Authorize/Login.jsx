@@ -8,22 +8,22 @@ import pic2 from '../../assets/image/picture2.svg';
 import FieldInput from '../../components/common/FieldInput';
 const Login = () => {
     const validation = yup.object().shape({
-        email: yup.string().required('this field is required!'),
-        password: yup.string().required('this field is required!'),
+        email: yup.string().required('این فیلد الزامیست!'),
+        password: yup.string().required('این فیلد الزامیست!'),
     })
   return (
     <div className="bg-lightPink min-h-[100vh]">
         <div className="md:flex container block">
             <div className="auth-image-side">
-                <img src={pic2} className="lg:w-[537px] w-[250px] mr-12" alt="" />
+                <img src={pic2} className='lg:w-2/3 w-[250px]' alt="" />
             </div>
-            <div className="flex justify-center lg:w-5/12 w-full">
-                <div className="form-section-auth">
-                    <h2 className="text-4xl text-center lg:mt-12 sm:mt-10 ">ورود به سایت</h2>
+            <div className="w-full lg:w-5/12 flex justify-center">
+                <div className="form-section-auth" dir='rtl'>
+                    <h2 className='auth-title' >ورود به سایت</h2>
                     <Formik initialValues={{email:'',password:''}} validationSchema={validation} onSubmit={()=>alert('ورود به سایت')} >
-                        <Form className="text-center px-12 mt-8 flex-col items-center flex">
-                            <FieldInput placeholder={"ایمیل را وارد کنید"} name="email" icon={"telephone-fill"} classIcon={'rotate-[260deg]'}/>
-                            <FieldInput placeholder={"رمز عبور را وارد کنید"} name="password" icon={"lock-fill"} />
+                        <Form className="auth-form">
+                            <FieldInput placeholder={"ایمیل را وارد کنید"} name="email" icon={"telephone-fill"} classIcon={'rotate-[260deg]'} />
+                            <FieldInput placeholder={"رمز عبور را وارد کنید"} name="password" icon={"lock-fill"} type="password"  />
                             <Link to={"/authorize/forget"} className="mb-12 ml-[-200px] pointer">فراموشی رمز؟</Link>
                             <input type="submit" value="ورود" className="primary-button w-full p-4"/>
                             <label className="mt-4" > قبلا ثبت نام نکرده‌اید؟ <Link to={"/authorize/register"} className="pointer underline">ثبت نام</Link></label>                            
