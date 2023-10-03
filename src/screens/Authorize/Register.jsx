@@ -30,8 +30,8 @@ const Register = () => {
                                 <input type="checkbox" name="" id="remember" />
                             </div>
                             <input type="submit" value="ثبت نام" className='w-full p-4 primary-button'/>
-                            <a href="" className='my-2'>ورود به سایت</a>
-                            {/* <Link to={"/authorize/login"} className="pointer w-100 h-100 d-inline-block">و</Link> */}
+                            {/* <a href="" className='my-2'>ورود به سایت</a> */}
+                            <Link to={"/authorize/login"} className="pointer w-100 h-100 d-inline-block">ورود به سایت</Link>
                         </Form>
                     </Formik>
                 </div>

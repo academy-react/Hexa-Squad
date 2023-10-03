@@ -1,8 +1,12 @@
 import React from 'react'
+import "../../assets/styles/compute.css";
 
 const Landing = () => {
+
   return (
-    <div>Landing</div>
+    <div className="bg-lightPink min-h-[100vh]">
+        <h1>Landing</h1>
+    </div>
   )
 }
 
