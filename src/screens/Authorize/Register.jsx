@@ -14,11 +14,11 @@ const Register = () => {
   return (
     <div className=' bg-lightPink min-h-[100vh] '>
         <div className='md:flex container block'>
-            <div className="auth-image-side md:rounded-r-[150px] md:rounded-br-[150px] md:rounded-bl-[0] rounded-b-[150px] p-4 w-full lg:w-7/12 lg:h-[100vh]">
+            <div className="auth-image-side">
                 <img src={pictureProgrammer} className='lg:w-2/3 w-[250px]' alt="" />
             </div>
             <div className="w-full lg:w-5/12 flex justify-center">
-                <div className="form-section-auth lg:top-[20%] lg:left-[-150px] left-[0] top-[0] ">
+                <div className="form-section-auth">
                     <h2 className='text-4xl text-center'>ثبت نام</h2>
                     <Formik initialValues={{email:'',password:'',rePassword:''}} validationSchema={validation} onSubmit={()=>alert('ثبت نام')} >
                         <Form className='text-center px-12 flex-col items-center flex'>
