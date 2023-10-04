@@ -13,17 +13,46 @@
   }
 }
 @layer components {
-  /* primary */
   .primary-btn {
     transition: 0.55s all;
     @apply bg-gradient-to-tr from-[#732AFF] from-[3.5%] to-[#4136C9] to-[76%]  hover:from-[#AA54FF] hover:from-[11%] hover:via-[#6514FF] hover:via-[51%] hover:to-[#4445F2] hover:to-[111%];
   }
   /* Header Style */
   .logo-bg {
-    @apply absolute md:block hidden right-[-20px] top-[-25px] max-h-[232px];
+    @apply absolute md:block hidden right-[-20px] top-[-25px] max-h-[232px] dark:hidden;
   }
   .logo {
     @apply lg:mt-[33px] lg:mr-[26px] md:w-[180px] md:mt-[23px] md:mr-[16px] w-[55px] block;
+  }
+  .openMenu-span {
+    transition: .3s;
+    @apply h-1 rounded bg-[#3E32C7] inline-block relative ;
+  }
+  #openMenu:checked + .header-buttons .openMenu .openMenu-span:nth-child(1) {
+    rotate: 45deg;
+    width: 100%;
+    top: 10px;
+    background-color: #12124280;
+  }
+  #openMenu:checked + .header-buttons .openMenu .openMenu-span:nth-child(2) {
+    display: none;
+  }
+  #openMenu:checked + .header-buttons .openMenu .openMenu-span:nth-child(3) {
+    rotate: -45deg;
+    width: 100%;
+    background-color: #12124280;
+  }
+  #openMenu:checked + .header-buttons .openMenu{
+    background-color: #1212421A;
+    @apply rounded-lg left-[70%]
+  }
+  #openMenu:checked ~ .mobile-menu-holder .mobile-menu{
+    box-shadow: 0 0 1500px 1000px #0005;
+    @apply w-8/12 p-8 
+  }
+  .openMenu{
+    transition: .6s;
+    @apply w-14 h-12 text-left leading-3	block lg:hidden mr-7 cursor-pointer py-1 z-30 relative left-0 
   }
   /* menu styles */
   .menu-item {
@@ -33,28 +62,29 @@
     transition: 0.15s ease-in;
     @apply group-hover:w-11/12 w-0 block h-2 my-1  bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2;
   }
-
+      /* Mobile Menu */
+      .mobile-menu {
+        transition: .2s;
+        @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden ;
+      }
   /* Authorize Pages Style */
   .auth-title {
     color: white;
-    @apply text-4xl text-center lg:mt-0 mt-[-80px] mb-5 lg:text-lightblue;
+    @apply text-4xl text-center lg:mt-0 mt-[-80px] mb-5 lg:text-lightblue font-bold;
   }
   .auth-image-side {
     color: white;
-    @apply lg:bg-gradient-to-l bg-gradient-to-t from-newPurpleAlpha from-[0.8%] via-newPurpleAlpha via-[0.9%] to-transparentPurple to-[150%] flex items-center justify-center md:rounded-r-[150px] md:rounded-br-[150px] md:rounded-bl-[0] rounded-b-[150px] lg:p-4 pb-32 w-full lg:w-7/12 lg:h-[100vh];
+    @apply lg:bg-gradient-to-l bg-gradient-to-t from-newPurpleAlpha from-[0.8%] via-newPurpleAlpha via-[0.9%] to-transparentPurple to-[150%] flex items-center justify-center lg:rounded-r-[150px] lg:rounded-br-[150px] lg:rounded-bl-[0] rounded-b-[150px] lg:p-4 pb-32 w-full lg:w-7/12 lg:h-[100vh];
   }
   .form-section-auth {
-    @apply w-[380px] lg:bg-[#fff]  min-h-[450px] max-h-[550px] relative  rounded-xl  py-5 font-[B-Yekan] lg:top-[14%] lg:left-[-230px] left-0 top-0 lg:shadow-shadow-auth shadow-shadow-transparent;
+    @apply w-[380px] lg:bg-[#fff]  min-h-[350px] max-h-[530px] relative  rounded-xl  py-5 font-[B-Yekan] lg:top-[14%] lg:left-[-190px] left-0 top-0 lg:shadow-shadow-auth shadow-shadow-transparent flex flex-col	justify-center;
   }
   .field-input {
-    @apply text-right w-full py-1 px-2 pr-8 h-full rounded-md border-b-2 bg-[#F6F7FC] absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
+    @apply text-right w-full py-1 px-2 pr-7 h-full rounded-md border-b-2 bg-[#F6F7FC] absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
   }
   .primary-button {
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
     @apply cursor-pointer text-[#fff] bg-gradient-to-br from-[#AA54FF] from-[11%] via-[#6514FF] via-[51%] to-[#4445F2] to-[111%] rounded-lg hover:bg-lightblue my-3;
-  }
-  .gradient {
-    @apply bg-gradient-to-br from-[#4445F2] from-[11%] via-[#6514FF] via-[51%] to-[#AA54FF] to-[111%] rounded-lg;
   }
   .auth-form {
     @apply text-lightblue text-right px-12 flex-col items-center flex;

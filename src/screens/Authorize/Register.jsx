@@ -15,7 +15,7 @@ const Register = () => {
   });
   return (
     <div className=" bg-lightPink min-h-[100vh] ">
-      <div className="md:flex container block">
+      <div className="lg:flex block">
         <div className="auth-image-side">
           <img
             src={pictureProgrammer}

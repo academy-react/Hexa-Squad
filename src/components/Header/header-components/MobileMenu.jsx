@@ -1,0 +1,21 @@
+import React, { useState } from "react";
+import LogoIcon from '../../../assets/image/Logo-icon.svg'
+import DesktopMenu from "./DesktopMenu";
+const MobileMenu = () => {
+    return (
+      <div className='mobile-menu ' >
+        <img src={LogoIcon} width={90} />
+        <DesktopMenu className={'my-5 w-full flex flex-col'}/>
+        <div className="flex whitespace-nowrap">
+            <button className="primary-btn ml-[-10px]">
+                ورود به سایت
+            </button>
+            <button className="w-32 bg-[#EBE0FF] hover:border-none text-newPurple2">
+                عضویت
+            </button>
+        </div>
+      </div>
+    )
+};
+
+export default MobileMenu;

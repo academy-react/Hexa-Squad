@@ -12,11 +12,11 @@ const VerificationCode = () => {
 
   return (
     <div className="bg-lightPink min-h-[100vh]">
-      <div className="md:flex container block">
+      <div className="lg:flex block">
         <div className="auth-image-side">
           <img src={pic4} className="lg:w-2/3 w-[250px]" alt="" />
         </div>
-        <div className="w-full lg:w-5/12 flex justify-center">
+            <div className="w-full lg:w-5/12 flex justify-center">
           <div className="form-section-auth" dir="rtl">
             <h2 className="auth-title"> کد را وارد کنید</h2>
             <p className="w-[300px] mx-auto pr-[10px] text-base text-right lg:mt-12 mt-10 mb-10 text-lightblue ">

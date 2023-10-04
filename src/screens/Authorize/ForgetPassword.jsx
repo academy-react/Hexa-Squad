@@ -12,7 +12,7 @@ const ForgetPassword = () => {
 
   return (
     <div className="bg-lightPink min-h-[100vh]">
-      <div className="md:flex container block">
+      <div className="lg:flex block">
         <div className="auth-image-side">
           <img src={pic3} className="lg:w-2/3 w-[250px]" alt="" />
         </div>
