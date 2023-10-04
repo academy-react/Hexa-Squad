@@ -7,12 +7,9 @@
     font-family: B-Yekan;
     src: url("./assets/fonts/Yekan.ttf");
   }
-  @font-face {
-    font-family: vazir;
-    src: url("./assets/fonts/Vazir-Bold.ttf");
-  }
 }
 @layer components {
+  /* primary */
   .primary-btn {
     transition: 0.55s all;
     @apply bg-gradient-to-tr from-[#732AFF] from-[3.5%] to-[#4136C9] to-[76%]  hover:from-[#AA54FF] hover:from-[11%] hover:via-[#6514FF] hover:via-[51%] hover:to-[#4445F2] hover:to-[111%];
@@ -91,9 +88,6 @@
   }
 }
 
-.react-switch-bg {
-  box-shadow: 2px 1px 4px 0px rgba(63, 64, 234, 0.2) inset;
-}
 :root {
   font-family: B-Yekan;
   line-height: 1.5;
@@ -154,6 +148,10 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.react-switch-bg {
+  box-shadow: 2px 1px 4px 0px rgba(63, 64, 234, 0.2) inset;
 }
 
 @media (prefers-color-scheme: light) {

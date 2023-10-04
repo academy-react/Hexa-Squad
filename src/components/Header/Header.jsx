@@ -8,7 +8,7 @@ import LogoIcon from '../../assets/image/Logo-icon.svg';
 import MobileMenu from './header-components/MobileMenu';
 const Header = () => {
   return (
-    <header className='header flex h-[125px]'>
+    <header className='header flex h-[125px] fixed top-0 left-0 w-full z-50'>
         <ul className='w-full flex items-center px-[20px]'>
             <li className="w-4/12 relative">
               <Link to='/' className='z-20 relative'><img src={Logo} alt="Hexa Squad Logo" className='md:logo hidden ' /><img src={LogoIcon} alt="Hexa Squad Logo" className='logo md:hidden' /></Link>
