@@ -2,8 +2,6 @@ import React from 'react';
 
 import { Formik ,Form } from 'formik';
 import * as yup from 'yup';
-import { Link } from 'react-router-dom';
-import "../../assets/styles/compute.css";
 import pic3 from '../../assets/image/picture3.svg';
 import FieldInput from '../../components/common/FieldInput';
 

@@ -3,7 +3,6 @@ import { Formik ,Form } from 'formik';
 import * as yup from 'yup';
 import pictureProgrammer from '../../assets/image/picture.svg';
 import FieldInput from '../../components/common/FieldInput';
-import "../../assets/styles/compute.css";
 import { Link } from 'react-router-dom';
 const Register = () => {
     const validation = yup.object().shape({

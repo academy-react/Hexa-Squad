@@ -3,7 +3,6 @@ import { Formik ,Form } from 'formik';
 import * as yup from 'yup';
 import { Link } from 'react-router-dom';
 
-import "../../assets/styles/compute.css";
 import pic2 from '../../assets/image/picture2.svg';
 import FieldInput from '../../components/common/FieldInput';
 const Login = () => {
