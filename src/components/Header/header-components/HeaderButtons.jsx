@@ -9,7 +9,7 @@ const HeaderButtons = () => {
     checked ? htmlTag.className ='dark' : htmlTag.className ='';
   };
   return (
-    <div className=" flex lg:justify-center justify-end items-center gap-5">
+    <div className=" flex lg:justify-center justify-end items-center gap-5 pr-8">
       <ReactSwitch
         className="scale-[1.3] "
         checked={checked}
