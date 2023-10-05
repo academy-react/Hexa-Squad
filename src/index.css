@@ -40,13 +40,13 @@
     width: 100%;
     background-color: #12124280;
   }
-  #openMenu:checked + .header-buttons .openMenu {
-    background-color: #1212421a;
-    @apply rounded-lg left-[70%];
+  #openMenu:checked + .header-buttons .openMenu{
+    background-color: #1212421A;
+    @apply rounded-lg left-[70%]
   }
   #openMenu:checked ~ .mobile-menu-holder .mobile-menu {
     box-shadow: 0 0 1500px 1000px #0005;
-    @apply w-8/12 p-8;
+    @apply w-8/12 p-8 
   }
   .openMenu {
     transition: 0.6s;
@@ -60,11 +60,11 @@
     transition: 0.15s ease-in;
     @apply group-hover:w-11/12 w-0 block h-2 my-1  bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2;
   }
-  /* Mobile Menu */
-  .mobile-menu {
-    transition: 0.2s;
-    @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden;
-  }
+      /* Mobile Menu */
+      .mobile-menu {
+        transition: .2s;
+        @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden ;
+      }
   /* Authorize Pages Style */
   .auth-title {
     color: white;
