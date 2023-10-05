@@ -65,6 +65,23 @@
         transition: .2s;
         @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden ;
       }
+    /* Hero Section */
+    .hero-section-image-side{
+      @apply  sm:w-5/12 w-full text-left sm:relative absolute top-0
+    }
+    .hero-section-image{
+      @apply relative lg:w-[523px] sm:w-[340px] block sm:hidden
+    }
+    .hero-gradient{
+      @apply bg-gradient-to-b sm:from-[transparent] from-[#240070] from-[3%] via-[#17004aa0] via-[40%]  sm:to-[transparent] to-transparentPurple to-[100%] z-[5] h-full 
+    }
+  
+  /* Footer */
+  .footer-btn{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    @apply absolute top-[3px] w-[90px] h-[45px] scale-[.9] right-2
+  }
+
   /* Authorize Pages Style */
   .auth-title {
     color: white;
@@ -87,14 +104,18 @@
   .auth-form {
     @apply text-lightblue text-right px-12 flex-col items-center flex;
   }
+  
+  .teacher-card{
+    @apply w-96 hover:scale-110 transition-all cursor-pointer md:w-52 lg:w-72 overflow-hidden relative rounded-xl
+  }
   .teachers-text {
-    @apply cursor-pointer absolute bottom-0 left-0 right-0 py-6 px-4 text-[#fff] bg-darkblue  duration-500 opacity-0 group-hover:opacity-100 bg-opacity-30  rounded-b-xl;
+    @apply cursor-pointer absolute bottom-[-55px] left-0 right-0 py-6 px-4 text-[#fff] bg-darkblue  duration-500 group-hover:bottom-0 bg-opacity-30  rounded-b-xl;
   }
   .icons-contact {
-    @apply mx-4 my-2 opacity-0 group-hover:opacity-100;
+    @apply mx-4 my-2 
   }
   .contact-teachers {
-    @apply w-12 h-28  bg-newPurple2 top-0 rounded-b-xl absolute bg-opacity-0 left-2 transition-all group-hover:bg-opacity-100 duration-200 ease-in;
+    @apply w-12 h-28  bg-newPurple2 top-[-200px] rounded-b-xl absolute  left-2 duration-500 group-hover:top-0 duration-200 ease-in;
   }
 }
 

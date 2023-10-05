@@ -26,7 +26,7 @@ const OurTeachers = () => {
         <h1 className=" text-4xl  text-darkblue2 "> اساتید ما</h1>
         <div className="underline-menu w-24 "></div>
       </div>
-      <div className="grid gap-10 mx-48 my-20 items-center justify-center lg:grid-cols-3 md:grid-cols-2 grid-cols-1 ">
+      <div className="flex lg:gap-10 md:gap-5 mx-48 my-20 items-center justify-center flex-col gap-10 md:flex-row ">
         {teacherCard.map((item, index) => {
           return (
             <>

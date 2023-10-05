@@ -19,7 +19,7 @@ const HeroSection = () => {
             <HeroSectionSvg/>
             <div className="absolute w-full hero-gradient"></div>
             <img src={HeroSectionImage} className='z-[5] relative lg:w-[523px] sm:w-[340px] hidden sm:block'  />
-            <img src={HeroSectionImageCroped} className='hero-section-image w-full'  />
+            <img src={HeroSectionImageCroped} className='hero-section-image w-full sm:hidden block'  />
           </div>
         </div>
     </div>

@@ -4,7 +4,7 @@ import teacher from "../../../assets/image/teacher1.jpg";
 const TeacherCard = ({ title, description, course }) => {
   return (
     <div>
-      <div className="relative group w-96 hover:scale-110 transition-all cursor-pointer md:w-72 lg:w-80">
+      <div className="teacher-card group">
         <div className="contact-teachers">
           <div className=" bi bi-instagram icons-contact  mt-3 "></div>
           <div className=" bi bi-telegram icons-contact"></div>
