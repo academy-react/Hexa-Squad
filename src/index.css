@@ -14,16 +14,17 @@
     transition: 0.55s all;
     @apply bg-gradient-to-tr from-[#732AFF] from-[3.5%] to-[#4136C9] to-[76%]  hover:from-[#AA54FF] hover:from-[11%] hover:via-[#6514FF] hover:via-[51%] hover:to-[#4445F2] hover:to-[111%];
   }
+
   /* Header Style */
   .logo-bg {
     @apply absolute md:block hidden right-[-20px] top-[-25px] max-h-[232px] dark:hidden;
   }
   .logo {
-    @apply lg:mt-[33px] lg:mr-[26px] md:w-[180px] md:mt-[23px] md:mr-[16px] w-[55px] block;
+    @apply lg:mr-[26px] md:w-[180px] md:mt-[23px] md:mr-[16px] w-[55px] block;
   }
   .openMenu-span {
-    transition: .3s;
-    @apply h-1 rounded bg-[#3E32C7] inline-block relative ;
+    transition: 0.3s;
+    @apply h-1 rounded bg-[#3E32C7] inline-block relative;
   }
   #openMenu:checked + .header-buttons .openMenu .openMenu-span:nth-child(1) {
     rotate: 45deg;
@@ -39,17 +40,17 @@
     width: 100%;
     background-color: #12124280;
   }
-  #openMenu:checked + .header-buttons .openMenu{
-    background-color: #1212421A;
-    @apply rounded-lg left-[70%]
+  #openMenu:checked + .header-buttons .openMenu {
+    background-color: #1212421a;
+    @apply rounded-lg left-[70%];
   }
-  #openMenu:checked ~ .mobile-menu-holder .mobile-menu{
+  #openMenu:checked ~ .mobile-menu-holder .mobile-menu {
     box-shadow: 0 0 1500px 1000px #0005;
-    @apply w-8/12 p-8 
+    @apply w-8/12 p-8;
   }
-  .openMenu{
-    transition: .6s;
-    @apply w-14 h-12 text-left leading-3	block lg:hidden mr-7 cursor-pointer py-1 z-30 relative left-0 
+  .openMenu {
+    transition: 0.6s;
+    @apply w-14 h-12 text-left leading-3	block lg:hidden mr-7 cursor-pointer py-1 z-30 relative left-0;
   }
   /* menu styles */
   .menu-item {
@@ -59,11 +60,11 @@
     transition: 0.15s ease-in;
     @apply group-hover:w-11/12 w-0 block h-2 my-1  bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2;
   }
-      /* Mobile Menu */
-      .mobile-menu {
-        transition: .2s;
-        @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden ;
-      }
+  /* Mobile Menu */
+  .mobile-menu {
+    transition: 0.2s;
+    @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden;
+  }
   /* Authorize Pages Style */
   .auth-title {
     color: white;
@@ -85,6 +86,15 @@
   }
   .auth-form {
     @apply text-lightblue text-right px-12 flex-col items-center flex;
+  }
+  .teachers-text {
+    @apply cursor-pointer absolute bottom-0 left-0 right-0 py-6 px-4 text-[#fff] bg-darkblue  duration-500 opacity-0 group-hover:opacity-100 bg-opacity-30  rounded-b-xl;
+  }
+  .icons-contact {
+    @apply mx-4 my-2 opacity-0 group-hover:opacity-100;
+  }
+  .contact-teachers {
+    @apply w-12 h-28  bg-newPurple2 top-0 rounded-b-xl absolute bg-opacity-0 left-2 transition-all group-hover:bg-opacity-100 duration-200 ease-in;
   }
 }
 
