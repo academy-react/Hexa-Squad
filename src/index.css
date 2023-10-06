@@ -40,13 +40,13 @@
     width: 100%;
     background-color: #12124280;
   }
-  #openMenu:checked + .header-buttons .openMenu{
-    background-color: #1212421A;
-    @apply rounded-lg left-[70%]
+  #openMenu:checked + .header-buttons .openMenu {
+    background-color: #1212421a;
+    @apply rounded-lg left-[70%];
   }
   #openMenu:checked ~ .mobile-menu-holder .mobile-menu {
     box-shadow: 0 0 1500px 1000px #0005;
-    @apply w-8/12 p-8 
+    @apply w-8/12 p-8;
   }
   .openMenu {
     transition: 0.6s;
@@ -60,26 +60,26 @@
     transition: 0.15s ease-in;
     @apply group-hover:w-11/12 w-0 block h-2 my-1  bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2;
   }
-      /* Mobile Menu */
-      .mobile-menu {
-        transition: .2s;
-        @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden ;
-      }
-    /* Hero Section */
-    .hero-section-image-side{
-      @apply  sm:w-5/12 w-full text-left sm:relative absolute top-0
-    }
-    .hero-section-image{
-      @apply relative lg:w-[523px] sm:w-[340px] block sm:hidden
-    }
-    .hero-gradient{
-      @apply bg-gradient-to-b sm:from-[transparent] from-[#240070] from-[3%] via-[#17004aa0] via-[40%]  sm:to-[transparent] to-transparentPurple to-[100%] z-[5] h-full 
-    }
-  
+  /* Mobile Menu */
+  .mobile-menu {
+    transition: 0.2s;
+    @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden;
+  }
+  /* Hero Section */
+  .hero-section-image-side {
+    @apply sm:w-5/12 w-full text-left sm:relative absolute top-0;
+  }
+  .hero-section-image {
+    @apply relative lg:w-[523px] sm:w-[340px] block sm:hidden;
+  }
+  .hero-gradient {
+    @apply bg-gradient-to-b sm:from-[transparent] from-[#240070] from-[3%] via-[#17004aa0] via-[40%]  sm:to-[transparent] to-transparentPurple to-[100%] z-[5] h-full;
+  }
+
   /* Footer */
-  .footer-btn{
+  .footer-btn {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    @apply absolute top-[3px] w-[90px] h-[45px] scale-[.9] right-2
+    @apply absolute top-[3px] w-[90px] h-[45px] scale-[.9] right-2;
   }
 
   /* Authorize Pages Style */
@@ -104,18 +104,27 @@
   .auth-form {
     @apply text-lightblue text-right px-12 flex-col items-center flex;
   }
-  
-  .teacher-card{
-    @apply w-96 hover:scale-110 transition-all cursor-pointer md:w-52 lg:w-72 overflow-hidden relative rounded-xl
+
+  .teacher-card {
+    @apply w-96 object-cover hover:scale-110 transition-all cursor-pointer md:w-52 lg:w-[360px] lg:h-[460px]  overflow-hidden relative rounded-xl;
   }
   .teachers-text {
-    @apply cursor-pointer absolute bottom-[-55px] left-0 right-0 py-6 px-4 text-[#fff] bg-darkblue  duration-500 group-hover:bottom-0 bg-opacity-30  rounded-b-xl;
+    @apply cursor-pointer absolute bottom-[-55px] bg-gradient-to-t from-darkblue left-0 right-0 pb-6 pt-16 px-4 text-[#fff]  duration-500 group-hover:bottom-0 bg-opacity-30  rounded-b-xl;
   }
   .icons-contact {
-    @apply mx-4 my-2 
+    @apply mx-4 my-2;
   }
   .contact-teachers {
-    @apply w-12 h-28  bg-newPurple2 top-[-200px] rounded-b-xl absolute  left-2 duration-500 group-hover:top-0 duration-200 ease-in;
+    @apply w-12 h-28  bg-newPurple2 top-[-200px] rounded-b-xl absolute  left-2 group-hover:top-0 duration-300 ease-in;
+  }
+  .prevCard {
+    @apply left-0;
+  }
+  .activeCard {
+    @apply left-1/2 transform translate-x-[50%];
+  }
+  .nextCard {
+    @apply right-0;
   }
 }
 

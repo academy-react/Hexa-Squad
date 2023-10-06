@@ -6,6 +6,7 @@ import CourseEducation from './landing-components/CourseEducation';
 import Categories from './landing-components/Categories';
 import OurTeachers from './landing-components/OurTeachers';
 import Footer from '../../components/Footer/Footer';
+import News from './landing-components/News';
 
 const Landing = () => {
 
@@ -17,6 +18,7 @@ const Landing = () => {
       <CourseEducation />
       <Categories />
       <OurTeachers/>
+      <News/>
       <Footer/>
     </div>
   )
