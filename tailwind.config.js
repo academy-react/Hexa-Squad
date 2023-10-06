@@ -24,6 +24,7 @@ export default {
       "lightblue5":"#3F40EA0A",
       "newPurple3":"#1A1A80",
       "semiWhite":"#F9F6FF",
+      "semiPink":"#F4F1FF"
     },
     boxShadow:{
       "shadow-auth":"0px 5px 10px 0px rgba(0, 0, 0, 0.25)",
