@@ -12,7 +12,7 @@ const Services = () => {
         </h1>
         <ul className="flex justify-content flex-row-reverse right overflow-hidden mt-16 ">
             <li className="services-box lg:w-[30%] m-10 ">
-              <img src={servicesPic3} className="" />
+              <img src={servicesPic3} alt="picture" />
               <h2 className="services-title  text-darkblue">سادگی خدمات</h2>
               <div className="w-[50px] border-b-4 border-[#3F40EA]"></div>
               <p  className="services-info">

@@ -40,15 +40,16 @@
         .hover-box{
             @apply block duration-500;
         }
+    } 
+    .hover-box-img{
+        @apply my-3 mx-2;
     }
     .prof-name{
         background: linear-gradient(0deg, rgba(18, 18, 66, 0.7), rgba(18, 18, 66, 0.7)),linear-gradient(0deg, #3F40EA, #3F40EA);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
     }
-    .hover-box-img{
-        @apply my-3 mx-2;
-    }
+   
 
     /* categories-box */
     .categories-box{
