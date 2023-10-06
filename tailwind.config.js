@@ -20,11 +20,19 @@ export default {
       "lightblue":"#3F40EA",
       "lightblue2":"#6D20FF",
       "lightblue3":"#6514FF",
+      "lightblue4":"#121242B2",
+      "lightblue5":"#3F40EA0A",
     },
     boxShadow:{
       "shadow-auth":"0px 5px 10px 0px rgba(0, 0, 0, 0.25)",
-      "shadow-transparent":"0px 5px 10px 0px rgba(0, 0, 0, 0)"
+      "shadow-transparent":"0px 5px 10px 0px rgba(0, 0, 0, 0)",
+      "shadow-Services-box": "0px 0px 40px 0px rgba(63, 64, 234, 0.3)",
+      "shadow-Categories-box": "0 3px 5px 0 #6D50F14D",
+      "shadow-Course-box": "0px 0px 10px 0px #03001C26",
+      "shadow-Course-image-box": "0px 3px 4px 0px #00000040",
     },
+
+
     extend: {},
   },
   plugins: [],
