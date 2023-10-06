@@ -7,9 +7,23 @@ import Logo from '../../assets/image/Logo.svg';
 import LogoIcon from '../../assets/image/Logo-icon.svg';
 import MobileMenu from './header-components/MobileMenu';
 const Header = () => {
+  window.addEventListener('scroll',(event)=>{
+    console.log('first')
+    let header = document.querySelector('.header')
+    if(window.pageYOffset > 110){
+      header.classList.add("fixed","bg-lightPink","shadow-shadow-Services-box","w-11/12","mx-auto","overflow-hidden");
+      header.classList.remove("w-full");
+      // header.classList.add("bg-lightPink");
+      // header.classList.add("shadow-shadow-Services-box");
+    }
+    else{
+      header.classList.add("w-full");
+      header.classList.remove("fixed","bg-lightPink","shadow-shadow-Services-box","w-11/12","mx-auto","overflow-hidden");
+    }
+  })
   return (
-    <header className='header flex h-[125px] fixed top-0 left-0 w-full z-50'>
-        <ul className='w-full flex items-center px-[20px]'>
+    <header className='rounded-xl header flex h-[125px] top-3 left-[5%] w-full z-50'>
+        <ul className='w-full flex items-center px-[20px]  '>
             <li className="w-4/12 relative">
               <Link to='/' className='z-20 relative'><img src={Logo} alt="Hexa Squad Logo" className='md:logo hidden ' /><img src={LogoIcon} alt="Hexa Squad Logo" className='logo md:hidden' /></Link>
                 <svg  viewBox="0 0 476 222" fill="none" xmlns="http://www.w3.org/2000/svg" className='logo-bg'>

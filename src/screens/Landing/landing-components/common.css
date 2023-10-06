@@ -38,7 +38,7 @@
             -webkit-background-clip: text;           
         }
         .hover-box{
-            @apply block duration-500;
+            @apply block duration-500 left-0;
         }
     } 
     .hover-box-img{

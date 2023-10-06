@@ -10,7 +10,7 @@ const Course = ({ title, professorName,price }) => {
   return (
 
     <div className="course-box">
-      <div className="hover-box float-left h-[44px] w-[110px] mt-4 mb-[-50px] bg-[#9371FF] rounded-r-[10px] z-3 hidden">
+      <div className="hover-box top-3 float-left h-[44px] w-[110px] absolute mb-[-50px] bg-[#9371FF] rounded-r-[10px] z-3 left-[-50%]">
         <img src={cart} className="inline hover-box-img mr-6"/>
         <img src={heart} className="inline hover-box-img"/>
       </div>
