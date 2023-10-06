@@ -11,14 +11,14 @@ const Header = () => {
     console.log('first')
     let header = document.querySelector('.header')
     if(window.pageYOffset > 110){
-      header.classList.add("fixed","bg-lightPink","shadow-shadow-Services-box","w-11/12","mx-auto","overflow-hidden" , "top-3" , "left-[5%]");
+      header.classList.add("fixed","bg-lightPink","shadow-shadow-Services-box1","w-11/12","mx-auto","overflow-hidden" , "top-3" , "left-[5%]");
       header.classList.remove("w-full" ,"relative");
       // header.classList.add("bg-lightPink");
       // header.classList.add("shadow-shadow-Services-box");
     }
     else{
       header.classList.add("w-full" ,"relative");
-      header.classList.remove("fixed","bg-lightPink","shadow-shadow-Services-box","w-11/12","mx-auto","overflow-hidden" , "top-3" , "left-[5%]" ,"relative");
+      header.classList.remove("fixed","bg-lightPink","shadow-shadow-Services-box1","w-11/12","mx-auto","overflow-hidden" , "top-3" , "left-[5%]" ,"relative");
     }
   })
   return (
