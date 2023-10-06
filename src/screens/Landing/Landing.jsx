@@ -7,6 +7,7 @@ import Categories from './landing-components/Categories';
 import OurTeachers from './landing-components/OurTeachers';
 import Footer from '../../components/Footer/Footer';
 import News from './landing-components/News';
+import Suggestions from './landing-components/Suggestions';
 
 const Landing = () => {
 
@@ -19,6 +20,7 @@ const Landing = () => {
       <Categories />
       <OurTeachers/>
       <News/>
+      <Suggestions/>
       <Footer/>
     </div>
   )

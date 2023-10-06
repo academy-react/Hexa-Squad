@@ -97,6 +97,9 @@
   .field-input {
     @apply text-right w-full py-1 px-2 pr-7 h-full rounded-md border-b-2 bg-[#F6F7FC] absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
   }
+  .field-input2 {
+    @apply text-right w-full mt-2 mb-2 px-2  pt-3 h-full  rounded-md border-b-2 bg-semiPink absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
+  }
   .primary-button {
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
     @apply cursor-pointer text-[#fff] bg-gradient-to-br from-[#AA54FF] from-[11%] via-[#6514FF] via-[51%] to-[#4445F2] to-[111%] rounded-lg hover:bg-lightblue my-3;
@@ -106,10 +109,10 @@
   }
 
   .teacher-card {
-    @apply w-96 object-cover hover:scale-110 transition-all cursor-pointer md:w-52 lg:w-[360px] lg:h-[460px]  overflow-hidden relative rounded-xl;
+    @apply w-96 object-cover hover:scale-110 transition-all cursor-pointer md:w-52  lg:w-[360px] lg:h-[460px]  overflow-hidden relative rounded-xl;
   }
   .teachers-text {
-    @apply cursor-pointer absolute bottom-[-55px] bg-gradient-to-t from-darkblue left-0 right-0 pb-6 pt-16 px-4 text-[#fff]  duration-500 group-hover:bottom-0 bg-opacity-30  rounded-b-xl;
+    @apply cursor-pointer absolute bottom-[-55px] bg-gradient-to-t from-darkblue left-0 right-0 pb-6 pt-16 md:pb-2 lg:pb-6 px-4 text-[#fff]  duration-500 group-hover:bottom-0 bg-opacity-30  rounded-b-xl;
   }
   .icons-contact {
     @apply mx-4 my-2;
