@@ -13,7 +13,7 @@ const Categories = () => {
                 <span className="absolute w-[100%] w-0 block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
             </h1>
             <ul className="flex justify-content flex-row right overflow-hidden mt-24 ">
-                <li className="categories-box text-center ml-[20px] ">
+                <li className="categories-box text-center lg:w-[24%] ml-[20px] ">
                     <img className="categories-img " src={networkSecurity} />
                     <p className="text-2xl">امنیت شبکه</p>
                 </li>
