@@ -12,13 +12,13 @@ const CourseEducation = () => {
       ]);
 
     return (
-        <div className="max-w-[1269px] mx-auto">
+        <div className="lg:max-w-[1269px] md:max-w-[750px] sm:min-w-[640px] mx-auto">
             <div className="course">
-                <h1 className="title">دوره های آموزشی 
+                <h1 className="title lg:mt-40 mt-20">دوره های آموزشی 
                 <span className="absolute w-[100%] w-0 block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
                 </h1>
             </div>
-            <div className="max-w-[1269px] mt-28 flex flex-row ">
+            <div className="mt-28 flex flex-wrap gap-4 lg:flex-row">
                 {coursesList.map((item, index) => {
                     return (
                         <>
@@ -31,7 +31,7 @@ const CourseEducation = () => {
                     );
                 })}
             </div>
-            <button className="primary-btn sm:w-auto lg:w-56 lg:my-16 lg:mx-[40%] ">مشاهده ی همه</button>
+            <button className="flex justify-center primary-btn text-center w-56 mx-auto my-16">مشاهده ی همه</button>
         </div>
     )
 }
