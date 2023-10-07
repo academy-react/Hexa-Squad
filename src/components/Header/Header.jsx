@@ -7,22 +7,22 @@ import Logo from '../../assets/image/Logo.svg';
 import LogoIcon from '../../assets/image/Logo-icon.svg';
 import MobileMenu from './header-components/MobileMenu';
 const Header = () => {
-  window.addEventListener('scroll',(event)=>{
+  window.addEventListener('scroll',()=>{
     console.log('first')
     let header = document.querySelector('.header')
     if(window.pageYOffset > 110){
       header.classList.add("fixed","bg-lightPink","shadow-shadow-Services-box","w-11/12","mx-auto","overflow-hidden" , "top-3" , "left-[5%]");
-      header.classList.remove("w-full" ,"relative");
+      header.classList.remove("w-full" ,"absolute");
       // header.classList.add("bg-lightPink");
       // header.classList.add("shadow-shadow-Services-box");
     }
     else{
-      header.classList.add("w-full" ,"relative");
-      header.classList.remove("fixed","bg-lightPink","shadow-shadow-Services-box","w-11/12","mx-auto","overflow-hidden" , "top-3" , "left-[5%]" ,"relative");
+      header.classList.remove("fixed","bg-lightPink","shadow-shadow-Services-box","w-11/12","mx-auto","overflow-hidden" , "top-3" , "left-[5%]" ,"absolute");
+      header.classList.add("w-full" ,"absolute");
     }
   })
   return (
-    <header className='rounded-xl relative header flex h-[125px] w-full z-50'>
+    <header className='rounded-xl absolute header flex h-[125px] w-full z-50'>
         <ul className='w-full flex items-center px-[20px]  '>
             <li className="w-4/12 relative">
               <Link to='/' className='z-20 relative'><img src={Logo} alt="Hexa Squad Logo" className='md:logo hidden ' /><img src={LogoIcon} alt="Hexa Squad Logo" className='logo md:hidden' /></Link>
