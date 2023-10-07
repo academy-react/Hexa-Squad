@@ -7,11 +7,11 @@ const HeroSection = () => {
     <div className='flex pt-[150px]'>
         <div className="sm:w-8/12 w-full flex flex-col justify-center sm:items-start items-center lg:px-32 sm:px-20 px-0  lg:gap-7 z-20">
             <p className='sm:text-lightblue lg:text-[20px] sm:text-sm'>پلتفرم اموزش طراحی وب</p>
-            <h2 className='lg:text-6xl sm:text-darkblue mb-5 whitespace-nowrap text-3xl'>مرجع اموزش برنامه نویسی</h2>
-            <p className='sm:text-[#03001CB2] lg:text-[24px] sm:text-md leading-[40px] sm:text-right text-center'>مرجع اموزش زنده و تعاملی دسترسی به بیش از هفت هزار ویدیوی اموزشی به زبان فارسی .</p>
+            <h2 className='lg:text-6xl sm:text-darkblue dark:sm:text-semiWhite mb-5 whitespace-nowrap text-3xl'>مرجع اموزش برنامه نویسی</h2>
+            <p className='sm:text-[#03001CB2] dark:sm:text-whitePink lg:text-[24px] sm:text-md leading-[40px] sm:text-right text-center'>مرجع اموزش زنده و تعاملی دسترسی به بیش از هفت هزار ویدیوی اموزشی به زبان فارسی .</p>
             <div className='flex gap-6 lg:mt-20 mt-10 w-full px-10 whitespace-nowrap'>
-                <button className='border hover:bg-[#4136C9] hover:text-[#fff] transition-all  border-[#4136C9] bg-[transparent] text-darkblue sm:block hidden'>برنامه نویسی چیست؟</button>
-                <button className='primary-btn sm:w-auto w-full'>از کجا شروع کنیم؟</button>
+                <button className='border hover:bg-[#4136C9] hover:text-[#fff] transition-all  border-[#4136C9] bg-[transparent] text-darkblue sm:block hidden dark:text-semiPink'>برنامه نویسی چیست؟</button>
+                <button className='primary-btn sm:w-auto w-full '>از کجا شروع کنیم؟</button>
             </div>
         </div>
         <div className="hero-section-image-side">

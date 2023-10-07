@@ -10,9 +10,9 @@ const HeaderButtons = () => {
     checked ? (htmlTag.className = "dark") : (htmlTag.className = "");
   };
   return (
-    <div className=" flex lg:justify-center justify-end items-center gap-5 pr-8">
+    <div className=" flex lg:justify-center justify-end items-center gap-5 pr-8 mt-[-10px]">
       <ReactSwitch
-        className="scale-[1.3] "
+        className="scale-[1.1] "
         checked={checked}
         onChange={changeTheme}
         handleDiameter={28}
@@ -52,7 +52,7 @@ const HeaderButtons = () => {
         }
       />
       <Link to={'/authorize/login'}>
-        <button className="primary-btn lg:flex gap-3 hidden text-[#fff]">
+        <button className="primary-btn lg:flex gap-3 hidden text-[#fff] scale-90">
           <i className="bi bi-box-arrow-in-right pt-1"></i>
           ورود به سایت
         </button>

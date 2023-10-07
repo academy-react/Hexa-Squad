@@ -22,21 +22,19 @@ const OurTeachers = () => {
   ]);
   return (
     <>
-      <div className="mr-48 mt-48">
-        <h1 className=" text-4xl  text-darkblue2 "> اساتید ما</h1>
-        <div className="underline-menu w-24 "></div>
-      </div>
-      <div className="flex lg:gap-10 md:gap-5 mx-48 my-20 items-center justify-center flex-col gap-10 md:flex-row ">
+      <h1 className="title lg:mt-40 mt-20">
+        اساتید برتر
+        <span className="absolute w-[100%]  block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
+      </h1>
+      <div className="flex lg:gap-10 md:gap-5 mx-48 my-28 items-center justify-center flex-col gap-10 md:flex-row ">
         {teacherCard.map((item, index) => {
           return (
-            <>
               <TeacherCard
                 key={index}
                 title={item.title}
                 description={item.description}
                 course={item.course}
               />
-            </>
           );
         })}
       </div>

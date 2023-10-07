@@ -3,8 +3,8 @@ import teacher from "../../../assets/image/teacher1.jpg";
 
 const TeacherCard = ({ title, description, course }) => {
   return (
-    <div>
-      <div className="teacher-card group">
+    // <div>
+      <div className="teacher-card group  shadow-shadow-auth">
         <div className="contact-teachers">
           <div className=" bi bi-instagram icons-contact  mt-3 "></div>
           <div className=" bi bi-telegram icons-contact"></div>
@@ -13,7 +13,7 @@ const TeacherCard = ({ title, description, course }) => {
         <img
           src={teacher}
           alt="picture"
-          className="rounded-xl shadow-shadow-auth "
+          className="rounded-xl "
         />
         <div className="teachers-text">
           <div className="flex justify-between">
@@ -25,7 +25,7 @@ const TeacherCard = ({ title, description, course }) => {
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 

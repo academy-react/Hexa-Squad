@@ -16,11 +16,14 @@
   }
 
   /* Header Style */
+  .header{
+    @apply lg:fixed bg-lightPink dark:bg-darkblue2 shadow-shadow-Services-box w-full mx-auto overflow-hidden
+  }
   .logo-bg {
-    @apply absolute md:block hidden right-[-20px] top-[-25px] max-h-[232px] dark:hidden;
+    @apply absolute md:block hidden right-[-20px] top-[-35px] max-h-[232px] dark:hidden;
   }
   .logo {
-    @apply lg:mr-[26px] md:w-[180px] md:mt-[23px] md:mr-[16px] w-[55px] block;
+    @apply lg:mr-[26px] md:w-[180px] md:mr-[16px] w-[55px] mt-[-10px]
   }
   .openMenu-span {
     transition: 0.3s;
@@ -31,6 +34,7 @@
     width: 100%;
     top: 10px;
     background-color: #12124280;
+    @apply dark:bg-[#ffffff80]
   }
   #openMenu:checked + .header-buttons .openMenu .openMenu-span:nth-child(2) {
     display: none;
@@ -39,6 +43,7 @@
     rotate: -45deg;
     width: 100%;
     background-color: #12124280;
+    @apply dark:bg-[#ffffff80]
   }
   #openMenu:checked + .header-buttons .openMenu{
     background-color: #1212421A;
@@ -63,7 +68,7 @@
       /* Mobile Menu */
       .mobile-menu {
         transition: .2s;
-        @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden ;
+        @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden dark:bg-darkblue2 ;
       }
     /* Hero Section */
     .hero-section-image-side{
@@ -96,6 +101,9 @@
   }
   .field-input {
     @apply text-right w-full py-1 px-2 pr-7 h-full rounded-md border-b-2 bg-[#F6F7FC] absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
+  }
+  .field-input2 {
+    @apply text-right w-full mt-2 mb-2 px-2  pt-3 h-full  rounded-md border-b-2 bg-semiPink absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
   }
   .primary-button {
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
