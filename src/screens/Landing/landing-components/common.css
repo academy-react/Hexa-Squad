@@ -5,11 +5,11 @@
 @layer components {
     .title{
         width: fit-content;
-        @apply mb-5 text-xl md:text-3xl lg:mx-auto mr-4 text-darkblue relative;
+        @apply mb-5 text-xl md:text-2xl lg:text-4xl lg:mx-auto mr-4 text-darkblue relative;
     } 
     .title1{
         width: fit-content;
-        @apply  text-xl md:text-3xl lg:mx-auto mr-4 text-darkblue relative;
+        @apply  text-xl md:text-2xl lg:text-4xl lg:mx-auto mr-4 text-darkblue relative;
     } 
 
     /*  services-box */
@@ -34,7 +34,7 @@
 
     /* Course Education */
     .course-box{
-        @apply overflow-hidden duration-500 w-[336px] lg:w-[23%] mx-auto bg-[#F9F6FF] rounded-[20px] shadow-shadow-Course-box m-2;
+        @apply overflow-hidden duration-500 w-[340px] lg:w-[23%] mx-auto bg-[#F9F6FF] rounded-[20px] shadow-shadow-Course-box m-2;
     }
     .course-box:hover{
         box-shadow: 0px 0px 30px 0px #6D20FF4D;
@@ -51,6 +51,9 @@
             @apply block duration-500 left-0;
         }
     } 
+    .hover-box-img:hover{
+        filter: brightness(0) saturate(100%) invert(10%) sepia(12%) saturate(7199%) hue-rotate(219deg) brightness(101%) contrast(107%);    
+    }
     .hover-box-img{
         @apply my-3 mx-2;
     }
@@ -58,6 +61,12 @@
         background: linear-gradient(0deg, rgba(18, 18, 66, 0.7), rgba(18, 18, 66, 0.7)),linear-gradient(0deg, #3F40EA, #3F40EA);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
+    }
+    .course-details{
+        @apply text-[#6635FF] text-base text-left border-t-2 border-[#00018533] py-4 ;
+    }
+    .course-details:hover{
+        @apply text-darkblue;
     }
    
     /* categories-box */
