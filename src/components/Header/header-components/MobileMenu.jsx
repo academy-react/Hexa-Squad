@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import LogoIcon from '../../../assets/image/Logo-icon.svg'
+// import LogoIcon from '../../../assets/image/Logo-icon.svg'
 import DesktopMenu from "./DesktopMenu";
+import ChangeTheme from "../../common/ChangeTheme";
 const MobileMenu = () => {
     return (
       <div className='mobile-menu ' >
-        <img src={LogoIcon} width={90} />
+        {/* <img src={LogoIcon} width={90} /> */}
+        <ChangeTheme className={"ReactSwitch-toggler2"}/>
         <DesktopMenu className={'my-5 w-full flex flex-col'}/>
         <div className="flex whitespace-nowrap justify-center w-full">
             <button className="primary-btn ml-[-10px]">

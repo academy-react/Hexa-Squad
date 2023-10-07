@@ -25,6 +25,13 @@
   .logo {
     @apply lg:mr-[26px] md:w-[180px] md:mr-[16px] w-[55px] mt-[-10px]
   }
+  .ReactSwitch-toggler{
+    display: none !important;
+    @apply scale-[1.1] sm:block 
+  }
+  .ReactSwitch-toggler2{
+
+  }
   .openMenu-span {
     transition: 0.3s;
     @apply h-1 rounded bg-[#3E32C7] inline-block relative;
@@ -47,7 +54,7 @@
   }
   #openMenu:checked + .header-buttons .openMenu{
     background-color: #1212421A;
-    @apply rounded-lg left-[70%]
+    @apply rounded-lg left-[65%] scale-75
   }
   #openMenu:checked ~ .mobile-menu-holder .mobile-menu {
     box-shadow: 0 0 1500px 1000px #0005;
