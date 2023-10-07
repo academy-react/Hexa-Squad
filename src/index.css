@@ -130,6 +130,9 @@
   .news-image {
     @apply md:w-[220px] md:h-[186px] h-[155px] w-[180px] absolute shadow-shadow-auth my-5 mx-5 md:my-6 lg:mx-6 rounded-2xl bg-center object-cover;
   }
+  .contact-teachers1 {
+    @apply w-12 h-28  bg-[#793bed] top-[2px] rounded-b-xl  left-2 duration-300 group-hover:top-0  ease-in;
+  }
 }
 
 :root {
