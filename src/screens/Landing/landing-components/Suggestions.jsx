@@ -9,7 +9,7 @@ const Suggestions = () => {
   });
   return (
     <>
-      <h1 className=" relative title1 lg:mt-52 mt-20 mr-16 md:mt-36 lg:m-auto">
+      <h1 className=" relative title1 lg:mt-52 mt-20 mr-4 md:mt-36 lg:m-auto">
         انتقادات و پیشنهادات
         <span className="absolute w-[100%]  block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
       </h1>
