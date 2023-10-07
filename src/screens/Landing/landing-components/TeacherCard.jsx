@@ -5,7 +5,7 @@ const TeacherCard = ({ title, description, course }) => {
   return (
     
       <div className="relative w-[340px] h-96  ">
-        <div className="bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-20 mt-6 ">
+        <div className="teacher-photo">
           <div className="rounded-full absolute shadow-shadow-auth overflow-hidden w-32 h-32 mx-4 my-4 ">
             <img className="object-cover " src={teacher} alt="image" />
           </div>
