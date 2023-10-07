@@ -20,8 +20,8 @@ const HeaderButtons = () => {
         onColor="#B9BAF8"
         offHandleColor="#fff"
         onHandleColor="#fff"
-        height={35}
-        width={70}
+        height={30}
+        width={65}
         uncheckedIcon={
           <div
             style={{
