@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Header from '../../components/Header/Header';
 import HeroSection from './landing-components/HeroSection';
 import Services from './landing-components/Services';
@@ -12,8 +12,7 @@ import Suggestions from './landing-components/Suggestions';
 const Landing = () => {
 
   return (
-    <div className="bg-lightPink min-h-[100vh]" dir='rtl'>
-      <Header/>
+    <Fragment >
       <HeroSection/>
       <Services />
       <CourseEducation />
@@ -21,8 +20,7 @@ const Landing = () => {
       <OurTeachers/>
       <News/>
       <Suggestions/>
-      <Footer/>
-    </div>
+    </Fragment>
   )
 }
 
