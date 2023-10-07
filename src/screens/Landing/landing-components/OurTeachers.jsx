@@ -22,11 +22,12 @@ const OurTeachers = () => {
   ]);
   return (
     <>
-      <h1 className="title1 lg:mt-40 mt-20 mr-10  lg:m-auto">
+      <h1 className="title1 lg:mt-48 mt-28 mr-10  lg:m-auto">
         اساتید برتر
-        <span className="absolute w-[100%]  block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
+        <span className="absolute w-[100%] block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
       </h1>
-      <div className="flex lg:gap-10 md:gap-5 mx-48 my-28 items-center justify-center flex-col gap-10 md:flex-row ">
+      <div className="flex items-center mt-20 lg:mt-20 justify-center  container mx-auto ">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 md:gap-8">
         {teacherCard.map((item, index) => {
           return (
             <>
@@ -39,7 +40,8 @@ const OurTeachers = () => {
             </>
           );
         })}
-      </div>
+     </div>
+     </div>
     </>
   );
 };
