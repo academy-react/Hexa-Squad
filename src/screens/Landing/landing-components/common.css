@@ -5,7 +5,11 @@
 @layer components {
     .title{
         width: fit-content;
-        @apply mb-5 text-4xl lg:mx-auto mr-4 text-darkblue relative;
+        @apply mb-5 text-xl md:text-3xl lg:mx-auto mr-4 text-darkblue relative;
+    } 
+    .title1{
+        width: fit-content;
+        @apply  text-xl md:text-3xl lg:mx-auto mr-4 text-darkblue relative;
     } 
 
     /*  services-box */

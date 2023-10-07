@@ -120,6 +120,16 @@
   .contact-teachers {
     @apply w-12 h-28 md:w-8 md:h-24 lg:w-12 lg:h-28 bg-lightPurple top-[-200px] rounded-b-xl md:rounded-b-lg absolute  left-2  group-hover:top-0 duration-300 ease-in;
   }
+  .suggestions-box {
+    @apply flex w-[460px] md:w-[560px] relative self-center bg-semiWhite lg:w-[600px] min-h-[400px] max-h-[530px] py-8
+    mt-16  lg:flex rounded-lg  lg:shadow-shadow-auth shadow-shadow-transparent  flex-col;
+  }
+  .news-wrapper {
+    @apply w-[500px] md:w-[100%] md:h-[540px] lg:h-[360px] mt-8 flex relative mx-auto md:mt-20 lg:mt-10 px-20 h-[550px] lg:gap-10 md:gap-10 md:my-0 items-center justify-center flex-col gap-10 md:flex-col lg:flex-row;
+  }
+  .news-image {
+    @apply md:w-[220px] md:h-[186px] h-[155px] w-[180px] absolute shadow-shadow-auth my-5 mx-5 md:my-6 lg:mx-6 rounded-2xl bg-center object-cover;
+  }
 }
 
 :root {
