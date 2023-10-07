@@ -29,10 +29,13 @@ export default {
     boxShadow:{
       "shadow-auth":"0px 5px 10px 0px rgba(0, 0, 0, 0.25)",
       "shadow-transparent":"0px 5px 10px 0px rgba(0, 0, 0, 0)",
-      "shadow-Services-box": "0px 0px 40px 0px rgba(63, 64, 234, 0.3)",
+      "shadow-Services-box": "0px 3px 5px 0px #5800FF",
+      "shadow-Services-box1": "0px 0px 40px 0px rgba(63, 64, 234, 0.3)",
+      "shadow-Services-box2": "0px 0px 20px 0px rgba(63, 64, 234, 0.3)",
       "shadow-Categories-box": "0 3px 5px 0 #6D50F14D",
       "shadow-Course-box": "0px 0px 10px 0px #03001C26",
       "shadow-Course-image-box": "0px 3px 4px 0px #00000040",
+      "shadow-none": "0 0 #0000",
     },
 
 
