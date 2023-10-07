@@ -9,14 +9,14 @@ const Suggestions = () => {
   });
   return (
     <>
-      <h1 className="mt-24 mb-5 text-4xl mx-auto text-darkblue relative w-fit">
+      <h1 className=" relative title1 lg:mt-52 mt-20 mr-16 md:mt-36 lg:m-auto">
         انتقادات و پیشنهادات
         <span className="absolute w-[100%]  block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
       </h1>
-      <div className="flex 	justify-center mb-56 content-center items-stretch ">
+     
+      <div className="flex 	justify-center mb-56 content-center items-stretch lg:mt-10">
         <div
-          className=" flex w-[460px] relative self-center bg-semiWhite lg:w-[600px] min-h-[400px] max-h-[530px] py-8
-      mt-28 lg:flex rounded-lg  lg:shadow-shadow-auth shadow-shadow-transparent  flex-col "
+          className="suggestions-box "
         >
           <div dir="rtl">
             <Formik
@@ -30,17 +30,17 @@ const Suggestions = () => {
                   placeholder={"ایمیل را وارد کنید"}
                   name="email"
                 />
-               
+
                 <textarea
                   className="relative w-full h-[300px] field-input2"
                   placeholder="متن را وارد کنید"
                   name="obs"
                 ></textarea>
-                
+
                 <input
                   type="submit"
                   value=" ارسال پیام"
-                  className="primary-button w-full p-4"
+                  className="primary-btn text-semiPink rounded-lg mt-2 w-full p-4"
                 />
               </Form>
             </Formik>
