@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import background from "../../../assets/image/bgDesign.svg";
 import TeacherCard from "./TeacherCard";
 
 const OurTeachers = () => {

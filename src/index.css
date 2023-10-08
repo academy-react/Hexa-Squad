@@ -56,19 +56,22 @@
 
   #openMenu:checked+.header-buttons .openMenu {
     background-color: #1212421a;
-    @apply rounded-lg left-[70%];
+    @apply rounded-lg left-[70%] dark:bg-darkblue ;
   }
 
   #openMenu:checked~.mobile-menu-holder .mobile-menu {
     box-shadow: 0 0 1500px 1000px #0005;
     @apply w-8/12 p-8;
   }
-
+/* 
   .openMenu {
     transition: 0.6s;
-    @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden dark:bg-darkblue2 ;
+    @apply flex lg:hidden absolute left-0 top-0 h-8 bg-lightPink w-8 flex-col items-end overflow-hidden  ;
+  } */
+  .openMenu {
+    transition: 0.6s;
+    @apply w-14 h-12 text-left leading-3	block lg:hidden mr-7 cursor-pointer py-1 z-30 relative left-0 scale-75;
   }
-
   /* menu styles */
   .menu-item {
     @apply cursor-pointer;
@@ -82,7 +85,7 @@
   /* Mobile Menu */
   .mobile-menu {
     transition: 0.2s;
-    @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden;
+    @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden dark:bg-darkblue2;
   }
 
   /* Hero Section */
@@ -144,7 +147,7 @@
   }
 
   .icons-contact {
-    @apply mx-4 my-2 md:mx-2 md:my-2 md:text-sm lg:mx-4 lg:my-2 lg:text-base hover:text-lightblue3;
+    @apply mx-4 my-2 md:my-2  opacity-90 hover:opacity-100 md:mx-3 md:text-sm  lg:text-base lg:mx-4 lg:my-2;
   }
 
   .contact-teachers {
@@ -164,12 +167,19 @@
   }
 
   .contact-teachers1 {
+/* <<<<<<< HEAD */
     @apply w-12 h-28 bg-[#793bed]  top-[2px] rounded-b-xl left-2 duration-300 group-hover:top-0 ease-in dark:bg-darkblue2;
   }
 
   .teacher-photo {
     @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] items-center mt-6 dark:bg-darkblue2;
+/* ======= */
+    /* @apply w-12 h-28  bg-[#793bed] top-[2px] rounded-b-xl md:rounded-b-lg lg:rounded-b-xl left-2 md:left-4 lg:left-2 duration-300 group-hover:top-0  ease-in md:w-10 md:h-24 lg:w-12 lg:h-28; */
   }
+  /* .teacher-photo{
+    @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6  ;
+>>>>>>> a689b0c80c9ef8b68af95cfe54db3aab74654148
+  } */
 }
 
 :root {

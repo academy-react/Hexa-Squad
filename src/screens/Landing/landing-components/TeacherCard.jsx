@@ -13,11 +13,10 @@ const TeacherCard = ({ title, description, course }) => {
         <div className="rounded-2xl cursor-pointer shadow-2xl  overflow-hidden shadow-shadow-Course-box hover:shadow-shadow-auth z-0 mt-[100px] bg-semiWhite dark:bg-newPurpleAlpha2 ">
           <div className="p-5 flex-col  relative">
             <div className="contact-teachers1 absolute z-3 top-[-60%]">
-              <div className=" bi bi-instagram icons-contact md:mx-4 md:text-base mt-3 "></div>
-              <div className=" bi bi-telegram icons-contact md:mx-4 md:text-base"></div>
-              <div className=" bbi bi-linkedin icons-contact md:mx-4 md:text-base"></div>
+              <div className=" bi bi-instagram icons-contact mt-3  "></div>
+              <div className=" bi bi-telegram icons-contact"></div>
+              <div className=" bbi bi-linkedin icons-contact"></div>
             </div>
-
             <h2 className="text-xl md:text-2xl mt-20 dark:text-[#888] group-hover:text-[#7400B2] dark:group-hover:text-[#bababa] text-darkblue2 ">
               {title}
             </h2>

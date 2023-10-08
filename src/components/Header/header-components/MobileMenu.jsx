@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 // import LogoIcon from '../../../assets/image/Logo-icon.svg'
 import DesktopMenu from "./DesktopMenu";
+import ThemeSwitcher from '../../common/ThemeSwitcher'
 const MobileMenu = () => {
   return (
     <div className="mobile-menu ">
       {/* <img src={LogoIcon} width={90} /> */}
+      
+      <ThemeSwitcher className={'scale-110'}/>
+      
       <DesktopMenu className={"my-5 w-full flex flex-col"} />
 
       <div className="flex whitespace-nowrap justify-center w-full">
