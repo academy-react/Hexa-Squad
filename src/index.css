@@ -27,8 +27,13 @@
   }
   .ReactSwitch-toggler{
     display: none !important;
-    @apply scale-[1.1] sm:block 
+    @apply scale-[1.1] 
   }
+  @media (min-width: 640px) {
+      .ReactSwitch-toggler {
+        display: block !important;
+      }
+    }
   .ReactSwitch-toggler2{
 
   }
