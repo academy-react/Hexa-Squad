@@ -13,17 +13,16 @@ const News = () => {
   ]);
 
   return (
-    <section>
-    <div className=" w-[540px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-48">
-      <h1 className="title1">
-        اخبار و مقالات
-        <span className="absolute w-[100%]  block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
-      </h1>
-      
-      <button className="absolute primary-btn w-auto h-10 bottom-[-20px] lg:w-56 lg:my-10  py-1 md:block lg:hidden left-3">
-        مشاهده ی همه
-      </button>
-      
+    <section className="mt-[-30px]">
+      <div className=" w-[540px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-48">
+        <h1 className="title">
+          اخبار و مقالات
+          <span className="absolute w-[100%]  block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
+        </h1>
+
+        <button className="absolute primary-btn w-auto h-10 bottom-[-20px] lg:w-56 lg:my-10  py-1 md:block lg:hidden left-3">
+          مشاهده ی همه
+        </button>
       </div>
 
       <div className="news-wrapper">
@@ -43,4 +42,3 @@ const News = () => {
 };
 
 export default News;
-

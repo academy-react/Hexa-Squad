@@ -8,72 +8,94 @@
     src: url("./assets/fonts/Yekan.ttf");
   }
 }
+
 @layer components {
+
   /* primary */
   .primary-btn {
     transition: 0.55s all;
-    @apply bg-gradient-to-tr from-[#732AFF] from-[3.5%] to-[#4136C9] to-[76%]  hover:from-[#AA54FF] hover:from-[11%] hover:via-[#6514FF] hover:via-[51%] hover:to-[#4445F2] hover:to-[111%];
+    @apply bg-gradient-to-tr from-[#732AFF] from-[3.5%] to-[#4136C9] to-[76%] hover:from-[#AA54FF] hover:from-[11%] hover:via-[#6514FF] hover:via-[51%] hover:to-[#4445F2] hover:to-[111%];
   }
 
   /* Header Style */
+  .header {
+    @apply lg:fixed bg-lightPink dark:bg-darkblue2 shadow-shadow-Services-box w-full mx-auto overflow-hidden
+  }
+
   .logo-bg {
     @apply absolute md:block hidden right-[-20px] top-[-35px] max-h-[232px] dark:hidden;
   }
+
   .logo {
-    @apply lg:mr-[26px] md:w-[180px] md:mt-[23px] md:mr-[16px] w-[55px] block;
+    @apply lg:mr-[26px] md:w-[180px] md:mr-[16px] w-[55px] mt-[-10px]
   }
+
   .openMenu-span {
     transition: 0.3s;
     @apply h-1 rounded bg-[#3E32C7] inline-block relative;
   }
-  #openMenu:checked + .header-buttons .openMenu .openMenu-span:nth-child(1) {
+
+  #openMenu:checked+.header-buttons .openMenu .openMenu-span:nth-child(1) {
     rotate: 45deg;
     width: 100%;
     top: 10px;
     background-color: #12124280;
+    @apply dark:bg-[#ffffff80]
   }
-  #openMenu:checked + .header-buttons .openMenu .openMenu-span:nth-child(2) {
+
+  #openMenu:checked+.header-buttons .openMenu .openMenu-span:nth-child(2) {
     display: none;
   }
-  #openMenu:checked + .header-buttons .openMenu .openMenu-span:nth-child(3) {
+
+  #openMenu:checked+.header-buttons .openMenu .openMenu-span:nth-child(3) {
     rotate: -45deg;
     width: 100%;
     background-color: #12124280;
+    @apply dark:bg-[#ffffff80]
   }
-  #openMenu:checked + .header-buttons .openMenu {
+
+  #openMenu:checked+.header-buttons .openMenu {
     background-color: #1212421a;
     @apply rounded-lg left-[70%];
   }
-  #openMenu:checked ~ .mobile-menu-holder .mobile-menu {
+
+  #openMenu:checked~.mobile-menu-holder .mobile-menu {
     box-shadow: 0 0 1500px 1000px #0005;
     @apply w-8/12 p-8;
   }
+
   .openMenu {
     transition: 0.6s;
-    @apply w-14 h-12 text-left leading-3	block lg:hidden mr-7 cursor-pointer py-1 z-30 relative left-0;
+    @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden dark:bg-darkblue2 ;
   }
+
   /* menu styles */
   .menu-item {
     @apply cursor-pointer;
   }
+
   .underline-menu {
     transition: 0.15s ease-in;
-    @apply group-hover:w-11/12 w-0 block h-2 my-1  bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2;
+    @apply group-hover:w-11/12 w-0 block h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2;
   }
+
   /* Mobile Menu */
   .mobile-menu {
     transition: 0.2s;
     @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden;
   }
+
   /* Hero Section */
   .hero-section-image-side {
     @apply sm:w-5/12 w-full text-left sm:relative absolute top-0;
   }
+
   .hero-section-image {
     @apply relative lg:w-[523px] sm:w-[340px] block sm:hidden;
   }
+
   .hero-gradient {
-    @apply bg-gradient-to-b sm:from-[transparent] from-[#240070] from-[3%] via-[#17004aa0] via-[40%]  sm:to-[transparent] to-transparentPurple to-[100%] z-[5] h-full;
+    @apply bg-gradient-to-b sm:from-[transparent] from-[#240070] from-[3%] via-[#17004aa0] via-[40%] sm:to-[transparent] to-transparentPurple to-[100%] z-[5] h-full;
   }
 
   /* Footer */
@@ -87,16 +109,20 @@
     color: white;
     @apply text-4xl text-center lg:mt-0 mt-[-80px] mb-5 lg:text-lightblue font-bold;
   }
+
   .auth-image-side {
     color: white;
     @apply lg:bg-gradient-to-l bg-gradient-to-t from-newPurpleAlpha from-[0.8%] via-newPurpleAlpha via-[0.9%] to-transparentPurple to-[150%] flex items-center justify-center lg:rounded-r-[150px] lg:rounded-br-[150px] lg:rounded-bl-[0] rounded-b-[150px] lg:p-4 pb-32 w-full lg:w-7/12 lg:h-[100vh];
   }
+
   .form-section-auth {
-    @apply w-[380px] lg:bg-[#fff]  min-h-[350px] max-h-[530px] relative  rounded-xl  py-5 font-[B-Yekan] lg:top-[14%] lg:left-[-190px] left-0 top-0 lg:shadow-shadow-auth shadow-shadow-transparent flex flex-col	justify-center;
+    @apply w-[380px] lg:bg-[#fff] min-h-[350px] max-h-[530px] relative rounded-xl py-5 font-[B-Yekan] lg:top-[14%] lg:left-[-190px] left-0 top-0 lg:shadow-shadow-auth shadow-shadow-transparent flex flex-col justify-center;
   }
+
   .field-input {
     @apply text-right w-full py-1 px-2 pr-7 h-full rounded-md border-b-2 bg-[#F6F7FC] absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
   }
+
   .field-input2 {
     @apply text-right w-full mt-2 mb-2 px-2  pt-3 h-full  rounded-md border-b-2 bg-semiPink absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
   }
@@ -104,37 +130,45 @@
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
     @apply cursor-pointer text-[#fff] bg-gradient-to-br from-[#AA54FF] from-[11%] via-[#6514FF] via-[51%] to-[#4445F2] to-[111%] rounded-lg hover:bg-lightblue my-3;
   }
+
   .auth-form {
     @apply text-lightblue text-right px-12 flex-col items-center flex;
   }
 
   .teacher-card {
-    @apply w-96  hover:scale-110 transition-all cursor-pointer md:w-56 lg:w-80 overflow-hidden relative rounded-xl;
+    @apply w-96 hover:scale-110 transition-all cursor-pointer md:w-56 lg:w-80 overflow-hidden relative rounded-xl;
   }
+
   .teachers-text {
-    @apply cursor-pointer absolute bottom-[-55px] bg-gradient-to-t from-darkblue  left-0 right-0 md:py-0 lg:py-2  pb-4 pt-16 px-4 text-[#fff]  duration-500 group-hover:bottom-0 bg-opacity-30  rounded-b-xl;
+    @apply cursor-pointer absolute bottom-[-55px] bg-gradient-to-t from-darkblue left-0 right-0 md:py-0 lg:py-2 pb-4 pt-16 px-4 text-[#fff] duration-500 group-hover:bottom-0 bg-opacity-30 rounded-b-xl;
   }
+
   .icons-contact {
     @apply mx-4 my-2 md:mx-2 md:my-2 md:text-sm lg:mx-4 lg:my-2 lg:text-base hover:text-lightblue3;
   }
+
   .contact-teachers {
-    @apply w-12 h-28 md:w-8 md:h-24 lg:w-12 lg:h-28 bg-lightPurple top-[-200px] rounded-b-xl md:rounded-b-lg absolute  left-2  group-hover:top-0 duration-300 ease-in;
+    @apply w-12 h-28 md:w-8 md:h-24 lg:w-12 lg:h-28 bg-lightPurple  top-[-200px] rounded-b-xl md:rounded-b-lg absolute left-2 group-hover:top-0 duration-300 ease-in;
   }
+
   .suggestions-box {
-    @apply flex w-[460px] md:w-[560px] relative self-center bg-semiWhite lg:w-[600px] min-h-[400px] max-h-[530px] py-8
-    mt-16  lg:flex rounded-lg  lg:shadow-shadow-auth shadow-shadow-transparent  flex-col;
+    @apply flex w-[460px] md:w-[560px] relative self-center bg-semiWhite lg:w-[600px] min-h-[400px] max-h-[530px] py-8 mt-16 lg:flex rounded-lg lg:shadow-shadow-auth shadow-shadow-transparent flex-col;
   }
+
   .news-wrapper {
     @apply w-[500px] md:w-[100%] md:h-[540px] lg:h-[360px] mt-8 flex relative mx-auto md:mt-20 lg:mt-10 px-20 h-[550px] lg:gap-10 md:gap-10 md:my-0 items-center justify-center flex-col gap-10 md:flex-col lg:flex-row;
   }
+
   .news-image {
     @apply md:w-[220px] md:h-[186px] h-[155px] w-[180px] absolute shadow-shadow-auth my-5 mx-5 md:my-6 lg:mx-6 rounded-2xl bg-center object-cover;
   }
+
   .contact-teachers1 {
-    @apply w-12 h-28  bg-[#793bed] top-[2px] rounded-b-xl  left-2 duration-300 group-hover:top-0  ease-in;
+    @apply w-12 h-28 bg-[#793bed]  top-[2px] rounded-b-xl left-2 duration-300 group-hover:top-0 ease-in dark:bg-darkblue2;
   }
-  .teacher-photo{
-    @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] items-center mt-6 ;
+
+  .teacher-photo {
+    @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] items-center mt-6 dark:bg-darkblue2;
   }
 }
 
@@ -164,6 +198,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -192,9 +227,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -209,9 +246,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }

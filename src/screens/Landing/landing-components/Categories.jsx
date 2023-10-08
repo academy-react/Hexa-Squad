@@ -8,7 +8,7 @@ import dataAnalysis from "../../../assets/image/dataAnalysis.svg";
 const Categories = () => {
 
     return (
-        <div className="lg:max-w-[1163px] mx-auto md:max-w-[760px] sm:max-w-[640px]">
+        <div className="lg:max-w-[1163px] mx-auto md:max-w-[760px] sm:max-w-[640px] mt-[-30px]">
             <h1 className="title lg:mt-40 mt-20">دسته بندی ها 
                 <span className="absolute w-[100%] w-0 block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
             </h1>

@@ -21,8 +21,8 @@ const OurTeachers = () => {
     },
   ]);
   return (
-    <>
-      <h1 className="title1 lg:mt-48 mt-28 mr-10  lg:m-auto">
+    <div className=" mt-[-30px]">
+      <h1 className="title lg:mt-48 mt-28 mr-10  lg:m-auto">
         اساتید برتر
         <span className="absolute w-[100%] block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
       </h1>
@@ -30,19 +30,17 @@ const OurTeachers = () => {
       <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 md:gap-8">
         {teacherCard.map((item, index) => {
           return (
-            <>
               <TeacherCard
                 key={index}
                 title={item.title}
                 description={item.description}
                 course={item.course}
               />
-            </>
           );
         })}
      </div>
      </div>
-    </>
+    </div>
   );
 };
 

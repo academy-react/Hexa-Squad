@@ -3,87 +3,103 @@
 @tailwind utilities;
 
 @layer components {
-    .title{
+    .title {
         width: fit-content;
-        @apply mb-5 text-xl md:text-2xl lg:text-4xl lg:mx-auto mr-4 text-darkblue relative;
-    } 
-    .title1{
+        @apply mb-5 text-4xl lg:mx-auto mr-4 text-darkblue dark:text-semiPink relative;
+    }
+
+    .title1 {
         width: fit-content;
-        @apply  text-xl md:text-2xl lg:text-4xl lg:mx-auto mr-4 text-darkblue relative;
-    } 
+        @apply text-xl md:text-2xl lg:text-4xl lg:mx-auto mr-4 text-darkblue relative;
+    }
 
     /*  services-box */
-    .services-box{
-        @apply w-[30%] p-2 m-2 duration-500  rounded-xl rounded-bl-[45px] shadow-shadow-Categories-box hover:scale-105 hover:shadow-shadow-Services-box hover:cursor-pointer
-            lg:p-8 lg:m-10 lg:rounded-none lg:shadow-shadow-none hover:bg-[#FFFFFF1A] lg:hover:shadow-shadow-Services-box1 lg:hover:rounded-[36px]
-            md:p-4 md:m-4 md:rounded-none md:shadow-shadow-none md:hover:bg-[#FFFFFF1A] md:hover:shadow-shadow-Services-box2 md:hover:rounded-[15px];
-               
+    .services-box {
+        @apply w-[30%] p-2 m-2 duration-500 rounded-xl rounded-bl-[45px] shadow-shadow-Categories-box hover:scale-105 hover:shadow-shadow-Services-box hover:cursor-pointer lg:p-8 lg:m-10 lg:rounded-none lg:shadow-shadow-none hover:bg-[#FFFFFF1A] lg:hover:shadow-shadow-Services-box1 lg:hover:rounded-[36px] md:p-4 md:m-4 md:rounded-none md:shadow-shadow-none md:hover:bg-[#FFFFFF1A] md:hover:shadow-shadow-Services-box2 md:hover:rounded-[15px];
+
+
     }
-    .services-box img{
+
+    .services-box img {
         @apply lg:pb-4 md:pb-2 md:w-8 lg:w-16 my-3 mx-auto lg:m-0 md:m-0;
     }
-    .services-title{
-        @apply lg:text-2xl md:text-sm pb-2.5 text-lightblue lg:text-darkblue md:text-darkblue text-center md:text-right lg:text-right;
+
+    .services-title {
+        @apply lg:text-2xl md:text-sm pb-2.5 text-lightblue lg:text-darkblue md:text-darkblue dark:md:text-lightblue dark:lg:text-lightblue text-center md:text-right lg:text-right;
     }
-    .botton-border{
+
+    .botton-border {
         @apply w-[50px] border-b-4 border-[#3F40EA] hidden lg:block md:block;
     }
-    .services-info{
-        @apply pt-4 lg:text-lg md:text-xs text-right text-lightblue4 hidden lg:block md:block;
+
+    .services-info {
+        @apply pt-4 lg:text-lg md:text-xs text-right text-lightblue4 dark:text-[#b3b1c2] hidden lg:block md:block;
     }
 
     /* Course Education */
-    .course-box{
-        @apply overflow-hidden duration-500 w-[340px] lg:w-[23%] mx-auto bg-[#F9F6FF] rounded-[20px] shadow-shadow-Course-box m-2;
+    .course-box {
+        @apply overflow-hidden duration-500 w-[336px] lg:w-[23%] mx-auto bg-[#F9F6FF] dark:bg-darkblue2 rounded-[20px] shadow-shadow-Course-box m-2;
     }
-    .course-box:hover{
+
+    .course-box:hover {
         box-shadow: 0px 0px 30px 0px #6D20FF4D;
-        @apply translate-x-0 translate-y-[-40px]  cursor-pointer;
-        .course-name{
-            @apply text-lightblue;
+        @apply translate-x-0 translate-y-[-40px] cursor-pointer;
+
+        .course-name {
+            @apply text-lightblue dark:text-semiPink;
         }
-        .prof-name{
-            background: linear-gradient(0deg, #0001AC, #0001AC),linear-gradient(0deg, #3C3C89, #3C3C89); 
+
+        .prof-name {
+            background: linear-gradient(0deg, #0001AC, #0001AC), linear-gradient(0deg, #3C3C89, #3C3C89);
             -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;           
+            -webkit-background-clip: text;
         }
-        .hover-box{
+
+        .hover-box {
             @apply block duration-500 left-0;
         }
-    } 
-    .hover-box-img:hover{
-        filter: brightness(0) saturate(100%) invert(10%) sepia(12%) saturate(7199%) hue-rotate(219deg) brightness(101%) contrast(107%);    
     }
-    .hover-box-img{
+
+    .hover-box-img:hover {
+        filter: brightness(0) saturate(100%) invert(10%) sepia(12%) saturate(7199%) hue-rotate(219deg) brightness(101%) contrast(107%);
+    }
+
+    .hover-box-img {
         @apply my-3 mx-2;
     }
-    .prof-name{
-        background: linear-gradient(0deg, rgba(18, 18, 66, 0.7), rgba(18, 18, 66, 0.7)),linear-gradient(0deg, #3F40EA, #3F40EA);
+
+    .prof-name {
+        background: linear-gradient(0deg, rgba(18, 18, 66, 0.7), rgba(18, 18, 66, 0.7)), linear-gradient(0deg, #3F40EA, #3F40EA);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
     }
-    .course-details{
-        @apply text-[#6635FF] text-base text-left border-t-2 border-[#00018533] py-4 ;
+
+    .course-details {
+        @apply text-[#6635FF] text-base text-left border-t-2 border-[#00018533] py-4;
     }
-    .course-details:hover{
+
+    .course-details:hover {
         @apply text-darkblue;
     }
-   
+
     /* categories-box */
-    .categories-box{
+    .categories-box {
         transition: box-shadow 0.5s ease-out;
-        @apply w-48 md:w-[160px] lg:w-[22%] h-52 m-5 md:m-3 text-center bg-gradient-to-tr from-[#6B3FEA] from-[0%] to-[#7070FF] to-[189%] rounded-xl rounded-bl-[45px] transition-all shadow-shadow-Categories-box;
+        @apply w-48 md:w-[160px] lg:w-[22%] h-52 m-5 md:m-3 text-center bg-gradient-to-tr from-[#6B3FEA] dark:from-[#574199] from-[0%] to-[#7070FF] to-[189%] rounded-xl rounded-bl-[45px] transition-all shadow-shadow-Categories-box;
     }
-    .categories-img{
+
+    .categories-img {
         @apply mx-auto mt-11 mb-3;
     }
-    .categories-box:hover{
+
+    .categories-box:hover {
         box-shadow: 0px 5px 30px 0px #6D50F14D;
         background: #EBE0FF;
         color: #6D53F2;
         cursor: pointer;
-        .categories-img{
+        @apply dark:bg-darkblue2;
+        .categories-img {
             filter: brightness(0) saturate(100%) invert(39%) sepia(80%) saturate(2693%) hue-rotate(231deg) brightness(90%) contrast(112%);
         }
     }
-} 
+}

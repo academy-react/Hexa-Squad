@@ -5,7 +5,7 @@ import Footer from "../../components/Footer/Footer";
 
 const Layout = () => {
   return (
-    <div className="bg-lightPink min-h-[100vh]" >
+    <div className="bg-lightPink dark:bg-darkblue min-h-[100vh]"dir="rtl" >
       <Header />
       <Outlet />
       <Footer/>
