@@ -54,24 +54,38 @@
     @apply dark:bg-[#ffffff80]
   }
 
+  .ThemeSwitcher1 {
+    display: none !important;
+    @apply scale-110
+  }
+
+  @media (min-width: 1024px) {
+
+    .ThemeSwitcher1 {
+      display: inline-block !important;
+    }
+  }
+
   #openMenu:checked+.header-buttons .openMenu {
     background-color: #1212421a;
-    @apply rounded-lg left-[70%] dark:bg-darkblue ;
+    @apply rounded-lg left-[70%] dark:bg-darkblue;
   }
 
   #openMenu:checked~.mobile-menu-holder .mobile-menu {
     box-shadow: 0 0 1500px 1000px #0005;
     @apply w-8/12 p-8;
   }
-/* 
+
+  /* 
   .openMenu {
     transition: 0.6s;
     @apply flex lg:hidden absolute left-0 top-0 h-8 bg-lightPink w-8 flex-col items-end overflow-hidden  ;
   } */
   .openMenu {
     transition: 0.6s;
-    @apply w-14 h-12 text-left leading-3	block lg:hidden mr-7 cursor-pointer py-1 z-30 relative left-0 scale-75;
+    @apply w-14 h-12 text-left leading-3 block lg:hidden mr-7 cursor-pointer py-1 z-30 relative left-0 scale-75;
   }
+
   /* menu styles */
   .menu-item {
     @apply cursor-pointer;
@@ -127,8 +141,9 @@
   }
 
   .field-input2 {
-    @apply text-right w-full mt-2 mb-2 px-2  pt-3 h-full  rounded-md border-b-2 bg-semiPink absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
+    @apply text-right w-full mt-2 mb-2 px-2 pt-3 h-full rounded-md border-b-2 bg-semiPink absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
   }
+
   .primary-button {
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
     @apply cursor-pointer text-[#fff] bg-gradient-to-br from-[#AA54FF] from-[11%] via-[#6514FF] via-[51%] to-[#4445F2] to-[111%] rounded-lg hover:bg-lightblue my-3;
@@ -147,11 +162,11 @@
   }
 
   .icons-contact {
-    @apply mx-4 my-2 md:my-2  opacity-90 hover:opacity-100 md:mx-3 md:text-sm  lg:text-base lg:mx-4 lg:my-2;
+    @apply mx-4 my-2 md:my-2 opacity-90 hover:opacity-100 md:mx-3 md:text-sm lg:text-base lg:mx-4 lg:my-2;
   }
 
   .contact-teachers {
-    @apply w-12 h-28 md:w-8 md:h-24 lg:w-12 lg:h-28 bg-lightPurple  top-[-200px] rounded-b-xl md:rounded-b-lg absolute left-2 group-hover:top-0 duration-300 ease-in;
+    @apply w-12 h-28 md:w-8 md:h-24 lg:w-12 lg:h-28 bg-lightPurple top-[-200px] rounded-b-xl md:rounded-b-lg absolute left-2 group-hover:top-0 duration-300 ease-in;
   }
 
   .suggestions-box {
@@ -167,15 +182,16 @@
   }
 
   .contact-teachers1 {
-/* <<<<<<< HEAD */
-    @apply w-12 h-28 bg-[#793bed]  top-[2px] rounded-b-xl left-2 duration-300 group-hover:top-0 ease-in dark:bg-darkblue2;
+    /* <<<<<<< HEAD */
+    @apply w-12 h-28 bg-[#793bed] top-[2px] rounded-b-xl left-2 duration-300 group-hover:top-0 ease-in dark:bg-darkblue2;
   }
 
   .teacher-photo {
     @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] items-center mt-6 dark:bg-darkblue2;
-/* ======= */
+    /* ======= */
     /* @apply w-12 h-28  bg-[#793bed] top-[2px] rounded-b-xl md:rounded-b-lg lg:rounded-b-xl left-2 md:left-4 lg:left-2 duration-300 group-hover:top-0  ease-in md:w-10 md:h-24 lg:w-12 lg:h-28; */
   }
+
   /* .teacher-photo{
     @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6  ;
 >>>>>>> a689b0c80c9ef8b68af95cfe54db3aab74654148

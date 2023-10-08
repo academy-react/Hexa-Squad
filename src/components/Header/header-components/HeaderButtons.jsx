@@ -6,7 +6,7 @@ import ThemeSwitcher from "../../common/ThemeSwitcher";
 const HeaderButtons = () => {
   return (
     <div className=" flex lg:justify-center justify-end items-center gap-5 pr-8 mt-[-10px]">
-      <ThemeSwitcher className={'scale-110 hidden lg:inline-block ThemeSwitcher'}/>
+      <ThemeSwitcher className={'ThemeSwitcher1'}/>
       <Link to={"/authorize/login"}>
         <button className="primary-btn lg:flex gap-3 hidden text-[#fff] scale-[.85]">
           <i className="bi bi-box-arrow-in-right pt-1"></i>
