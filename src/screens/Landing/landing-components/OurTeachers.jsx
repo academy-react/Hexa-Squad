@@ -22,7 +22,11 @@ const OurTeachers = () => {
   ]);
   return (
     <>
+<<<<<<< HEAD
       <h1 className="title lg:mt-40 mt-20">
+=======
+      <h1 className="title1 lg:mt-40 mt-20 mr-10  lg:m-auto">
+>>>>>>> feature/news
         اساتید برتر
         <span className="absolute w-[100%]  block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
       </h1>
