@@ -170,7 +170,8 @@
   }
 
   .suggestions-box {
-    @apply flex w-[460px] md:w-[560px] relative self-center bg-semiWhite lg:w-[600px] min-h-[400px] max-h-[530px] py-8 mt-16 lg:flex rounded-lg lg:shadow-shadow-auth shadow-shadow-transparent flex-col;
+    @apply flex w-[460px] md:w-[560px] relative self-center bg-semiWhite lg:w-[600px] min-h-[400px] max-h-[530px] py-8
+    mt-16  lg:flex rounded-lg  lg:shadow-shadow-auth shadow-shadow-transparent  flex-col;
   }
 
   .news-wrapper {
@@ -182,20 +183,22 @@
   }
 
   .contact-teachers1 {
-    /* <<<<<<< HEAD */
-    @apply w-12 h-28 bg-[#793bed] top-[2px] rounded-b-xl left-2 duration-300 group-hover:top-0 ease-in dark:bg-darkblue2;
+    @apply w-12 h-28  bg-[#793bed] top-[2px] rounded-b-xl md:rounded-b-lg lg:rounded-b-xl left-2 md:left-4 lg:left-2 duration-300 group-hover:top-0  ease-in md:w-10 md:h-24 lg:w-12 lg:h-28;
+  }
+  .teacher-photo{
+    @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6  ;
   }
 
-  .teacher-photo {
-    @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] items-center mt-6 dark:bg-darkblue2;
-    /* ======= */
-    /* @apply w-12 h-28  bg-[#793bed] top-[2px] rounded-b-xl md:rounded-b-lg lg:rounded-b-xl left-2 md:left-4 lg:left-2 duration-300 group-hover:top-0  ease-in md:w-10 md:h-24 lg:w-12 lg:h-28; */
-  }
+ 
+
+
 
   /* .teacher-photo{
     @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6  ;
 >>>>>>> a689b0c80c9ef8b68af95cfe54db3aab74654148
   } */
+
+
 }
 
 :root {
