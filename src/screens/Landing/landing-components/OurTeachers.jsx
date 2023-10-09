@@ -23,7 +23,7 @@ const OurTeachers = () => {
   return (
     <>
       <div className=" w-[540px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-48">
-        <h1 className="title1 lg:mt-48 mt-28 lg:m-auto">
+        <h1 className="title1 title lg:mt-48 mt-28 lg:m-auto">
           اساتید برتر
           <span className="absolute w-[100%] block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
         </h1>
