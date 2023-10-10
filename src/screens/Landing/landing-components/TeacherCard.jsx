@@ -10,7 +10,7 @@ const TeacherCard = ({ title, description, course }) => {
             <img className="object-cover " src={teacher} alt="image" />
           </div>
         </div>
-        <div className="rounded-2xl cursor-pointer mx-auto  shadow-2xl group overflow-hidden shadow-shadow-Course-box hover:shadow-shadow-auth  z-0 mt-[100px] lg:mt-[100px] md:mt-[90px] bg-semiWhite dark:bg-[#4116afe5] opacity md:w-60 lg:w-full dark:hover:shadow-[#3b0e6b] ">
+        <div className="rounded-2xl cursor-pointer mx-auto  shadow-2xl group overflow-hidden shadow-shadow-Course-box hover:shadow-shadow-auth  z-0 mt-[100px] lg:mt-[100px] md:mt-[90px] bg-semiWhite dark:bg-[#4116afe5] opacity md:w-60 lg:w-full dark:hover:shadow-[#220e6b] ">
           <div className="p-5 flex-col relative">
             <div className="contact-teachers1 absolute z-3 top-[-60%] dark:bg-[#2a1079]">
               <div className=" bi bi-instagram icons-contact mt-3  "></div>
