@@ -50,7 +50,7 @@
         }
 
         .prof-name {
-            @apply text-newPurple3 dark:text-[#9996F9]
+            @apply text-[#4E2DCC] dark:text-[#9996F9]
         }
 
         .hover-box {
@@ -63,7 +63,7 @@
     }
 
     .hover-box-img {
-        @apply my-3 mx-2 opacity-30;
+        @apply my-3 mx-2 opacity-60;
     }
 
     .prof-name {

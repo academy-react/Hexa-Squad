@@ -186,6 +186,10 @@
   .teacher-photo {
     @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6;
   }
+  .gradient{
+
+    @apply  bg-gradient-to-tl from-[#3F40EA]  from-[3.5%] to-[#6D20FF] to-[70%] hover:from-[#AA54FF] hover:from-[11%] hover:via-[#6514FF] hover:via-[51%] hover:to-[#4445F2] hover:to-[111%];
+  }
 
 
   /* .teacher-photo{

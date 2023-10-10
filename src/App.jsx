@@ -7,12 +7,17 @@ import Register from "./screens/Authorize/Register";
 import ForgetPassword from "./screens/Authorize/ForgetPassword";
 import VerificationCode from "./screens/Authorize/VerificationCode";
 import Error404 from "./screens/ErrorPage/Error404";
+import CourseDetails from "./screens/Landing/landing-components/CourseDetails";
+
 const App = () => {
   const Router = createBrowserRouter([
     {
       path: "/",
       element: <Layout />,
-      children: [{ path: "/", element: <Landing /> }],
+      children: [
+        { path: "/", element: <Landing /> },
+        { path: "/CourseDetails", element: <CourseDetails/> }
+      ],
     },
     {
       path: "/authorize",
