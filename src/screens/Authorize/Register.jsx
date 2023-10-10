@@ -14,7 +14,7 @@ const Register = () => {
     <div className=' bg-lightPink min-h-[100vh] '>
         <div className='lg:flex block'>
             <div className="auth-image-side">
-                <img src={pictureProgrammer} className='lg:w-2/3 w-[250px]' alt="" />
+                <img src={pictureProgrammer} className='lg:w-[460px] w-[250px]' alt="" />
             </div>
             <div className="w-full lg:w-5/12 flex justify-center">
                 <div className="form-section-auth" dir='rtl'>

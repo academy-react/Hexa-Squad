@@ -34,11 +34,13 @@ const VerificationCode = () => {
                   icon={"bi bi-envelope-arrow-down-fill"}
                   classIcon={"mr-1"}
                 />
+               
                 <input
                   type="submit"
                   value="بازنشانی رمزعبور"
                   className="primary-button w-full p-4 mt-10 hover:gradient"
                 />
+                
               </Form>
             </Formik>
           </div>
