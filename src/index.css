@@ -10,7 +10,6 @@
 }
 
 @layer components {
-
   /* primary */
   .primary-btn {
     transition: 0.55s all;
@@ -19,7 +18,7 @@
 
   /* Header Style */
   .header {
-    @apply lg:fixed bg-lightPink dark:bg-darkblue2 shadow-shadow-Services-box w-full mx-auto overflow-hidden
+    @apply lg:fixed bg-lightPink dark:bg-darkblue2 shadow-shadow-auth w-full mx-auto overflow-hidden;
   }
 
   .logo-bg {
@@ -27,7 +26,7 @@
   }
 
   .logo {
-    @apply lg:mr-[26px] md:w-[180px] md:mr-[16px] w-[55px] mt-[-10px]
+    @apply lg:mr-[94px] md:w-[145px] md:mr-[40px] w-[55px] mt-[-10px];
   }
 
   .openMenu-span {
@@ -35,43 +34,42 @@
     @apply h-1 rounded bg-[#3E32C7] inline-block relative;
   }
 
-  #openMenu:checked+.header-buttons .openMenu .openMenu-span:nth-child(1) {
+  #openMenu:checked + .header-buttons .openMenu .openMenu-span:nth-child(1) {
     rotate: 45deg;
     width: 100%;
     top: 10px;
     background-color: #12124280;
-    @apply dark:bg-[#ffffff80]
+    @apply dark:bg-[#ffffff80];
   }
 
-  #openMenu:checked+.header-buttons .openMenu .openMenu-span:nth-child(2) {
+  #openMenu:checked + .header-buttons .openMenu .openMenu-span:nth-child(2) {
     display: none;
   }
 
-  #openMenu:checked+.header-buttons .openMenu .openMenu-span:nth-child(3) {
+  #openMenu:checked + .header-buttons .openMenu .openMenu-span:nth-child(3) {
     rotate: -45deg;
     width: 100%;
     background-color: #12124280;
-    @apply dark:bg-[#ffffff80]
+    @apply dark:bg-[#ffffff80];
   }
 
   .ThemeSwitcher1 {
     display: none !important;
-    @apply scale-110
+    @apply scale-110;
   }
 
   @media (min-width: 1024px) {
-
     .ThemeSwitcher1 {
       display: inline-block !important;
     }
   }
 
-  #openMenu:checked+.header-buttons .openMenu {
+  #openMenu:checked + .header-buttons .openMenu {
     background-color: #1212421a;
     @apply rounded-lg left-[70%] dark:bg-darkblue;
   }
 
-  #openMenu:checked~.mobile-menu-holder .mobile-menu {
+  #openMenu:checked ~ .mobile-menu-holder .mobile-menu {
     box-shadow: 0 0 1500px 1000px #0005;
     @apply w-8/12 p-8;
   }
@@ -171,7 +169,7 @@
 
   .suggestions-box {
     @apply flex w-[460px] md:w-[560px] relative self-center bg-semiWhite lg:w-[600px] min-h-[400px] max-h-[530px] py-8
-    mt-16  lg:flex rounded-lg  lg:shadow-shadow-auth shadow-shadow-transparent  flex-col;
+    mt-16  lg:flex rounded-lg  lg:shadow-shadow-auth shadow-shadow-transparent  flex-col  dark:bg-[#2B157E];
   }
 
   .news-wrapper {
@@ -185,20 +183,15 @@
   .contact-teachers1 {
     @apply w-12 h-28  bg-[#793bed] top-[2px] rounded-b-xl md:rounded-b-lg lg:rounded-b-xl left-2 md:left-4 lg:left-2 duration-300 group-hover:top-0  ease-in md:w-10 md:h-24 lg:w-12 lg:h-28;
   }
-  .teacher-photo{
-    @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6  ;
+  .teacher-photo {
+    @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6;
   }
-
- 
-
 
 
   /* .teacher-photo{
     @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6  ;
 >>>>>>> a689b0c80c9ef8b68af95cfe54db3aab74654148
   } */
-
-
 }
 
 :root {

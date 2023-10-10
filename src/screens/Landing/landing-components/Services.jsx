@@ -6,9 +6,9 @@ import servicesPic3 from "../../../assets/image/services-pic3.svg";
 
 const Services = () => { 
   return (
-    <div className="lg:max-w-[1357px] md:max-w-[750px] sm:max-w-[640px] mx-auto mt-[-30px]">
-        <h1 className="title mt-[350px] lg:mt-40 md:mt-20">خدمات ما
-        <span className="absolute w-[100%] w-0 block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
+    <div className="lg:max-w-[1357px] md:max-w-[750px] sm:max-w-[640px] mx-auto md:mt-[-30px]">
+        <h1 className="title mt-[320px] lg:mt-40 md:mt-20">خدمات ما
+        <span className="absolute w-[100%] block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
         </h1>
         <ul className="flex justify-between flex-row right overflow-hidden mt-16 ">
             <li className="services-box">

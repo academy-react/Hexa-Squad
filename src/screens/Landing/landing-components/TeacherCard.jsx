@@ -5,12 +5,12 @@ const TeacherCard = ({ title, description, course }) => {
   return (
     
       <div className="relative gap-12 w-[340px] h-96 md:w-[300px] md:h-96 lg:w-[340px] lg:h-96">
-        <div className="teacher-photo dark:bg-[#4006B2] dark:shadow-[#351476]">
+        <div className="teacher-photo dark:bg-[#2a1079] dark:shadow-[#351476]">
           <div className="rounded-full absolute shadow-shadow-auth  overflow-hidden w-32 h-32  mx-4 my-4  md:w-[88px] md:h-[88px] md:mx-3 md:my-3 lg:w-32 lg:h-32  lg:mx-4 lg:my-4 ">
             <img className="object-cover " src={teacher} alt="image" />
           </div>
         </div>
-        <div className="rounded-2xl cursor-pointer mx-auto  shadow-2xl group overflow-hidden shadow-shadow-Course-box hover:shadow-shadow-auth  z-0 mt-[100px] lg:mt-[100px] md:mt-[90px] bg-semiWhite dark:bg-[#470ac1] md:w-60 lg:w-full dark:hover:shadow-[#410484] ">
+        <div className="rounded-2xl cursor-pointer mx-auto  shadow-2xl group overflow-hidden shadow-shadow-Course-box hover:shadow-shadow-auth  z-0 mt-[100px] lg:mt-[100px] md:mt-[90px] bg-semiWhite dark:bg-[#4116afe5] opacity md:w-60 lg:w-full dark:hover:shadow-[#3b0e6b] ">
           <div className="p-5 flex-col relative">
             <div className="contact-teachers1 absolute z-3 top-[-60%] dark:bg-[#3904A1]">
               <div className=" bi bi-instagram icons-contact mt-3  "></div>
