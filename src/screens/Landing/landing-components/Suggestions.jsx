@@ -22,22 +22,22 @@ const Suggestions = () => {
           style={{ backgroundImage: `url(${background})` }}
         ></div>
 
-        <div className="suggestions-box ">
+        <div className="suggestions-box">
           <div dir="rtl">
             <Formik
               initialValues={{ email: "", massage: "" }}
               validationSchema={validation}
               onSubmit={() => alert(" پیام شما ثبت شد")}
             >
-              <Form className="text-lightblue text-right  px-10 flex-col items-center flex">
+              <Form className="text-lightblue  text-right  px-10 flex-col items-center flex">
                 <Field
-                  className="field-input2 relative w-full my-2 p-3"
+                  className="field-input2 relative w-full my-2 p-3 dark:bg-[#13005A]"
                   placeholder={"ایمیل را وارد کنید"}
                   name="email"
                 />
 
                 <textarea
-                  className="relative w-full h-[300px] field-input2"
+                  className="relative w-full h-[300px] field-input2 dark:bg-[#13005A]"
                   placeholder="متن را وارد کنید"
                   name="obs"
                 ></textarea>
