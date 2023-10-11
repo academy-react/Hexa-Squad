@@ -1,5 +1,5 @@
 import React from "react";
-import teacher from "../../../assets/image/teacher1.jpg";
+import teacher from "../../assets/image/teacher1.jpg";
 
 const TeacherCard = ({ title, description, course }) => {
   return (

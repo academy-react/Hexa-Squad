@@ -1,8 +1,9 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
-import background from "../../../assets/image/bgDesign2.svg";
-import background2 from "../../../assets/image/bgDesign.svg";
+import background from "../../assets/image/bgDesign2.svg";
+import Title from "../common/Title";
+// import background2 from "../../../assets/image/bgDesign.svg";
 const Suggestions = () => {
   const validation = yup.object().shape({
     email: yup.string().required("این فیلد الزامیست!"),
@@ -11,10 +12,7 @@ const Suggestions = () => {
   return (
     <>
       <div className=" w-[540px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-48">
-        <h1 className="title relative title1 lg:mt-52 mt-20 md:mt-36 mx-auto">
-          انتقادات و پیشنهادات
-          <span className="absolute w-[100%]  block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
-        </h1>
+        <Title className={'relative title1 lg:mt-52 mt-20 md:mt-36 mx-auto'} inner={'انتقادات و پیشنهادات'}/>
       </div>
       <div className="flex 	justify-center mb-56 content-center items-stretch lg:mt-10">
         <div

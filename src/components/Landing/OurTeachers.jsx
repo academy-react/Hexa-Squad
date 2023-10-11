@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import background from "../../../assets/image/bgDesign.svg";
+import background from "../../assets/image/bgDesign.svg";
 import TeacherCard from "./TeacherCard";
+import Title from "../common/Title";
 
 const OurTeachers = () => {
   const [teacherCard, setTeacherCard] = useState([
@@ -20,13 +21,20 @@ const OurTeachers = () => {
       description: `”دوره‌های آنلاین انعطاف‌پذیری بیشتری را در برنامه‌ریزی روز خود و کار در کنار خانواده امکان‌پذیر می‌سازد.“`,
     },
   ]);
+  const mapTeacherCard = teacherCard.map((item, index) => {
+    return (
+      <TeacherCard
+        key={index}
+        title={item.title}
+        description={item.description}
+        course={item.course}
+      />
+    );
+  });
   return (
     <>
       <div className=" w-[540px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-48">
-        <h1 className="title1 title lg:mt-48 mt-28 lg:m-auto">
-          اساتید برتر
-          <span className="absolute w-[100%] block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
-        </h1>
+        <Title inner={'اساتید برتر'} className={'title1 lg:mt-48 mt-28 lg:m-auto'}/>
       </div>
       <div className="flex items-center mt-20 lg:mt-20 justify-center  container mx-auto ">
         <div
@@ -34,18 +42,7 @@ const OurTeachers = () => {
           style={{ backgroundImage: `url(${background})` }}
         ></div>
         <div className="grid grid-cols-1  md:grid-cols-3  md:gap-4 lg:gap-8">
-          {teacherCard.map((item, index) => {
-            return (
-              <>
-                <TeacherCard
-                  key={index}
-                  title={item.title}
-                  description={item.description}
-                  course={item.course}
-                />
-              </>
-            );
-          })}
+          {mapTeacherCard}
         </div>
       </div>
     </>

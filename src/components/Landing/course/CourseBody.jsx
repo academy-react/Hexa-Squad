@@ -1,5 +1,4 @@
 import React from "react";
-import "../../landing-components/common.css";
 
 const CourseBody = ({ title, professorName, price }) => {
   return (

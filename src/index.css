@@ -19,15 +19,15 @@
 
   /* Header Style */
   .header {
-    @apply lg:fixed bg-lightPink dark:bg-darkblue2 shadow-shadow-Services-box w-full mx-auto overflow-hidden
+    @apply lg:fixed bg-lightPink dark:bg-darkblue2 shadow-shadow-auth absolute w-full mx-auto overflow-hidden;
   }
 
   .logo-bg {
-    @apply absolute md:block hidden right-[-20px] top-[-35px] max-h-[232px] dark:hidden;
+    @apply absolute md:block hidden right-[-20px] top-[-55px] max-h-[232px] dark:hidden;
   }
 
   .logo {
-    @apply lg:mr-[26px] md:w-[180px] md:mr-[16px] w-[55px] mt-[-10px]
+    @apply lg:mr-[94px] md:w-[145px] md:mr-[40px] w-[55px] mt-[-10px];
   }
 
   .openMenu-span {
@@ -40,7 +40,7 @@
     width: 100%;
     top: 10px;
     background-color: #12124280;
-    @apply dark:bg-[#ffffff80]
+    @apply dark:bg-[#ffffff80];
   }
 
   #openMenu:checked+.header-buttons .openMenu .openMenu-span:nth-child(2) {
@@ -51,16 +51,15 @@
     rotate: -45deg;
     width: 100%;
     background-color: #12124280;
-    @apply dark:bg-[#ffffff80]
+    @apply dark:bg-[#ffffff80];
   }
 
   .ThemeSwitcher1 {
     display: none !important;
-    @apply scale-110
+    @apply scale-110;
   }
 
   @media (min-width: 1024px) {
-
     .ThemeSwitcher1 {
       display: inline-block !important;
     }
@@ -170,8 +169,7 @@
   }
 
   .suggestions-box {
-    @apply flex w-[460px] md:w-[560px] relative self-center bg-semiWhite lg:w-[600px] min-h-[400px] max-h-[530px] py-8
-    mt-16  lg:flex rounded-lg  lg:shadow-shadow-auth shadow-shadow-transparent  flex-col;
+    @apply flex w-[460px] md:w-[560px] relative self-center bg-semiWhite lg:w-[600px] min-h-[400px] max-h-[530px] py-8 mt-16 lg:flex rounded-lg lg:shadow-shadow-auth shadow-shadow-transparent flex-col dark:bg-[#2B157E];
   }
 
   .news-wrapper {
@@ -183,22 +181,26 @@
   }
 
   .contact-teachers1 {
-    @apply w-12 h-28  bg-[#793bed] top-[2px] rounded-b-xl md:rounded-b-lg lg:rounded-b-xl left-2 md:left-4 lg:left-2 duration-300 group-hover:top-0  ease-in md:w-10 md:h-24 lg:w-12 lg:h-28;
-  }
-  .teacher-photo{
-    @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6  ;
+    @apply w-12 h-28 bg-[#793bed] top-[2px] rounded-b-xl md:rounded-b-lg lg:rounded-b-xl left-2 md:left-4 lg:left-2 duration-300 group-hover:top-0 ease-in md:w-10 md:h-24 lg:w-12 lg:h-28;
   }
 
- 
+  .teacher-photo {
+    @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40 md:w-28 md:h-28 md:mt-8 items-center mt-6 lg:mt-6;
+  }
 
+  .gradient {
 
+    @apply bg-gradient-to-tl from-[#3F40EA] from-[3.5%] to-[#6D20FF] to-[70%] hover:from-[#AA54FF] hover:from-[11%] hover:via-[#6514FF] hover:via-[51%] hover:to-[#4445F2] hover:to-[111%];
+  }
 
+  /* showModal */
+  #showLoginModal:checked + .loginModal{
+    display: flex;
+  }
   /* .teacher-photo{
     @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6  ;
 >>>>>>> a689b0c80c9ef8b68af95cfe54db3aab74654148
   } */
-
-
 }
 
 :root {

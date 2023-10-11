@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import "../common.css";
 import CoutsrHeader from "./CourseHeader";
 import CourseBody from "./CourseBody";
-import heart from "../../../../assets/image/heart.svg";
-import cart from "../../../../assets/image/cart.svg";
+import heart from "../../../assets/image/heart.svg";
+import cart from "../../../assets/image/cart.svg";
 import { Link } from "react-router-dom";
+import { addWishList } from "../../../core/services/api/addWishList";
+import { addCart } from "../../../core/services/api/addCart";
 
-const Course = ({ title, professorName, price }) => {
+const Course = ({ title, professorName, price ,id}) => {
+  const [isLogin, setIsLogin] = useState(false);
   return (
     <div className="course-box">
       <div className="hover-box top-3 float-left h-[44px] w-[110px] absolute mb-[-50px] bg-[#9371FF] dark:bg-[#261A97] dark:shadow-shadow-auth rounded-r-[10px] z-3 left-[-50%]">
-        <img src={cart} className="inline hover-box-img mr-6" />
-        <img src={heart} className="inline hover-box-img" />
+        <img src={cart} className="inline hover-box-img mr-6" onClick={()=>addCart(id,isLogin)} />
+        <img src={heart} className="inline hover-box-img" onClick={()=>addWishList(id ,isLogin)} />
       </div>
       <div className="mx-auto w-64">
         <CoutsrHeader />

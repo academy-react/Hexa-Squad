@@ -40,6 +40,7 @@ export default {
       "shadow-Course-box": "0px 0px 10px 0px #03001C26",
       "shadow-Course-image-box": "0px 3px 4px 0px #00000040",
       "shadow-none": "0 0 #0000",
+      "shadow-all": "0 0 30px 1500px #0006",
     },
 
 

@@ -1,6 +1,6 @@
 import React from "react";
-import HeroSectionImage from "../../../assets/image/woman working- Hero section image.png";
-import HeroSectionImageCroped from "../../../assets/image/woman working- Hero section image - croped.png";
+import HeroSectionImage from "../../assets/image/woman working- Hero section image.png";
+import HeroSectionImageCroped from "../../assets/image/woman working- Hero section image - croped.png";
 import HeroSectionSvg from "./HeroSectionSvg";
 const HeroSection = () => {
   return (

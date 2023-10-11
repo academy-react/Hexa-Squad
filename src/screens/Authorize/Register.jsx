@@ -1,20 +1,16 @@
 import React from 'react'
 import { Formik ,Form } from 'formik';
-import * as yup from 'yup';
-import pictureProgrammer from '../../assets/image/picture.svg';
-import FieldInput from '../../components/common/FieldInput';
 import { Link } from 'react-router-dom';
+
+import pictureProgrammer from '../../assets/image/picture.svg';
+import {validation} from '../../core/validations/validations';
+import FieldInput from '../../components/common/FieldInput';
 const Register = () => {
-    const validation = yup.object().shape({
-        email: yup.string().required('این فیلد الزامیست!'),
-        password: yup.string().required('این فیلد الزامیست!'),
-        rePassword: yup.string().required('این فیلد الزامیست!').oneOf([yup.ref('password')],'با رمز عبور یکسان نمیباشد') ,
-    })
   return (
     <div className=' bg-lightPink min-h-[100vh] '>
         <div className='lg:flex block'>
             <div className="auth-image-side">
-                <img src={pictureProgrammer} className='lg:w-2/3 w-[250px]' alt="" />
+                <img src={pictureProgrammer} className='lg:w-[460px] w-[250px]' alt="" />
             </div>
             <div className="w-full lg:w-5/12 flex justify-center">
                 <div className="form-section-auth" dir='rtl'>

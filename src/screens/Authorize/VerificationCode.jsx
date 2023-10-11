@@ -1,15 +1,11 @@
 import React from "react";
-
 import { Formik, Form } from "formik";
-import * as yup from "yup";
+
+import {validation} from '../../core/validations/validations';
 import pic4 from "../../assets/image/picture4.svg";
 import FieldInput from "../../components/common/FieldInput";
 
 const VerificationCode = () => {
-  const validation = yup.object().shape({
-    email: yup.string().required("این فیلد الزامیست!"),
-  });
-
   return (
     <div className="bg-lightPink min-h-[100vh]">
       <div className="lg:flex block">
@@ -34,11 +30,13 @@ const VerificationCode = () => {
                   icon={"bi bi-envelope-arrow-down-fill"}
                   classIcon={"mr-1"}
                 />
+               
                 <input
                   type="submit"
                   value="بازنشانی رمزعبور"
                   className="primary-button w-full p-4 mt-10 hover:gradient"
                 />
+                
               </Form>
             </Formik>
           </div>
