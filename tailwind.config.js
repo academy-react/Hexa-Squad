@@ -18,6 +18,8 @@ export default {
       "lightPink2":"#AA54FF",   
       "darkblue":"#03001C",
       "darkblue2":"#121242",
+      "darkblue3":"#03001CB2",
+      "darkblue4":"#3B3CA7",
       "lightblue":"#3F40EA",
       "lightblue2":"#6D20FF",
       "lightblue3":"#6514FF",
