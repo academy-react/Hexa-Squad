@@ -14,7 +14,7 @@ import { useEffect } from "react";
 const Header = () => {
   const headerPosition = () => {
     let header = document.getElementById("header");
-    if (window.scrollY > 110) {
+    if (window.pageYOffset > 110) {
       header.classList.remove("w-full", "absolute");
       header.classList.add("header");
       // header.classList.add("bg-lightPink");
@@ -25,8 +25,8 @@ const Header = () => {
     }
   };
   useEffect(() => {
-    window.addEventListener("scroll", headerPosition);
-    return window.removeEventListener("scroll", headerPosition);
+    window.addEventListener("scroll",()=> {headerPosition()});
+    return window.removeEventListener("scroll", ()=> {headerPosition()});
   }, []);
   return (
     <>

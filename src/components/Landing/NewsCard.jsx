@@ -2,7 +2,7 @@ import React from "react";
 
 const NewsCard = ({ name, img }) => {
   return (
-    <div className=" relative rounded-xl bg-semiWhite dark:bg-[#13005A] shadow-shadow-auth hover:scale-105 duration-500 ">
+    <div className=" relative rounded-xl bg-semiWhite dark:bg-[#13005A] shadow-shadow-auth hover:scale-105 duration-500 w-full">
       <div className="w-[480px] h-[195px] md:h-[240px]  md:w-[600px] cursor-pointer rounded-xl ">
         <div className="absolute cursor-pointer group mr-[220px] md:mr-[260px] lg:mr-[265px] mt-5 md:mt-6 lg:mt-7 ">
           <h2 className="md:text-xl text-lg text-newPurple3 group-hover:text-newPurple2 pl-4 dark:text-[#BBB8FF] dark:group-hover:text-[#F0E2FF]">

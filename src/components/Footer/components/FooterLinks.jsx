@@ -2,7 +2,7 @@ import React from 'react'
 
 const FooterLinks = () => {
   return (
-    <div className='text-right w-full'>
+    <div className='text-right w-full z-10 relative'>
         <h3 className='text-3xl mb-5'>لینک ها</h3>
         <ul className='list-disc list-inside pr-3 text-2xl flex flex-col gap-3'>
             <li>صفحه اصلی</li>

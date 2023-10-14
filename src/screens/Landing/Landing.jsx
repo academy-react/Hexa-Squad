@@ -10,7 +10,7 @@ const Landing = () => {
       <Categories />
       <OurTeachers/>
       <News/>
-      <Suggestions/>
+      {/* <Suggestions/> */}
     </Fragment>
   )
 }

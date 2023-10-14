@@ -4,8 +4,8 @@
 
 @layer base {
   @font-face {
-    font-family: B-Yekan;
-    src: url("./assets/fonts/Yekan.ttf");
+    font-family: IRANSans;
+    src: url("./assets/fonts/IRANSans.ttf");
   }
 }
 
@@ -120,6 +120,38 @@
     @apply absolute top-[3px] w-[90px] h-[45px] scale-[.9] right-2;
   }
 
+  .footer-content {
+    @apply md:p-10 dark:bg-[#02000f] bg-darkblue2 px-20 pt-10
+  }
+
+  .footer {
+    @apply relative 
+  }
+  .footer-bottom {
+    @apply w-full flex md:flex-row flex-col justify-between text-center items-center gap-5 dark:bg-[#02000f] bg-darkblue2 border-t-2 border-solid border-[#fff5] p-5 mt-5
+  }
+  .footer::before {
+    content: '';
+    height:115px;
+    width: 100%;
+    display: block;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    position: relative;
+    top: 1px;
+    @apply dark:bg-[#02000f] bg-darkblue2
+  }
+
+  .footer::after {
+    content: '';
+    clip-path: polygon(36% 57%, 35% 16%, 47% 16%, 47% 52%, 47% 26%, 60% 28%, 58% 15%, 74% 15%, 68% 54%, 58% 35%, 49% 34%);
+    height: 215px;
+    width: 215px;
+    background-color: #fff;
+    transition: .2s;
+    position: absolute;
+    top: 10px;
+    right: 0;
+  }
   /* Authorize Pages Style */
   .auth-title {
     color: white;
@@ -173,7 +205,7 @@
   }
 
   .news-wrapper {
-    @apply w-[500px] md:w-[100%] md:h-[540px] lg:h-[360px] mt-8 flex relative mx-auto md:mt-20 lg:mt-10 px-20 h-[550px] lg:gap-10 md:gap-10 md:my-0 items-center justify-center flex-col gap-10 md:flex-col lg:flex-row;
+    @apply w-full md:w-[100%] md:h-[540px] lg:h-[360px] mt-8 flex relative mx-auto md:mt-20 lg:mt-10 px-4 h-[520px] lg:gap-10 md:gap-10 md:my-0 items-center justify-center flex-col gap-10 md:flex-col lg:flex-row;
   }
 
   .news-image {
@@ -194,9 +226,10 @@
   }
 
   /* showModal */
-  #showLoginModal:checked + .loginModal{
+  #showLoginModal:checked+.loginModal {
     display: flex;
   }
+
   /* .teacher-photo{
     @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6  ;
 >>>>>>> a689b0c80c9ef8b68af95cfe54db3aab74654148
@@ -204,7 +237,7 @@
 }
 
 :root {
-  font-family: B-Yekan;
+  font-family: IRANSans;
   line-height: 1.5;
   font-weight: 400;
 

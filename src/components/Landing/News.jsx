@@ -12,26 +12,19 @@ const News = () => {
       img: "https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
   ]);
-
+  const newsCardsMapper = newsList.map((item, index) => {
+    return <NewsCard img={item.img} name={item.name} key={index} />;
+  });
   return (
     <section>
-    <div className=" w-[540px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-48">
-      <Title inner={'اخبار و مقالات'} className={'title1'}/>
-      <button className="absolute primary-btn w-auto h-10 bottom-[-20px] lg:w-56 lg:my-10  py-1 md:block lg:hidden left-3">
-        مشاهده ی همه
-      </button>
-      
+      <div className=" w-[440px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-48">
+        <Title inner={"اخبار و مقالات"} className={"title1"} />
+        <button className="absolute primary-btn w-auto h-10 bottom-[-20px] lg:w-56 lg:my-10  py-1 md:block lg:hidden left-3">
+          مشاهده ی همه
+        </button>
       </div>
 
-      <div className="news-wrapper">
-        {newsList.map((item, index) => {
-          return (
-            <>
-              <NewsCard img={item.img} name={item.name} />
-            </>
-          );
-        })}
-      </div>
+      <div className="news-wrapper">{newsCardsMapper}</div>
       <button className="primary-btn w-auto lg:w-56 lg:my-10 py-3 hidden md:hidden lg:block mx-auto">
         مشاهده ی همه
       </button>
