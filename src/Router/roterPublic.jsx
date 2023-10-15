@@ -10,6 +10,7 @@ import ForgetPassword from "../screens/Authorize/ForgetPassword";
 import VerificationCode from "../screens/Authorize/VerificationCode";
 import Error404 from "../screens/ErrorPage/Error404";
 import CourseDetails from "../screens/CourseDetails/CourseDetails";
+import Courses from '../screens/Courses/Courses';
 
 export const routerPublic = createBrowserRouter([
     {
@@ -17,7 +18,8 @@ export const routerPublic = createBrowserRouter([
       element: <Layout />,
       children: [
         { path: "/", element: <Landing /> },
-        { path: "/CourseDetails", element: <CourseDetails/> }
+        { path: "/CourseDetails", element: <CourseDetails/> },
+        { path: "/Courses", element: <Courses/> }
       ],
     },
     {

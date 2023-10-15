@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "../common.css";
+import "../Landing/common.css";
 import CoutsrHeader from "./CourseHeader";
 import CourseBody from "./CourseBody";
-import heart from "../../../assets/image/heart.svg";
-import cart from "../../../assets/image/cart.svg";
+import heart from "../../assets/image/heart.svg";
+import cart from "../../assets/image/cart.svg";
 import { Link } from "react-router-dom";
-import { addWishList } from "../../../core/services/api/addWishList";
-import { addCart } from "../../../core/services/api/addCart";
+import { addWishList } from "../../core/services/api/addWishList";
+import { addCart } from "../../core/services/api/addCart";
 
 const Course = ({ title, professorName, price ,id}) => {
   const [isLogin, setIsLogin] = useState(false);

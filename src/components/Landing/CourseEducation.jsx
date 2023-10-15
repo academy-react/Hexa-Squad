@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import "./common.css";
 import "../../index.css";
-import { Course } from "./index";
+import Course from '../course/Course'
 import Title from "../common/Title";
 
 const CourseEducation = () => {

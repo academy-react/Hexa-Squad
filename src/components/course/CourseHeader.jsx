@@ -1,5 +1,5 @@
 import React from "react";
-import figma from "../../../assets/image/figma.svg";
+import figma from "../../assets/image/figma.svg";
 
 const CourseHeader = () => {
   return (

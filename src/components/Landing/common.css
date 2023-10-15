@@ -38,7 +38,7 @@
 
     /* Course Education */
     .course-box {
-        @apply overflow-hidden duration-500 w-[336px] lg:w-[23%] mx-auto bg-[#F9F6FF] dark:bg-[#13005A] rounded-[20px] shadow-shadow-Course-box m-2;
+        @apply overflow-hidden duration-500 w-80 h-[390px]  mx-auto bg-[#F9F6FF] dark:bg-[#13005A] rounded-[20px] shadow-shadow-Course-box m-2;
     }
 
     .course-box:hover {

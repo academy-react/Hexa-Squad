@@ -21,7 +21,7 @@ const FooterBottom = () => {
         </a>
       </div>
       <div className="flex gap-2">
-        <i className="bi bi-pin-angle"></i>
+        <i className="bi bi-geo-alt"></i>
         <p>
           ساری - بلوار جاده دریا - بعد از دنیای آرزو - نرسیده به دانشگاه روزبهان
         </p>

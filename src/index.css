@@ -168,7 +168,7 @@
   }
 
   .field-input {
-    @apply text-right w-full py-1 px-2 pr-7 h-full rounded-md border-b-2 bg-[#F6F7FC] absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
+    @apply text-right w-full py-1 px-2 pr-7 h-full rounded-md border-b-2 bg-[#F6F7FC] dark:bg-lightblue4 absolute top-0 left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
   }
 
   .field-input2 {
@@ -234,6 +234,31 @@
     @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6  ;
 >>>>>>> a689b0c80c9ef8b68af95cfe54db3aab74654148
   } */
+
+
+  #openFilter:checked + label{
+    background-color: #fff;
+    @apply bg-[#fff] dark:bg-[#33335f]
+  }
+  #openFilter + label{
+    @apply text-[#2C007F] dark:text-[#ddd] transition-all h-[50px] flex items-center gap-2 bg-transparentPurple border-[3px] border-[#fff] py-2 px-3 cursor-pointer rounded-xl
+  }
+  #changeCardStyle:checked + label span {
+    left: 45px;
+    
+  }
+  #changeCardStyle:checked + label .bi-list-ul  {
+    @apply text-[#2C007F] dark:text-[#fff]
+  }
+  #changeCardStyle:checked + label .bi-columns-gap {
+    @apply text-[#fff]
+  }
+  #changeCardStyle + label .bi-columns-gap {
+    @apply text-[#2C007F] dark:text-[#fff]
+  }
+  .checkbox:checked ~ .content {
+    height: 0;
+  }
 }
 
 :root {
