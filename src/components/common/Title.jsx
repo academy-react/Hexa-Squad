@@ -4,7 +4,7 @@ const Title = ({inner,className}) => {
   return (
     <h2 className={"title "+className}>
       {inner}
-      <span className="absolute w-[100%] w-0 block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
+      <span className="absolute w-[100%] block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
     </h2>
   )
 }

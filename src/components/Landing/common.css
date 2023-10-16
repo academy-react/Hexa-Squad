@@ -15,9 +15,10 @@
 
     /*  services-box */
     .services-box {
-        @apply w-[30%] p-2 m-2 duration-500 rounded-xl rounded-bl-[45px] shadow-shadow-Categories-box hover:scale-105 hover:shadow-shadow-Services-box hover:cursor-pointer lg:p-8 lg:m-10 lg:rounded-none lg:shadow-shadow-none hover:bg-[#FFFFFF1A] lg:hover:shadow-shadow-Services-box1 lg:hover:rounded-[36px] md:p-4 md:m-4 md:rounded-none md:shadow-shadow-none md:hover:bg-[#FFFFFF1A] md:hover:shadow-shadow-Services-box2 md:hover:rounded-[15px];
-
-
+        @apply w-[30%] p-2 m-2 duration-500 rounded-xl rounded-bl-[45px] shadow-shadow-Categories-box 
+            hover:scale-105 hover:shadow-shadow-Services-box hover:cursor-pointer lg:p-8 lg:m-10 hover:bg-[#FFFFFF1A] 
+            lg:hover:shadow-shadow-Services-box1 lg:hover:rounded-[36px] md:p-4 md:m-4 md:rounded-none 
+            md:shadow-shadow-none md:hover:bg-[#FFFFFF1A] md:hover:shadow-shadow-Services-box2 md:hover:rounded-[15px];
     }
 
     .services-box img {
@@ -36,39 +37,54 @@
         @apply pt-4 lg:text-lg md:text-xs text-right text-lightblue4 dark:text-[#b3b1c2] hidden md:block;
     }
 
-    /* Course Education */
-    .course-box {
-        @apply overflow-hidden duration-500 w-80 h-[390px]  mx-auto bg-[#F9F6FF] dark:bg-[#13005A] rounded-[20px] shadow-shadow-Course-box m-2;
+   /* Course Education */
+   .course-box {
+        @apply overflow-hidden duration-500 w-[336px] lg:w-[24%] mx-auto bg-[#F9F6FF] dark:bg-darkblue6 rounded-[20px] shadow-shadow-Course-box m-2;
     }
-
     .course-box:hover {
-        box-shadow: 0px 0px 30px 0px #6D20FF4D;
-        @apply translate-x-0 translate-y-[-40px] cursor-pointer;
+        box-shadow: 0px 0px 15px 0px #6D20FF4D;
+        @apply translate-x-0;
 
         .course-name {
-            @apply text-lightblue dark:text-semiPink;
+            @apply text-newPurpule5 dark:text-semiPink;
         }
 
         .prof-name {
-            @apply text-[#4E2DCC] dark:text-[#9996F9]
+            @apply text-[#4E2DCC] dark:text-[#9996F9]  cursor-pointer;
         }
 
         .hover-box {
-            @apply block duration-500 left-0;
+            @apply block duration-500 left-0 cursor-pointer;
         }
     }
-
+    .hover-box {
+        @apply top-3 float-left h-[44px] w-[110px] absolute mb-[-50px] left-[-50%] 
+             bg-[#6736FF] dark:bg-[#261A97] dark:shadow-shadow-auth rounded-r-[10px]; 
+    }
+    .course-name{
+        @apply text-darkBlue5 dark:text-[#6974FF] opacity-90 text-2xl pb-3 ;
+    }
     .hover-box-img:hover {
-        @apply opacity-100
+        @apply opacity-100;
     }
 
     .hover-box-img {
         @apply my-3 mx-2 opacity-60;
     }
-
+    .course-svg{
+        @apply inline w-4 h-6 text-gray dark:text-[#9996F9];
+    }
+    .course-info{
+        @apply inline text-grayBlue text-xs pr-1 dark:text-[#9996F9];
+    }
+    .course-like-box{
+        @apply  inline px-2 py-1 bg-semiWhite2 dark:bg-[#6974FF] rounded-md;
+    }
+    .course-like-count{
+        @apply inline text-base text-darkblue2 pr-2 dark:text-darkBlue5;
+    }
     .prof-name {
-        @apply text-lightblue4 dark:text-[#848DFF]
-        
+        @apply text-lightblue4 dark:text-[#848DFF];
     }
 
     .course-details {
@@ -135,7 +151,7 @@
     }
     
     .adminComment{
-        @apply flex flex-row py-6 w-[395px] md:w-[520px] lg:w-[992px] mr-[-30px] md:mr-[75px]
+        @apply py-6 w-[395px] md:w-[520px] lg:w-[992px] mr-[-30px] md:mr-[75px]
                 md:mt-[-50px] mb-6 pr-2 bg-[#D0CDFF80] dark:bg-darkblue3 border-r-4 border-r-lightblue;
     }
     .comment-input{

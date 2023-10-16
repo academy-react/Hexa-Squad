@@ -6,9 +6,9 @@ import admin from '../../../../assets/image/admin.svg';
 const AdminComments = ({name, date, answer}) => {
     return(
         <div className='pr-8 border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70]'>
-            <img src={Lline} alt="picture" className=' mt-[-24px] hidden md:block' />
+            <img src={Lline} alt="picture" className=' lg:mt-[-24px] md:mt-[-30px] hidden md:block' />
             <div className='adminComment'>
-                <div className="userComment-pic bg-[#3F40EA33] dark:bg-[#9996F9]">
+                <div className="userComment-pic bg-[#3F40EA33] dark:bg-[#9996F9] float-right">
                     <img src={admin} alt="picture" className=" mx-auto my-5" />
                 </div>
                 <div className="">

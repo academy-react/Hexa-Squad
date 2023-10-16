@@ -33,7 +33,7 @@ const CourseEducation = () => {
       <div className="course">
         <h1 className="title lg:mt-40 mt-20 lg:block">
           دوره های آموزشی
-          <span className="absolute w-[100%] w-0 block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
+          <span className="absolute w-[100%] block mt-3 h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2"></span>
         </h1>
         <button className="primary-btn w-auto h-10 float-left mt-[-50px] ml-6 py-1 md:block lg:hidden">
           مشاهده ی همه
@@ -53,7 +53,7 @@ const CourseEducation = () => {
         })}
       </div>
       
-        <button className="flex justify-center primary-btn text-center w-56 mx-auto my-16 hidden lg:block">
+        <button className="justify-center primary-btn text-center w-56 mx-auto my-16 hidden lg:block">
           مشاهده ی همه
         </button>
       
