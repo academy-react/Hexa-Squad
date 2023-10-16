@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-const InputComment = ({name, date}) => {
+const InputComment = () => {
     return(
         <Fragment>
             <h2 className='text-xl md:text-3xl lg:text-3xl text-darkblue2 dark:text-[#6974FF] pt-4 lg:pr-2 pb-8'>افزودن نظر</h2>
