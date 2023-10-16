@@ -1,15 +1,11 @@
 import React from 'react'
 import { Formik ,Form } from 'formik';
-import * as yup from 'yup';
-import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
+import {validation} from '../../core/validations/validations';
 import pic2 from '../../assets/image/picture2.svg';
 import FieldInput from '../../components/common/FieldInput';
 const Login = () => {
-    const validation = yup.object().shape({
-        email: yup.string().required('این فیلد الزامیست!'),
-        password: yup.string().required('این فیلد الزامیست!'),
-    })
   return (
     <div className="bg-lightPink min-h-[100vh]">
         <div className="lg:flex block">

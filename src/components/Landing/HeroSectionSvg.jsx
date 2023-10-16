@@ -18,9 +18,7 @@ const HeroSectionSvg = () => {
             <div className='lg:scale-100 scale-75 relative z-10 sm:left-[-20px] left-[-240px]'>
                 <svg viewBox="0 0 188 326" fill="none" className='absolute sm:left-[20px] lg:top-[-300px] top-[40px] sm:top-[-190px] scale-75 left-[190px]' xmlns="http://www.w3.org/2000/svg">
                     <path d="M112 181.532L112.623 95.9998C112.663 90.4771 117.172 86.0326 122.695 86.0728L177.525 86.4719C183.047 86.5121 187.492 91.0218 187.451 96.5445L186.829 182.077L112 181.532Z" fill="url(#paint0_linear_1_30)" fillOpacity="0.7"/>
-                    <g opacity="0.5" filter="url(#filter0_d_1_30)">
                     <path d="M0 286H57C68.0457 286 77 277.046 77 266L77 189C77 177.954 68.0457 169 57 169H0L0 286Z" fill="url(#paint1_linear_1_30)" fillOpacity="0.6" shapeRendering="crispEdges"/>
-                    </g>
                     <g filter="url(#filter1_d_1_30)">
                     <path d="M0 197H108C119.046 197 128 188.046 128 177L128 80C128 68.9543 119.046 60 108 60H0L0 197Z" fill="url(#paint2_linear_1_30)" fillOpacity="0.6" shapeRendering="crispEdges"/>
                     </g>

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import ReactSwitch from "react-switch";
-
-const ChangeTheme = ({className}) => {
+import React from 'react'
+import { useState } from 'react';
+import ReactSwitch from 'react-switch'
+const ThemeSwitcher = ({className}) => {
   const [checked, setChecked] = useState(true);
   const htmlTag = document.querySelector("html");
   const changeTheme = (value) => {
@@ -18,8 +18,8 @@ const ChangeTheme = ({className}) => {
       onColor="#B9BAF8"
       offHandleColor="#fff"
       onHandleColor="#fff"
-      height={35}
-      width={70}
+      height={30}
+      width={65}
       uncheckedIcon={
         <div
           style={{
@@ -49,7 +49,7 @@ const ChangeTheme = ({className}) => {
         </div>
       }
     />
-  );
-};
+  )
+}
 
-export default ChangeTheme;
+export default ThemeSwitcher

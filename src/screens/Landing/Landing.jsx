@@ -1,14 +1,5 @@
 import React, { Fragment } from 'react';
-import Header from '../../components/Header/Header';
-import HeroSection from './landing-components/HeroSection';
-import Services from './landing-components/Services';
-import CourseEducation from './landing-components/CourseEducation';
-import Categories from './landing-components/Categories';
-import OurTeachers from './landing-components/OurTeachers';
-import Footer from '../../components/Footer/Footer';
-import News from './landing-components/News';
-import Suggestions from './landing-components/Suggestions';
-
+import { HeroSection , Services , CourseEducation,Categories ,Suggestions ,OurTeachers ,News } from '../../components/Landing';
 const Landing = () => {
 
   return (
@@ -19,7 +10,7 @@ const Landing = () => {
       <Categories />
       <OurTeachers/>
       <News/>
-      <Suggestions/>
+      {/* <Suggestions/> */}
     </Fragment>
   )
 }
