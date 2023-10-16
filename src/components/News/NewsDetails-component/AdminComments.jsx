@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Lline from '../../../../assets/image/Lline.svg';
-import admin from '../../../../assets/image/admin.svg';
+import Lline from '../../../assets/image/Lline.svg';
+import admin from '../../../assets/image/admin.svg';
 
 const AdminComments = ({name, date, answer}) => {
     return(
@@ -14,7 +14,7 @@ const AdminComments = ({name, date, answer}) => {
                 <div className="">
                     <p className="inline text-sm md:text-xl text-darkblue2 dark:text-[#9996F9] pr-4">{name}-</p>
                     <p className="inline text-xs md:text-base text-lightblue4 dark:text-[#9996F9] pr-4">ارسال شده در{date} </p>
-                    <p className="text-xs md:text-sm lg:text-base text-darkblue4 dark:text-[#7e7cb1] pr-4 pt-2">{answer}</p>
+                    <p className="text-xs md:text-sm lg:text-base text-justify text-darkblue4 dark:text-[#7e7cb1] px-4 pt-2">{answer}</p>
                 </div>
             </div>
 

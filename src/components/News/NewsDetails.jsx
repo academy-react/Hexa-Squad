@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
-import UserComments from './NewsDetails-component/UserComments';
-import InputComment from './NewsDetails-component/InputComment';
+import {UserComments, InputComment} from './';
 
-import newsDetails1 from '../../../assets/image/newsDetails1.svg';
-import newsDetails2 from '../../../assets/image/newsDetails2.svg';
-import eye from '../../../assets/image/eye.svg';
-import calendar from '../../../assets/image/calendar.svg';
-import comment from '../../../assets/image/comments.svg';
-import '../../Landing/common.css';
+import newsDetails1 from '../../assets/image/newsDetails1.svg';
+import newsDetails2 from '../../assets/image/newsDetails2.svg';
+import eye from '../../assets/image/eye.svg';
+import calendar from '../../assets/image/calendar.svg';
+import comment from '../../assets/image/comments.svg';
+import '../Landing/common.css';
 
 const NewsDetails = () => {
     const [userCommentsList, setUserComments] = useState([
@@ -21,7 +20,17 @@ const NewsDetails = () => {
             date: " 1402/04/15",
             question: "آیا مطالبی که در دوره جاری ارائه میدید با دوره قبلی تفاوت داره؟",
         },
-    ])
+    ]);
+    const userComments = userCommentsList.map((item, index) => {
+        return (
+            <UserComments
+                name={item.name}
+                date={item.date}
+                question={item.question}
+                key={index}
+            />
+        );
+    })
 
     return(
         <div className="pt-24 lg:pt-40 mb-52">
@@ -87,17 +96,7 @@ const NewsDetails = () => {
                     <img src={comment} className="inline pl-4"/>
                     <h3 className="text-xl md:text-2xl text-darkblue4 dark:text-[#6974FF] inline">نظرات کاربران در رابطه با این مقاله </h3>
                 </div>
-                {userCommentsList.map((item, index) => {
-                    return (
-                        <UserComments
-                            name={item.name}
-                            date={item.date}
-                            question={item.question}
-                            key={index}
-                        />
-                    );
-                })}
-
+                {userComments}
                 <InputComment/>
             </div>
         </div>

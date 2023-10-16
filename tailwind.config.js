@@ -25,6 +25,7 @@ export default {
       "darkblue4":"#3B3CA7",
       "darkBlue5":"#27278d",
       "darkblue6":"#13005A",
+      "darkblue7":"#2C007F",
       "lightblue":"#3F40EA",
       "lightblue2":"#6D20FF",
       "lightblue3":"#6514FF",
