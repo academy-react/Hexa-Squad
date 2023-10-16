@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NewsCard = ({ name, img }) => {
   return (
@@ -13,10 +14,12 @@ const NewsCard = ({ name, img }) => {
             در کنار خانواده امکان‌پذیر می‌سازد.“
           </h2>
           <div className="flex flex-row absolute left-3 mt-2 md:left-5 ">
-            <h2 className="text-newPurple  group-hover:text-[#9100DB] dark:text-[#603CE9] dark:group-hover:text-[#B882FF] ">
-              {" "}
-              ادامه مطلب
-            </h2>
+            <Link to={"/newsDetails"}>
+              <h2 className="text-newPurple  group-hover:text-[#9100DB] dark:text-[#603CE9] dark:group-hover:text-[#B882FF] ">
+                {" "}
+                ادامه مطلب
+              </h2>
+            </Link>
             <i className="bi bi-arrow-left group-hover:text-[#9100DB] text-newPurple dark:text-[#603CE9] dark:group-hover:text-[#B882FF] mt-1 mx-2"></i>
           </div>
         </div>

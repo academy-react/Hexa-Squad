@@ -11,6 +11,7 @@ import VerificationCode from "../screens/Authorize/VerificationCode";
 import Error404 from "../screens/ErrorPage/Error404";
 import CourseDetails from "../screens/CourseDetails/CourseDetails";
 import Courses from '../screens/Courses/Courses';
+import NewsDetails from '../components/News/News-component/NewsDetails';
 
 export const routerPublic = createBrowserRouter([
     {
@@ -19,7 +20,9 @@ export const routerPublic = createBrowserRouter([
       children: [
         { path: "/", element: <Landing /> },
         { path: "/CourseDetails", element: <CourseDetails/> },
-        { path: "/Courses", element: <Courses/> }
+        { path: "/Courses", element: <Courses/> },
+        { path: "/NewsDetails", element: <NewsDetails/> },
+
       ],
     },
     {
