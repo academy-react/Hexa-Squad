@@ -37,9 +37,11 @@ const NewsDetails = () => {
             <div className="news-details">
                 <div className="flex lg:flex-row flex-wrap border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70] mx-auto pb-12">
                     <div className='relative'>
-                        <img src={newsDetails1} alt="picture" className="mb-8 lg:p-2 md:hidden lg:block"/>
+                        {/* <div className="md:w-[640px] md:h-[480] inline"> */}
+                        <img src={newsDetails1} alt="picture" className=" mb-8 lg:p-2 md:hidden lg:block"/>
+                        {/* </div> */}
                         <img src={newsDetails2} alt="picture" className="mb-8 p-2 mx-auto hidden md:block lg:hidden"/>
-                        <div className="absolute bottom-[55px] left-6 md:right-12">
+                        <div className="absolute bottom-[55px] left-6 md:right-12 inline">
                             <img src={calendar} alt="picture" className='inline ml-2'  />
                             <span className="inline text-lg ml-28 md:ml-72 lg:ml-20">1402/02/08</span>                            
                             <img src={eye} alt="picture" className='inline ml-2' />

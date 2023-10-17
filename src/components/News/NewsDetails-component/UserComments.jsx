@@ -25,8 +25,8 @@ const UserComments = ({name, date, question}) => {
     return(
         <Fragment>
         <div className='userComment'>
-            <div className="userComment-pic">
-                <img src={userComment} alt="picture" className="mx-auto" />
+            <div className="userComment-pic ">
+                <img src={userComment} alt="picture" className="mx-auto object-cover" />
             </div>
             <div>
                 <p className="inline text-xl text-darkblue2 dark:text-[#9996F9] pr-4">{name}-</p>
