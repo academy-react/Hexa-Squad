@@ -30,8 +30,8 @@ const FiltersBTN = ({data,setData}) => {
     setFilterDiv(document.getElementById("filterDiv"));
   }, 500);
   return (
-    <div className="flex w-full justify-evenly items-center">
-      <div className="flex gap-5">
+    <div className="flex w-full justify-between px-20 items-center pr-40">
+      <div className="flex gap-5 w-5/12">
         <CheckboxInput name={"openFilter"} />
         <label htmlFor="openFilter" onClick={showFilterDiv}>
           فیلتر
@@ -47,7 +47,7 @@ const FiltersBTN = ({data,setData}) => {
           <i className="bi bi-columns-gap relative z-10"></i>
         </label>
       </div>
-      <div className="flex gap-5 w-6/12">
+      <div className="flex gap-5 w-11/12">
         <div className="relative my-4 w-full h-12">
           <input
             placeholder={"جستوجو..."}
@@ -64,12 +64,13 @@ const FiltersBTN = ({data,setData}) => {
           ></i>
         </div>
       </div>
-      <div className="flex gap-5 text-darkblue2">
+      <div className="flex gap-5 text-darkblue2 w-5/12 justify-center">
         <Select
           value={selectedOptions}
           placeholder={"دسته بندی ها"}
           options={options}
-          className="text-darkblue2 w-[220px] dark:bg-purple2"
+          className="text-darkblue2 w-[220px] rounded-xl"
+          onChange={handleChange}
         />
       </div>
     </div>
