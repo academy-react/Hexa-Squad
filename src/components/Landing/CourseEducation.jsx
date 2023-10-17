@@ -81,7 +81,7 @@ const CourseEducation = () => {
           </button>      
         </Link>
       </div>
-      <div className="mt-24 md:flex flex-wrap gap-4 lg:flex-row hidden">{mapCard}</div>
+      <div className="mt-24 md:flex gap-4 lg:flex-row hidden">{mapCard}</div>
       <div className="mt-20 md:hidden">
         <CourseSlider />
       </div>

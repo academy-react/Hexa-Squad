@@ -6,7 +6,7 @@ const DropDown = ({name , data , checkBoxType,height ,courseData,setData}) => {
     const dataMepper = data.map((item , index)=>(
         <div className="flex p-2"key={index}>
             <input type={checkBoxType} name={name} id={name+index} />
-            <label htmlFor={name+index} className='pr-10' onClick={()=>{filterData(courseData ,setData)}}>{item}</label>
+            <label htmlFor={name+index} className='pr-10' onClick={()=>{filterData(courseData ,item,setData)}}>{item}</label>
         </div>
     ),)
   return (

@@ -17,21 +17,27 @@ const FiltersBTN = ({data,setData}) => {
   const showFilterDiv = () => {
     if (
       filterDiv.className ==
-      "transition-all px-10 overflow-hidden w-0 opacity-0"
+      "transition-all px-10 overflow-hidden w-full md:h-full md:w-0 opacity-0 h-0"
     ) {
-      filterDiv.classList.remove("w-0", "opacity-0");
-      filterDiv.classList.add("w-5/12");
+      filterDiv.classList.remove("md:w-0", "opacity-0",'h-0');
+      filterDiv.classList.add("md:w-5/12",'h-full');
     } else {
-      filterDiv.classList.remove("w-5/12", "block");
-      filterDiv.classList.add("w-0", "opacity-0");
+      filterDiv.classList.remove("md:w-5/12", 'h-full');
+      filterDiv.classList.add("md:w-0", "opacity-0",'h-0');
     }
   };
+  const filterSearch = (value)=>{
+    let filteredData = data.filter((item) => {
+      return item.title.indexOf(value) != -1
+    });
+    setData(filteredData);
+  }
   setTimeout(() => {
     setFilterDiv(document.getElementById("filterDiv"));
   }, 500);
   return (
-    <div className="flex w-full justify-between px-20 items-center pr-40">
-      <div className="flex gap-5 w-5/12">
+    <div className="flex md:flex-row flex-col w-full justify-center md:justify-between px-20 items-center pr-40">
+      <div className="flex gap-5 md:w-5/12 w-full justify-center">
         <CheckboxInput name={"openFilter"} />
         <label htmlFor="openFilter" onClick={showFilterDiv}>
           فیلتر
@@ -47,14 +53,14 @@ const FiltersBTN = ({data,setData}) => {
           <i className="bi bi-columns-gap relative z-10"></i>
         </label>
       </div>
-      <div className="flex gap-5 w-11/12">
+      <div className="flex gap-5 md:w-11/12 w-full">
         <div className="relative my-4 w-full h-12">
           <input
             placeholder={"جستوجو..."}
             type={"search"}
             name={"search"}
             id="search"
-            onKeyUp={()=>{filterData(data,setData)}}
+            onKeyUp={(event)=>{filterSearch(event.target.value)}}
             className="field-input outline-none text-darkblue2"
           />
           <i
@@ -64,12 +70,12 @@ const FiltersBTN = ({data,setData}) => {
           ></i>
         </div>
       </div>
-      <div className="flex gap-5 text-darkblue2 w-5/12 justify-center">
+      <div className="flex gap-5 text-darkblue2 md:w-5/12 w-full justify-center">
         <Select
           value={selectedOptions}
           placeholder={"دسته بندی ها"}
           options={options}
-          className="text-darkblue2 w-[220px] rounded-xl"
+          className="text-darkblue2 md:w-[220px] w-full"
           onChange={handleChange}
         />
       </div>
