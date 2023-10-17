@@ -18,6 +18,7 @@ const CourseSlider = () => {
           dislike: "0",
           studentCount: "267 دانش اموز",
           price: "500,000",
+          category: "programming",
         },
         {
           title: "آموزش Figma",
@@ -29,6 +30,7 @@ const CourseSlider = () => {
           dislike: "2",
           studentCount: "158 دانش اموز",
           price: "320,000",
+          category: "design",
         },
         {
           title: "آموزش Node.js",
@@ -40,6 +42,7 @@ const CourseSlider = () => {
           dislike: "3",
           studentCount: "128 دانش اموز",
           price: "480,000",
+          category: "programming",
         },
         {
           title: "آموزش React.js",
@@ -51,6 +54,7 @@ const CourseSlider = () => {
           dislike: "0",
           studentCount: "210 دانش اموز",
           price: "450,000",
+          category: "react",
         },
       ]);
 

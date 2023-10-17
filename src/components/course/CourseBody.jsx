@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import likePic from '../../assets/image/like.svg';
 import dislikePic from '../../assets/image/dislike.svg';
 import "../Landing/common.css";
+import SeparationPrice from "../../core/services/SeparationPrice/SeparationPrice";
 
 const CourseBody = ({ title, courseCount, time, date, professorName, like, dislike, studentCount, price }) => {
   return (
@@ -50,7 +51,7 @@ const CourseBody = ({ title, courseCount, time, date, professorName, like, disli
         </svg>
         <p className="course-info text-sm">{studentCount}</p>
         <p className="inline text-xl text-newPurple4 mr-10">
-          {price}
+          {SeparationPrice(price)} 
           <span className="text-lightblue4 dark:text-[#9996F9] text-base mr-3">تومان</span>
         </p>
 

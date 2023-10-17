@@ -1,12 +1,11 @@
 import React from 'react'
 import CheckboxInput from './CheckboxInput'
-import filterData from '../../core/services/filterData/filterData'
 
-const DropDown = ({name , data , checkBoxType,height ,courseData,setData}) => {
+const DropDown = ({name , data , checkBoxType,height ,courseData,setData,customFunction}) => {
     const dataMepper = data.map((item , index)=>(
         <div className="flex p-2"key={index}>
             <input type={checkBoxType} name={name} id={name+index} />
-            <label htmlFor={name+index} className='pr-10' onClick={()=>{filterData(courseData ,item,setData)}}>{item}</label>
+            <label htmlFor={name+index} className='pr-10' onClick={()=>{customFunction(courseData ,item.category,setData)}}>{item.label}</label>
         </div>
     ),)
   return (
