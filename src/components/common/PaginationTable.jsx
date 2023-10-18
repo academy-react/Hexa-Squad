@@ -18,7 +18,7 @@ const PaginationTable = ({data,itemsPerPage}) => {
     };
   return (
     <div className=" py-5 flex flex-col items-scratch" >
-      <table className="w-full text-left text-sm px-3 border-spacing-y-2 border-separate">
+      <table className="w-full text-left text-sm px-3 border-spacing-y-3 border-separate">
         <thead>
           <tr className="rounded-xl bg-lightblue text-center" >
             <th scope="col" className="px-6 py-4">

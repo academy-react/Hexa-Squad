@@ -14,7 +14,7 @@ const TitleSection = ({title}) => {
           className="absolute top-[0] right-1"
           alt="TitleRight"
         />
-        <h2>{title}</h2>
+        <h2 className="relative z-10">{title}</h2>
       </div>
     </div>
   );
