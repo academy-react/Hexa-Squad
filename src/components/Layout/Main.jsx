@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
-import Header from "../../components/Header/Header";
+import Header from "../Header/Header";
 import { Outlet } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../Footer/Footer";
 
-const Layout = () => {
+const Main = () => {
   return (
     <div className="bg-lightPink dark:bg-darkblue min-h-[100vh]"dir="rtl" >
       <Header />
@@ -13,4 +13,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default Main;

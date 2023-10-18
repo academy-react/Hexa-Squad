@@ -259,6 +259,11 @@
   .checkbox:checked ~ .content {
     height: 0;
   }
+
+  /* dashboard styles */
+  .list-items {
+    @apply flex justify-end w-full gap-5 h-[56px] px-4 items-center my-3 text-[#fff] hover:bg-[#6133FF] transition-all text-ellipsis overflow-hidden whitespace-nowrap rounded-md hover:text-[#fff]
+  }
 }
 
 :root {
