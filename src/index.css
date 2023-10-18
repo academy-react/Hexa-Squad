@@ -125,14 +125,16 @@
   }
 
   .footer {
-    @apply relative 
+    @apply relative
   }
+
   .footer-bottom {
     @apply w-full flex md:flex-row flex-col justify-between text-center items-center gap-5 dark:bg-[#02000f] bg-darkblue2 border-t-2 border-solid border-[#fff5] p-5 mt-5
   }
+
   .footer::before {
     content: '';
-    height:115px;
+    height: 115px;
     width: 100%;
     display: block;
     clip-path: polygon(100% 0, 0 100%, 100% 100%);
@@ -152,6 +154,7 @@
     top: 10px;
     right: 0;
   }
+
   /* Authorize Pages Style */
   .auth-title {
     color: white;
@@ -236,33 +239,57 @@
   } */
 
 
-  #openFilter:checked + label{
+  #openFilter:checked+label {
     background-color: #fff;
     @apply bg-[#fff] dark:bg-[#33335f]
   }
-  #openFilter + label{
+
+  #openFilter+label {
     @apply text-[#2C007F] dark:text-[#ddd] transition-all h-[50px] flex items-center gap-2 bg-transparentPurple border-[3px] border-[#fff] py-2 px-3 cursor-pointer rounded-xl
   }
-  #changeCardStyle:checked + label span {
+
+  #changeCardStyle:checked+label span {
     left: 45px;
-    
+
   }
-  #changeCardStyle:checked + label .bi-list-ul  {
+
+  #changeCardStyle:checked+label .bi-list-ul {
     @apply text-[#2C007F] dark:text-[#fff]
   }
-  #changeCardStyle:checked + label .bi-columns-gap {
+
+  #changeCardStyle:checked+label .bi-columns-gap {
     @apply text-[#fff]
   }
-  #changeCardStyle + label .bi-columns-gap {
+
+  #changeCardStyle+label .bi-columns-gap {
     @apply text-[#2C007F] dark:text-[#fff]
   }
-  .checkbox:checked ~ .content {
+
+  .checkbox:checked~.content {
     height: 0;
   }
 
-  /* dashboard styles */
+  /* Panek styles */
   .list-items {
     @apply flex justify-end w-full gap-5 h-[56px] px-4 items-center my-3 text-[#fff] hover:bg-[#6133FF] transition-all text-ellipsis overflow-hidden whitespace-nowrap rounded-md hover:text-[#fff]
+  }
+
+  .paginationLink {
+    @apply text-[#191760] px-5 py-3 rounded-lg hover:text-[#fff] hover:bg-[#3F40EA]
+  }
+
+  .paginationLink.active {
+    @apply text-[#fff] bg-[#3F40EA]
+  }
+
+  td:first-child,
+  th:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+
+  td:last-child,
+  th:last-child {
+    border-radius: 0 10px 10px 0;
   }
 }
 

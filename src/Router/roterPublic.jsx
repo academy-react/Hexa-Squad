@@ -15,6 +15,7 @@ import CourseDetails from "../screens/CourseDetails/CourseDetails";
 import Courses from "../screens/Courses/Courses";
 import NewsList from "../screens/News/NewsList";
 import NewsDetails from "../components/News/NewsDetails";
+import AllCourses from "../components/UserPanel/AllCourses";
 
 export const routerPublic = createBrowserRouter([
   {
@@ -40,7 +41,7 @@ export const routerPublic = createBrowserRouter([
   {
     path: "/userPanel",
     element:<UserPanel/>,
-    children: [{ path: "/userPanel/login", element: <Login /> }],
+    children: [{ path: "/userPanel/AllCourses", element: <AllCourses /> }],
   },
   { path: "/*", element: <Error404 /> },
 ]);

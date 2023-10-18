@@ -28,7 +28,7 @@ const FiltersBTN = ({data,setData}) => {
   };
   const filterSearch = (value)=>{
     let filteredData = data.filter((item) => {
-      return item.title.indexOf(value) != -1
+      return item.title.toLowerCase().indexOf(value.toLowerCase()) != -1
     });
     setData(filteredData);
   }

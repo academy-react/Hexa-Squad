@@ -9,7 +9,7 @@ import cart from "../../assets/image/cart.svg";
 import "../Landing/common.css";
 
 
-const Course = ({ data, title, courseCount, time, date, professorName, like, dislike, studentCount, price, id }) => {
+const Course = ({ data, title, courseCount, time, date, professorName, like, dislike, studentCount, price,image, id }) => {
   const [isLogin, setIsLogin] = useState(false);
   return (
     <div className="course-box px-6">
@@ -17,7 +17,7 @@ const Course = ({ data, title, courseCount, time, date, professorName, like, dis
         <img src={cart} className="inline hover-box-img mr-6" onClick={()=>addCart(id,isLogin)} />
         <img src={heart} className="inline hover-box-img" onClick={()=>addWishList(id ,isLogin)} />
       </div>
-      <CoutsrHeader />
+      <CoutsrHeader image={image} />
       <CourseBody 
         title={title} 
         courseCount={courseCount}
