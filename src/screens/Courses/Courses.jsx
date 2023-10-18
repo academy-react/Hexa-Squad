@@ -5,7 +5,7 @@ import {
   FiltersBTN,
   FiltersOptions,
 } from "../../components/Courses";
-import AllData from "../../core/services/api/allData/AllData";
+import AllData from "../../core/services/api/Data/AllData";
 const Courses = () => {
   const typeWriterWords = [
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",

@@ -15,7 +15,9 @@ import CourseDetails from "../screens/CourseDetails/CourseDetails";
 import Courses from "../screens/Courses/Courses";
 import NewsList from "../screens/News/NewsList";
 import NewsDetails from "../components/News/NewsDetails";
-import AllCourses from "../components/UserPanel/AllCourses";
+import AllCourse from "../components/UserPanel/AllCourse";
+import WhishList from "../components/UserPanel/WhishList";
+import MyCourses from "../components/UserPanel/MyCourses";
 
 export const routerPublic = createBrowserRouter([
   {
@@ -40,8 +42,12 @@ export const routerPublic = createBrowserRouter([
   },
   {
     path: "/userPanel",
-    element:<UserPanel/>,
-    children: [{ path: "/userPanel/AllCourses", element: <AllCourses /> }],
+    element: <UserPanel />,
+    children: [
+      { path: "/userPanel/AllCourses", element: <AllCourse /> },
+      { path: "/userPanel/MyCourses", element: <MyCourses /> },
+      { path: "/userPanel/WhishList", element: <WhishList /> },
+    ],
   },
   { path: "/*", element: <Error404 /> },
 ]);

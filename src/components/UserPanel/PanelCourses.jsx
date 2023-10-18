@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Select from "react-select";
 
-import AllData from "../../core/services/api/allData/AllData";
 import PaginationTable from "../common/PaginationTable";
 import TitleSection from "./titleSection";
-import Select from "react-select";
-const AllCourses = () => {
+const PanelCourses = ({title,AllData}) => {
   const [options, setOptions] = useState([
     { value:3, label: 3 },
     { value: 5, label: 5},
@@ -35,9 +34,9 @@ const AllCourses = () => {
   }, []);
 
   return (
-    <div>
-      <TitleSection title={"تمام دوره ها"} />
-      <div className="flex my-3 w-full text-[#666]">
+    <>
+      <TitleSection title={title} />
+      <div className="flex my-3 w-full items-center text-[#666]">
         <div className="w-3/12 px-10" dir="rtl">
 
         <Select
@@ -48,8 +47,8 @@ const AllCourses = () => {
           onChange={handleChange}
         />
         </div>
-        <div className="relative bg w-11/12 h-10 overflow-hidden border-[3px] border-[#3F40EA30] rounded-2xl">
-          <i className="bi bi-search absolute right-4 top-2 "></i>
+        <div className="relative bg w-11/12 h-12 overflow-hidden border-[3px] border-[#3F40EA30] rounded-2xl">
+          <i className="bi bi-search absolute right-4 top-3 "></i>
           <input
             type="search" 
             onKeyUp={(event)=>{filterSearch(event.target.value)}}
@@ -59,8 +58,8 @@ const AllCourses = () => {
         </div>
       </div>
       <PaginationTable data={data} itemsPerPage={countInPage} />
-    </div>
+    </>
   );
 };
 
-export default AllCourses;
+export default PanelCourses;

@@ -8,7 +8,8 @@ const SideBar = ({profileSrc}) => {
     const [listItem, setListItem] = useState([
         {label: 'داشبورد',classNameIcon:'columns-gap',address:''},
         {label: 'اطلاعات کاربر',classNameIcon:'person-circle',address:''},
-        {label: 'دوره های من',classNameIcon:'book',address:''},
+        {label: 'دوره های من',classNameIcon:'book',address:'MyCourses/'},
+        {label: 'لیست مورد علاقه ها',classNameIcon:'star',address:'WhishList/'},
         {label: 'تمام دوره ها',classNameIcon:'book',address:'AllCourses/'},
         {label: 'تغییر رمز عبور',classNameIcon:'key rotate-[-220deg]',address:''},
         {label: 'نظرات ثبت شده',classNameIcon:'chat-left-text',address:''},

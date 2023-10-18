@@ -17,7 +17,7 @@ const PaginationTable = ({data,itemsPerPage}) => {
       setItemOffset(newOffset);
     };
   return (
-    <div className="px-20 py-5 flex flex-col items-scratch" >
+    <div className=" py-5 flex flex-col items-scratch" >
       <table className="w-full text-left text-sm px-3 border-spacing-y-2 border-separate">
         <thead>
           <tr className="rounded-xl bg-lightblue text-center" >
