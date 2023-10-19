@@ -3,4 +3,5 @@ import InputComment from './NewsDetails-component/InputComment';
 import UserComments from './NewsDetails-component/UserComments';
 import NewsDetails from './NewsDetails';
 import NewsListHero from './NewsListHero';
-export { AdminComments, InputComment, UserComments, NewsDetails, NewsListHero };
+import NewsFilterMenu from './NewsFilterMenu';
+export { AdminComments, InputComment, UserComments, NewsDetails, NewsListHero, NewsFilterMenu };

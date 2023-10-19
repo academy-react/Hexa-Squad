@@ -8,8 +8,8 @@ const AdminComments = ({name, date, answer}) => {
         <div className='pr-8 border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70]'>
             <img src={Lline} alt="picture" className=' lg:mt-[-24px] md:mt-[-30px] hidden md:block' />
             <div className='adminComment'>
-                <div className="userComment-pic bg-[#3F40EA33] dark:bg-[#9996F9] float-right">
-                    <img src={admin} alt="picture" className=" mx-auto my-5" />
+                <div className="userComment-pic bg-[#3F40EA33] dark:bg-[#9996F9] float-none md:float-right">
+                    <img src={admin} alt="picture" className=" mx-auto pt-5 mb-2 md:pt-0 md:my-5" />
                 </div>
                 <div className="">
                     <p className="inline text-sm md:text-xl text-darkblue2 dark:text-[#9996F9] pr-4">{name}-</p>

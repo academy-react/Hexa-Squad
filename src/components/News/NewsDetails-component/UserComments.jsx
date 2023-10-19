@@ -29,9 +29,9 @@ const UserComments = ({name, date, question}) => {
                 <img src={userComment} alt="picture" className="mx-auto" />
             </div>
             <div>
-                <p className="inline text-xl text-darkblue2 dark:text-[#9996F9] pr-4">{name}-</p>
-                <p className="inline text-base text-lightblue4 dark:text-[#9996F9] pr-4">ارسال شده در{date} </p>
-                <p className="text-base text-justify text-darkblue4 dark:text-[#7e7cb1] px-4 pt-2">{question}</p>
+                <p className="inline text-lg md:text-xl text-darkblue2 dark:text-[#9996F9] pr-4">{name}-</p>
+                <p className="inline text-sm md:text-base text-lightblue4 dark:text-[#9996F9] pr-4">ارسال شده در{date} </p>
+                <p className="text-sm md:text-base text-justify text-darkblue4 dark:text-[#7e7cb1] px-4 pt-2">{question}</p>
             </div>
         </div>
         {adminComments}

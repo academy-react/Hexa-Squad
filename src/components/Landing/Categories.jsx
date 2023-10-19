@@ -17,19 +17,19 @@ const Categories = () => {
                 <ul className="relative flex flex-wrap md:flex-row justify-center gap-2 right mt-12 lg:mt-40">
                     <li className="categories-box lg:mt-28">
                         <img className="categories-img" src={networkSecurity} />
-                        <span className="text-2xl">امنیت شبکه</span>
+                        <span className="categories-name">امنیت شبکه</span>
                     </li>
                     <li className="categories-box">
-                        <img className="categories-img" src={game} />
-                        <span className="text-2xl">بازی</span>
+                        <img className="categories-img w-[60%] md:w-auto mb-1" src={game} />
+                        <span className="categories-name">بازی</span>
                     </li>
                     <li className="categories-box lg:mt-28">
                         <img className="categories-img" src={webDesign} />
-                        <span className="text-2xl">وب دیزاین</span>
+                        <span className="categories-name">وب دیزاین</span>
                     </li>
                     <li className="categories-box ">
                         <img className="categories-img" src={dataAnalysis} />
-                        <span className="text-2xl">تحلیل داده</span>
+                        <span className="categories-name">تحلیل داده</span>
                     </li>
                 </ul>
             </div>        
