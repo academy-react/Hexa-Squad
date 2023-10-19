@@ -19,7 +19,7 @@ const SideBar = ({ profileSrc }) => {
     {
       label: "تغییر رمز عبور",
       classNameIcon: "key rotate-[-220deg]",
-      address: "",
+      address: "ChangePassword/",
     },
     { label: "نظرات ثبت شده", classNameIcon: "chat-left-text", address: "" },
     { label: "خروج از حساب", classNameIcon: "power", address: "login" },

@@ -18,6 +18,7 @@ import NewsDetails from "../components/News/NewsDetails";
 import AllCourse from "../screens/Panel/AllCourse";
 import WhishList from "../screens/Panel/WhishList";
 import MyCourses from "../screens/Panel/MyCourses";
+import ChangePassword from "../screens/Panel/ChangePassword";
 
 export const routerPublic = createBrowserRouter([
   {
@@ -47,6 +48,7 @@ export const routerPublic = createBrowserRouter([
       { path: "/userPanel/AllCourses", element: <AllCourse /> },
       { path: "/userPanel/MyCourses", element: <MyCourses /> },
       { path: "/userPanel/WhishList", element: <WhishList /> },
+      { path: "/userPanel/ChangePassword", element: <ChangePassword /> },
     ],
   },
   { path: "/*", element: <Error404 /> },
