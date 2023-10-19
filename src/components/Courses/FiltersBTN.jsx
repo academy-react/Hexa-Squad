@@ -7,9 +7,9 @@ const FiltersBTN = ({data,setData}) => {
   const [selectedOptions, setSelectedOption] = useState(null);
   const [filterDiv, setFilterDiv] = useState(null);
   const [options, setOptions] = useState([
-    { value: "programming", label: "برنامه نویسی" },
-    { value: "design", label: "طراحی" },
-    { value: "edit", label: "ادیت ویدیو" },
+    { value: "programming", label: "جدیدترین ها" },
+    { value: "design", label: "پر بازدید ترین ها" },
+    { value: "edit", label: "پرطرفدار ترین ها"},
   ]);
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
@@ -73,7 +73,7 @@ const FiltersBTN = ({data,setData}) => {
       <div className="flex gap-5 text-darkblue2 md:w-5/12 w-full justify-center">
         <Select
           value={selectedOptions}
-          placeholder={"دسته بندی ها"}
+          placeholder={'بر اساس :'}
           options={options}
           className="text-darkblue2 md:w-[220px] w-full"
           onChange={handleChange}

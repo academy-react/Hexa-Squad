@@ -270,6 +270,45 @@
   }
 
   /* Panek styles */
+  #showUserPanelSidebar:checked+ .side-bar-container{
+    @apply h-full;
+    .side-bar-image{
+      @apply block py-8 ;
+      img{
+        @apply w-32
+      }
+      .bi-list{
+        @apply hidden 
+      }
+      .bi-x{
+        @apply block
+      }
+    }
+    ul{
+      @apply h-full 
+    }
+  }
+  .side-bar-container{
+    @apply lg:h-full h-20 overflow-hidden lg:w-3/12 w-full md:min-w-[210px] bg-[#2E11B7] rounded-3xl px-5 py-3 transition-all;
+    .side-bar-image{
+      @apply text-center lg:py-8 py-2 relative lg:block gap-4 flex border-b-[1px] border-[#fff] transition-all;
+      .sidebar-icon{
+        @apply absolute lg:top-2 top-4 text-2xl text-[#fff]
+      }
+      .bi-list{
+        @apply block lg:hidden  right-14
+      }
+      .bi-x{
+        @apply hidden  right-14
+      }
+      img{
+        @apply border-2 lg:relative  text-[#fff] rounded-full lg:w-32 w-12 inline-block transition-all
+      }
+    }
+    ul{
+      @apply transition-all lg:h-full h-0 overflow-hidden
+    }
+  }
   .list-items {
     @apply flex justify-end w-full gap-5 h-[56px] px-4 items-center my-3 text-[#fff] hover:bg-[#6133FF] transition-all text-ellipsis overflow-hidden whitespace-nowrap rounded-md hover:text-[#fff]
   }

@@ -15,9 +15,9 @@ import CourseDetails from "../screens/CourseDetails/CourseDetails";
 import Courses from "../screens/Courses/Courses";
 import NewsList from "../screens/News/NewsList";
 import NewsDetails from "../components/News/NewsDetails";
-import AllCourse from "../components/UserPanel/AllCourse";
-import WhishList from "../components/UserPanel/WhishList";
-import MyCourses from "../components/UserPanel/MyCourses";
+import AllCourse from "../screens/Panel/AllCourse";
+import WhishList from "../screens/Panel/WhishList";
+import MyCourses from "../screens/Panel/MyCourses";
 
 export const routerPublic = createBrowserRouter([
   {

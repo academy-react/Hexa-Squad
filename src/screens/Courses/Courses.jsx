@@ -24,6 +24,7 @@ const Courses = () => {
       dislike={data.dislike}
       studentCount={data.studentCount}
       price={data.price}
+      width={''}
       image={data.imageUrl}
     />
   ));

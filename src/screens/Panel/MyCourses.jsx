@@ -1,5 +1,5 @@
 import React from 'react'
-import PanelCourses from './PanelCourses'
+import PanelCourses from '../../components/UserPanel/PanelCourses'
 import Courses from '../../core/services/api/Data/MyCourses'
 const MyCourses = () => {
   return (

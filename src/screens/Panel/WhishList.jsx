@@ -1,5 +1,5 @@
 import React from 'react'
-import PanelCourses from './PanelCourses'
+import PanelCourses from '../../components/UserPanel/PanelCourses'
 import List from '../../core/services/api/Data/WhishList'
 const WhishList = () => {
   return (

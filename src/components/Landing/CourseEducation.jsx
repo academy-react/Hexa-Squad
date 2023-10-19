@@ -77,6 +77,7 @@ const CourseEducation = () => {
         date={item.date}
         professorName={item.professorName}
         like={item.like}
+        width={"lg:w-[24%]"}
         dislike={item.dislike}
         studentCount={item.studentCount}
         price={item.price}
@@ -97,7 +98,9 @@ const CourseEducation = () => {
           </button>
         </Link>
       </div>
-      <div className="mt-24 md:flex md:flex-wrap gap-4 lg:flex-row hidden">{mapCard}</div>
+      <div className="mt-24 md:flex gap-4 lg:flex-rowflex-col hidden">
+        {mapCard}
+      </div>
       <div className="mt-20 md:hidden">
         <CourseSlider />
       </div>

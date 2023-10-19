@@ -36,8 +36,8 @@ const PanelCourses = ({title,AllData}) => {
   return (
     <>
       <TitleSection title={title} />
-      <div className="flex my-3 w-full items-center text-[#666]">
-        <div className="w-3/12 px-10" dir="rtl">
+      <div className="flex md:flex-row flex-col-reverse gap-3 my-3 w-full items-center text-[#666]">
+        <div className="md:w-3/12 w-full md:px-10" dir="rtl">
 
         <Select
           value={selectedOptions}
@@ -47,7 +47,7 @@ const PanelCourses = ({title,AllData}) => {
           onChange={handleChange}
         />
         </div>
-        <div className="relative bg w-11/12 h-12 overflow-hidden border-[3px] border-[#3F40EA30] rounded-2xl">
+        <div className="relative bg md:w-11/12  w-full h-12 overflow-hidden border-[3px] border-[#3F40EA30] rounded-2xl">
           <i className="bi bi-search absolute right-4 top-3 "></i>
           <input
             type="search" 
