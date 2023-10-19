@@ -54,6 +54,7 @@ export default {
       "shadow-userComments-pic": "0px 0px 10px 0px #3F40EA4D",
       "shadow-none": "0 0 #0000",
       "shadow-all": "0 0 30px 1500px #0006",
+      "shadow-Course-details":"0px 0px 23px -5px rgba(63,64,234,0.2)",
     },
 
 
