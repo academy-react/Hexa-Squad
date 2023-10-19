@@ -9,10 +9,10 @@ import Register from "../screens/Authorize/Register";
 import ForgetPassword from "../screens/Authorize/ForgetPassword";
 import VerificationCode from "../screens/Authorize/VerificationCode";
 import Error404 from "../screens/ErrorPage/Error404";
-import CourseDetails from "../screens/CourseDetails/CourseDetails";
 import Courses from '../screens/Courses/Courses';
 import NewsList from '../screens/News/NewsList';
 import NewsDetails from '../components/News/NewsDetails';
+import CourseDetails from '../components/Courses/CourseDetails/CourseDetails';
 
 export const routerPublic = createBrowserRouter([
     {
@@ -24,6 +24,7 @@ export const routerPublic = createBrowserRouter([
         { path: "/Courses", element: <Courses/> },
         { path: "/news", element: <NewsList/> },
         { path: "/NewsDetails", element: <NewsDetails/> },
+        { path: "/CourseDetails", element: <CourseDetails/> },
 
       ],
     },
