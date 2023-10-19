@@ -39,14 +39,15 @@ const NewsDetails = () => {
                     <div className='relative'>
                         <div className="inline ">
                             <img src={newsDetails1} alt="picture" className="mb-4 md:mb-8 lg:w-auto lg:h-auto md:w-[642px] md:h-[430px] lg:p-2 md:object-cover md:rounded-2xl"/>
+                            <div className="absolute bottom-4 md:bottom-8 lg:bottom-10 left-0 right-0 lg:left-2 lg:right-2 px-8 py-4 inline bg-darkblue bg-opacity-40 rounded-b-xl">
+                                <img src={calendar} alt="picture" className='inline ml-2'  />
+                                <span className="inline text-base md:text-lg ml-8 md:ml-[310px] lg:ml-14">1402/02/08</span>                            
+                                <img src={eye} alt="picture" className='inline mr-4 ml-2' />
+                                <span className="inline text-base md:text-xl ">2057بازدید</span>
+                            </div>                        
                         </div>
                         {/* <img src={newsDetails2} alt="picture" className="mb-8 p-2 mx-auto hidden md:block lg:hidden"/> */}
-                        <div className="absolute bottom-[30px] md:bottom-[45px] lg:bottom-[55px] left-2 md:left-4 md:right-12 inline ">
-                            <img src={calendar} alt="picture" className='inline ml-2'  />
-                            <span className="inline text-base md:text-lg ml-24 md:ml-[310px] lg:ml-20">1402/02/08</span>                            
-                            <img src={eye} alt="picture" className='inline ml-2' />
-                            <span className="inline text-lg md:text-xl">2057بازدید</span>
-                        </div>
+
                     </div>
                     <div className="max-w-[660px] px-2 md:pr-1 lg:pr-6">
                         <h2 className="text-[#3B3CA7] dark:text-[#6974FF] text-lg md:text-3xl mb-6">چگونه مطالعه ی موثر را برای شما اسان تر کنیم</h2>
