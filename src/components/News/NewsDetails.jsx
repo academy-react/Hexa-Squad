@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {UserComments, InputComment} from './';
 
 import newsDetails1 from '../../assets/image/newsDetails1.svg';
-import newsDetails2 from '../../assets/image/newsDetails2.svg';
 import eye from '../../assets/image/eye.svg';
 import calendar from '../../assets/image/calendar.svg';
 import comment from '../../assets/image/comments.svg';
@@ -46,8 +45,6 @@ const NewsDetails = () => {
                                 <span className="inline text-base md:text-xl ">2057بازدید</span>
                             </div>                        
                         </div>
-                        {/* <img src={newsDetails2} alt="picture" className="mb-8 p-2 mx-auto hidden md:block lg:hidden"/> */}
-
                     </div>
                     <div className="max-w-[660px] px-2 md:pr-1 lg:pr-6">
                         <h2 className="text-[#3B3CA7] dark:text-[#6974FF] text-lg md:text-3xl mb-6">چگونه مطالعه ی موثر را برای شما اسان تر کنیم</h2>
