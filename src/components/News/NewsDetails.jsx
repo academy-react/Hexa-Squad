@@ -38,7 +38,7 @@ const NewsDetails = () => {
                     <div className='relative'>
                         <div className="inline ">
                             <img src={newsDetails1} alt="picture" className="mb-4 md:mb-8 lg:w-auto lg:h-auto md:w-[642px] md:h-[430px] lg:p-2 md:object-cover md:rounded-2xl"/>
-                            <div className="absolute bottom-4 md:bottom-8 lg:bottom-10 left-0 right-0 lg:left-2 lg:right-2 px-8 py-4 inline bg-darkblue bg-opacity-40 rounded-b-xl">
+                            <div className="news-pic-info">
                                 <img src={calendar} alt="picture" className='inline ml-2'  />
                                 <span className="inline text-base md:text-lg ml-8 md:ml-[310px] lg:ml-14">1402/02/08</span>                            
                                 <img src={eye} alt="picture" className='inline mr-4 ml-2' />

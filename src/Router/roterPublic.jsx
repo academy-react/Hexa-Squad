@@ -19,6 +19,7 @@ import WhishList from "../screens/Panel/WhishList";
 import MyCourses from "../screens/Panel/MyCourses";
 import ChangePassword from "../screens/Panel/ChangePassword";
 import CourseDetails from "../components/Courses/CourseDetails/CourseDetails";
+import EditProfile from '../screens/Panel/EditProfile';
 export const routerPublic = createBrowserRouter([
   {
     path: "/",
@@ -49,6 +50,7 @@ export const routerPublic = createBrowserRouter([
       { path: "/userPanel/MyCourses", element: <MyCourses /> },
       { path: "/userPanel/WhishList", element: <WhishList /> },
       { path: "/userPanel/ChangePassword", element: <ChangePassword /> },
+      { path: "/userPanel/editProfile", element: <EditProfile /> },
     ],
   },
   { path: "/*", element: <Error404 /> },
