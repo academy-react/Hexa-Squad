@@ -67,7 +67,7 @@
 
   #openMenu:checked+.header-buttons .openMenu {
     background-color: #1212421a;
-    @apply rounded-lg left-[70%] dark:bg-darkblue;
+    @apply rounded-lg left-[85%] dark:bg-darkblue;
   }
 
   #openMenu:checked~.mobile-menu-holder .mobile-menu {
@@ -269,9 +269,9 @@
     height: 0;
   }
 
-  /* Panek styles */
+  /* Panel styles */
   #showUserPanelSidebar:checked+ .side-bar-container{
-    @apply h-full;
+    @apply h-full rounded-3xl;
     .side-bar-image{
       @apply block py-8 ;
       img{
@@ -289,7 +289,7 @@
     }
   }
   .side-bar-container{
-    @apply lg:h-full h-20 overflow-hidden lg:w-3/12 w-full md:min-w-[210px] bg-[#2E11B7] rounded-3xl px-5 py-3 transition-all;
+    @apply lg:h-full h-20 overflow-hidden lg:w-3/12 w-full md:min-w-[210px] bg-gradient-to-b from-[#8C80F6] to-[#2E11B7] lg:rounded-3xl rounded-xl  px-5 py-3 transition-all;
     .side-bar-image{
       @apply text-center lg:py-8 py-2 relative lg:block gap-4 flex border-b-[1px] border-[#fff] transition-all;
       .sidebar-icon{
@@ -310,11 +310,11 @@
     }
   }
   .list-items {
-    @apply flex justify-end w-full gap-5 h-[56px] px-4 items-center my-3 text-[#fff] hover:bg-[#6133FF] transition-all text-ellipsis overflow-hidden whitespace-nowrap rounded-md hover:text-[#fff]
+    @apply flex justify-end w-full gap-5 h-[50px] px-4 items-center my-1 text-[#fff] hover:bg-[#6133FF] transition-all text-ellipsis overflow-hidden whitespace-nowrap rounded-md hover:text-[#fff]
   }
 
   .paginationLink {
-    @apply text-[#191760] px-5 py-3 rounded-lg hover:text-[#fff] hover:bg-[#3F40EA]
+    @apply text-[#191760] px-3 py-2 rounded-lg hover:text-[#fff] hover:bg-[#3F40EA]
   }
 
   .paginationLink.active {

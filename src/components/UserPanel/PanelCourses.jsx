@@ -3,7 +3,7 @@ import Select from "react-select";
 
 import PaginationTable from "../common/PaginationTable";
 import TitleSection from "./titleSection";
-const PanelCourses = ({title,AllData}) => {
+const PanelCourses = ({title,AllData,addIcon}) => {
   const [options, setOptions] = useState([
     { value:3, label: 3 },
     { value: 5, label: 5},
@@ -37,7 +37,7 @@ const PanelCourses = ({title,AllData}) => {
     <>
       <TitleSection title={title} />
       <div className="flex md:flex-row flex-col-reverse gap-3 my-3 w-full items-center text-[#666]">
-        <div className="md:w-3/12 w-full md:px-10" dir="rtl">
+        <div className="md:w-3/12 w-full" dir="rtl">
 
         <Select
           value={selectedOptions}
@@ -57,7 +57,7 @@ const PanelCourses = ({title,AllData}) => {
           />
         </div>
       </div>
-      <PaginationTable data={data} itemsPerPage={countInPage} />
+      <PaginationTable data={data} addIcon={addIcon} itemsPerPage={countInPage} />
     </>
   );
 };

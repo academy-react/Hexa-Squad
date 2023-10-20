@@ -9,7 +9,7 @@ const DropDown = ({name , data , checkBoxType,height ,courseData,setData,customF
         </div>
     ),)
   return (
-    <div className="bg-[#EAE5FF] text-[#2C007F] px-7 rounded-xl my-5 dark:bg-newPurpleAlpha2 dark:text-[#fff]">
+    <div className="bg-[#EAE5FF] text-[#2C007F] px-7 rounded-xl mb-5 mt-3 dark:bg-newPurpleAlpha2 dark:text-[#fff]">
       <CheckboxInput name={name} className={'checkbox'} />
       <label htmlFor={name} className=" border-b-2 block py-[18px] px-3 border-[#2C007F30] dark:border-[#fff5]">فیلتر بر اساس موضوع</label>
       <div className={"content transition-all w-full overflow-hidden "+height}>

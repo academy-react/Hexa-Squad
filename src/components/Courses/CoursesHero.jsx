@@ -14,7 +14,7 @@ const CoursesHero = ({typeWriterWords}) => {
         loop={1}
       />
       <div>
-        <img src={workshop} alt="Coding workshop-rafiki" className="w-[468px] h-[468px] hidden lg:block" />
+        <img src={workshop} alt="Coding workshop-rafiki" className="w-[468px] h-[468px] hidden lg:block ml-28" />
       </div>
     </div>
   )

@@ -34,9 +34,9 @@ const Courses = () => {
       <FiltersBTN data={AllData} setData={setData} />
 
       <div className="flex w-full flex-wrap">
-        <div className="flex md:flex-row flex-col w-full ">
+        <div className="flex md:flex-row flex-col w-full px-5 ">
           <FiltersOptions data={AllData} setData={setData} />
-          <div className="w-full flex flex-wrap transition-all justify-end">
+          <div className="w-full flex flex-wrap transition-all justify-end gap-3">
             {mapData}
           </div>
         </div>

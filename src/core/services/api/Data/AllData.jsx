@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
+const arr = ["url1", "url2", "url3", "url4", "url5"];
 const AllData = [
   {
     title: "آموزش JavaSript",
     courseCount: "199 درس",
     time: "24 ساعت",
-    imageUrl:'https://toplearn.com/img/course/%D8%AF%D9%88%D8%B1%D9%87_%D8%AC%D8%A7%D9%85%D8%B9_JavaScript_2020.jpg',
+    imageUrl:
+      "https://toplearn.com/img/course/%D8%AF%D9%88%D8%B1%D9%87_%D8%AC%D8%A7%D9%85%D8%B9_JavaScript_2020.jpg",
     date: "2 خرداد 1402",
     professorName: "دکتر بحرالعلوم",
     like: "120",
@@ -18,7 +20,8 @@ const AllData = [
     title: "آموزش Figma",
     courseCount: "90 درس",
     time: "10 ساعت",
-    imageUrl:'https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D9%86%D8%B1%D9%85_%D8%A7%D9%81%D8%B2%D8%A7%D8%B1_%D9%81%DB%8C%DA%AF%D9%85%D8%A7_%D8%A7%D8%B2_%D9%85%D8%A8%D8%AA%D8%AF%DB%8C_%D8%AA%D8%A7_%D9%BE%DB%8C%D8%B4%D8%B1%D9%81%D8%AA%D9%87.jpg',
+    imageUrl:
+      "https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D9%86%D8%B1%D9%85_%D8%A7%D9%81%D8%B2%D8%A7%D8%B1_%D9%81%DB%8C%DA%AF%D9%85%D8%A7_%D8%A7%D8%B2_%D9%85%D8%A8%D8%AA%D8%AF%DB%8C_%D8%AA%D8%A7_%D9%BE%DB%8C%D8%B4%D8%B1%D9%81%D8%AA%D9%87.jpg",
     date: "25 مهر 1402",
     professorName: "مهندس نظری",
     like: "78",
@@ -31,7 +34,8 @@ const AllData = [
     title: "آموزش premier",
     courseCount: "90 درس",
     time: "10 ساعت",
-    imageUrl:'https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D9%85%D9%82%D8%AF%D9%85%D8%A7%D8%AA%DB%8C_%D9%86%D8%B1%D9%85_%D8%A7%D9%81%D8%B2%D8%A7%D8%B1_Adobe_Premiere_Pro_2021.jpg',
+    imageUrl:
+      "https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D9%85%D9%82%D8%AF%D9%85%D8%A7%D8%AA%DB%8C_%D9%86%D8%B1%D9%85_%D8%A7%D9%81%D8%B2%D8%A7%D8%B1_Adobe_Premiere_Pro_2021.jpg",
     date: "25 مهر 1402",
     professorName: "مهندس نظری",
     like: "78",
@@ -44,7 +48,8 @@ const AllData = [
     title: "آموزش Node.js",
     courseCount: "155 درس",
     time: "14 ساعت",
-    imageUrl:'https://toplearn.com/img/course/typeorm%D8%A8%D8%B1%D8%A7%DB%8C_node_js.jpg',
+    imageUrl:
+      "https://toplearn.com/img/course/typeorm%D8%A8%D8%B1%D8%A7%DB%8C_node_js.jpg",
     date: "ا اذر 1402",
     professorName: "دکتر بحرالعلوم",
     like: "52",
@@ -57,7 +62,8 @@ const AllData = [
     title: "آموزش React.js",
     courseCount: "87 درس",
     time: "8 ساعت",
-    imageUrl:'https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D8%B5%D9%81%D8%B1_%D8%AA%D8%A7_%D8%B5%D8%AF_ReactJs.jpg',
+    imageUrl:
+      "https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D8%B5%D9%81%D8%B1_%D8%AA%D8%A7_%D8%B5%D8%AF_ReactJs.jpg",
     date: "ا مرداد 1402",
     professorName: "مهندس اصغری",
     like: "150",
@@ -70,7 +76,8 @@ const AllData = [
     title: "آموزش Photoshop",
     courseCount: "90 درس",
     time: "10 ساعت",
-    imageUrl:'https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D8%AC%D8%A7%D9%85%D8%B9_%D9%81%D8%AA%D9%88%D8%B4%D8%A7%D9%BE_(%D9%85%D9%82%D8%AF%D9%85%D8%A7%D8%AA%DB%8C_%D8%AA%D8%A7_%D9%BE%DB%8C%D8%B4%D8%B1%D9%81%D8%AA%D9%87).jpg',
+    imageUrl:
+      "https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D8%AC%D8%A7%D9%85%D8%B9_%D9%81%D8%AA%D9%88%D8%B4%D8%A7%D9%BE_(%D9%85%D9%82%D8%AF%D9%85%D8%A7%D8%AA%DB%8C_%D8%AA%D8%A7_%D9%BE%DB%8C%D8%B4%D8%B1%D9%81%D8%AA%D9%87).jpg",
     date: "25 مهر 1402",
     professorName: "مهندس نظری",
     like: "78",
@@ -83,7 +90,8 @@ const AllData = [
     title: "آموزش Ruby",
     courseCount: "199 درس",
     time: "24 ساعت",
-    imageUrl:'https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87_%D9%86%D9%88%DB%8C%D8%B3%DB%8C_Ruby.jpg',
+    imageUrl:
+      "https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87_%D9%86%D9%88%DB%8C%D8%B3%DB%8C_Ruby.jpg",
     date: "2 خرداد 1402",
     professorName: "دکتر بحرالعلوم",
     like: "120",
@@ -96,7 +104,8 @@ const AllData = [
     title: "آموزش TypeScript",
     courseCount: "90 درس",
     time: "10 ساعت",
-    imageUrl:'https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D8%B2%D8%A8%D8%A7%D9%86_TypeScript_%D8%A7%D8%B2_%D8%B5%D9%81%D8%B1.jpg',
+    imageUrl:
+      "https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D8%B2%D8%A8%D8%A7%D9%86_TypeScript_%D8%A7%D8%B2_%D8%B5%D9%81%D8%B1.jpg",
     date: "25 مهر 1402",
     professorName: "مهندس نظری",
     like: "78",
@@ -109,7 +118,8 @@ const AllData = [
     title: "آموزش Sass",
     courseCount: "155 درس",
     time: "14 ساعت",
-    imageUrl:'https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D8%B1%D8%A7%DB%8C%DA%AF%D8%A7%D9%86_Sass.jpg',
+    imageUrl:
+      "https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D8%B1%D8%A7%DB%8C%DA%AF%D8%A7%D9%86_Sass.jpg",
     date: "ا اذر 1402",
     professorName: "دکتر بحرالعلوم",
     like: "52",
@@ -122,7 +132,8 @@ const AllData = [
     title: "آموزش TailwindCss",
     courseCount: "87 درس",
     time: "8 ساعت",
-    imageUrl:'https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D9%85%D9%82%D8%AF%D9%85%D8%A7%D8%AA%DB%8C_TailwindCSS.jpg',
+    imageUrl:
+      "https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D9%85%D9%82%D8%AF%D9%85%D8%A7%D8%AA%DB%8C_TailwindCSS.jpg",
     date: "ا مرداد 1402",
     professorName: "مهندس اصغری",
     like: "150",

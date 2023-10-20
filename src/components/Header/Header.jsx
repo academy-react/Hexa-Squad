@@ -62,7 +62,7 @@ const Header = () => {
             <DesktopMenu className={"hidden lg:flex"} />
           </li>
           <CheckboxInput name={"openMenu"} />
-          <li className="lg:w-4/12 w-7/12 header-buttons ">
+          <li className="lg:w-4/12 w-9/12 header-buttons ">
             <HeaderButtons />
           </li>
           <li className="mobile-menu-holder">

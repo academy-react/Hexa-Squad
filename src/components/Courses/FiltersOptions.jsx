@@ -16,7 +16,7 @@ const FiltersOptions = ({ data, setData }) => {
   ]);
   return (
     <div
-      className="transition-all px-10 overflow-hidden w-full md:h-full md:w-0 opacity-0 h-0"
+      className="transition-all overflow-hidden w-full md:h-full md:w-0 opacity-0 h-0"
       id="filterDiv"
     >
       <DropDown
