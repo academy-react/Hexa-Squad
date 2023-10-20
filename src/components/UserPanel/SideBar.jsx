@@ -8,7 +8,7 @@ import { CheckboxInput } from "../common";
 const SideBar = ({ profileSrc }) => {
   const [listItem, setListItem] = useState([
     { label: "داشبورد", classNameIcon: "columns-gap", address: "" },
-    { label: "اطلاعات کاربر", classNameIcon: "person-circle", address: "" },
+    { label: "اطلاعات کاربر", classNameIcon: "person-circle", address: "editProfile/" },
     { label: "دوره های من", classNameIcon: "book", address: "MyCourses/" },
     {
       label: "لیست مورد علاقه ها",

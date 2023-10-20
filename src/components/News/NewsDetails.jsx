@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {UserComments, InputComment} from './';
 
 import newsDetails1 from '../../assets/image/newsDetails1.svg';
-import newsDetails2 from '../../assets/image/newsDetails2.svg';
 import eye from '../../assets/image/eye.svg';
 import calendar from '../../assets/image/calendar.svg';
 import comment from '../../assets/image/comments.svg';
@@ -39,13 +38,12 @@ const NewsDetails = () => {
                     <div className='relative'>
                         <div className="inline ">
                             <img src={newsDetails1} alt="picture" className="mb-4 md:mb-8 lg:w-auto lg:h-auto md:w-[642px] md:h-[430px] lg:p-2 md:object-cover md:rounded-2xl"/>
-                        </div>
-                        {/* <img src={newsDetails2} alt="picture" className="mb-8 p-2 mx-auto hidden md:block lg:hidden"/> */}
-                        <div className="absolute bottom-[30px] md:bottom-[45px] lg:bottom-[55px] left-2 md:left-4 md:right-12 inline ">
-                            <img src={calendar} alt="picture" className='inline ml-2'  />
-                            <span className="inline text-base md:text-lg ml-24 md:ml-[310px] lg:ml-20">1402/02/08</span>                            
-                            <img src={eye} alt="picture" className='inline ml-2' />
-                            <span className="inline text-lg md:text-xl">2057بازدید</span>
+                            <div className="news-pic-info">
+                                <img src={calendar} alt="picture" className='inline ml-2'  />
+                                <span className="inline text-base md:text-lg ml-8 md:ml-[310px] lg:ml-14">1402/02/08</span>                            
+                                <img src={eye} alt="picture" className='inline mr-4 ml-2' />
+                                <span className="inline text-base md:text-xl ">2057بازدید</span>
+                            </div>                        
                         </div>
                     </div>
                     <div className="max-w-[660px] px-2 md:pr-1 lg:pr-6">

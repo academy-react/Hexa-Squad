@@ -128,6 +128,9 @@
         @apply max-w-[400px] md:max-w-[740px] lg:max-w-[1260px] mx-auto p-8 md:p-12 lg:p-16 
                 rounded-xl bg-newWhite dark:bg-darkblue6;
     }
+    .news-pic-info{
+        @apply absolute bottom-4 md:bottom-8 lg:bottom-10 left-0 right-0 lg:left-2 lg:right-2 px-8 py-4 inline bg-gradient-to-t from-darkblue bg-opacity-40 rounded-b-xl;
+    }
     .news-details-text{
         @apply text-base md:text-xl text-darkblue3 dark:text-[#75749b] text-justify 
             leading-10 md:leading-[50px] lg:leading-[50px] tracking-normal ; 
@@ -194,4 +197,9 @@
             @apply lg:top-36 ;
         }
     }*/
+
+    /* Panel --> Edit Profile */
+    .editProf-input{
+        @apply relative my-5 w-[300px];
+    }
 }
