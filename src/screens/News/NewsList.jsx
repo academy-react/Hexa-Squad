@@ -10,7 +10,7 @@ const NewsList = () => {
   ];
   const [newsList, setNewsList] = useState(newsAllData);
   const newsCardsMapper = newsList.map((item, index) => {
-    return <NewsCard img={item.img} name={item.name} key={index}/>;
+    return <NewsCard img={item.img} name={item.name} description={item.description} key={index}/>;
   });
   return (
     <div className="py-32">
