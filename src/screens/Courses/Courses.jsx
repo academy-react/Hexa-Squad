@@ -4,7 +4,7 @@ import {
   CoursesHero,
   FiltersBTN,
   FiltersOptions,
-} from "../../components/Courses";
+} from "../../components/CourseList";
 import AllData from "../../core/services/api/Data/AllData";
 const Courses = () => {
   const typeWriterWords = [

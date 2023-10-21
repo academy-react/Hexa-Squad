@@ -239,6 +239,10 @@
   } */
 
 
+  /* Courses List  */
+  .filter-btn-section{
+    @apply flex lg:flex-row flex-col w-full justify-center md:justify-between px-20 lg:mb-12 mb-8 mt-20 items-center lg:pr-40
+  }
   #openFilter:checked+label {
     background-color: #fff;
     @apply bg-[#fff] dark:bg-[#33335f]
