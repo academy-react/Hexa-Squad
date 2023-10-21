@@ -220,7 +220,7 @@
   }
 
   .teacher-photo {
-    @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40 md:w-28 md:h-28 md:mt-8 items-center mt-6 lg:mt-6;
+    @apply bg-[#9d7aff] shadow-shadow-Categories-box rounded-full absolute w-36 h-36 mr-[90px] lg:w-36 lg:h-36 md:w-28 md:h-28 md:mt-8 items-center mt-6 lg:mt-6;
   }
 
   .gradient {
