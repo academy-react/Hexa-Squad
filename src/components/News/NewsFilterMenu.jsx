@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Select from "react-select";
 
 
-const NewsFilterMenu = () => {
+const NewsFilterMenu = ({newsList,setNewsList}) => {
   const [selectedOptions, setSelectedOption] = useState(null);
   const [options, setOptions] = useState([
     { value: "all", label: "همه" },
@@ -13,7 +13,12 @@ const NewsFilterMenu = () => {
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
   };
-
+  const filterSearch = (value)=>{
+    let filteredData = newsList.filter((item) => {
+      return item.name.toLowerCase().indexOf(value.toLowerCase()) != -1
+    });
+    setNewsList(filteredData);
+  }
   return (
         <div className="flex flex-row lg:mb-12 mb-8">
           <ul className="news-menu">
@@ -39,7 +44,7 @@ const NewsFilterMenu = () => {
                 type={"search"}
                 name={"search"}
                 id="search"
-                onKeyUp={()=>{filterData(data,setData)}}
+                onKeyUp={(event)=>{filterSearch(event.target.value)}}
                 className="search-input text-sm md:text-base"
               />
               <i
