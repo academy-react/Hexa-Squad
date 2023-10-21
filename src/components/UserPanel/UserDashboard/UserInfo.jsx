@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const UserInfo = () => {
   return (
     <div className="w-full mt-10 rounded-xl border-2 border-[#D4D4FF]">
@@ -51,13 +51,15 @@ const UserInfo = () => {
           </h2>
         </div>
       </div>
-
+      <Link to="/userPanel/editProfile" className={"text-newWhite hover:text-newWhite"}>
       <input
         type="submit"
         value="ویرایش"
         className="md:w-[100px] w-[70px] mt-10 md:mt-0  text-xs px-3 py-3 lg:text-sm lg:px-2 lg:py-3 block bg-[#6948fc] rounded-tr-xl rounded-bl-xl text-[#fff] opacity-80 hover:opacity-100 cursor-pointer"
       />
+       </Link>
     </div>
+   
   );
 };
 
