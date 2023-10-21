@@ -53,7 +53,7 @@ export const routerPublic = createBrowserRouter([
       { path: "/userPanel/WhishList", element: <WhishList /> },
       { path: "/userPanel/ChangePassword", element: <ChangePassword /> },
       { path: "/userPanel/editProfile", element: <EditProfile /> },
-      { path: "/userPanel/UserDashboard", element: <UserDashboard /> },
+      { path: "/userPanel/", element: <UserDashboard /> },
     ],
   },
   { path: "/*", element: <Error404 /> },
