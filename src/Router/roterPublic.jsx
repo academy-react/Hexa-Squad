@@ -14,12 +14,14 @@ import Error404 from "../screens/ErrorPage/Error404";
 import Courses from "../screens/Courses/Courses";
 import NewsList from "../screens/News/NewsList";
 import NewsDetails from "../components/News/NewsDetails";
+import CourseDetails from "../screens/CourseDetails/CourseDetails";
 import AllCourse from "../screens/Panel/AllCourse";
 import WhishList from "../screens/Panel/WhishList";
 import MyCourses from "../screens/Panel/MyCourses";
 import ChangePassword from "../screens/Panel/ChangePassword";
-import CourseDetails from "../components/Courses/CourseDetails/CourseDetails";
-import EditProfile from '../screens/Panel/EditProfile';
+
+import EditProfile from "../screens/Panel/EditProfile";
+import UserDashboard from "../screens/Panel/UserDashboard";
 export const routerPublic = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +53,7 @@ export const routerPublic = createBrowserRouter([
       { path: "/userPanel/WhishList", element: <WhishList /> },
       { path: "/userPanel/ChangePassword", element: <ChangePassword /> },
       { path: "/userPanel/editProfile", element: <EditProfile /> },
+      { path: "/userPanel/UserDashboard", element: <UserDashboard /> },
     ],
   },
   { path: "/*", element: <Error404 /> },
