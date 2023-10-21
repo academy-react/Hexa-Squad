@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import NewsCard from "./NewsCard";
 import Title from "../common/Title";
 const News = () => {
@@ -30,15 +31,19 @@ const News = () => {
     <section>
       <div className=" w-[440px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-48">
         <Title inner={"اخبار و مقالات"} className={"title1"} />
+        <Link to="/news" className={"text-newWhite hover:text-newWhite"}>
         <button className="absolute primary-btn w-auto h-10 bottom-[-20px] lg:w-56 lg:my-10  py-1 md:block lg:hidden left-3">
           مشاهده ی همه
         </button>
+        </Link>
       </div>
 
       <div className="news-wrapper">{newsCardsMapper}</div>
-      <button className="primary-btn w-auto lg:w-56 lg:my-10 py-3 hidden md:hidden lg:block mx-auto">
-        مشاهده ی همه
-      </button>
+      <Link to="/news" className={"text-newWhite hover:text-newWhite"}>
+        <button className="primary-btn w-auto lg:w-56 lg:my-10 py-3 hidden md:hidden lg:block mx-auto">
+          مشاهده ی همه
+        </button>
+      </Link>
     </section>
   );
 };
