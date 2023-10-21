@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { UserComments, InputComment } from "../../components/News";
 
-import Topics from "../../components/Courses/CourseDetails/Topics";
+import Topics from "../../components/CourseDetails/Topics";
 import comment from "../../assets/image/comments.svg"
-import CoursePhoto from "../../components/Courses/CourseDetails/CoursePhoto"
-import DetailsBox from "../../components/Courses/CourseDetails/DetailsBox";
+import CoursePhoto from "../../components/CourseDetails/CoursePhoto"
+import DetailsBox from "../../components/CourseDetails/DetailsBox";
 
 
 const CourseDetails = () => {

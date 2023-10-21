@@ -1,8 +1,8 @@
 import React from "react";
-import start from "../../../assets/image/start.svg";
-import date from "../../../assets/image/date.svg";
-import student from "../../../assets/image/student.svg";
-import teacher from "../../../assets/image/teacher'sProfile.jpg";
+import start from "../../assets/image/start.svg";
+import date from "../../assets/image/date.svg";
+import student from "../../assets/image/student.svg";
+import teacher from "../../assets/image/teacher'sProfile.jpg";
 const DetailsBox = () => {
   return (
     <div className=" lg:w-[620px]  md:w-[500px] w-full mx-auto lg:ml-14  ">
