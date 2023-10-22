@@ -1,5 +1,6 @@
 import React from "react";
 import course from "../../assets/image/course1.png";
+
 const CoursePhoto = () => {
   return (
     <div className="w-full lg:w-[860px]  md:w-[500px] relative  mx-auto md:my-10 lg:mt-10 lg:mx-12">

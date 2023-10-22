@@ -1,9 +1,10 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
-import background from "../../assets/image/bgDesign2.svg";
 import Title from "../common/Title";
-// import background2 from "../../../assets/image/bgDesign.svg";
+
+import background from "../../assets/image/bgDesign2.svg";
+
 const Suggestions = () => {
   const validation = yup.object().shape({
     email: yup.string().required("این فیلد الزامیست!"),

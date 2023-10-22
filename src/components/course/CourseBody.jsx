@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SeparationPrice from "../../core/services/SeparationPrice/SeparationPrice";
 
 import likePic from '../../assets/image/like.svg';
 import dislikePic from '../../assets/image/dislike.svg';
 import "../Landing/common.css";
-import SeparationPrice from "../../core/services/SeparationPrice/SeparationPrice";
 
 const CourseBody = ({ title, courseCount, time, date, professorName, like, dislike, studentCount, price }) => {
   return (
