@@ -20,11 +20,11 @@ const TeacherCard = ({ title, description, course }) => {
           <h2 className="text-xl md:text-lg lg:text-2xl  mt-20 lg:mt-20 md:mt-12 text-[#ebe5ff]   dark:text-[#c9baff] dark:group-hover:text-[#e4defa]">
             {title}
           </h2>
-          <h2 className="text-sm mt-2 text-[#baa2ff] dark:text-[#a384ff]  dark:group-hover:text-[#AC7CEB]">
+          <h2 className="text-sm mt-2 text-[#baa2ff]">
             {" "}
             {course}{" "}
           </h2>
-          <p className=" text-sm md:text-xs  lg:text-sm text-[#ccc1fd] dark:text-[#8C7BFF] dark:group-hover:text-[#BAAFFF]   w-72 my-4 mt-4  md:w-48 lg:w-full ">
+          <p className=" text-sm md:text-xs  lg:text-sm text-[#ccc1fd]   w-72 my-4 mt-4  md:w-48 lg:w-full ">
             {description}
           </p>
         </div>
