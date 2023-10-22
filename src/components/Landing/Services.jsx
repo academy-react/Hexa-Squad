@@ -1,13 +1,13 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
+import Title from "../common/Title";
+import AutoTypeWriter from "../common/AutoTypeWriter";
 
 import servicesPic1 from "../../assets/image/services-pic1.svg";
 import servicesPic2 from "../../assets/image/services-pic2.svg";
 import servicesPic3 from "../../assets/image/services-pic3.svg";
-import Title from "../common/Title";
-
 import "./common.css";
-import AutoTypeWriter from "../common/AutoTypeWriter";
+
 const Services = () => {
   const TypeWriterWords = [
     " سهولت دسترسی و دریافت  خدمات از همه ی نقاط کشور با کمترین تعرفه و بدون نیاز  مراجعه حضوری در کل فرایند ثبت ",

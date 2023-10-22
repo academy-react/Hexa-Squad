@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import background from "../../assets/image/bgDesign.svg";
 import TeacherCard from "./TeacherCard";
 import Title from "../common/Title";
+
+import background from "../../assets/image/bgDesign.svg";
 
 const OurTeachers = () => {
   const [teacherCard, setTeacherCard] = useState([
