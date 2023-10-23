@@ -30,7 +30,7 @@ const CourseEducation = () => {
   //   );
   // });
   return (
-    <div className="lg:max-w-[1400px] md:max-w-[750px] sm:min-w-[640px] mx-auto mt-[-30px]">
+    <div className="lg:max-w-[1370px] md:max-w-[750px] sm:min-w-[640px] mx-auto mt-[-30px]">
       <div className="course">
         <Title
           className={"lg:mt-40 mt-20 lg:block"}
