@@ -94,11 +94,14 @@
     .course-details:hover {
         @apply text-darkblue;
     }
+    .mySwiper .swiper-pagination-bullet{
+        @apply dark:bg-whitePink;
+    }
+    .mySwiper .swiper-pagination-bullet-active {
+        @apply bg-newPurpleAlpha;
+    }
 
     /* categories-box */
-    /*.categories{
-        background-image: url("../../assets/image/dashedLine.svg")
-    }*/
     .categories-box {
         transition: box-shadow 0.5s ease-out;
         @apply w-40 md:w-[160px] lg:w-[22%] h-44 lg:h-52 md:h-48 m-5 md:m-3 text-center bg-gradient-to-tr from-[#6B3FEA] dark:from-[#574199] 
