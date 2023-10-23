@@ -20,34 +20,29 @@ const Services = () => {
           <img src={servicesPic3} alt="picture" />
           <h2 className="services-title">سادگی خدمات</h2>
           <span className="botton-border"></span>
-          <AutoTypeWriter
-            Text={TypeWriterWords}
-            className={"services-info"}
-            typeSpeed={120}
-            loop={1}
-          />
+
+          <p className="services-info">
+            سهولت دسترسی و دریافت خدمات از همه ی نقاط کشور با کمترین تعرفه و
+            بدون نیاز مراجعه حضوری در کل فرایند ثبت
+          </p>
         </li>
         <li className="services-box">
           <img src={servicesPic2} className="" />
           <h2 className="services-title">فرصت های شغلی</h2>
           <span className="botton-border"></span>
-          <AutoTypeWriter
-            Text={TypeWriterWords}
-            className={"services-info"}
-            typeSpeed={100}
-            loop={1}
-          />
+          <p className="services-info">
+            سهولت دسترسی و دریافت خدمات از همه ی نقاط کشور با کمترین تعرفه و
+            بدون نیاز مراجعه حضوری در کل فرایند ثبت
+          </p>
         </li>
         <li className="services-box">
           <img src={servicesPic1} className="" />
           <h2 className="services-title">مدرک معتبر</h2>
           <span className="botton-border"></span>
-          <AutoTypeWriter
-            Text={TypeWriterWords}
-            className={"services-info"}
-            typeSpeed={130}
-            loop={1}
-          />
+          <p className="services-info">
+            سهولت دسترسی و دریافت خدمات از همه ی نقاط کشور با کمترین تعرفه و
+            بدون نیاز مراجعه حضوری در کل فرایند ثبت
+          </p>
         </li>
       </ul>
     </div>

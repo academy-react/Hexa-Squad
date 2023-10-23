@@ -10,7 +10,7 @@ const DesktopMenu = ({className}) => {
     {itemName:'ارتباط با ما',address:'/'}
   ])
   return (
-    <ul className={"DesktopMenu justify-between items-center text-lightblue gap-[15px] whitespace-nowrap  text-xl "+className}>
+    <ul className={"menu "+className}>
       {menuItems.map((item,index) => (
         <Link to={item.address} className="menu-item group" key={index}>
           {item.itemName}  <span className="underline-menu "></span>

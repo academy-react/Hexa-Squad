@@ -6,5 +6,6 @@ import HeroSectionInfo from './HeroSectionInfo';
 import ThemeSwitcher from './ThemeSwitcher';
 import Title from './Title';
 import DropDown from './DropDown';
+import SearchBox from './SearchBox'
 import PaginationTable from './PaginationTable';
-export {AutoTypeWriter , CheckboxInput, FooterInput, FieldInput, ThemeSwitcher, Title ,HeroSectionInfo, DropDown,PaginationTable}
+export {AutoTypeWriter , CheckboxInput, FooterInput, FieldInput, ThemeSwitcher, Title ,HeroSectionInfo, DropDown,PaginationTable,SearchBox}

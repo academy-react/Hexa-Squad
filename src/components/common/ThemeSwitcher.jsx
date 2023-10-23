@@ -1,17 +1,16 @@
 import React from 'react'
 import { useState } from 'react';
 import ReactSwitch from 'react-switch'
-const ThemeSwitcher = ({className}) => {
-  const [checked, setChecked] = useState(true);
+const ThemeSwitcher = ({className,setLightMode,lightMode}) => {
   const htmlTag = document.querySelector("html");
   const changeTheme = (value) => {
-    setChecked(value);
-    checked ? (htmlTag.className = "dark") : (htmlTag.className = "");
+    setLightMode(value);
+    lightMode ? (htmlTag.className = "dark") : (htmlTag.className = "");
   };
   return (
     <ReactSwitch
       className={className}
-      checked={checked}
+      checked={lightMode}
       onChange={changeTheme}
       handleDiameter={28}
       offColor="#B9BAF8"

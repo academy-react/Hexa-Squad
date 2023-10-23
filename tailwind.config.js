@@ -58,7 +58,20 @@ export default {
     },
 
 
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'hero-image': 'url("/src/assets/image/hero-image.png") ',
+      },
+      borderRadius:{
+        '200px' : '205px',
+      },
+      height: {
+        '100': '95vh',
+      },
+      width:{
+        '600px': '600px',
+      }
+    },
   },
   plugins: [],
 }

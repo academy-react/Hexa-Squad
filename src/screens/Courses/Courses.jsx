@@ -7,6 +7,7 @@ import {
 } from "../../components/CourseList";
 import AllData from "../../core/services/api/Data/AllData";
 const Courses = () => {
+  const [filterDiv, setFilterDiv] = useState(true);
   const typeWriterWords = [
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
@@ -24,18 +25,27 @@ const Courses = () => {
       dislike={data.dislike}
       studentCount={data.studentCount}
       price={data.price}
-      addClass={'h-[441px]'}
+      addClass={"h-[441px]"}
       image={data.imageUrl}
     />
   ));
   return (
     <div className="py-32">
       <CoursesHero typeWriterWords={typeWriterWords} />
-      <FiltersBTN data={AllData} setData={setData} />
+      <FiltersBTN
+        data={AllData}
+        setData={setData}
+        filterDiv={filterDiv}
+        setFilterDiv={setFilterDiv}
+      />
 
       <div className="flex w-full flex-wrap">
         <div className="flex md:flex-row flex-col w-full px-5 ">
-          <FiltersOptions data={AllData} setData={setData} />
+          <FiltersOptions
+            data={AllData}
+            setData={setData}
+            filterDiv={filterDiv}
+          />
           <div className="w-full flex flex-wrap transition-all justify-end gap-3">
             {mapData}
           </div>

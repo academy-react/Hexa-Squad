@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import DesktopMenu from "./header-components/DesktopMenu";
 import HeaderButtons from "./header-components/HeaderButtons";
@@ -7,33 +7,22 @@ import Logo from "../../assets/image/Logo.svg";
 import LogoIcon from "../../assets/image/Logo-icon.svg";
 import MobileMenu from "./header-components/MobileMenu";
 import LogoWhite from "../../assets/image/Logo - white.svg";
-import LogoBg from "../../assets/image/logo-bg.svg";
 import CheckboxInput from "../common/checkboxInput";
 import Login from "../Modals/Login";
 import { useEffect } from "react";
 const Header = () => {
-  const headerPosition = () => {
-    let header = document.getElementById("header");
-    if (window.pageYOffset > 110) {
-      header.classList.remove("w-full", "absolute");
-      header.classList.add("header");
-      // header.classList.add("bg-lightPink");
-      // header.classList.add("shadow-shadow-Services-box");
-    } else {
-      header.classList.add("w-full", "absolute");
-      header.classList.remove("header");
-    }
-  };
+  const [lightMode, setLightMode] = useState(true)
+  const location = useLocation();
+  const [headerStyle, setHeaderStyle] = useState(true);
   useEffect(() => {
-    window.addEventListener("scroll",()=> {headerPosition()});
-    return window.removeEventListener("scroll", ()=> {headerPosition()});
-  }, []);
+    location.pathname == '/' ? setHeaderStyle(true) : setHeaderStyle(false)
+  }, [location]);
   return (
     <>
       <CheckboxInput name={"showLoginModal"} />
       <Login />
       <header
-        className="rounded-xl absolute flex h-[110px] w-full z-50"
+        className={"rounded-xl absolute flex h-[110px] w-full z-50 " + (headerStyle?'landing-header':'')}
         id="header"
       >
         <ul className="w-full flex items-center px-[20px]  ">
@@ -42,7 +31,7 @@ const Header = () => {
               <img
                 src={Logo}
                 alt="Hexa Squad Logo"
-                className="md:logo md:block hidden dark:hidden "
+                className={"logo hidden dark:hidden " +  (headerStyle ? '':'md:block')}
               />
               <img
                 src={LogoIcon}
@@ -52,21 +41,19 @@ const Header = () => {
               <img
                 src={LogoWhite}
                 alt="Hexa Squad Logo"
-                className="md:logo hidden dark:md:block"
+                className={"md:logo hidden dark:md:block " + (headerStyle ? 'md:block':'')}
               />
             </Link>
-
-            <img src={LogoBg} alt="Logo Bg" className="logo-bg" />
           </li>
           <li className="lg:w-4/12 w-0 ">
             <DesktopMenu className={"hidden lg:flex"} />
           </li>
           <CheckboxInput name={"openMenu"} />
           <li className="lg:w-4/12 w-9/12 header-buttons ">
-            <HeaderButtons />
+            <HeaderButtons lightMode={lightMode} setLightMode={setLightMode} headerStyle={headerStyle} />
           </li>
           <li className="mobile-menu-holder">
-            <MobileMenu />
+            <MobileMenu lightMode={lightMode} setLightMode={setLightMode} />
           </li>
         </ul>
       </header>

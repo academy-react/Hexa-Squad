@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CheckboxInput, DropDown } from "../common";
 import filterData from "../../core/services/filterData/filterData";
 
-const FiltersOptions = ({ data, setData }) => {
+const FiltersOptions = ({ data, setData,filterDiv }) => {
   const [categorydata, setCategorydata] = useState([
     { label: "برنامه نویسی وب", category: "programming" },
     { label: "دیزاین", category: "design" },
@@ -16,7 +16,7 @@ const FiltersOptions = ({ data, setData }) => {
   ]);
   return (
     <div
-      className="transition-all overflow-hidden w-full md:h-full md:w-0 opacity-0 h-0"
+      className={"transition-all overflow-hidden w-full md:h-full "+(filterDiv?"md:w-4/12 h-full":'md:w-0 opacity-0 h-0')}
       id="filterDiv"
     >
       <DropDown

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 // import LogoIcon from '../../../assets/image/Logo-icon.svg'
 import DesktopMenu from "./DesktopMenu";
 import ThemeSwitcher from '../../common/ThemeSwitcher'
-const MobileMenu = () => {
+const MobileMenu = ({setLightMode,lightMode}) => {
   return (
     <div className="mobile-menu ">
       {/* <img src={LogoIcon} width={90} /> */}
       
-      <ThemeSwitcher className={'scale-110'}/>
+      <ThemeSwitcher className={'scale-110'} lightMode={lightMode} setLightMode={setLightMode} />
       
       <DesktopMenu className={"my-5 w-full flex flex-col"} />
 
