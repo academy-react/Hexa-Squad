@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import teacher from "../../assets/image/teacher1.jpg";
 
 const TeacherCard = ({ title, description, course }) => {
@@ -16,10 +18,11 @@ const TeacherCard = ({ title, description, course }) => {
             <div className=" bi bi-telegram icons-contact"></div>
             <div className=" bbi bi-linkedin icons-contact"></div>
           </div>
-
-          <h2 className="text-xl md:text-lg lg:text-2xl  mt-20 lg:mt-20 md:mt-12 text-[#ebe5ff]   dark:text-[#c9baff] dark:group-hover:text-[#e4defa]">
-            {title}
-          </h2>
+          <Link to="/TeacherProfile">
+            <h2 className="text-xl md:text-lg lg:text-2xl  mt-20 lg:mt-20 md:mt-12 text-[#ebe5ff]   dark:text-[#c9baff] dark:group-hover:text-[#e4defa]">
+              {title}
+            </h2>
+          </Link>
           <h2 className="text-sm mt-2 text-[#baa2ff]">
             {" "}
             {course}{" "}

@@ -127,9 +127,9 @@
 
     /* news details */
     .news-details{
-        box-shadow: 0px 0px 30px 0px #B48DFF4D;
+        /* box-shadow: 0px 0px 30px 0px #B48DFF4D; */
         @apply max-w-[400px] md:max-w-[740px] lg:max-w-[1260px] mx-auto p-8 md:p-12 lg:p-16 
-                rounded-xl bg-newWhite dark:bg-darkblue6;
+            bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6;
     }
     .news-pic-info{
         @apply absolute bottom-4 md:bottom-8 lg:bottom-10 left-0 right-0 lg:left-2 lg:right-2 px-8 py-4 inline bg-gradient-to-t from-darkblue bg-opacity-40 rounded-b-xl;
@@ -204,5 +204,33 @@
     /* Panel --> Edit Profile */
     .editProf-input{
         @apply relative my-5 w-[300px];
+    }
+
+    /* Teacher Profile */
+    .img-figure{
+        @apply w-80 h-80 mx-auto rounded-full shadow-shadow-auth border-8 border-[#9333ea];
+    }
+    .teacher-image{
+        transition: .3s ease-in-out;
+        @apply w-full h-full rounded-full object-cover blur-none;
+    }
+    .img-figure:hover .teacher-image{
+        @apply cursor-pointer blur-[3px];
+    }
+    .teacher-image-hover{
+        transition: .3s ease-in-out;
+        @apply absolute bottom-36 -left-12 block opacity-0 w-72 mx-auto text-2xl text-[#2C007F] dark:text-whitePink text-center;
+    }
+    .img-figure:hover+.teacher-image-hover{
+        @apply left-[400px] opacity-100;
+    }
+    .teacherInfo-title{
+        @apply w-full pl-8 ml-16 pr-4 text-newPurple3 text-2xl border-b-2 border-dotted border-b-[#94a3b8];
+    }
+    .teacher-suggestion .latestCourse{
+        @apply bg-[#D7D5FF] dark:bg-[#34239f];
+    }
+    .teacher-suggestion .latestCourse .latestCourse-div{
+        @apply flex flex-row;
     }
 }
