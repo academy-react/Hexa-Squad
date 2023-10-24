@@ -22,6 +22,7 @@ import ChangePassword from "../screens/Panel/ChangePassword";
 
 import EditProfile from "../screens/Panel/EditProfile";
 import UserDashboard from "../screens/Panel/UserDashboard";
+import ShoppingCard from '../screens/ShoppingCard/ShoppingCard'
 export const routerPublic = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +34,7 @@ export const routerPublic = createBrowserRouter([
       { path: "/news", element: <NewsList /> },
       { path: "/NewsDetails", element: <NewsDetails /> },
       { path: "/CourseDetails", element: <CourseDetails /> },
+      { path: "/ShoppingCard", element: <ShoppingCard /> },
     ],
   },
   {

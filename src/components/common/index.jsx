@@ -8,4 +8,7 @@ import Title from './Title';
 import DropDown from './DropDown';
 import SearchBox from './SearchBox'
 import PaginationTable from './PaginationTable';
-export {AutoTypeWriter , CheckboxInput, FooterInput, FieldInput, ThemeSwitcher, Title ,HeroSectionInfo, DropDown,PaginationTable,SearchBox}
+import ShoppingPopover from './ShoppingPopover';
+import ShoppingCardRow from './ShoppingCardRow';
+
+export {AutoTypeWriter , CheckboxInput, FooterInput, FieldInput, ThemeSwitcher, Title ,HeroSectionInfo, DropDown,PaginationTable,SearchBox,ShoppingPopover,ShoppingCardRow}
