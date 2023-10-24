@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const TeacherCard = ({ image,title, description, course }) => {
@@ -18,9 +19,11 @@ const TeacherCard = ({ image,title, description, course }) => {
               <div className=" bbi bi-linkedin icons-contact"></div>
             </div>
 
-            <h2 className="text-xl md:text-lg lg:text-2xl  mt-20 lg:mt-20 md:mt-12 group-hover:text-[#7400B2] text-darkblue2 dark:text-[#c9baff] dark:group-hover:text-[#e4defa]">
-              {title}
-            </h2>
+            <Link to="/TeacherProfile">
+              <h2 className="text-xl md:text-lg lg:text-2xl  mt-20 lg:mt-20 md:mt-12 group-hover:text-[#7400B2] text-darkblue2 dark:text-[#c9baff] dark:group-hover:text-[#e4defa]">
+                {title}
+              </h2>
+            </Link>
             <h2 className="text-base text-[#6B3FEA] dark:text-[#7554F2] group-hover:text-[#0017C1] dark:group-hover:text-[#AC7CEB]"> {course} </h2>
             <p className=" text-sm md:text-xs  lg:text-sm text-[#1a1920] dark:text-[#8C7BFF] dark:group-hover:text-[#BAAFFF] group-hover:text-[#15006A] opacity-80 w-72 my-4 mt-4  md:w-48 lg:w-full ">
               {description}
@@ -28,7 +31,6 @@ const TeacherCard = ({ image,title, description, course }) => {
           </div>
         </div>
       </div>
-  
   
     
   );
