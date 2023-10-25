@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NewsCard = ({ name, img, description }) => {
   return (
-    <div  data-aos="zoom-in" className=" relative rounded-xl bg-semiWhite dark:bg-[#13005A] shadow-shadow-auth hover:shadow-[#5f5ba3] duration-500 " >
+    <div  data-aos="zoom-in" className=" relative rounded-xl bg-[#EAE5FF] dark:bg-[#13005A] shadow-shadow-auth hover:shadow-[#5f5ba3] duration-500 " >
       <div className=" w-[420px] h-[205px]  md:h-[240px]  md:w-[600px] cursor-pointer rounded-xl " >
         <div className="absolute cursor-pointer group mr-[220px] md:mr-[260px] lg:mr-[265px] mt-5 md:mt-6 lg:mt-7 ">
           <h2 className="md:text-xl text-base text-newPurple3 group-hover:text-newPurple2 pl-6 h-14 dark:text-[#BBB8FF] dark:group-hover:text-[#F0E2FF]">

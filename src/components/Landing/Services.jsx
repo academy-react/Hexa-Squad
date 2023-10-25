@@ -14,7 +14,7 @@ const Services = () => {
   ];
   return (
     <div className="lg:max-w-[1357px] md:max-w-[750px] sm:max-w-[640px] mx-auto md:mt-[-30px]">
-      <Title inner={"خدمات ما"} className={"mt-[320px] lg:mt-40 md:mt-20"} />
+      <Title inner={"خدمات ما"} className={"lg:mt-40 mt-20"} />
       <ul className="flex justify-between flex-row right overflow-hidden mt-16 ">
         <li className="services-box">
           <img src={servicesPic3} alt="picture" />

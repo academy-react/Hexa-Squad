@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { addWishList } from "../../core/services/api/addWishList";
 import { addCart } from "../../core/services/api/addCart";
 import CoutsrHeader from "./CourseHeader";
@@ -17,18 +18,20 @@ const Course = ({ data, title, courseCount, time, date, professorName, like, dis
         <img src={cart} className="inline hover-box-img mr-6" onClick={()=>addCart(id,isLogin)} />
         <img src={heart} className="inline hover-box-img" onClick={()=>addWishList(id ,isLogin)} />
       </div>
-      <CoutsrHeader image={image} />
-      <CourseBody 
-        title={title} 
-        courseCount={courseCount}
-        time={time}
-        date={date}
-        professorName={professorName} 
-        like={like} 
-        dislike={dislike}
-        studentCount={studentCount}
-        price={price} 
-      />
+      <Link to={"/CourseDetails"}>
+        <CoutsrHeader image={image} />
+        <CourseBody 
+          title={title} 
+          courseCount={courseCount}
+          time={time}
+          date={date}
+          professorName={professorName} 
+          like={like} 
+          dislike={dislike}
+          studentCount={studentCount}
+          price={price} 
+        />
+      </Link>
     </div>
   );
 };

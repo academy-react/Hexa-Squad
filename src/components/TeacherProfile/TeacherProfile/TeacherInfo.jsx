@@ -9,7 +9,7 @@ const TeacherInfo = ({title, number, email, experiences, education,  image}) => 
                 <div className="text-4xl pb-8 text-center text-[#2C007F] dark:text-whitePink">{title}</div> 
                 <div className="relative">
                     <figure className="img-figure">
-                        <img className="teacher-image" src={image} alt="image" />
+                        <img className="teacher-image" src={image} alt="image" data-aos="zoom-in" data-aos-duration="2500"/>
                     </figure>
                     {/* <span className="teacher-image-hover  -z-1"> تماس با استاد:{`\n`}{number}</span> */}
                 </div>
