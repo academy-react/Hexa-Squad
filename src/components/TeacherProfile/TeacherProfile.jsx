@@ -27,7 +27,7 @@ const TeacherProfile = () => {
         )
     })
     return (
-        <div className="py-32">
+        <div className="py-32"  data-aos="zoom-out">
             <div className="w-[90%] overflow-hidden text-3xl lg:max-w-[1260px] py-12 mx-auto bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6">
                 {mapTeacherInfo}
             </div>
