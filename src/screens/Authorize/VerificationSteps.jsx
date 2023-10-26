@@ -1,31 +1,29 @@
 import React, { useState } from "react";
-import { StepperContext } from "../../contexts/StepperContext";
 import { Link } from "react-router-dom";
+
+import { StepperContext } from "../../contexts/StepperContext";
+import ChangePassword from "../../components/Stepper/Steps/ChangePassword";
 import Stepper from "../../components/Stepper/Stepper";
 import StepperControl from "../../components/Stepper/StepperControl";
 import VerificationCode from "../../components/Stepper/Steps/VerificationCode";
-import PersonalInfo from "../../components/Stepper/Steps/PersonalInfo";
-import PhoneNumber from "../../components/Stepper/Steps/PhoneNumber";
-import LastStep from "../../components/Stepper/Steps/LastStep";
+import FirstStepPassword from "../../components/Stepper/Steps/FirstStepPassword";
 
-import RegisterImage from "../../assets/image/Register2.svg";
+import ForgetPassword from "../../assets/image/forgetPassword.svg";
 
-const Register = () => {
+const VerificationSteps = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const steps = ["شماره تماس", "دریافت کد", "مشخصات کاربری", "تکمیل ثبت نام"];
+  const steps = ["شماره تماس", "دریافت کد", " تغییر رمزعبور"];
   const [userData, setUserData] = useState("");
   const [finalData, setFinalData] = useState([]);
 
   const displayStep = (step) => {
     switch (step) {
       case 1:
-        return <PhoneNumber />;
+        return <FirstStepPassword />;
       case 2:
         return <VerificationCode />;
       case 3:
-        return <PersonalInfo />;
-      case 4:
-        return <LastStep />;
+        return <ChangePassword />;
       default:
     }
   };
@@ -35,22 +33,21 @@ const Register = () => {
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
   };
   return (
-    <div className="bg-lightPink min-h-screen flex items-center justify-center px-16 ">
-      <div className=" relative w-full max-w-lg  mb-20">
-        <div className="h-full absolute right-32">
-          <div className=" absolute -top-4 left-20 w-60 h-60   bg-[#b07eff] rounded-full opacity-80 mix-blend-multiply filter blur-xl  animate-blob hidden lg:block"></div>
+    <div className="bg-lightPink min-h-screen flex items-center justify-center px-16">
+      <div className=" relative w-full max-w-lg mx-auto mb-20 ">
+        <div className=" h-full absolute right-32">
+          <div className=" absolute -top-4 left-20  w-60 h-60 bg-[#b07eff] rounded-full opacity-80 mix-blend-multiply filter blur-xl  animate-blob hidden lg:block"></div>
           <div className=" absolute top-0 -right-10 w-72 h-72 bg-lightPink2 rounded-full opacity-80  mix-blend-multiply  filter blur-xl  animate-blob animation-delay-2000  hidden lg:block"></div>
           <div className=" absolute  -bottom-28 left-10 w-72 h-72 bg-[#7D67FF] rounded-full opacity-70 mix-blend-multiply  filter blur-xl  animate-blob animation-delay-4000  hidden lg:block"></div>
         </div>
         <div className="bg-[#e4dbff] mx-auto right-14 bg-opacity-60 rounded-lg relative h-96 w-[300px] md:min-w-[100vh] md:right-[160px] lg:min-w-[90vh] lg:h-[70vh]  lg:top-10 lg:right-40 xl:min-w-[173vh] xl:min-h-[70vh] xl:right-96 xl:top-10">
-          <div className="w-[460px] h-full top-20 absolute right-2 hidden xl:block">
+          <div className="w-[420px] h-full top-5  absolute right-10 hidden xl:block">
             <img
-              src={RegisterImage}
+              src={ForgetPassword}
               className="object-cover rounded-e-xl hidden lg:block"
               alt=""
             />
           </div>
-
           <div className="bg-[#ECE9FF] rounded-md rounded-e-xl -top-10 md:top-0 w-[400px] h-[540px] md:block md:w-[800px] lg:h-full md:h-[520px] absolute ">
             <Link to="/">
               {" "}
@@ -59,7 +56,7 @@ const Register = () => {
 
             <Link to={"/authorize/login"}>
               <h1 class="bi bi-box-arrow-in-right text-base md:text-xl  text-[#6652eb] absolute right-4 top-4"></h1>
-              <h2 className="text-xs md:text-sm absolute right-[35px] md:right-[40px]  top-4 text-[#6652eb]">
+              <h2 className="text-xs md:text-sm absolute right-[40px] top-4 text-[#6652eb]">
                 {" "}
                 ورود به سایت
               </h2>
@@ -76,7 +73,7 @@ const Register = () => {
                 {displayStep(currentStep)}
               </StepperContext.Provider>
             </div>
-            <div className=" right-0 md:mt-48  text-[#ffff] w-full" dir="ltr">
+            <div className=" right-0 mt-48 text-[#ffff] w-full" dir="ltr">
               <div className="container horizontal mt-60 md:mt-0">
                 <StepperControl
                   handleClick={handleClick}
@@ -95,4 +92,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default VerificationSteps;
