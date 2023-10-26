@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileImage from "../../assets/icons/default-avatar-profile-icon-of-social-media-user-vector.png";
+import ProfileImage from "../../assets/image/teacher1.jpg";
 import ListItem from "../common/ListItem";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -40,7 +40,7 @@ const SideBar = ({ profileSrc }) => {
           <img
             src={ProfileImage}
             alt=" profile image "
-            className=""
+            className="my w-32 h-32 object-cover"
           />
           <h3 className="mt-3">{"کاربر سایت"}</h3>
           <label htmlFor="showUserPanelSidebar" className="bi bi-list sidebar-icon"></label>

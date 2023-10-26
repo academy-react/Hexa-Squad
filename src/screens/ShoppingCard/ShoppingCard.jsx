@@ -10,7 +10,7 @@ const ShoppingCard = () => {
   ));
   return (
     <div className="pt-20">
-      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:px-0">
+      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:px-10 bg-[#D7D5FF] ">
         <h1 className="text-center text-3xl font-bold tracking-tight text-[#111827] sm:text-4xl">
           سبد خرید
         </h1>
@@ -22,10 +22,6 @@ const ShoppingCard = () => {
 
           {/* Order summary */}
           <section aria-labelledby="summary-heading" className="mt-10">
-            <h2 id="summary-heading" className="sr-only">
-              Order summary
-            </h2>
-
             <div>
               <dl className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -50,7 +46,6 @@ const ShoppingCard = () => {
 
             <div className="mt-6 text-center text-sm">
               <p className="flex justify-center gap-3">
-                یا
                 <Link to={"/courses"} className="flex gap-3 " dir="rtl">
                   صفحه دوره ها
                   <span aria-hidden="true"> &rarr;</span>

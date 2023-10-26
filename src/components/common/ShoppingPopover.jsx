@@ -22,7 +22,10 @@ const ShoppingPopover = ({ headerStyle }) => {
           alt="shoppingCartLayout"
           className={headerStyle ? "hidden" : "block"}
         />
-        <span className={"ml-2 text-sm absolute top-0 right-0 w-5 h-5 rounded-full "+(headerStyle ? "bg-whitePink" : "bg-darkblue2")}>
+        <span>
+          
+        </span>
+        <span className={"ml-2 text-sm absolute top-0 right-0 w-5 h-5 rounded-full "+(headerStyle ? "" : "bg-darkblue2")}>
           {ShoppingCardData.length}
         </span>
         <span className="sr-only">items in cart, view bag</span>
