@@ -15,6 +15,7 @@ const TeacherWishList = () => {
           professorName={item.professorName}
           like={item.like}
           width={"lg:w-[24%]"}
+          background={"dark:bg-darkblue2"}
           dislike={item.dislike}
           studentCount={item.studentCount}
           price={item.price}
@@ -25,7 +26,7 @@ const TeacherWishList = () => {
 
   return (
     <div className="lg:max-w-full md:max-w-[750px] sm:min-w-[640px] ml-8 mt-[620px] mb-12">
-      <h2 className="lg:text-3xl md:text-2xl text-newPurple3 text-xl mb-16">
+      <h2 className="lg:text-3xl md:text-2xl text-newPurple3 dark:text-whitePink text-xl mb-16">
         دوره های پیشنهادی استاد:
       </h2>
       <div 

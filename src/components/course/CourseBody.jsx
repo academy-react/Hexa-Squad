@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SeparationPrice from "../../core/services/SeparationPrice/SeparationPrice";
 
 import likePic from '../../assets/image/like.svg';
@@ -16,9 +17,11 @@ import "../Landing/common.css";
 const CourseBody = ({ title, courseCount, time, date, professorName, like, dislike, studentCount, price }) => {
   return (
     <div className="course-body mt-6">
-      <h2 className="course-name">
-        {title}
-      </h2>
+      <Link to={"/CourseDetails"}>
+        <h2 className="course-name">
+          {title}
+        </h2>
+      </Link>
       <div className="">
         {countSvg}
         <h3 className="course-info pl-6">{courseCount}</h3>

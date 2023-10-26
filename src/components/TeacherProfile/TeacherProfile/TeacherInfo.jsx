@@ -19,13 +19,13 @@ const TeacherInfo = ({title, number, email, experiences, education}) => {
 
             </div>
             <div 
-                className="float-left w-3/5 px-12 rounded-lg shadow-shadow-Course-details dark:bg-[#34239f]" 
+                className="float-left w-3/5 px-12 rounded-lg shadow-shadow-Course-details dark:bg-darkblue2" 
                 data-aos="flip-left"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
             >
                 <div className="teacherInfo">تجربه ها:
-                    <div className="py-4 px-4 text-md leading-8 md:text-base lg:text-lg lg:leading-10 text-[#03001C] opacity-80 dark:text-lightPin">{experiences}</div>
+                    <div className="py-4 px-4 text-md leading-8 md:text-base lg:text-lg lg:leading-10 text-[#03001C] opacity-80 dark:text-lightPink">{experiences}</div>
                 </div>
                 <div className="teacherInfo pt-8 border-none"> راه های ارتباطی:
                     <TeacherSocialMedia number={number} email={email}/>

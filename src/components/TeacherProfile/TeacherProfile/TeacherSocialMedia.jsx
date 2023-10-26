@@ -14,10 +14,10 @@ const TeacherSocialMedia = ({number, email}) => {
         <div className="my-4 pr-4 pb-8">
             {/* <div className="flex flex-row gap-8"> */}
             <div className="my-8 flex flex-row">{phone}
-                <p className="pr-4 text-[#03001C] opacity-60">{number}</p>
+                <p className="pr-4 text-[#03001C] opacity-60 dark:text-whitePink">{number}</p>
             </div>
             <div className="my-8 flex flex-row">{mail}
-                <p className="pr-4 text-[#03001C] opacity-60">{email}</p>
+                <p className="pr-4 text-[#03001C] opacity-60 dark:text-whitePink">{email}</p>
             </div>
             {/* </div> */}
             <div className="mt-12 flex flex-row gap-x-3 -mr-2">
