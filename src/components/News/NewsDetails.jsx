@@ -39,7 +39,7 @@ const NewsDetails = () => {
     return(
         <Fragment>
             <motion.div className="progress-bar" style={{ scaleX }} />
-            <div className="pt-24 lg:pt-40 mb-52">
+            <div className="pt-24 lg:pt-40 mb-52" data-aos="flip-left">
                 <div className="news-details">
                     <div className="flex lg:flex-row flex-wrap border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70] mx-auto pb-12">
                         <div className='relative'>
