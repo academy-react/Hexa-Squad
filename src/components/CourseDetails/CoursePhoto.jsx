@@ -3,8 +3,11 @@ import course from "../../assets/image/course1.png";
 
 const CoursePhoto = () => {
   return (
-    <div className="w-full lg:w-[860px]  md:w-[500px] relative  mx-auto md:my-10 lg:mt-10 lg:mx-12">
-      <div className="shadow-shadow-auth rounded-xl ">
+    <div
+      data-aos="zoom-in-left"
+      className="w-full lg:w-[860px]  md:w-[500px] relative  mx-auto md:my-10 lg:mt-10 lg:mx-12"
+    >
+      <div className="shadow-shadow-auth rounded-xl  ">
         <h2
           className="bi bi-heart text-3xl text-whitePink left-3 mt-4 absolute opacity-60 hover:opacity-100 cursor-pointer "
           alt="wishlist"
