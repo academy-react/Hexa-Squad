@@ -17,18 +17,18 @@ const Course = ({ data, title, courseCount, time, date, professorName, like, dis
         <img src={cart} className="inline hover-box-img mr-6" onClick={()=>addCart(id,isLogin)} />
         <img src={heart} className="inline hover-box-img" onClick={()=>addWishList(id ,isLogin)} />
       </div>
-      <CoutsrHeader image={image} />
-      <CourseBody 
-        title={title} 
-        courseCount={courseCount}
-        time={time}
-        date={date}
-        professorName={professorName} 
-        like={like} 
-        dislike={dislike}
-        studentCount={studentCount}
-        price={price} 
-      />
+        <CoutsrHeader image={image} />
+        <CourseBody 
+          title={title} 
+          courseCount={courseCount}
+          time={time}
+          date={date}
+          professorName={professorName} 
+          like={like} 
+          dislike={dislike}
+          studentCount={studentCount}
+          price={price} 
+        />
     </div>
   );
 };
