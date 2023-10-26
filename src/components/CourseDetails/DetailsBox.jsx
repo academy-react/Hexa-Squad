@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import start from "../../assets/image/start.svg";
 import date from "../../assets/image/date.svg";
 import student from "../../assets/image/student.svg";
@@ -79,26 +81,28 @@ const DetailsBox = () => {
           />
         </div>
       </div>
-      <div className="rounded-lg relative shadow-shadow-Course-details h-[140px] bg-[#D7D5FF] lg:mt-10 dark:bg-[#34239f]">
-        <div className="flex flex-row absolute right-32 md:right-36 mt-8 ">
-          <h2 className="text-lg md:text-xl text-darkblue dark:text-whitePink">
-            مدرس:{" "}
+      <Link to="/TeacherProfile">
+        <div className="rounded-lg relative shadow-shadow-Course-details h-[140px] bg-[#D7D5FF] lg:mt-10 dark:bg-[#34239f]">
+          <div className="flex flex-row absolute right-32 md:right-36 mt-8 ">
+            <h2 className="text-lg md:text-xl text-darkblue dark:text-whitePink">
+              مدرس:{" "}
+            </h2>
+            <h2 className="text-lg md:text-xl text-darkblue mr-1 dark:text-whitePink">
+              مهندس مهدی اصغری{" "}
+            </h2>
+          </div>
+          <h2 className="text-md text-darkblue right-32  md:right-36 mt-20 absolute opacity-80 dark:text-whitePink">
+            مهندس نرم افزار{" "}
           </h2>
-          <h2 className="text-lg md:text-xl text-darkblue mr-1 dark:text-whitePink">
-            مهندس مهدی اصغری{" "}
-          </h2>
+          <div className="w-24 h-24 rounded-full  right-6 mt-6 absolute">
+            <img
+              src={teacher}
+              className="rounded-full w-24 h-24 object-cover"
+              alt=""
+            />
+          </div>
         </div>
-        <h2 className="text-md text-darkblue right-32  md:right-36 mt-20 absolute opacity-80 dark:text-whitePink">
-          مهندس نرم افزار{" "}
-        </h2>
-        <div className="w-24 h-24 rounded-full  right-6 mt-6 absolute">
-          <img
-            src={teacher}
-            className="rounded-full w-24 h-24 object-cover"
-            alt=""
-          />
-        </div>
-      </div>
+      </Link>
     </div>
   );
 };

@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";
 import ThemeSwitcher from "../../common/ThemeSwitcher";
 import Moon from '../../../assets/image/Moon.svg';
-import shoppingCart from '../../../assets/image/shopping-cart.svg'
-import shoppingCartLayout from '../../../assets/image/shopping-cart-layout.svg'
+import { ShoppingPopover } from "../../common";
 const HeaderButtons = ({setLightMode,lightMode,headerStyle}) => {
   const htmlTag = document.querySelector("html");
   const changeTheme = () => {
@@ -18,10 +17,7 @@ const HeaderButtons = ({setLightMode,lightMode,headerStyle}) => {
         <i className={lightMode ?'hidden':'block'+ " bi bi-brightness-high text-3xl mt-1 "}></i>
       </div>
       <ThemeSwitcher lightMode={lightMode} setLightMode={setLightMode} className={headerStyle?'hidden-theme-switcher':'lg:block'} />
-      <Link>
-        <img src={shoppingCart} alt="shoppingCart" className={headerStyle?'block':'hidden'} />
-        <img src={shoppingCartLayout} alt="shoppingCartLayout" className={headerStyle?'hidden':'block'} />
-      </Link>
+      <ShoppingPopover headerStyle={headerStyle}/>
       <Link to={"/authorize/login"}>
         <button className="primary-btn">
           <i className="bi bi-box-arrow-in-right pt-1"></i>

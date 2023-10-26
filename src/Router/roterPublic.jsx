@@ -18,10 +18,12 @@ import AllCourse from "../screens/Panel/AllCourse";
 import WhishList from "../screens/Panel/WhishList";
 import MyCourses from "../screens/Panel/MyCourses";
 import ChangePassword from "../screens/Panel/ChangePassword";
+import TeacherProfile from "../components/TeacherProfile/TeacherProfile";
 
 import EditProfile from "../screens/Panel/EditProfile";
 import UserDashboard from "../screens/Panel/UserDashboard";
 
+import ShoppingCard from "../screens/ShoppingCard/ShoppingCard";
 export const routerPublic = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +35,8 @@ export const routerPublic = createBrowserRouter([
       { path: "/news", element: <NewsList /> },
       { path: "/NewsDetails", element: <NewsDetails /> },
       { path: "/CourseDetails", element: <CourseDetails /> },
+      { path: "/ShoppingCard", element: <ShoppingCard /> },
+      { path: "/TeacherProfile", element: <TeacherProfile /> },
     ],
   },
   {

@@ -1,7 +1,5 @@
 import React from "react";
-import { Typewriter } from "react-simple-typewriter";
 import Title from "../common/Title";
-import AutoTypeWriter from "../common/AutoTypeWriter";
 
 import servicesPic1 from "../../assets/image/services-pic1.svg";
 import servicesPic2 from "../../assets/image/services-pic2.svg";
@@ -14,10 +12,10 @@ const Services = () => {
   ];
   return (
     <div className="lg:max-w-[1357px] md:max-w-[750px] sm:max-w-[640px] mx-auto md:mt-[-30px]">
-      <Title inner={"خدمات ما"} className={"mt-[320px] lg:mt-40 md:mt-20"} />
+      <Title inner={"خدمات ما"} className={"lg:mt-40 mt-20"} />
       <ul className="flex justify-between flex-row right overflow-hidden mt-16 ">
         <li className="services-box">
-          <img src={servicesPic3} alt="picture" />
+          <img src={servicesPic3} alt="image"/>
           <h2 className="services-title">سادگی خدمات</h2>
           <span className="botton-border"></span>
 
@@ -27,7 +25,7 @@ const Services = () => {
           </p>
         </li>
         <li className="services-box">
-          <img src={servicesPic2} className="" />
+          <img src={servicesPic2} alt="image"/>
           <h2 className="services-title">فرصت های شغلی</h2>
           <span className="botton-border"></span>
           <p className="services-info">
@@ -36,7 +34,7 @@ const Services = () => {
           </p>
         </li>
         <li className="services-box">
-          <img src={servicesPic1} className="" />
+          <img src={servicesPic1} alt="image"/>
           <h2 className="services-title">مدرک معتبر</h2>
           <span className="botton-border"></span>
           <p className="services-info">

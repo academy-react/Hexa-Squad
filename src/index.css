@@ -22,7 +22,7 @@
   /* primary */
   .primary-btn {
     transition: 0.55s all;
-    @apply bg-gradient-to-tr from-[#732AFF] from-[3.5%] to-[#4136C9] to-[76%] hover:from-[#AA54FF] hover:from-[11%] hover:via-[#6514FF] hover:via-[51%] hover:to-[#4445F2] hover:to-[111%];
+    @apply bg-gradient-to-tr from-[#732AFF] from-[3.5%] to-[#4136C9] to-[76%] hover:from-[#AA54FF] hover:from-[11%] hover:via-[#6514FF] hover:via-[51%] hover:to-[#4445F2] hover:to-[111%] hover:scale-105 transition-all;
   }
 
   /* Header Style */
@@ -123,7 +123,7 @@
 
   /* Hero Section */
   .hero-section-bg {
-    @apply flex rounded-bl-200px w-full h-100  overflow-hidden;
+    @apply flex rounded-bl-200px w-full h-100    overflow-hidden;
       .hero-image{
         @apply w-full absolute z-0  top-0 h-[95%] rounded-bl-200px 
       }
@@ -343,7 +343,7 @@
   }
 
   .side-bar-container {
-    @apply lg:h-full h-20 overflow-hidden lg:w-3/12 w-full md:min-w-[210px] bg-gradient-to-b from-[#8C80F6] to-[#2E11B7] lg:rounded-3xl rounded-xl px-5 py-3 transition-all;
+    @apply lg:h-full h-20 overflow-hidden lg:w-[300px] min-h-screen w-full md:min-w-[210px] bg-gradient-to-b from-[#8C80F6] to-[#2E11B7] lg:rounded-3xl rounded-xl px-5 py-3 transition-all;
 
     .side-bar-image {
       @apply text-center lg:py-8 py-2 relative lg:block gap-4 flex border-b-[1px] border-[#fff] transition-all;
@@ -371,7 +371,7 @@
   }
 
   .list-items {
-    @apply flex justify-end w-full gap-5 h-[50px] px-4 items-center my-1 text-[#fff] hover:bg-[#6133FF] transition-all text-ellipsis overflow-hidden whitespace-nowrap rounded-md hover:text-[#fff];
+    @apply flex justify-end w-full gap-5 h-[50px] px-4 items-center my-2 text-[#fff] hover:bg-[#6133FF] transition-all text-ellipsis overflow-hidden whitespace-nowrap rounded-md hover:text-[#fff];
   }
 
   .paginationLink {
@@ -390,6 +390,11 @@
   td:last-child,
   th:last-child {
     border-radius: 0 10px 10px 0;
+  }
+  .scroll-to-top{
+    border-radius: 4000px !important;
+    width: 3.5rem !important;
+    height: 3.5rem !important;
   }
 }
 

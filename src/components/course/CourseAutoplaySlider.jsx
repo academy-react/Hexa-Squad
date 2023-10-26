@@ -16,7 +16,7 @@ const CourseAutoplaySlider = () => {
             centeredSlides={false}
             initialSlide={1}
             autoplay={{
-              delay: 3000,
+              delay: 2000,
               disableOnInteraction: false,
             }}
             pagination={{
