@@ -18,11 +18,11 @@
         @apply w-[30%] p-2 m-2 duration-500 rounded-xl rounded-bl-[45px] shadow-shadow-Categories-box 
             hover:scale-105 hover:shadow-shadow-Services-box hover:cursor-pointer lg:p-8 lg:m-10 hover:bg-[#FFFFFF1A] 
             lg:hover:shadow-shadow-Services-box1 lg:hover:rounded-[36px] md:p-4 md:m-4 md:rounded-none 
-            md:shadow-shadow-none md:hover:bg-[#FFFFFF1A] md:hover:shadow-shadow-Services-box2 md:hover:rounded-[15px];
+            md:shadow-shadow-none md:hover:shadow-shadow-Services-box2 md:hover:rounded-[15px] dark:hover:bg-darkblue2;
     }
 
     .services-box img {
-        @apply lg:pb-4 md:pb-2 md:w-8 lg:w-16 my-3 mx-auto lg:m-0 md:m-0;
+        @apply lg:pb-4 md:pb-2 md:w-8 lg:w-16 my-3 mx-auto md:m-0;
     }
 
     .services-title {
@@ -135,7 +135,7 @@
         @apply absolute bottom-4 md:bottom-8 lg:bottom-10 left-0 right-0 lg:left-2 lg:right-2 px-8 py-4 inline bg-gradient-to-t from-darkblue bg-opacity-40 rounded-b-xl;
     }
     .news-details-text{
-        @apply text-base md:text-xl text-darkblue3 dark:text-[#75749b] text-justify 
+        @apply text-base md:text-xl text-darkblue3 dark:text-[#9ca3af] text-justify 
             leading-10 md:leading-[50px] lg:leading-[50px] tracking-normal ; 
     }
     .media-icons{

@@ -54,7 +54,7 @@ const NewsDetails = () => {
                         </div>
                     </div>
                     <div className="max-w-[660px] px-2 md:pr-1 lg:pr-6">
-                        <h2 className="text-[#3B3CA7] dark:text-[#6974FF] text-lg md:text-3xl mb-6">چگونه مطالعه ی موثر را برای شما اسان تر کنیم</h2>
+                        <h2 className="text-[#3B3CA7] dark:text-whitePink text-lg md:text-3xl mb-6">چگونه مطالعه ی موثر را برای شما اسان تر کنیم</h2>
                         <div className="inline text-[#403393] dark:text-[#8E8EAA] text-sm "> 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#8E8EAA" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className=" ml-4 w-6 h-6 inline text-[#8E8EAA]">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -66,7 +66,7 @@ const NewsDetails = () => {
                         </p>
                     </div>
                 </div>
-                <h2 className="text-xl lg:text-[26px] text-darkblue3 dark:text-[#6974FF] py-6">چگونه اموزش ببینیم ؟</h2>
+                <h2 className="text-xl lg:text-[26px] text-darkblue3 dark:text-whitePink py-6">چگونه اموزش ببینیم ؟</h2>
                 <p className="news-details-text">قبل از هر چیزی باید بدانیم که نمیشه یک روند یا روش خاصی رو برای همه افراد که ذهنیت های متفاوتی هم از هم دارند، در نظر گرفت. ولی خب هدف تمامی این افراد آموزش دیدن و رسیدن به درک عمیقی از اون مطلب است ولی آیا برای تمامی افراد آموزش دیدن به این جا ختم میشود و همه به درک عمیقی از اون مطلب میرسند؟ قطعا خیر. در ادامه به نحوه رسیدن به درک عمیق مطلب، مناسب برای تمامی افراد صحبت خواهیم کرد.</p>
                 <h3 className="news-details-text pt-14 pb-4">مثال: </h3>
                 <p className="news-details-text">
