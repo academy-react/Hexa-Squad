@@ -20,7 +20,7 @@ const TeacherSocialMedia = ({number, email}) => {
                 <p className="pr-4 text-[#03001C] opacity-60">{email}</p>
             </div>
             {/* </div> */}
-            <div className="mt-12 flex flex-row gap-x-3">
+            <div className="mt-12 flex flex-row gap-x-3 -mr-2">
                 <div className="media-icons-border">{facebook}</div>
                 <div className="media-icons-border">{twitter}</div>
                 <div className="media-icons-border">{instagram}</div>
