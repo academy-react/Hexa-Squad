@@ -8,7 +8,10 @@ import teacher from "../../assets/image/teacher'sProfile.jpg";
 const DetailsBox = () => {
   return (
     <div className=" lg:w-[620px]  md:w-[500px] w-full mx-auto lg:ml-14  ">
-      <div className="rounded-lg shadow-shadow-Course-details lg:h-[540px] bg-[#D7D5FF] lg:mt-10  dark:bg-[#34239f] ">
+      <div
+       data-aos="zoom-in-right"
+        className="rounded-lg shadow-shadow-Course-details lg:h-[540px] bg-[#D7D5FF] lg:mt-10  dark:bg-[#34239f] "
+      >
         <h2 className="w-28 h-6 mx-32 lg:my-10 md:mx-48 lg:mx-44 md:text-lg  py-6 text-md  text-[#210654]  dark:text-whitePink">
           {" "}
           مشخصات دوره
