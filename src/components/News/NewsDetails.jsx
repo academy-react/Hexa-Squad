@@ -5,9 +5,10 @@ import userCommentData from '../../core/services/api/Data/userCommentData';
 
 import 
     { 
-    facebook, 
-    twitter, 
-    instagram,
+    userSvg,
+    facebookSvg, 
+    twitterSvg, 
+    instagramSvg,
     } 
 from '../../assets/icons/svgIcons';
 import newsDetails1 from '../../assets/image/newsDetails1.svg';
@@ -56,9 +57,7 @@ const NewsDetails = () => {
                         <div className="max-w-[660px] px-2 md:pr-1 lg:pr-6">
                             <h2 className="text-[#3B3CA7] dark:text-whitePink text-lg md:text-3xl mb-6">چگونه مطالعه ی موثر را برای شما اسان تر کنیم</h2>
                             <div className="inline text-[#403393] dark:text-[#8E8EAA] text-sm "> 
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="#8E8EAA" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className=" ml-4 w-6 h-6 inline text-[#8E8EAA]">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                </svg>
+                                {userSvg}
                                 هگزا اسکواد
                             </div>
                             <p className="news-details-text mt-6">
@@ -83,13 +82,13 @@ const NewsDetails = () => {
                         <h2 className="news-details-text pt-2">به اشتراک گذاری:</h2>
                         <div className="flex flex-row w-30 lg:w-[194px] ">
                             <div className="media-icons-border">
-                                {facebook}
+                                {facebookSvg}
                             </div>
                             <div className="media-icons-border">
-                                {twitter}
+                                {twitterSvg}
                             </div>
                             <div className="media-icons-border">
-                                {instagram}
+                                {instagramSvg}
                             </div>
                         </div>
                     </div>
