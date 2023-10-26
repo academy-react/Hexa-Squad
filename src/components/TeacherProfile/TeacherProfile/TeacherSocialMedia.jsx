@@ -11,15 +11,16 @@ from '../../../assets/icons/svgIcons';
 
 const TeacherSocialMedia = ({number, email}) => {
     return(
-        <div className="my-4">
-            <flex className="flex flex-row gap-8">
-            <div className="my-4 flex flex-row">{phone}
+        <div className="my-4 pr-4 pb-8">
+            {/* <div className="flex flex-row gap-8"> */}
+            <div className="my-8 flex flex-row">{phone}
                 <p className="pr-4 text-[#03001C] opacity-60">{number}</p>
             </div>
-            <div className="my-4 flex flex-row">{mail}
+            <div className="my-8 flex flex-row">{mail}
                 <p className="pr-4 text-[#03001C] opacity-60">{email}</p>
-            </div></flex>
-            <div className="flex flex-row mt-4">
+            </div>
+            {/* </div> */}
+            <div className="mt-12 flex flex-row gap-x-3">
                 <div className="media-icons-border">{facebook}</div>
                 <div className="media-icons-border">{twitter}</div>
                 <div className="media-icons-border">{instagram}</div>

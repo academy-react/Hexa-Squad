@@ -224,8 +224,11 @@
     .img-figure:hover+.teacher-image-hover{
         @apply left-[400px] opacity-100;
     }
-    .teacherInfo-title{
-        @apply w-full pl-8 ml-16 pr-4 text-newPurple3 text-2xl border-b-2 border-dotted border-b-[#94a3b8];
+    .teacher-education{
+        @apply w-72 h-24 mx-auto my-8 py-8 text-2xl text-darkblue2 dark:text-whitePink rounded-lg shadow-shadow-Course-details text-center bg-[#c4b5fd] dark:bg-[#34239f];
+    }
+    .teacherInfo{
+        @apply w-full ml-16 pr-4 pt-8 text-newPurple3 text-2xl border-b-2 border-dotted border-b-[#94a3b8];
     }
     .teacher-suggestion .latestCourse{
         @apply bg-[#D7D5FF] dark:bg-[#34239f];
