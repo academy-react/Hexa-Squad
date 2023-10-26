@@ -18,7 +18,10 @@ const Login = () => {
         <div className=" absolute top-0 -right-10 w-72 h-72 bg-lightPink2 rounded-full  mix-blend-multiply  filter blur-xl opacity-80 animate-blob animation-delay-2000  hidden lg:block"></div>
         <div className=" absolute  -bottom-20 left-20 w-72 h-72 bg-[#7D67FF] rounded-full  mix-blend-multiply  filter blur-xl opacity-80 animate-blob animation-delay-4000  hidden lg:block"></div>
 
-        <div className="bg-[#e4dbff] mx-auto right-14 bg-opacity-60 rounded-lg relative h-96 w-[300px] md:min-w-[100vh] md:h-[520px]  md:right-[160px] lg:min-w-[90vh] lg:h-[70vh]  lg:top-10 lg:right-40 xl:min-w-[173vh] xl:min-h-[70vh] xl:right-96 xl:top-10">
+        <div
+          data-aos="zoom-in"
+          className="bg-[#e4dbff] mx-auto right-14 bg-opacity-60 rounded-lg relative h-96 w-[300px] md:min-w-[100vh] md:h-[520px]  md:right-[160px] lg:min-w-[90vh] lg:h-[70vh]  lg:top-10 lg:right-40 xl:min-w-[173vh] xl:min-h-[70vh] xl:right-96 xl:top-10"
+        >
           <div className="w-[460px] h-full top-4 absolute right-2 hidden xl:block">
             <img
               src={loginImage}
