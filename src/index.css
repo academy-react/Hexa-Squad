@@ -353,6 +353,11 @@
   th:last-child {
     border-radius: 0 10px 10px 0;
   }
+  .scroll-to-top{
+    border-radius: 4000px !important;
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+  }
 }
 
 :root {
