@@ -25,12 +25,12 @@ const TeacherWishList = () => {
   })
 
   return (
-    <div className="lg:max-w-full md:max-w-[750px] sm:min-w-[640px] ml-8 mt-[620px] mb-12">
-      <h2 className="lg:text-3xl md:text-2xl text-newPurple3 dark:text-whitePink text-xl mb-16">
+    <div className="lg:max-w-full md:max-w-[750px] sm:min-w-[640px] ml-8 mt-16 md:mt-[450px] lg:mt-[620px] mb-12">
+      <h2 className="text-2xl md:text-lg lg:text-2xl mr-4 text-newPurple3 dark:text-whitePink mb-10 lg:mb-16">
         دوره های پیشنهادی استاد:
       </h2>
       <div 
-        className="flex md:flex-wrap lg:flex-row -mr-12"  
+        className="flex flex-wrap lg:flex-row mr-8 md:-mr-12"  
         data-aos="fade-up"
         data-aos-duration="2000"
       >

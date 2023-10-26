@@ -211,32 +211,39 @@
 
     /* Teacher Profile */
     .img-figure{
-        @apply w-80 h-80 mx-auto rounded-full shadow-shadow-auth border-8 border-[#9333ea];
+        @apply w-60 h-60 md:w-52 md:h-52 lg:w-80 lg:h-80 mx-auto rounded-full shadow-shadow-auth border-8 border-[#9333ea];
     }
     .teacher-image{
-        transition: .3s ease-in-out;
-        @apply w-full h-full rounded-full object-cover blur-none;
+        @apply w-full h-full rounded-full object-cover blur-none duration-300 ease-in-out;
     }
     .img-figure:hover .teacher-image{
-        @apply cursor-pointer blur-[3px];
+        @apply cursor-pointer blur-[3px] ;
     }
     .teacher-image-hover{
-        transition: .3s ease-in-out;
-        @apply absolute bottom-36 -left-12 block opacity-0 w-72 mx-auto text-2xl text-[#2C007F] dark:text-whitePink text-center;
+        @apply absolute bottom-36 -left-12 block opacity-0 w-72 mx-auto text-2xl text-[#2C007F] dark:text-whitePink text-center duration-300 ease-in-out;
     }
     .img-figure:hover+.teacher-image-hover{
         @apply left-[400px] opacity-100;
     }
     .teacher-education{
-        @apply w-72 h-24 mx-auto my-8 py-8 text-2xl text-darkblue2 dark:text-whitePink rounded-lg shadow-shadow-Course-details text-center bg-[#c4b5fd] dark:bg-darkblue2;
+        @apply w-60 h-20 md:w-52 md:h-20 lg:w-72 lg:h-24 mx-auto my-8 py-6 lg:py-8 text-xl md:text-lg lg:text-2xl text-darkblue2 dark:text-whitePink rounded-lg shadow-shadow-Course-details text-center bg-[#c4b5fd] dark:bg-darkblue2;
     }
     .teacherInfo{
-        @apply w-full ml-16 pr-4 pt-8 text-newPurple3 dark:text-whitePink text-2xl border-b-2 border-dotted border-b-[#94a3b8];
+        @apply w-full ml-16 pr-4 pt-4 lg:pt-8 text-2xl md:text-lg lg:text-2xl text-newPurple3 dark:text-whitePink border-b-2 border-dotted border-b-[#94a3b8];
     }
-    .teacher-suggestion .latestCourse{
+    .contact-teacher{
+        @apply pr-4 text-lg md:text-xl lg:text-2xl text-[#03001C] opacity-60 dark:text-whitePink;
+    }
+    .teacher-media-icons{
+        @apply md:w-10 md:h-10 lg:w-14 lg:h-14;
+    }
+    .teacher-media-icons .media-icons{
+        @apply md:w-6 md:h-6 lg:w-8 lg:h-8 md:m-1.5 lg:m-2.5;
+    }
+    /* .teacher-suggestion .latestCourse{
         @apply bg-[#D7D5FF] dark:bg-[#34239f];
     }
     .teacher-suggestion .latestCourse .latestCourse-div{
         @apply flex flex-row;
-    }
+    } */
 }
