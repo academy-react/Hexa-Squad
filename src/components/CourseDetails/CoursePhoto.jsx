@@ -5,6 +5,7 @@ const CoursePhoto = () => {
   return (
     <div
       data-aos="zoom-in-left"
+      data-aos-duration="1000"
       className="w-full lg:w-[860px]  md:w-[500px] relative  mx-auto md:my-10 lg:mt-10 lg:mx-12"
     >
       <div className="shadow-shadow-auth rounded-xl  ">
@@ -19,10 +20,10 @@ const CoursePhoto = () => {
         />
       </div>
       <div className="mx-4 md:mx-0 mt-2 mb-10 md:mb-0">
-        <h2 className="text-xl md:text-3xl mt-8 text-[#2C007F] dark:text-whitePink">
+        <h2 className="text-xl md:text-3xl mt-8 text-[#2C007F] dark:text-[#ffff]">
           اموزش رایگان html برای برنامه نویسان
         </h2>
-        <p className=" mt-6 text-sm leading-8 md:text-md lg:text-base lg:leading-10 text-[#03001C] opacity-80 dark:text-lightPink ">
+        <p className=" mt-6 md:mt-10 text-sm leading-8 md:text-md lg:text-lg lg:leading-10 text-[#03001C]  dark:text-[#E7E7FF] ">
           محبوب ترین کتابخانه ی جاوااسکریپت حل مساله به روش کدنویسی پیشرفته و
           تمیز؛ برای مسائل واقعی دنیای نرم افزار محبوب ترین کتابخانه ی
           جاوااسکریپت محبوب ترین کتابخانه ی جاوااسکریپت حل مساله به روش کدنویسی
