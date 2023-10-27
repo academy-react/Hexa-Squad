@@ -28,8 +28,8 @@ const News = () => {
     );
   });
   return (
-    <section>
-      <div className=" w-[440px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-48">
+    <section className="mb-28"> 
+      <div className=" w-[440px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-56">
         <Title inner={"اخبار و مقالات"} className={"title1"} />
         <Link to="/news" className={"text-newWhite hover:text-newWhite"}>
         <button className="absolute primary-btn w-auto h-10 bottom-[-20px] lg:w-56 lg:my-10  py-1 md:block lg:hidden left-3">
