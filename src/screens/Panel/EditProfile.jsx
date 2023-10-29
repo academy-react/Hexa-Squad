@@ -5,6 +5,7 @@ import TitleSection from "../../components/UserPanel/titleSection";
 import { validation } from "../../core/validations/validations";
 
 import pic from '../../assets/image/teacher1.jpg';
+import PersianCalendar from "../../components/common/PersianCalendar";
 
 const EditProfile = () => {
     const [image, setImage] = useState()
@@ -36,33 +37,32 @@ const EditProfile = () => {
                 <Form className="flex flex-wrap gap-5 justify-center text-[#3F3F47aa]" dir="rtl">
                     <div className="editProf-input">
                         <label className="block  my-1">نام</label>
-                        <Field name={"firstName"} className="bg-transparentPurple rounded-md border-[1px] w-full h-10" />
-                        <ErrorMessage name="firstName" className="text-lightblue" component={'span'}/>
+                        <Field name={"firstName"} className="editProf-field-input" />
+                        <ErrorMessage name="firstName" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
                         <label className="block my-1">نام خانوادگی</label>
-                        <Field name={"lastName"} className="bg-transparentPurple rounded-md border-[1px] w-full h-10" />
-                        <ErrorMessage name="lastName" className="text-lightblue" component={'span'}/>
+                        <Field name={"lastName"} className="editProf-field-input" />
+                        <ErrorMessage name="lastName" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
                         <label className="block my-1">کد ملی</label>
-                        <Field name={"idCode"} className="bg-transparentPurple rounded-md border-[1px] w-full h-10"  />
-                        <ErrorMessage name="idCode" className="text-lightblue" component={'span'}/>
+                        <Field name={"idCode"} className="editProf-field-input"  />
+                        <ErrorMessage name="idCode" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
                         <label className="block my-1">ایمیل</label>
-                        <Field type={"email"} name={"email"} className="bg-transparentPurple rounded-md border-[1px] w-full h-10" />
-                        <ErrorMessage name="email" className="text-lightblue" component={'span'}/>
+                        <Field type={"email"} name={"email"} placeholder={"example@gmail.com"} className="editProf-field-input" />
+                        <ErrorMessage name="email" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
                         <label className="block my-1">تاریخ تولد</label>
-                        <Field type={"date"} name={"birthDate"} className="bg-transparentPurple rounded-md border-[1px] w-full h-10"  />
-                        <ErrorMessage name="birthDate" className="text-lightblue" component={'span'}/>
+                        <PersianCalendar/>
                     </div>
                     <div className="editProf-input">
                         <label className="block my-1">شماره موبایل</label>
-                        <Field name={"phoneNumber"} className="bg-transparentPurple rounded-md border-[1px] w-full h-10"  />
-                        <ErrorMessage name="phoneNumber" className="text-lightblue" component={'span'}/>
+                        <Field name={"phoneNumber"} className="editProf-field-input"  />
+                        <ErrorMessage name="phoneNumber" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <input
                     type="submit"

@@ -203,6 +203,12 @@
     .editProf-input{
         @apply relative my-5 w-[300px];
     }
+    .editProf-field-input{
+        @apply bg-transparentPurple rounded-md border-[1px] w-full h-10 pr-4;
+    }
+    .editProf-errorMessage{
+        @apply  text-lightblue absolute -bottom-8 right-2;
+    }
 
     /* Teacher Profile */
     .img-figure{
