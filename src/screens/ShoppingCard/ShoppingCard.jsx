@@ -39,7 +39,6 @@ const ShoppingCard = () => {
             <div className="mt-10 flex gap-5 sm:flex-row flex-col whitespace-nowrap">
               <button
                 type="button"
-                onClick={ ()=>{ ShoppingCardData=[]}}
                 className="w-5/12 p-4 block mx-auto bg-red-600 rounded-lg text-[#fff] opacity-80 hover:opacity-100 cursor-pointer"
               >
                 حذف محصولات سبد خرید
