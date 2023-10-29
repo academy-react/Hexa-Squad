@@ -1,11 +1,10 @@
-import React from "react";
+import React,{ Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import { Link } from "react-router-dom";
 
 import shoppingCart from "../../assets/image/shopping-cart.svg";
 import shoppingCartLayout from "../../assets/image/shopping-cart-layout.svg";
-import { Popover, Transition } from "@headlessui/react";
-import { Fragment } from "react";
 import ShoppingCardData from "../../core/services/api/Data/ShoppingCardData";
-import { Link } from "react-router-dom";
 
 const ShoppingPopover = ({ headerStyle }) => {
   
@@ -28,7 +27,6 @@ const ShoppingPopover = ({ headerStyle }) => {
         <span className={"ml-2 text-sm absolute top-0 right-0 w-5 h-5 rounded-full "+(headerStyle ? "" : "bg-darkblue2")}>
           {ShoppingCardData.length}
         </span>
-        <span className="sr-only">items in cart, view bag</span>
       </Popover.Button>
       <Transition
         as={Fragment}
@@ -39,7 +37,7 @@ const ShoppingPopover = ({ headerStyle }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Popover.Panel className="absolute inset-x-0 top-20 mt-px bg-whitePink pb-6 shadow-[0_0_20px_5px_rgba(0,0,0,0.1)] sm:px-2 sm:top-full lg:left-auto sm:left-0 sm:right-auto lg:right-0 sm:mt-3 sm:-mr-1.5 sm:w-80 sm:rounded-lg ">
+        <Popover.Panel className="absolute inset-x-0 top-20 mt-px bg-whitePink dark:bg-slate-600 pb-6 shadow-[0_0_20px_5px_rgba(0,0,0,0.1)] sm:px-2 sm:top-full lg:left-auto sm:left-0 sm:right-auto lg:right-0 sm:mt-3 sm:-mr-1.5 sm:w-80 sm:rounded-lg ">
           <h2 className="sr-only">Shopping Cart</h2>
 
           <form className="mx-auto max-w-2xl px-4">
@@ -52,10 +50,10 @@ const ShoppingPopover = ({ headerStyle }) => {
                     className="h-16 w-16 flex-none rounded-md border border-gray-200"
                   />
                   <div className="ml-4 flex-auto">
-                    <h3 className="font-medium text-gray-900">
-                      <Link to={product.title}>{product.title}</Link>
+                    <h3 className="font-medium ">
+                      <Link to={product.title} className="dark:text-slate-100 ">{product.title}</Link>
                     </h3>
-                    <p className="my text-newPurple3 text-opacity-50">{product.professorName}</p>
+                    <p className="my text-newPurple3 dark:text-slate-400 text-opacity-50">{product.professorName}</p>
                   </div>
                 </li>
               ))}

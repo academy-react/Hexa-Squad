@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CheckboxInput, DropDown } from "../common";
 import filterData from "../../core/services/filterData/filterData";
 
-const FiltersOptions = ({ data, setData,filterDiv }) => {
+const FiltersOptions = ({ data, setData,filterDiv ,setFilterDiv}) => {
   const [categorydata, setCategorydata] = useState([
     { label: "برنامه نویسی وب", category: "programming" },
     { label: "دیزاین", category: "design" },
@@ -16,9 +16,10 @@ const FiltersOptions = ({ data, setData,filterDiv }) => {
   ]);
   return (
     <div
-      className={"transition-all overflow-hidden w-full md:h-full "+(filterDiv?"md:w-4/12 h-full":'md:w-0 opacity-0 h-0')}
+      className={"filter-options "+(filterDiv?"block":'hidden')}
       id="filterDiv"
     >
+      <i className="bi bi-x block lg:hidden text-gray text-5xl" title="بستن فیلتر ها" onClick={()=>{setFilterDiv(!filterDiv)}}></i>
       <DropDown
         name={"category"}
         setData={setData}

@@ -1,5 +1,3 @@
-import React from "react";
-import { useState } from "react";
 const ShoppingCardData = [
   {
     title: "آموزش JavaSript",

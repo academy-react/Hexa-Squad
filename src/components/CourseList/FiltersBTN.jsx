@@ -3,33 +3,45 @@ import { CheckboxInput, SearchBox } from "../common";
 import Select from "react-select";
 import filterData from "../../core/services/filterData/filterData";
 
-const FiltersBTN = ({data,setData,setFilterDiv,filterDiv}) => {
+const FiltersBTN = ({
+  data,
+  setData,
+  setFilterDiv,
+  filterDiv,
+  showGridView,
+}) => {
   const [selectedOptions, setSelectedOption] = useState(null);
   const [options, setOptions] = useState([
     { value: "programming", label: "جدیدترین ها" },
     { value: "design", label: "پر بازدید ترین ها" },
-    { value: "edit", label: "پرطرفدار ترین ها"},
+    { value: "edit", label: "پرطرفدار ترین ها" },
   ]);
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
   };
-  const filterSearch = (value)=>{
+  const filterSearch = (value) => {
     let filteredData = data.filter((item) => {
-      return item.title.toLowerCase().indexOf(value.toLowerCase()) != -1
+      return item.title.toLowerCase().indexOf(value.toLowerCase()) != -1;
     });
     setData(filteredData);
-  }
+  };
   return (
     <div className="filter-btn-section">
       <div className="flex gap-5 lg:w-4/12 w-full justify-center">
         <CheckboxInput name={"openFilter"} />
-        <label htmlFor="openFilter" onClick={()=>{setFilterDiv(!filterDiv)}}>
+        <label
+          htmlFor="openFilter"
+          onClick={() => {
+            setFilterDiv(!filterDiv);
+          }}
+        >
           فیلتر
           <i className="bi bi-filter"></i>
         </label>
         <CheckboxInput name={"changeCardStyle"} />
         <label
           htmlFor="changeCardStyle"
+          onClick={showGridView}
           className=" w-[95px] overflow-hidden relative flex gap-2 justify-around items-center h-[50px] text-2xl bg-transparentPurple border-[3px] border-[#fff] py-1 px-2 cursor-pointer rounded-xl"
         >
           <span className="absolute w-1/2 h-full left-0 top-0 z-0 bg-[#fff] dark:bg-[#33335f] rounded transition-all"></span>
@@ -38,12 +50,12 @@ const FiltersBTN = ({data,setData,setFilterDiv,filterDiv}) => {
         </label>
       </div>
       <div className="flex gap-5 w-full lg:pr-6">
-        <SearchBox placeholder={'جستجو ...'} addClass={'my-4'}/>
+        <SearchBox placeholder={"جستجو ..."} SearchFunction={filterSearch} addClass={"my-4"} />
       </div>
       <div className="flex gap-5 text-darkblue2 lg:w-6/12 w-full justify-center">
         <Select
           value={selectedOptions}
-          placeholder={'بر اساس :'}
+          placeholder={"بر اساس :"}
           options={options}
           className="text-darkblue2 lg:w-[220px] w-full"
           onChange={handleChange}

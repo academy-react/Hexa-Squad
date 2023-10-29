@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // @components
-import { routerPublic } from "../Router/roterPublic";
+import { routerPublic } from "../Router/routerPublic";
 
 const App = () => {
   useEffect(() => {

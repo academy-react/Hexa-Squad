@@ -1,10 +1,11 @@
-import React from "react";
+import React,{ useRef } from "react";
+
 import Header from "../Header/Header";
 import { Outlet } from "react-router-dom";
-import Footer from "../Footer/Footer";
 import BackToTop from "react-scroll-to-top";
-import ScrollToTop from "../common/ScrollToTop";
 
+import ScrollToTop from "../common/ScrollToTop";
+import Footer from "../Footer/Footer";
 const Main = () => {
   return (
     <div className="bg-lightPink dark:bg-darkblue min-h-[100vh]"dir="rtl" >

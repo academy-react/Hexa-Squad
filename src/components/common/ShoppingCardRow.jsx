@@ -9,7 +9,7 @@ const ShoppingCardRow = ({ product }) => {
         <img
           src={product.imageUrl}
           alt={product.title}
-          className="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32"
+          className="h-32 w-32 rounded-md object-cover object-center sm:w-52"
         />
       </div>
 
@@ -24,7 +24,7 @@ const ShoppingCardRow = ({ product }) => {
                 {product.title}
               </Link>
             </h4>
-            <p className="ml-4 text-sm font-medium text-[#111827]">
+            <p className="ml-4 text-xl text-[#111827]">
               {SeparationPrice(product.price)} تومان
             </p>
           </div>

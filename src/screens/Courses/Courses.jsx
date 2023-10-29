@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Course from "../../components/course/Course";
 import {
   CoursesHero,
@@ -7,15 +7,26 @@ import {
 } from "../../components/CourseList";
 import AllData from "../../core/services/api/Data/AllData";
 const Courses = () => {
+  const [showGrid, setShowGrid] = useState(false);
   const [filterDiv, setFilterDiv] = useState(true);
+  const [data, setData] = useState(AllData);
   const typeWriterWords = [
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
+  const showGridView = () => {
+    setShowGrid((showGrid) => !showGrid);
+  };
+  useEffect(() => {
+    return () => {
+      setFilterDiv(false);
+      setShowGrid(false);
+    };
+  }, []);
 
-  const [data, setData] = useState(AllData);
   const mapData = data.map((data, index) => (
     <Course
       key={index}
+      bio={data.bio}
       title={data.title}
       courseCount={data.courseCount}
       time={data.time}
@@ -35,6 +46,7 @@ const Courses = () => {
       <FiltersBTN
         data={AllData}
         setData={setData}
+        showGridView={showGridView}
         filterDiv={filterDiv}
         setFilterDiv={setFilterDiv}
       />
@@ -43,10 +55,16 @@ const Courses = () => {
         <div className="flex md:flex-row flex-col w-full px-5 ">
           <FiltersOptions
             data={AllData}
+            setFilterDiv={setFilterDiv}
             setData={setData}
             filterDiv={filterDiv}
           />
-          <div className="w-full flex flex-wrap transition-all justify-end gap-3">
+          <div
+            className={
+              "w-full flex flex-wrap transition-all justify-end gap-3 " +
+              (showGrid ? "grid-list" : "")
+            }
+          >
             {mapData}
           </div>
         </div>
