@@ -1,15 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import start from "../../assets/image/start.svg";
-import date from "../../assets/image/date.svg";
-import student from "../../assets/image/student.svg";
+import start from "../../assets/icons/start.svg";
+import date from "../../assets/icons/date.svg";
+import student from "../../assets/icons/student.svg";
+import startDark from "../../assets/icons/startDark.svg";
+import dateDark from "../../assets/icons/dateDark.svg";
+import studentDark from "../../assets/icons/studentDark.svg";
 import teacher from "../../assets/image/teacher'sProfile.jpg";
+
 const DetailsBox = () => {
   return (
     <div className=" lg:w-[620px]  md:w-[500px] w-full mx-auto lg:ml-14  ">
       <div
-       data-aos="zoom-in-right"
+        data-aos="zoom-in-right"
+        data-aos-duration="1000"
         className="rounded-lg shadow-shadow-Course-details lg:h-[540px] bg-[#D7D5FF] lg:mt-10  dark:bg-[#34239f] "
       >
         <h2 className="w-28 h-6 mx-32 lg:my-10 md:mx-48 lg:mx-44 md:text-lg  py-6 text-md  text-[#210654]  dark:text-whitePink">
@@ -20,11 +25,16 @@ const DetailsBox = () => {
 
         <div className="mx-6  border-b border-[#b1a5ce] h-10 relative">
           <img src={student} className="absolute right-0" alt="" />
-          <h2 className=" absolute left-2 text-[#210654]  dark:text-whitePink  ">
+          <img
+            src={studentDark}
+            className="absolute right-0 hidden dark:block"
+            alt=""
+          />
+          <h2 className=" absolute left-2 text-[#210654]  dark:text-[#f5f1ff]  ">
             {" "}
             27{" "}
           </h2>
-          <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-whitePink ">
+          <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff] ">
             {" "}
             تعداد دانشجو
           </h2>
@@ -32,33 +42,48 @@ const DetailsBox = () => {
 
         <div className="mx-6 border-b border-[#b1a5ce] h-10 relative ">
           <img src={start} className="absolute right-0" alt="" />
-          <h2 className="text-sm absolute left-2 text-[#210654] dark:text-whitePink  ">
+          <img
+            src={startDark}
+            className="absolute right-0 hidden dark:block"
+            alt=""
+          />
+          <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff]  ">
             {" "}
             در حال برگزاری{" "}
           </h2>
-          <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-whitePink  ">
+          <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff]  ">
             {" "}
             وضعیت دوره
           </h2>
         </div>
         <div className="mx-6 border-b border-[#b1a5ce] h-10 relative">
           <img src={date} className="absolute  right-0" alt="" />
-          <h2 className="text-sm absolute left-2 text-[#210654] dark:text-whitePink ">
+          <img
+            src={dateDark}
+            className="absolute right-0 hidden dark:block"
+            alt=""
+          />
+          <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff] ">
             {" "}
             1402/03/26
           </h2>
-          <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-whitePink ">
+          <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff] ">
             {" "}
             تاریخ شروع
           </h2>
         </div>
         <div className="mx-6 border-b border-[#b1a5ce]  h-10 relative">
           <img src={date} className="absolute right-0" alt="" />
-          <h2 className="text-sm absolute left-2 text-[#210654] dark:text-whitePink ">
+          <img
+            src={dateDark}
+            className="absolute right-0 hidden dark:block"
+            alt=""
+          />
+          <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff] ">
             {" "}
             1402/04/26
           </h2>
-          <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-whitePink ">
+          <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff] ">
             {" "}
             تاریخ پایان
           </h2>

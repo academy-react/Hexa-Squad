@@ -44,19 +44,14 @@
     .course-box:hover {
         box-shadow: 0px 0px 15px 0px #6D20FF4D;
         @apply translate-x-0;
-
-        .course-name {
-            @apply text-newPurpule5 dark:text-semiPink;
-        }
-
-        .prof-name {
-            @apply text-[#4E2DCC] dark:text-[#9996F9]  cursor-pointer;
-        }
-
-        .hover-box {
-            @apply block duration-500 left-0 cursor-pointer;
-        }
     }
+    .course-box:hover .course-name {
+        @apply text-newPurpule5 dark:text-semiPink;
+    }
+    .course-box:hover .hover-box {
+        @apply block duration-500 left-0 cursor-pointer;
+    }
+    
     .hover-box {
         @apply top-3 float-left h-[44px] w-[110px] absolute mb-[-50px] left-[-50%] 
              bg-[#6736FF] dark:bg-[#261A97] dark:shadow-shadow-auth rounded-r-[10px]; 
@@ -138,7 +133,7 @@
         @apply absolute bottom-4 md:bottom-8 lg:bottom-10 left-0 right-0 lg:left-2 lg:right-2 px-8 py-4 inline bg-gradient-to-t from-darkblue bg-opacity-40 rounded-b-xl;
     }
     .news-details-text{
-        @apply text-base md:text-xl text-darkblue3 dark:text-[#9ca3af] text-justify 
+        @apply text-base md:text-xl text-darkblue3 dark:text-slate-300 text-justify 
             leading-10 md:leading-[50px] lg:leading-[50px] tracking-normal ; 
     }
     .media-icons{
@@ -207,6 +202,12 @@
     /* Panel --> Edit Profile */
     .editProf-input{
         @apply relative my-5 w-[300px];
+    }
+    .editProf-field-input{
+        @apply bg-transparentPurple rounded-md border-[1px] w-full h-10 pr-4;
+    }
+    .editProf-errorMessage{
+        @apply  text-lightblue absolute -bottom-8 right-2;
     }
 
     /* Teacher Profile */
