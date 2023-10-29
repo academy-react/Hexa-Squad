@@ -29,11 +29,7 @@ const TeacherWishList = () => {
       <h2 className="text-2xl md:text-lg lg:text-2xl mr-4 text-newPurple3 dark:text-whitePink mb-10 lg:mb-16">
         دوره های پیشنهادی استاد:
       </h2>
-      <div 
-        className="flex flex-wrap lg:flex-row mr-8 md:-mr-12"  
-        data-aos="fade-up"
-        data-aos-duration="2000"
-      >
+      <div className="flex flex-wrap lg:flex-row mr-8 md:-mr-12">
         {mapCourses}
       </div>
     </div>

@@ -20,9 +20,9 @@ const TeacherInfo = ({title, number, email, experiences, education}) => {
             </div>
             <div 
                 className="md:float-left md:w-3/5 md:px-4 lg:px-12 rounded-lg md:shadow-shadow-Course-details dark:bg-darkblue2" 
-                md:data-aos="flip-left"
-                md:data-aos-easing="ease-out-cubic"
-                md:data-aos-duration="2000"
+                data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
             >
                 <div className="teacherInfo">تجربه ها:
                     <div className="py-4 px-4 text-base leading-8 md:text-base lg:text-lg lg:leading-10 text-[#03001C] opacity-80 dark:text-lightPink">{experiences}</div>
