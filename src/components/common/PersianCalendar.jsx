@@ -56,10 +56,11 @@ function InputMask({ value, handleValueChange, openCalendar }) {
     onSubmit={() => alert("ثبت اطلاعات")}
     >
         <Form>
-            <Input  dir="ltr"
-                className="editProf-field-input w-[300px] pl-52"
-                locale={persian_fa}
+            <Field  dir="ltr"
+                type={""}
                 name="birthDate"
+                className="editProf-field-input w-[300px] pl-48"
+                locale={persian_fa}
                 mask="9999/99/99"
                 maskChar="-"
                 onFocus={openCalendar}

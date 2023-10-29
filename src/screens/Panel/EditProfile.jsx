@@ -4,7 +4,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import TitleSection from "../../components/UserPanel/titleSection";
 import { validation } from "../../core/validations/validations";
 
-import pic from '../../assets/image/teacher1.jpg';
+import pic from '../../assets/image/drBahr.jpg';
 import PersianCalendar from "../../components/common/PersianCalendar";
 
 const EditProfile = () => {
@@ -30,7 +30,7 @@ const EditProfile = () => {
 
         <div className="mt-8">
             <Formik
-            initialValues={{ firstName: "", lastName: "", idCode: "", email: "", birthDate: "", phoneNumber: "" }}
+            initialValues={{ firstName: "محمد", lastName: "بحرالعلوم", idCode: "2222", email: "bahr.academy@gmail.com", birthDate: "", phoneNumber: "09112233445" }}
             validationSchema={validation}
             onSubmit={() => alert("ثبت اطلاعات")}
             >
