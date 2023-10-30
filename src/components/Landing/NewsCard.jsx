@@ -14,13 +14,13 @@ const NewsCard = ({ name, img, description, views, date }) => {
               {name}
             </h2>
             <div className="flex flex-row my-2">
-              <h2 className=" text-indigo-900 dark:text-indigo-200 text-xs mt-[2px] ml-2">
+              <h2 className="news-view text-indigo-900 dark:text-indigo-200 text-xs mt-[2px] ml-2">
                 {" "}
                 <i class="bi bi-eye text-sm ml-1 dark:text-indigo-200 "></i>
                 {views} بازدید{" "}
               </h2>
-              <div className="h-[22px] mx-2 rotate-180  border border-[#ABA6EF]"></div>
-              <h2 className="text-indigo-900 text-xs dark:text-indigo-200 mt-[3px] mx-2">
+              <div className="news-border h-[22px] mx-2 rotate-180  border border-[#ABA6EF]"></div>
+              <h2 className="news-date text-indigo-900 text-xs dark:text-indigo-200 mt-[3px] mx-2">
                 <i class="bi bi-calendar-event text-sm dark:text-indigo-200 ml-1"></i>
                 {date}
               </h2>

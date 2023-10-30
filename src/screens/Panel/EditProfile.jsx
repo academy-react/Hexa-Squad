@@ -30,7 +30,7 @@ const EditProfile = () => {
 
         <div className="mt-8">
             <Formik
-            initialValues={{ firstName: "محمد", lastName: "بحرالعلوم", idCode: "2222", email: "bahr.academy@gmail.com", birthDate: "", phoneNumber: "09112233445" }}
+            initialValues={{ firstName: "محمد", lastName: "بحرالعلوم", idCode: "2090425610", email: "bahr.academy@gmail.com", birthDate: "", phoneNumber: "09112233445" }}
             validationSchema={validation}
             onSubmit={() => alert("ثبت اطلاعات")}
             >

@@ -70,7 +70,7 @@ const CourseBody = ({
         </div>
         <h3 className="inline text-xl text-newPurple4 mr-10">
           {SeparationPrice(price)}
-          <span className="text-lightblue4 dark:text-[#9996F9] text-base mr-3">
+          <span className="text-slate-600 dark:text-[#9996F9] text-base mr-3">
             تومان
           </span>
         </h3>
