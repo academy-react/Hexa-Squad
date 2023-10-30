@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { addCart } from "../../core/services/api/addCart";
 
 import start from "../../assets/icons/start.svg";
 import date from "../../assets/icons/date.svg";
@@ -9,13 +10,14 @@ import dateDark from "../../assets/icons/dateDark.svg";
 import studentDark from "../../assets/icons/studentDark.svg";
 import teacher from "../../assets/image/teacher'sProfile.jpg";
 
-const DetailsBox = () => {
+const DetailsBox = ({ id }) => {
+  const [isLogin, setIsLogin] = useState(false);
   return (
     <div className=" lg:w-[620px]  md:w-[500px] w-full mx-auto lg:ml-14  ">
       <div
         data-aos="zoom-in-right"
         data-aos-duration="1000"
-        className="rounded-lg shadow-shadow-Course-details lg:h-[540px] bg-[#D7D5FF] lg:mt-10  dark:bg-[#34239f] "
+        className="rounded-lg shadow-shadow-Course-details lg:h-[540px] bg-[#D7D5FF] lg:mt-10 md:mt-28 mt-20 dark:bg-[#34239f] "
       >
         <h2 className="w-28 h-6 mx-32 lg:my-10 md:mx-48 lg:mx-44 md:text-lg  py-6 text-md  text-[#210654]  dark:text-whitePink">
           {" "}
@@ -103,6 +105,7 @@ const DetailsBox = () => {
         </div>
         <div className="mx-6 mt-3 mb-8 lg:mb-0 ">
           <input
+            onClick={() => addCart(id, isLogin)}
             type="submit"
             value="ثبت نام در این دوره"
             className="gradient w-full py-4 lg:mb-0 mb-4 rounded-md cursor-pointer"
@@ -110,7 +113,7 @@ const DetailsBox = () => {
         </div>
       </div>
       <Link to="/TeacherProfile">
-        <div className="rounded-lg relative shadow-shadow-Course-details h-[140px] bg-[#D7D5FF] lg:mt-10 dark:bg-[#34239f]">
+        <div className="rounded-lg relative shadow-shadow-Course-details h-[140px] bg-[#D7D5FF] lg:mt-16 dark:bg-[#34239f]">
           <div className="flex flex-row absolute right-32 md:right-36 mt-8 ">
             <h2 className="text-lg md:text-xl text-darkblue dark:text-whitePink">
               مدرس:{" "}
