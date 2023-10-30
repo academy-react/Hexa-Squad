@@ -19,21 +19,21 @@ const ShoppingCardRow = ({ product }) => {
             <h4 className="text-sm">
               <Link
                 href={"" + product.id}
-                className="font-medium text-[#111827] "
+                className="font-medium text-[#111827] dark:text-semiWhite2 "
               >
                 {product.title}
               </Link>
             </h4>
-            <p className="ml-4 text-xl text-[#111827]">
+            <p className="ml-4 text-xl text-[#111827] dark:text-semiWhite2">
               {SeparationPrice(product.price)} تومان
             </p>
           </div>
-          <p className="mt-1 text-sm text-[#374151]">{product.professorName}</p>
-          <p className="mt-1 text-sm text-[#374151]">{product.courseCount}</p>
+          <p className="mt-1 text-sm text-[#374151] dark:text-slate-400">{product.professorName}</p>
+          <p className="mt-1 text-sm text-[#374151] dark:text-slate-400">{product.courseCount}</p>
         </div>
 
         <div className="mt-4 flex flex-1 items-end justify-between">
-          <p className="flex items-center space-x-2 text-sm text-[#374151]">
+          <p className="flex items-center space-x-2 text-sm text-[#374151] dark:text-slate-400">
             <span> زمان شروع دوره : {product.date}</span>
           </p>
           <div className="ml-4">
