@@ -5,6 +5,7 @@ import FooterInput from "../common/FooterInput";
 import Gradient1 from '../../assets/icons/logo-icon-gradient.svg';
 import Gradient2 from '../../assets/icons/logo-icon-gradient-part.svg';
 import FooterBottom from "./components/FooterBottom";
+import Copyrights from "../common/Copyrights";
 const Footer = () => {
   return (
     <footer className="footer">
@@ -18,6 +19,7 @@ const Footer = () => {
         </div>
         <FooterBottom/>
       </div>
+      <Copyrights/>
     </footer>
   );
 };

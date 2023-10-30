@@ -18,7 +18,7 @@ const NewsList = () => {
       <NewsListHero typeWriterWords={typeWriterWords}/>
       <div className="lg:max-w-[1200px] md:max-w-[700px] max-w-[500px]  mx-auto mt-16">
         <NewsFilterMenu newsList={newsAllData} setNewsList={setNewsList}/>
-        <div className="news-card w-full flex flex-col hover: gap-y-8">
+        <div className="news-card">
             {newsCardsMapper}
         </div>       
       </div>

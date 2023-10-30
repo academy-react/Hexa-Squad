@@ -12,9 +12,9 @@ const NewsCard = ({ name, img, description }) => {
           <h2 className="md:text-base h-[80px] text-sm md:my-2 mt-2 pl-6 text-lightblue dark:text-[#ABA6EF]  dark:group-hover:text-[#DEDCFF] opacity-60">
             {description}
           </h2>
-          <div className="flex flex-row absolute left-3 mt-2 md:left-5 ">
+          <div className="news-readMore flex flex-row absolute left-3 mt-2 md:left-5 ">
             <Link to={"/newsDetails"}>
-              <h2 className="text-newPurple  group-hover:text-[#9100DB] dark:text-[#603CE9] dark:group-hover:text-[#B882FF] ">
+              <h2 className=" text-newPurple  group-hover:text-[#9100DB] dark:text-[#603CE9] dark:group-hover:text-[#B882FF] ">
                 {" "}
                 ادامه مطلب
               </h2>

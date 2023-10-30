@@ -57,7 +57,8 @@ const EditProfile = () => {
                     </div>
                     <div className="editProf-input">
                         <label className="block my-1">تاریخ تولد</label>
-                        <PersianCalendar/>
+                        <PersianCalendar name={"birthDate"}/>
+                        <ErrorMessage name="birthDate" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
                         <label className="block my-1">شماره موبایل</label>
