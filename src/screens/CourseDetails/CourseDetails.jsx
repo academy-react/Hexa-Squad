@@ -44,7 +44,7 @@ const CourseDetails = ({ like, dislike }) => {
             </h2>
             <div
               className="flex flex-wrap lg:flex-row mr-8 md:-mr-12"
-              data-aos="fade-up"
+
             >
               {mapCourses}
             </div>

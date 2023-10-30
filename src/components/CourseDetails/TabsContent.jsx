@@ -41,8 +41,8 @@ const TabsContent = () => {
             <h2 className="text-lg font-medium mb-2 hidden">توضیحات</h2>
 
             <p className="text-gray-700 w-full mt-6 ">
-              <h2 className="text-lg text-indigo-900 mt-2 dark:text-indigo-100 md:mx-4  "> HTML چیست؟</h2>
-              <p className=" text-purple-800 mt-3 leading-10  lg:ml-8 md:mx-4  dark:text-indigo-200 text-justify">
+              <h2 className="text-lg text-indigo-900 mt-2 dark:text-indigo-100 md:mx-2  "> HTML چیست؟</h2>
+              <p className=" text-zinc-700 mt-3 leading-10  lg:ml-8 md:mx-2  dark:text-indigo-200 text-justify">
                 واژه HTML (اچ‌‌تی‌‌ام‌ال) مخفف Hyper Text Markup Language به
                 معنی زبان نشانه‌‌گذاری فوق متن است. HTML به عنوان زبان بنیادی
                 طراحی وب، یکی از ساده‌ترین زبان‌های کامپیوتری است که با استفاه
@@ -51,10 +51,10 @@ const TabsContent = () => {
                 می‌کند، این تگ‌ها به مرورگر اعلام می‌‌کنند، که هر بخش از صفحه چه
                 نوع عنصری است و باید به چه صورت نمایش داده شود.
               </p>
-              <h2 className="text-lg text-indigo-900 mt-7 dark:text-indigo-100 md:mx-4 ">
+              <h2 className="text-lg text-indigo-900 mt-7 dark:text-indigo-100 md:mx-2 ">
                 اهمیت یادگیری HTML چیست؟{" "}
               </h2>
-              <p className=" text-purple-800 mt-3 leading-10  lg:ml-8 text-justify dark:text-indigo-200 md:mx-4 ">
+              <p className=" text-zinc-700 mt-3 leading-10  lg:ml-8 text-justify dark:text-indigo-200 md:mx-2 ">
                 {" "}
                 وقتی حرف از طراحی وب‌‌سایت به میان می‌‌آید، ذهن تمامی افراد
                 ناخواسته به سمت زبان HTML و CSS هدایت می‌‌شود. این زبان، زبان

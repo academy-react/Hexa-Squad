@@ -9,7 +9,7 @@ const Tabs = ({ children }) => {
   };
 
   return (
-    <div className=" mt-32 lg:mr-5 md:mr-5 mx-3 mb-10 ">
+    <div className=" mt-32 lg:mx-14 md:mr-5 mx-3 mb-10 ">
        
         <div className="flex cursor-pointer max-w-lg md:mx-auto lg:mx-0">
           {children.map((child) => (
@@ -27,7 +27,7 @@ const Tabs = ({ children }) => {
           ))}
        
       </div>
-      <h2 className="border-b-2 text-[#C9C6FF] dark:text-indigo-900 w-[1200px] "></h2>
+      <h2 className="border-b-2 text-[#C9C6FF] dark:text-indigo-900 w-[1140px] "></h2>
       <div className="py-2">
         {children.map((child) => {
           if (child.props.label === activeTab) {
