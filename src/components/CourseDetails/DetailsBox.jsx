@@ -19,7 +19,7 @@ const DetailsBox = ({ id }) => {
         data-aos-duration="1000"
         className="rounded-lg shadow-shadow-Course-details lg:h-[540px] bg-[#D7D5FF] lg:mt-10 md:mt-28 mt-20 dark:bg-[#34239f] "
       >
-        <h2 className="w-28 h-6 mx-32 lg:my-10 md:mx-48 lg:mx-44 md:text-lg  py-6 text-md  text-[#210654]  dark:text-whitePink">
+        <h2 className="text-center  md:text-lg pt-8  text-md  text-[#210654]  dark:text-whitePink">
           {" "}
           مشخصات دوره
         </h2>
