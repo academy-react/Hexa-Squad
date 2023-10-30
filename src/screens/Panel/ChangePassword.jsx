@@ -1,7 +1,7 @@
 import React from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
-import TitleSection from "../../components/UserPanel/titleSection";
+import TitleSection from "../../components/UserPanel/TitleSection";
 import { validation } from "../../core/validations/validations";
 const ChangePassword = () => {
   return (

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 
 import PaginationTable from "../common/PaginationTable";
-import TitleSection from "./titleSection";
+import TitleSection from "./TitleSection";
 const PanelCourses = ({title,AllData,addIcon}) => {
   const [options, setOptions] = useState([
     { value:3, label: 3 },

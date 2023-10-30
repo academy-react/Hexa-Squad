@@ -3,7 +3,7 @@ import AutoTypeWriter from './AutoTypeWriter'
 
 const HeroSectionInfo = ({typeWriterWords , typeSpeed ,loop , title , upperTitle}) => {
   return (
-    <div className="lg:w-8/12 w-full w-full flex flex-col justify-center lg:items-start items-center lg:px-32 sm:px-20 px-0  lg:gap-7 z-20">
+    <div className="lg:w-8/12 w-full flex flex-col justify-center lg:items-start items-center lg:px-32 sm:px-20 px-0  lg:gap-7 z-20">
       <p className="text-lightblue mb-1 lg:text-[20px] md:text-base sm:text-sm">
         {upperTitle}
       </p>

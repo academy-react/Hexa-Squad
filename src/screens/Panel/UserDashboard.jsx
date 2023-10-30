@@ -1,5 +1,5 @@
 import React from "react";
-import TitleSection from "../../components/UserPanel/titleSection";
+import TitleSection from "../../components/UserPanel/TitleSection";
 import UserInfo from "../../components/UserPanel/UserDashboard/UserInfo";
 import LatestCourses from "../../components/UserPanel/UserDashboard/LatestCourses";
 import SuggestedCourses from "../../components/UserPanel/UserDashboard/SuggestedCourses";

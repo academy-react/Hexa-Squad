@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SeparationPrice from "../../core/services/SeparationPrice/SeparationPrice";
+import {addLike} from "../../core/services/api/addLike";
+import {addDisLike} from "../../core/services/api/addDisLike";
 
 import likePic from "../../assets/image/like.svg";
 import dislikePic from "../../assets/image/dislike.svg";
@@ -24,7 +26,10 @@ const CourseBody = ({
   studentCount,
   price,
   bio,
+  id
 }) => {
+  const [isLogin, setIsLogin] = useState(false);
+
   return (
     <div className="course-body mt-6 whitespace-nowrap">
       <Link to={"/CourseDetails"}>
@@ -48,11 +53,11 @@ const CourseBody = ({
           <h3 className="course-info text-sm">{professorName}</h3>
         </div>
         <div className="likes-box">
-          <div className="course-like-box mr-8">
+          <div className="course-like-box mr-8" onClick={()=>addLike(id,isLogin)} >
             <img src={likePic} alt="picture" className="inline" />
             <span className="course-like-count">{like}</span>
           </div>
-          <div className="course-like-box mr-1.5 pl-4">
+          <div className="course-like-box mr-1.5 pl-4" onClick={()=>addDisLike(id,isLogin)} >
             <img src={dislikePic} alt="picture" className="inline" />
             <span className="course-like-count">{dislike}</span>
           </div>

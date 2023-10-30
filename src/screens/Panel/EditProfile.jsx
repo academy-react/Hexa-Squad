@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
-import TitleSection from "../../components/UserPanel/titleSection";
+import TitleSection from "../../components/UserPanel/TitleSection";
 import { validation } from "../../core/validations/validations";
 
 import pic from '../../assets/image/drBahr.jpg';
