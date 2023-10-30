@@ -26,8 +26,8 @@ const SuggestedCourses = () => {
     />
   ));
   return (
-    <div className="lg:w-6/12 border lg:mr-10 mt-10 lg:mt-0">
-      <div className="text-[#3F3F47] px-12 relative mb-6">
+    <div className="lg:w-6/12 lg:mr-10 mt-10 lg:mt-0">
+      <div className="text-[#3F3F47] dark:text-white px-12 relative mb-6">
         <img
           src={TitleRight}
           className="absolute top-[-10px] right-1"

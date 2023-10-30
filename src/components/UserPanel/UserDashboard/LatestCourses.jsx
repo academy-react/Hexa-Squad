@@ -30,8 +30,8 @@ const LatestCourses = () => {
   ));
 
   return (
-    <div className="lg:w-6/12 border">
-      <div className="text-[#3F3F47] px-12 relative mb-6">
+    <div className="lg:w-6/12">
+      <div className="text-[#3F3F47] dark:text-white px-12 relative mb-6">
         <img
           src={TitleRight}
           className="absolute top-[-10px] right-1"
