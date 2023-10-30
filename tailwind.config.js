@@ -69,7 +69,8 @@ export default {
 
       animation :{
 
-        blob:"blob 7s infinite"
+        blob:"blob 7s infinite",
+        zoom:"zoom 1s"
 
       },
       keyframes:{
@@ -87,9 +88,24 @@ export default {
           "100%":{
             transform: "translate(0px, 0px) scale(1)"
           },
-        }
+        },
+
+
+        zoom: {
+          "0%": {
+            transform: "scale(0.8)",
+          },
+          "50%": {
+            transform: "scale(1)",
+          },
+          "100%":{
+            transform:"scale(1)"
+          }
+        },
+
 
       }
+      
 
    
   },
