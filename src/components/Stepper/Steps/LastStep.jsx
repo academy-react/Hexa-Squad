@@ -13,7 +13,7 @@ const LastStep = () => {
         {" "}
         <div className="w-full h-40  ">
           <img src={tick} className="w-32 h-32 md:mx-auto mr-16" alt="" />
-          <h2 className="absolute md:right-24 mt-4 right-8">ثبت نام شما با موفقیت انجام شد</h2>
+          <h2 className="absolute md:right-24 mt-4 right-8 dark:text-indigo-200">ثبت نام شما با موفقیت انجام شد</h2>
         </div>
         <Formik
           validationSchema={validation}

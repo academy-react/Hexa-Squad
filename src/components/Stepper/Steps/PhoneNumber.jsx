@@ -5,7 +5,7 @@ import FieldInput from "../../common/FieldInput";
 const PhoneNumber = () => {
   return (
     <div className="bg-[#e4dbff]">
-      <h2 className="text-[#6652eb] md:text-3xl text-2xl top-16 md:top-10 md:left-[340px] right-40 absolute">
+      <h2 className="text-[#6652eb] dark:text-indigo-100 md:text-3xl text-2xl top-16 md:top-10 md:left-[340px] right-40 absolute">
         {" "}
         ثبت نام
       </h2>

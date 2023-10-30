@@ -5,7 +5,7 @@ import FieldInput from "../../common/FieldInput";
 const FirstStepPassword = () => {
   return (
     <div className="bg-[#e4dbff]">
-      <h2 className="text-[#6652eb] md:text-3xl text-2xl top-16 md:top-10 md:left-[315px] left-[150px]  absolute">
+      <h2 className="text-[#6652eb] md:text-3xl dark:text-indigo-100 text-2xl top-16 md:top-10 md:left-[315px] left-[150px]  absolute">
         {" "}
         تغییر رمزعبور
       </h2>
