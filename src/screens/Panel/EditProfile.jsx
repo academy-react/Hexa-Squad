@@ -26,7 +26,7 @@ const EditProfile = () => {
                 <input id="input-file" type='file' onChange={(e) => setImage(e.target.files[0])}  className="hidden" />
             </label>
         </div>
-        <span className="text-[#3F3F47aa] flex justify-center mt-2">ویرایش تصویر</span>
+        <span className="text-[#3F3F47aa] dark:text-semiWhite2 flex justify-center mt-2">ویرایش تصویر</span>
 
         <div className="mt-8">
             <Formik
@@ -34,7 +34,7 @@ const EditProfile = () => {
             validationSchema={validation}
             onSubmit={() => alert("ثبت اطلاعات")}
             >
-                <Form className="flex flex-wrap gap-5 justify-center text-[#3F3F47aa]" dir="rtl">
+                <Form className="flex flex-wrap gap-5 justify-center text-[#3F3F47aa] dark:text-semiWhite2" dir="rtl">
                     <div className="editProf-input">
                         <label className="block  my-1">نام</label>
                         <Field name={"firstName"} className="editProf-field-input" />
@@ -68,7 +68,7 @@ const EditProfile = () => {
                     <input
                     type="submit"
                     value="ثبت اطلاعات"
-                    className="block w-2/5 md:1/6 lg:w-1/5 p-4 bg-lightblue rounded-lg text-[#fff] opacity-80 hover:opacity-100 cursor-pointer"
+                    className="primary-btn block w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
                     />
                 </Form>
             </Formik>
