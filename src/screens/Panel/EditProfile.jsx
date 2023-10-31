@@ -21,7 +21,7 @@ const EditProfile = () => {
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
                     </svg>
                 </div>
-                <img src={image ? URL.createObjectURL(image) : pic} alt="image"  className="w-full h-full rounded-full" />
+                <img src={image ? URL.createObjectURL(image) : pic} alt="image"  className="w-full object-cover h-full rounded-full" />
 
                 <input id="input-file" type='file' onChange={(e) => setImage(e.target.files[0])}  className="hidden" />
             </label>
@@ -30,48 +30,49 @@ const EditProfile = () => {
 
         <div className="mt-8">
             <Formik
-            initialValues={{ firstName: "محمد", lastName: "بحرالعلوم", idCode: "2222", email: "bahr.academy@gmail.com", birthDate: "", phoneNumber: "09112233445" }}
+            initialValues={{ firstName: "محمد", lastName: "بحرالعلوم", idCode: "2090425610", email: "bahr.academy@gmail.com", birthDate: "", phoneNumber: "09112233445" }}
             validationSchema={validation}
             onSubmit={() => alert("ثبت اطلاعات")}
             >
                 <Form className="flex flex-wrap gap-5 justify-center text-[#3F3F47aa] dark:text-semiWhite2" dir="rtl">
                     <div className="editProf-input">
-                        <label className="block  my-1">نام</label>
-                        <Field name={"firstName"} className="editProf-field-input" />
+                        <label className="block  my-2">نام</label>
+                        <Field name={"firstName"} className="editProf-field-input " />
                         <ErrorMessage name="firstName" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
-                        <label className="block my-1">نام خانوادگی</label>
+                        <label className="block my-2">نام خانوادگی</label>
                         <Field name={"lastName"} className="editProf-field-input" />
                         <ErrorMessage name="lastName" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
-                        <label className="block my-1">کد ملی</label>
+                        <label className="block my-2">کد ملی</label>
                         <Field name={"idCode"} className="editProf-field-input"  />
                         <ErrorMessage name="idCode" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
-                        <label className="block my-1">ایمیل</label>
+                        <label className="block my-2">ایمیل</label>
                         <Field type={"email"} name={"email"} placeholder={"example@gmail.com"} className="editProf-field-input" />
                         <ErrorMessage name="email" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
-                        <label className="block my-1">تاریخ تولد</label>
+                        <label className="block my-2">تاریخ تولد</label>
                         <PersianCalendar name={"birthDate"}/>
                         <ErrorMessage name="birthDate" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
-                        <label className="block my-1">شماره موبایل</label>
+                        <label className="block my-2">شماره موبایل</label>
                         <Field name={"phoneNumber"} className="editProf-field-input"  />
                         <ErrorMessage name="phoneNumber" className="editProf-errorMessage" component={'span'}/>
                     </div>
-                    <input
-                    type="submit"
-                    value="ثبت اطلاعات"
-                    className="primary-btn block w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
-                    />
+
                 </Form>
             </Formik>
+            <input
+                    type="submit"
+                    value="ثبت اطلاعات"
+                    className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
+                    />
         </div>
     </Fragment>
   );

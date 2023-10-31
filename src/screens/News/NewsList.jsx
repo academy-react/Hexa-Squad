@@ -10,10 +10,18 @@ const NewsList = () => {
   ];
   const [newsList, setNewsList] = useState(newsAllData);
   const newsCardsMapper = newsList.map((item, index) => {
-    return <NewsCard img={item.img} name={item.name} description={item.description} key={index}/>;
-  });
+    return (
+      <NewsCard 
+        img={item.img} 
+        name={item.name} 
+        description={item.description} 
+        views={item.views}
+        date={item.date}
+        key={index}
+      />
+  )});
   return (
-    <div className="py-32">
+    <div className="py-32" data-aos="zoom-out">
       {/* <img src={bgNews} alt="picture" className='w-[100%] absolute pt-[200px]' /> */}
       <NewsListHero typeWriterWords={typeWriterWords}/>
       <div className="lg:max-w-[1200px] md:max-w-[700px] max-w-[500px]  mx-auto mt-16">

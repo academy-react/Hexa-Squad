@@ -10,7 +10,7 @@ const ShoppingCard = () => {
   ));
 
   return (
-    <div className="pt-20">
+    <div className="pt-20" data-aos="zoom-out">
       <div className="mx-auto max-w-6xl py-16 px-4 sm:py-24 sm:px-6 lg:px-10 ">
         <h1 className="text-center text-3xl font-bold tracking-tight text-[#111827] dark:text-semiWhite2 sm:text-4xl">
           سبد خرید

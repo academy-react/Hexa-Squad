@@ -8,14 +8,14 @@ const Login = () => {
   return (
     <div
      
-      className="form-section-auth loginModal  animate-zoom fixed w-[400px] pt-12 top-[16%] lg:left-[38%] md:left-[22%] sm:left-[10%] left-[5%] right-[50%] z-[500] shadow-shadow-all hidden bg-lightPink"
+      className="form-section-auth loginModal "
       dir="rtl"
     >
       <label htmlFor="showLoginModal" className="cursor-pointer">
-        <i className="absolute bi bi-x top-5 right-5  text-violet-800 text-4xl"></i>
+        <i className="absolute bi bi-x top-5 right-5  text-violet-800 dark:text-semiWhite2 text-4xl"></i>
       </label>
 
-      <h2 className="auth-title mt-0 text-violet-800 ">ورود به سایت</h2>
+      <h2 className="auth-title mt-0 text-violet-800 dark:text-semiWhite2 ">ورود به سایت</h2>
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={validation}
@@ -36,7 +36,7 @@ const Login = () => {
           />
           <Link
             to={"/authorize/Verification"}
-            className="mb-12 ml-[-200px] pointer text-violet-700"
+            className="mb-12 ml-[-200px] pointer text-violet-700 dark:text-slate-300"
           >
             فراموشی رمز؟
           </Link>
@@ -45,10 +45,10 @@ const Login = () => {
             value="ورود"
             className="primary-button w-full p-4"
           />
-          <label className="mt-4 mb-6 text-violet-700 ">
+          <label className="mt-4 mb-6 text-violet-700 dark:text-slate-300">
             {" "}
             قبلا ثبت نام نکرده‌اید؟{" "}
-            <Link to={"/authorize/register"} className="pointer underline text-[#7F52FD]">
+            <Link to={"/authorize/register"} className="pointer underline text-[#7F52FD] dark:text-slate-400">
               ثبت نام
             </Link>
           </label>

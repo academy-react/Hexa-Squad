@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";
 import ThemeSwitcher from "../../common/ThemeSwitcher";
 import Moon from '../../../assets/image/Moon.svg';
+import MoonColored from '../../../assets/image/Moon - colored.svg';
 import { ShoppingPopover } from "../../common";
 const HeaderButtons = ({setLightMode,lightMode,headerStyle}) => {
   const htmlTag = document.querySelector("html");
@@ -13,10 +14,13 @@ const HeaderButtons = ({setLightMode,lightMode,headerStyle}) => {
   return (
     <div className="header-btn">
       <div onClick={changeTheme} className={"cursor-pointer items-center hidden "+(headerStyle?'lg:block':'')}>
-        <img src={Moon} className={lightMode ? 'block':'hidden'} />
-        <i className={lightMode ?'hidden':'block'+ " bi bi-brightness-high text-3xl mt-1 "}></i>
+        <img src={Moon} className={lightMode ? 'hidden':'block'} />
+        <i className={(lightMode ?'block':'hidden')+ " bi bi-brightness-high text-3xl mt-1 "}></i>
       </div>
-      <ThemeSwitcher lightMode={lightMode} setLightMode={setLightMode} className={headerStyle?'hidden-theme-switcher':'lg:block'} />
+      <div onClick={changeTheme} className={"cursor-pointer items-center hidden "+(headerStyle?'':'lg:block')}>
+        <img src={Moon} className={(lightMode ? 'hidden':'block') + ' w-8 h-8 -mt-1 '} />
+        <i className={(lightMode ?'block':'hidden')+ " bi bi-brightness-high text-[#3f40ea] text-3xl mt-1 "}></i>
+      </div>
       <ShoppingPopover headerStyle={headerStyle}/>
       <Link to={"/authorize/login"}>
         <button className="primary-btn">

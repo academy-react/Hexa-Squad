@@ -39,14 +39,14 @@
 
    /* Course Education */
    .course-box {
-        @apply overflow-hidden duration-500 w-[325px] mx-auto bg-[#EAE5FF] dark:bg-indigo-950 rounded-[20px] shadow-shadow-Course-box m-2;
+        @apply overflow-hidden duration-500 w-[325px] relative mx-auto bg-[#EAE5FF] dark:bg-indigo-950 rounded-[20px] shadow-shadow-Course-box m-2;
     }
     .course-box:hover {
         box-shadow: 0px 0px 15px 0px #6D20FF4D;
         @apply translate-x-0;
     }
     .course-box:hover .course-name {
-        @apply text-newPurpule5 dark:text-semiPink;
+        @apply text-newPurpule5 dark:text-[#6974FF] ;
     }
     .course-box:hover .hover-box {
         @apply block duration-500 left-0 cursor-pointer;
@@ -57,7 +57,7 @@
              bg-[#6736FF] dark:bg-[#261A97] dark:shadow-shadow-auth rounded-r-[10px]; 
     }
     .course-name{
-        @apply text-darkBlue5 dark:text-[#6974FF] opacity-90 text-2xl pb-3 ;
+        @apply text-darkBlue5 dark:text-semiPink opacity-90 text-2xl pb-3 ;
     }
     .hover-box-img:hover {
         @apply opacity-100;
@@ -67,10 +67,10 @@
         @apply my-3 mx-2 opacity-60;
     }
     .course-svg{
-        @apply inline w-4 h-6 text-gray dark:text-[#9996F9];
+        @apply inline w-4 h-6 text-slate-600 dark:text-slate-400;
     }
     .course-info{
-        @apply inline text-grayBlue text-xs pr-1 dark:text-[#9996F9];
+        @apply inline text-slate-600 text-xs pr-1 dark:text-slate-400;
     }
     .course-like-box{
         @apply  inline px-2 py-1 bg-semiWhite2 dark:bg-[#6974FF] rounded-md cursor-pointer;
@@ -173,7 +173,7 @@
 
     /* news List*/
     .news-menu{
-        @apply hidden md:flex md:flex-row lg:w-[835px] md:w-[500px] h-12 rounded-[10px] my-auto text-xs lg:text-base md:text-sm text-center text-lightblue border-2 border-lightblue;
+        @apply hidden md:flex md:flex-row lg:w-[835px] md:w-[500px] h-12 rounded-[10px] my-auto text-xs lg:text-base md:text-xs text-center text-lightblue border-2 border-lightblue;
     }
     .news-menu-box{
         @apply w-[25%] lg:py-2 md:py-2.5 hover:bg-lightblue hover:text-semiWhite2 hover:cursor-pointer;
@@ -188,11 +188,23 @@
     .news-card{
         @apply w-[470px] md:w-full relative flex flex-col gap-y-8 mx-auto px-4 ;
     }
+    .news-card .news-view{
+        @apply md:absolute md:top-10 md:right-0 lg:top-12 lg:text-base;
+    }
+    .news-card .news-border{
+        @apply md:absolute md:top-10 md:right-20 lg:top-12 lg:right-24;
+    }
+    .news-card .news-date{
+        @apply md:absolute md:top-10 md:right-28 lg:top-12 lg:right-32 lg:text-base;
+    }    
     .news-card .news-readMore{
-        @apply  mt-2 text-end ml-5;
+        @apply  md:mt-2 md:left-12 lg:ml-5 lg:bottom-[-10px] lg:text-end;
     }
     .news-card h2{
-        @apply  lg:w-[900px];
+        @apply lg:w-[900px];
+    }
+    .news-description{
+        @apply lg:pt-4;
     }
 
     /* Panel --> Edit Profile */
@@ -200,10 +212,10 @@
         @apply relative my-5 w-[300px];
     }
     .editProf-field-input{
-        @apply bg-transparentPurple rounded-md border-[1px] w-full h-10 pr-4;
+        @apply bg-transparentPurple w-full h-10 pr-4 rounded-lg border-2 border-[#a48fff]  dark:bg-lightblue4 focus-visible:outline-4 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-[#3F40EA66];
     }
     .editProf-errorMessage{
-        @apply  text-lightblue absolute -bottom-8 right-2;
+        @apply  text-[#A80065] absolute -bottom-8 right-2;
     }
 
     /* Teacher Profile */

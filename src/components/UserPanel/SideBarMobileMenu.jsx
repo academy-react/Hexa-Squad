@@ -24,7 +24,7 @@ const SideBarMobileMenu = ({
         " side-bar-mobile-menu"
       }
     >
-      <i className="bi bi-x sidebar-icon text-black text-5xl " onClick={openSide}></i>
+      <i className="bi bi-x sidebar-icon text-white text-5xl " onClick={openSide}></i>
       <motion.ul variants={variants}>{mapList}</motion.ul>
     </div>
   );

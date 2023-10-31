@@ -38,7 +38,7 @@
   }
 
   .menu {
-    @apply justify-between items-center gap-[15px] whitespace-nowrap text-xl
+    @apply justify-between items-center gap-[15px] whitespace-nowrap text-xl px-24
   }
 
   .logo {
@@ -47,6 +47,8 @@
 
   .openMenu-span {
     transition: 0.3s;
+    transition-delay: 0.5s;
+    display: block;
     @apply h-1 rounded bg-[#3E32C7] inline-block relative;
   }
 
@@ -59,12 +61,16 @@
   }
 
   #openMenu:checked+.header-buttons .openMenu .openMenu-span:nth-child(2) {
-    display: none;
+    visibility: hidden;
+    rotate: -45deg;
+    background-color: #12124280;
+    @apply dark:bg-[#ffffff80];
   }
 
   #openMenu:checked+.header-buttons .openMenu .openMenu-span:nth-child(3) {
     rotate: -45deg;
     width: 100%;
+    top: -12px;
     background-color: #12124280;
     @apply dark:bg-[#ffffff80];
   }
@@ -143,12 +149,26 @@
         @apply text-4xl sm:text-5xl md:text-6xl my-3 font-bold
       }
 
-      p {
-        @apply text-lg sm:text-xl md:text-2xl md:w-600px w-full text-center sm:leading-10 md:leading-10 leading-10 z-10 my-3
+      .hero-type-writer {
+        @apply text-lg sm:text-xl md:text-2xl md:w-600px w-full text-center sm:leading-10 md:leading-10 leading-10 z-10 my-3 inline-block h-20
       }
 
       .hero-search {
-        @apply md:w-600px w-full px-3 py-2 h-auto rounded-md bg-[#fff5]
+        @apply md:w-600px w-full px-3 py-2 h-auto rounded-md bg-[#fff5] dark:bg-darkblue dark:bg-opacity-50
+      }
+
+      .hero-search.active {
+        animation: showHeroSearchModal 2s linear;
+        @apply absolute h-[80vh] w-8/12 z-[500] bg-slate-300 dark:bg-darkblue; 
+
+        input {
+          z-index: 500;
+        }
+
+        .contentModal {
+          transition-delay: 2s;
+          @apply flex flex-wrap items-start overflow-y-scroll h-[90%] px-5 gap-2
+        }
       }
 
       .information-section {
@@ -160,6 +180,27 @@
       }
     }
   }
+/* 
+  @keyframes showHeroSearchModal {
+    0% {
+      @apply md:w-600px px-3 py-2 h-auto rounded-md bg-[#fff5] dark:bg-darkblue dark:bg-opacity-50
+    }
+
+    20% {
+      @apply h-[80vh]
+    }
+
+    30% {
+      @apply w-8/12
+    }
+
+    40% {
+      @apply bg-slate-300 dark:bg-darkblue
+    }
+    100%{
+      @apply my-1
+    }
+  } */
 
   /* Footer */
   .footer-btn {
@@ -195,7 +236,7 @@
   }
 
   .field-input {
-    @apply text-right w-full py-1 px-2 pr-7 h-full rounded-md bg-[#F6F7FC] dark:bg-lightblue4 absolute top-0 left-0 focus-visible:outline-0 focus-visible:border-0 focus-visible:outline-[#3F40EA66];
+    @apply text-right w-full py-1 px-2 pr-7 h-full dark:text-white rounded-md bg-[#F6F7FC] dark:bg-lightblue4 absolute top-0 left-0 focus-visible:outline-0 focus-visible:border-0 focus-visible:outline-[#3F40EA66];
   }
 
   .field-input2 {
@@ -203,7 +244,7 @@
   }
 
   .field-input3 {
-   @apply text-right text-xs md:text-base md:w-full md:py-1 md:px-2 pr-2  h-full w-[300px]  rounded-lg border-2 border-[#a48fff] bg-[#e6e2ff] dark:bg-lightblue4 absolute top-0 left-14 md:left-0 focus-visible:outline-4 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-[#3F40EA66];
+    @apply text-right text-xs md:text-base md:w-full md:py-1 md:px-2 pr-2 h-full w-[300px] rounded-lg border-2 border-[#a48fff] bg-[#e6e2ff] dark:bg-lightblue4 absolute top-0 left-0 md:left-0 focus-visible:outline-4 focus-visible:border-2 dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800 focus-visible:outline focus-visible:outline-[#3F40EA66];
   }
 
   .primary-button {
@@ -244,7 +285,8 @@
   }
 
   .contact-teachers1 {
-    @apply w-12 h-28 bg-[#6528ff] top-[2px] shadow-[rgba(50,50,93,0.05)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]  rounded-b-xl md:rounded-b-lg lg:rounded-b-xl left-2 md:left-4 lg:left-2 duration-300 group-hover:top-0 ease-in md:w-10 md:h-24 lg:w-12 lg:h-28;
+    box-shadow: rgba(50, 50, 93, 0.05) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    @apply w-12 h-28 bg-[#6528ff] top-[2px] rounded-b-xl md:rounded-b-lg lg:rounded-b-xl left-2 md:left-4 lg:left-2 duration-300 group-hover:top-0 ease-in md:w-10 md:h-24 lg:w-12 lg:h-28;
   }
 
   .teacher-photo {
@@ -293,6 +335,10 @@
     display: flex;
   }
 
+  .loginModal {
+    @apply animate-zoom fixed w-[400px] pt-12 top-[16%] lg:left-[38%] md:left-[22%] sm:left-[10%] left-[5%] right-[50%] z-[500] shadow-shadow-all hidden bg-lightPink dark:bg-violet-950
+  }
+
   /* .teacher-photo{
     @apply bg-purple2 shadow-shadow-Categories-box rounded-full absolute w-40 h-40 mr-[90px] lg:w-40 lg:h-40  md:w-28 md:h-28  md:mt-8  items-center mt-6 lg:mt-6  ;
 >>>>>>> a689b0c80c9ef8b68af95cfe54db3aab74654148
@@ -300,17 +346,22 @@
 
 
   /* Courses List  */
-  .grid-list{
+  .grid-list {
+    @apply block;
+
     .course-box {
-      @apply w-full 2xl:max-w-6xl xl:max-w-4xl   lg:max-w-2xl md:max-w-xl max-w-lg flex max-h-96 h-72 justify-start;
+      @apply w-10/12 2xl:max-w-6xl xl:max-w-4xl float-right lg:max-w-2xl md:max-w-xl max-w-lg flex max-h-96 h-72 justify-start mr-8 ml-auto;
+
       .course-body {
         @apply w-9/12 px-5;
-        .course-bio{
+
+        .course-bio {
           @apply block dark:text-white text-gray pt-3 w-11/12 overflow-hidden whitespace-nowrap text-ellipsis
         }
       }
     }
   }
+
   .filter-btn-section {
     @apply flex lg:flex-row flex-col w-full justify-center md:justify-between px-20 lg:mb-12 mb-8 mt-20 items-center lg:pr-40
   }
@@ -338,21 +389,25 @@
   #changeCardStyle+label .bi-columns-gap {
     @apply text-[#2C007F] dark:text-[#fff];
   }
-  .filter-options{
-    @apply  w-6/12 top-0 z-50  right-0 p-5 lg:p-0  bg-[#EAE5FF] lg:shadow-none shadow-shadow-all lg:bg-transparent dark:bg-newPurpleAlpha2 lg:h-full min-w-fit lg:w-4/12 ml-10 fixed h-screen lg:relative 
+
+  .filter-options {
+    @apply w-6/12 top-0 z-50 right-0 p-5 lg:p-0 bg-[#EAE5FF] lg:shadow-none shadow-shadow-all lg:bg-transparent lg:dark:bg-transparent dark:bg-slate-900 lg:h-full min-w-fit lg:w-4/12 ml-5 fixed h-screen lg:relative
   }
+
   .checkbox:checked~.content {
     height: 0;
   }
-  .checkbox~.relative label{
-    @apply before:content-['-'] before:pl-3  before:text-5xl before:top-0 before:right-0 flex items-center
+
+  .checkbox~.relative label {
+    position: relative;
+    @apply after:content-['-'] after:absolute after:text-5xl after:top-[20%] after:right-0 flex items-center select-none pr-5
   }
-  .checkbox:checked~.relative label{
-    @apply before:content-['+'] before:pl-3 before:text-2xl before:top-0 before:right-0
+
+  .checkbox:checked~.relative label {
+    @apply after:content-['+'] after:text-2xl after:top-[30%]
   }
 
   /* Panel styles */
-
   /* @media (min-width: 1024px) {
     .side-bar-container {
       width: 300px;
@@ -387,11 +442,17 @@
       @apply transition-all lg:h-full h-0 overflow-hidden
     }
   }
-  .side-bar-mobile-menu{
-    @apply fixed  z-50 lg:hidden bg-gradient-to-b from-[#8C80F6] to-[#2E11B7] h-screen overflow-hidden top-0 right-0 transition-all flex flex-col py-5 items-end
+
+  .side-bar-mobile-menu {
+    @apply fixed z-50 lg:hidden bg-gradient-to-b from-[#8C80F6] to-[#2E11B7] h-screen overflow-hidden top-0 right-0 transition-all flex flex-col py-5 items-end
   }
+
   .list-items {
-    @apply flex justify-end w-full gap-5 h-[50px] px-4 items-center my-2 text-[#fff] hover:bg-[#6133FF] transition-all text-ellipsis overflow-hidden whitespace-nowrap rounded-md hover:text-[#fff];
+    @apply flex justify-end w-full gap-5 h-[50px] px-4 items-center my-2 text-[#fff] opacity-75 hover:bg-[#41259e] transition-all text-ellipsis overflow-hidden whitespace-nowrap rounded-md hover:text-[#fff];
+  }
+
+  .list-items.active {
+    @apply bg-[#41259e] opacity-100
   }
 
   .paginationLink {
@@ -401,9 +462,11 @@
   .paginationLink.active {
     @apply text-[#fff] bg-[#3F40EA];
   }
-  .eye-img{
+
+  .eye-img {
     filter: brightness(0) saturate(100%) invert(97%) sepia(91%) saturate(5584%) hue-rotate(182deg) brightness(108%) contrast(104%);
   }
+
   .user-panel {
     @apply w-full px-10 py-8 flex lg:flex-row flex-col-reverse gap-10 bg-whitePink dark:bg-darkblue;
 
@@ -456,13 +519,17 @@
   }
 
 
+  .range::-webkit-slider-thumb {
+    background: #00fd0a;
+  }
+  
+
 }
 
 :root {
   font-family: IRANSans;
   line-height: 1.5;
   font-weight: 400;
-
   /* color-scheme: light dark; */
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
