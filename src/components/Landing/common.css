@@ -173,7 +173,7 @@
 
     /* news List*/
     .news-menu{
-        @apply hidden md:flex md:flex-row lg:w-[835px] md:w-[500px] h-12 rounded-[10px] my-auto text-xs lg:text-base md:text-sm text-center text-lightblue border-2 border-lightblue;
+        @apply hidden md:flex md:flex-row lg:w-[835px] md:w-[500px] h-12 rounded-[10px] my-auto text-xs lg:text-base md:text-xs text-center text-lightblue border-2 border-lightblue;
     }
     .news-menu-box{
         @apply w-[25%] lg:py-2 md:py-2.5 hover:bg-lightblue hover:text-semiWhite2 hover:cursor-pointer;
@@ -212,10 +212,10 @@
         @apply relative my-5 w-[300px];
     }
     .editProf-field-input{
-        @apply bg-transparentPurple rounded-md border-[1px] w-full h-10 pr-4;
+        @apply bg-transparentPurple w-full h-10 pr-4 rounded-lg border-2 border-[#a48fff]  dark:bg-lightblue4 focus-visible:outline-4 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-[#3F40EA66];
     }
     .editProf-errorMessage{
-        @apply  text-lightblue absolute -bottom-8 right-2;
+        @apply  text-[#A80065] absolute -bottom-8 right-2;
     }
 
     /* Teacher Profile */
