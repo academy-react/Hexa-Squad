@@ -149,12 +149,26 @@
         @apply text-4xl sm:text-5xl md:text-6xl my-3 font-bold
       }
 
-      p {
-        @apply text-lg sm:text-xl md:text-2xl md:w-600px w-full text-center sm:leading-10 md:leading-10 leading-10 z-10 my-3
+      .hero-type-writer {
+        @apply text-lg sm:text-xl md:text-2xl md:w-600px w-full text-center sm:leading-10 md:leading-10 leading-10 z-10 my-3 inline-block h-20
       }
 
       .hero-search {
-        @apply md:w-600px w-full px-3 py-2 h-auto rounded-md bg-[#fff5]
+        @apply md:w-600px w-full px-3 py-2 h-auto rounded-md bg-[#fff5] dark:bg-darkblue dark:bg-opacity-50
+      }
+
+      .hero-search.active {
+        animation: showHeroSearchModal 2s linear;
+        @apply absolute h-[80vh] w-8/12 z-[500] bg-slate-300 dark:bg-darkblue; 
+
+        input {
+          z-index: 500;
+        }
+
+        .contentModal {
+          transition-delay: 2s;
+          @apply flex flex-wrap items-start overflow-y-scroll h-[90%] px-5 gap-2
+        }
       }
 
       .information-section {
@@ -166,6 +180,27 @@
       }
     }
   }
+/* 
+  @keyframes showHeroSearchModal {
+    0% {
+      @apply md:w-600px px-3 py-2 h-auto rounded-md bg-[#fff5] dark:bg-darkblue dark:bg-opacity-50
+    }
+
+    20% {
+      @apply h-[80vh]
+    }
+
+    30% {
+      @apply w-8/12
+    }
+
+    40% {
+      @apply bg-slate-300 dark:bg-darkblue
+    }
+    100%{
+      @apply my-1
+    }
+  } */
 
   /* Footer */
   .footer-btn {
@@ -209,7 +244,7 @@
   }
 
   .field-input3 {
-   @apply text-right text-xs md:text-base md:w-full md:py-1 md:px-2 pr-2  h-full w-[300px]  rounded-lg border-2 border-[#a48fff] bg-[#e6e2ff] dark:bg-lightblue4 absolute top-0 left-14 md:left-0 focus-visible:outline-4 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-[#3F40EA66];
+    @apply text-right text-xs md:text-base md:w-full md:py-1 md:px-2 pr-2 h-full w-[300px] rounded-lg border-2 border-[#a48fff] bg-[#e6e2ff] dark:bg-lightblue4 absolute top-0 left-0 md:left-0 focus-visible:outline-4 focus-visible:border-2 dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800 focus-visible:outline focus-visible:outline-[#3F40EA66];
   }
 
   .primary-button {
@@ -250,8 +285,8 @@
   }
 
   .contact-teachers1 {
-    box-shadow: rgba(50, 50, 93, 0.05) 0px 6px 12px -2px,rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    @apply w-12 h-28 bg-[#6528ff] top-[2px]  rounded-b-xl md:rounded-b-lg lg:rounded-b-xl left-2 md:left-4 lg:left-2 duration-300 group-hover:top-0 ease-in md:w-10 md:h-24 lg:w-12 lg:h-28;
+    box-shadow: rgba(50, 50, 93, 0.05) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    @apply w-12 h-28 bg-[#6528ff] top-[2px] rounded-b-xl md:rounded-b-lg lg:rounded-b-xl left-2 md:left-4 lg:left-2 duration-300 group-hover:top-0 ease-in md:w-10 md:h-24 lg:w-12 lg:h-28;
   }
 
   .teacher-photo {
@@ -298,6 +333,10 @@
   /* showModal */
   #showLoginModal:checked+.loginModal {
     display: flex;
+  }
+
+  .loginModal {
+    @apply animate-zoom fixed w-[400px] pt-12 top-[16%] lg:left-[38%] md:left-[22%] sm:left-[10%] left-[5%] right-[50%] z-[500] shadow-shadow-all hidden bg-lightPink dark:bg-violet-950
   }
 
   /* .teacher-photo{
@@ -361,11 +400,11 @@
 
   .checkbox~.relative label {
     position: relative;
-    @apply after:content-['-'] after:pl-3 after:absolute after:text-5xl after:top-[20%] after:left-0 flex items-center
+    @apply after:content-['-'] after:absolute after:text-5xl after:top-[20%] after:right-0 flex items-center select-none pr-5
   }
 
   .checkbox:checked~.relative label {
-    @apply after:content-['+'] after:pl-3 after:text-2xl
+    @apply after:content-['+'] after:text-2xl after:top-[30%]
   }
 
   /* Panel styles */
@@ -423,9 +462,11 @@
   .paginationLink.active {
     @apply text-[#fff] bg-[#3F40EA];
   }
-  .eye-img{
+
+  .eye-img {
     filter: brightness(0) saturate(100%) invert(97%) sepia(91%) saturate(5584%) hue-rotate(182deg) brightness(108%) contrast(104%);
   }
+
   .user-panel {
     @apply w-full px-10 py-8 flex lg:flex-row flex-col-reverse gap-10 bg-whitePink dark:bg-darkblue;
 
@@ -478,13 +519,17 @@
   }
 
 
+  .range::-webkit-slider-thumb {
+    background: #00fd0a;
+  }
+  
+
 }
 
 :root {
   font-family: IRANSans;
   line-height: 1.5;
   font-weight: 400;
-
   /* color-scheme: light dark; */
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;

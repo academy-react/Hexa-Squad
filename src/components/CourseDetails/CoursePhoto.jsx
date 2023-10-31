@@ -40,21 +40,25 @@ const CoursePhoto = ({ id, like, dislike }) => {
           <h2 className="text-sm mt-1 dark:text-indigo-400 text-[#302064]">
             ایا از این دوره راضی بودید؟
           </h2>
-          <div className="course-like-box mr-4 bg-[#e3deff] ">
+          <div
+            className="course-like-box mr-4 bg-[#e3deff] "
+            onClick={() => addWishList(id, isLogin)}
+          >
             <img
               src={likePic}
               alt="picture"
               className="inline cursor-pointer "
-              onClick={() => addWishList(id, isLogin)}
             />
             <span className="course-like-count dark:text-indigo-100 ">148</span>
           </div>
-          <div className="course-like-box mr-1.5 pl-4 bg-[#e3deff]">
+          <div
+            className="course-like-box mr-1.5 pl-4 bg-[#e3deff]"
+            onClick={() => addWishList(id, isLogin)}
+          >
             <img
               src={dislikePic}
               alt="picture"
               className="inline cursor-pointer"
-              onClick={() => addWishList(id, isLogin)}
             />
             <span className="course-like-count dark:text-indigo-100">12</span>
           </div>
