@@ -38,7 +38,7 @@
   }
 
   .menu {
-    @apply justify-between items-center gap-[15px] whitespace-nowrap text-xl px-14
+    @apply justify-between items-center gap-[15px] whitespace-nowrap text-xl px-24
   }
 
   .logo {
