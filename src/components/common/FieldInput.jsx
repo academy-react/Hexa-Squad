@@ -9,8 +9,8 @@ const FieldInput = ({ placeholder, name, icon, classIcon ,type }) => {
           className={"bi bi-" + icon + " absolute top-3 left-1 " + classIcon}
         ></i> */}
       </div>
-      <ErrorMessage name={name} component={"span"} className="absolute bottom-0 md:right-0 right-12 text-sm md:text-base whitespace-nowrap"/>
-    </div>
+      <ErrorMessage name={name} component={"span"} className="absolute bottom-0 md:right-0 text-[#A80065] pr-2 right-12 text-sm md:text-base whitespace-nowrap"/>
+    </div> 
   );
 };
 

@@ -5,7 +5,7 @@ import Select from "react-select";
 const NewsFilterMenu = ({newsList,setNewsList}) => {
   const [selectedOptions, setSelectedOption] = useState(null);
   const [options, setOptions] = useState([
-    { value: "all", label: "همه" },
+    { value: "", label: "همه" },
     { value: "mostPopular", label: "محبوب ترین ها" },
     { value: "mostVisited", label: "پربازدید ترین ها" },
     { value: "newsest", label: "جدید ترین ها" },

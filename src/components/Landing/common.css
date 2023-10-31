@@ -212,10 +212,10 @@
         @apply relative my-5 w-[300px];
     }
     .editProf-field-input{
-        @apply bg-transparentPurple rounded-md border-[1px] w-full h-10 pr-4;
+        @apply bg-transparentPurple w-full h-10 pr-4 rounded-lg border-2 border-[#a48fff]  dark:bg-lightblue4 focus-visible:outline-4 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-[#3F40EA66];
     }
     .editProf-errorMessage{
-        @apply  text-lightblue absolute -bottom-8 right-2;
+        @apply  text-[#A80065] absolute -bottom-8 right-2;
     }
 
     /* Teacher Profile */

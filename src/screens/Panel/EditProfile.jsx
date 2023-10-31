@@ -36,42 +36,43 @@ const EditProfile = () => {
             >
                 <Form className="flex flex-wrap gap-5 justify-center text-[#3F3F47aa] dark:text-semiWhite2" dir="rtl">
                     <div className="editProf-input">
-                        <label className="block  my-1">نام</label>
-                        <Field name={"firstName"} className="editProf-field-input" />
+                        <label className="block  my-2">نام</label>
+                        <Field name={"firstName"} className="editProf-field-input " />
                         <ErrorMessage name="firstName" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
-                        <label className="block my-1">نام خانوادگی</label>
+                        <label className="block my-2">نام خانوادگی</label>
                         <Field name={"lastName"} className="editProf-field-input" />
                         <ErrorMessage name="lastName" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
-                        <label className="block my-1">کد ملی</label>
+                        <label className="block my-2">کد ملی</label>
                         <Field name={"idCode"} className="editProf-field-input"  />
                         <ErrorMessage name="idCode" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
-                        <label className="block my-1">ایمیل</label>
+                        <label className="block my-2">ایمیل</label>
                         <Field type={"email"} name={"email"} placeholder={"example@gmail.com"} className="editProf-field-input" />
                         <ErrorMessage name="email" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
-                        <label className="block my-1">تاریخ تولد</label>
+                        <label className="block my-2">تاریخ تولد</label>
                         <PersianCalendar name={"birthDate"}/>
                         <ErrorMessage name="birthDate" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
-                        <label className="block my-1">شماره موبایل</label>
+                        <label className="block my-2">شماره موبایل</label>
                         <Field name={"phoneNumber"} className="editProf-field-input"  />
                         <ErrorMessage name="phoneNumber" className="editProf-errorMessage" component={'span'}/>
                     </div>
-                    <input
-                    type="submit"
-                    value="ثبت اطلاعات"
-                    className="primary-btn block w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
-                    />
+
                 </Form>
             </Formik>
+            <input
+                    type="submit"
+                    value="ثبت اطلاعات"
+                    className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
+                    />
         </div>
     </Fragment>
   );
