@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <div
      
-      className="form-section-auth loginModal  animate-zoom fixed w-[400px] pt-12 top-[16%] lg:left-[38%] md:left-[22%] sm:left-[10%] left-[5%] right-[50%] z-[500] shadow-shadow-all hidden bg-lightPink dark:bg-violet-950"
+      className="form-section-auth loginModal "
       dir="rtl"
     >
       <label htmlFor="showLoginModal" className="cursor-pointer">

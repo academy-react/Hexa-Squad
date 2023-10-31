@@ -41,7 +41,7 @@ const Courses = () => {
     />
   ));
   return (
-    <div className="py-32" data-aos="zoom-out">
+    <div className="py-32">
       <CoursesHero typeWriterWords={typeWriterWords} />
       <FiltersBTN
         data={AllData}
@@ -52,7 +52,7 @@ const Courses = () => {
       />
 
       <div className="flex w-full flex-wrap">
-        <div className="flex md:flex-row flex-col w-full px-5 ">
+        <div className="flex md:flex-row flex-col w-full px-20 ">
           <FiltersOptions
             data={AllData}
             setFilterDiv={setFilterDiv}
@@ -61,10 +61,13 @@ const Courses = () => {
           />
           <div
             className={
-              "w-full flex flex-wrap transition-all justify-end gap-3 " +
+              "w-full flex relative flex-wrap transition-all pt-10 justify-end gap-3 duration-1000 aos-init aos-animate " +
               (showGrid ? "grid-list" : "")
             }
+            data-aos="zoom-in"
           >
+            <span className="m-1 text-xl absolute top-0 right-0 text-slate-950">{data.length} دوره مرتبط</span>
+            
             {mapData}
           </div>
         </div>

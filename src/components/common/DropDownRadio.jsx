@@ -17,7 +17,7 @@ const DropDown = ({
       <input type={checkBoxType} name={name} id={name + index} />
       <label
         htmlFor={name + index}
-        className="pr-10"
+        className="pr-5"
         onClick={() => {
           customFunction(courseData, item.category, setData, setCheckedData);
         }}
@@ -32,19 +32,19 @@ const DropDown = ({
       <div className="relative">
         <label
           htmlFor={name}
-          className=" border-b-2 block py-[18px] w-full px-3 border-[#2C007F30] dark:border-[#fff5]"
+          className=" border-b-2 block py-[18px] xl:px-24 px-28 w-full border-[#2C007F30] dark:border-[#fff5]"
         >
           فیلتر بر اساس موضوع
         </label>
         <i
           className={
             (checkedData == "" && "hidden") +
-            " bi bi-x absolute top-[33%] left-0 text-lg text-red-500 cursor-pointer"
+            " bi bi-x absolute top-[33%] left-0 text-xl text-red-500 cursor-pointer"
           }
           onClick={() => {
             customFunction(courseData, "", setData, setCheckedData);
           }}
-        >حذف فیلتر </i>
+        > <span className="text-lg"> حذف فیلتر</span></i>
       </div>
 
       <div

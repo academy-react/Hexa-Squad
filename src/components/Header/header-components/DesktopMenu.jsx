@@ -5,9 +5,7 @@ const DesktopMenu = ({className}) => {
   const [menuItems, setMenuItems] = useState([
     {itemName:'صفحه اصلی',address:'/'},
     {itemName:'دوره ها',address:'/courses'},
-    {itemName:'اساتید',address:'/'},
     {itemName:'اخبار',address:'/news'},
-    {itemName:'ارتباط با ما',address:'/'}
   ])
   return (
     <ul className={"menu "+className}>

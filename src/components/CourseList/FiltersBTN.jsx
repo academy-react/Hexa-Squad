@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { CheckboxInput, SearchBox } from "../common";
 import Select from "react-select";
-import filterData from "../../core/services/filterData/filterData";
 
 const FiltersBTN = ({
   data,
@@ -12,9 +11,9 @@ const FiltersBTN = ({
 }) => {
   const [selectedOptions, setSelectedOption] = useState(null);
   const [options, setOptions] = useState([
-    { value: "programming", label: "جدیدترین ها" },
-    { value: "design", label: "پر بازدید ترین ها" },
-    { value: "edit", label: "پرطرفدار ترین ها" },
+    { value: "newest", label: "جدیدترین ها" },
+    { value: "mostView", label: "پر بازدید ترین ها" },
+    { value: "popular", label: "پرطرفدار ترین ها" },
   ]);
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
@@ -50,7 +49,7 @@ const FiltersBTN = ({
         </label>
       </div>
       <div className="flex gap-5 w-full lg:pr-6">
-        <SearchBox placeholder={"جستجو ..."} SearchFunction={filterSearch} addClass={"my-4"} />
+        <SearchBox placeholder={"جستجو ..."} SearchFunction={filterSearch} addClass={"my-4"} inputClass={'focus:border-2 border-blue-800'} />
       </div>
       <div className="flex gap-5 text-darkblue2 lg:w-6/12 w-full justify-center">
         <Select

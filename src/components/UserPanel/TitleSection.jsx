@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import ShoppingCart from "../../assets/icons/shopping-cart-svgrep.svg";
 import TitleRight from "../../assets/icons/title right.svg";
+import { Link } from "react-router-dom";
 const TitleSection = ({title}) => {
   const [theme, setTheme] = useState("light");
   useEffect(() => {

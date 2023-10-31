@@ -5,7 +5,7 @@ import FooterInput from './FooterInput';
 import HeroSectionInfo from './HeroSectionInfo';
 import ThemeSwitcher from './ThemeSwitcher';
 import Title from './Title';
-import DropDown from './DropDown';
+import DropDown from './DropDownRadio';
 import SearchBox from './SearchBox'
 import PaginationTable from './PaginationTable';
 import ShoppingPopover from './ShoppingPopover';

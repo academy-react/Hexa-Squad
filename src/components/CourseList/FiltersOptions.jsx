@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { CheckboxInput, DropDown } from "../common";
 import filterData from "../../core/services/filterData/filterData";
+import DropDownRange from "../common/DropDownRange";
 
-const FiltersOptions = ({ data, setData,filterDiv ,setFilterDiv}) => {
+const FiltersOptions = ({ data, setData, filterDiv, setFilterDiv }) => {
   const [categorydata, setCategorydata] = useState([
     { label: "برنامه نویسی وب", category: "programming" },
     { label: "دیزاین", category: "design" },
@@ -16,10 +17,16 @@ const FiltersOptions = ({ data, setData,filterDiv ,setFilterDiv}) => {
   ]);
   return (
     <div
-      className={"filter-options "+(filterDiv?"block":'hidden')}
+      className={"filter-options " + (filterDiv ? "block" : "hidden")}
       id="filterDiv"
     >
-      <i className="bi bi-x block lg:hidden text-gray text-5xl" title="بستن فیلتر ها" onClick={()=>{setFilterDiv(!filterDiv)}}></i>
+      <i
+        className="bi bi-x block lg:hidden text-gray text-5xl"
+        title="بستن فیلتر ها"
+        onClick={() => {
+          setFilterDiv(!filterDiv);
+        }}
+      ></i>
       <DropDown
         name={"category"}
         setData={setData}
@@ -29,14 +36,7 @@ const FiltersOptions = ({ data, setData,filterDiv ,setFilterDiv}) => {
         height={"h-[370px]"}
         customFunction={filterData}
       />
-      <DropDown
-        name={"price"}
-        setData={setData}
-        courseData={data}
-        data={[{label:"خریدنی"},{label: "رایگان"}, {label:"همه"}]}
-        checkBoxType={"radio"}
-        height={"h-[130px]"}
-      />
+      <DropDownRange data={data} setData={setData} />
     </div>
   );
 };

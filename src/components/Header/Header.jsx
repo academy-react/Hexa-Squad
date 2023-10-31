@@ -7,7 +7,7 @@ import Logo from "../../assets/image/Logo.svg";
 import LogoIcon from "../../assets/image/Logo-icon.svg";
 import MobileMenu from "./header-components/MobileMenu";
 import LogoWhite from "../../assets/image/Logo - white.svg";
-import CheckboxInput from "../common/CheckboxInput";
+import CheckboxInput from "../common/checkboxInput";
 import Login from "../Modals/Login";
 import { useEffect } from "react";
 const Header = () => {
