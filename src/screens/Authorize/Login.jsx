@@ -6,6 +6,7 @@ import FieldInput from "../../components/common/FieldInput";
 import loginImage from "../../assets/image/Login11.svg";
 import loginDark from "../../assets/image/loginDark.svg";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import Copyrights from "../../components/common/Copyrights";
 
 const Login = ({ setLightMode, lightMode }) => {
   const [visible, setVisibility] = useState(false);
@@ -26,17 +27,18 @@ const Login = ({ setLightMode, lightMode }) => {
     setTheme(theme === "light" ? "dark" : "light");
   };
   return (
-    <div className="bg-lightPink dark:bg-indigo-950 overflow-hidden min-h-screen flex items-center justify-center px-16">
+    <>
+    <div className="bg-lightPink  dark:bg-indigo-950 overflow-hidden min-h-screen flex items-center justify-center px-16">
       <div className=" relative  w-full max-w-lg mx-auto mb-20 ">
         <div className=" absolute top-0 -left-10 w-72 h-72 bg-[#b07eff]  rounded-full mix-blend-multiply dark:mix-blend-lighten  filter blur-xl  dark:bg-lightblue dark:opacity-40 opacity-80 animate-blob hidden lg:block"></div>
         <div className=" absolute top-0 -right-10 w-72 h-72 bg-lightPink2    rounded-full  mix-blend-multiply dark:mix-blend-lighten filter blur-xl dark:bg-violet-800 opacity-80 animate-blob animation-delay-2000  hidden lg:block"></div>
         <div className=" absolute  -bottom-20 left-20 w-72 h-72 bg-[#7D67FF]   rounded-full  mix-blend-multiply dark:mix-blend-lighten filter blur-xl dark:bg-darkblue4 opacity-80 animate-blob animation-delay-4000  hidden lg:block"></div>
-
+       
         <div
           data-aos="zoom-in"
-          className="bg-[#e4dbff] dark:bg-indigo-800 dark:bg-opacity-30 mx-auto right-14 bg-opacity-60 rounded-lg relative h-96 w-[300px] md:min-w-[100vh] md:h-[520px]  md:right-[160px] lg:min-w-[90vh] lg:h-[70vh]  lg:top-10 lg:right-40 xl:min-w-[173vh] xl:min-h-[70vh] xl:right-96 xl:top-10"
+          className="bg-[#e4dbff] relative  dark:bg-indigo-800 dark:bg-opacity-30 mx-auto right-14 bg-opacity-60 rounded-lg  h-96 w-[300px] md:min-w-[100vh] md:h-[520px]  md:right-[160px] lg:min-w-[90vh] lg:h-[70vh]  lg:top-10 lg:right-40 xl:min-w-[173vh] xl:min-h-[70vh] xl:right-96 xl:top-10 "
         >
-          <div className="w-[460px] h-full top-4 absolute right-2 hidden xl:block">
+          <div className="w-[460px]  h-full top-4 absolute right-2 hidden xl:block">
             <img
               src={loginImage}
               className="object-cover rounded-e-xl hidden lg:block dark:hidden"
@@ -134,8 +136,12 @@ const Login = ({ setLightMode, lightMode }) => {
             </div>
           </div>
         </div>
+        </div>
       </div>
-    </div>
+      
+    
+    <Copyrights/>
+   </>
   );
 };
 

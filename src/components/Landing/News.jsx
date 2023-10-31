@@ -35,7 +35,7 @@ const News = () => {
     );
   });
   return (
-    <section className="mb-28">
+    <section className="mb-28 overflow-hidden">
       <div className=" w-[440px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-56">
         <Title inner={"اخبار و مقالات"} className={"title1"} />
         <Link to="/news" className={"text-newWhite hover:text-newWhite"}>

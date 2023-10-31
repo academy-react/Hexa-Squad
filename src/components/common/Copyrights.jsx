@@ -3,9 +3,10 @@ import React, { Fragment }from "react";
 
 const Copyrights = () => {
     return(
-        <div className="h-12 -mt-20 pt-3 bg-darkblue text-newWhite text-sm text-center">
-            تمامی حقوق مادی و معنوی این سایت متعلق به تیم هگزا اسکواد می باشد.
-            <span className="bi bi-c-square pr-2"></span>
+        <div className="py-4 md:-mt-12 pt-3 bg-indigo-950  text-newWhite text-sm text-center mt-0" dir="ltr">
+            .تمامی حقوق این سایت متعلق به تیم هگزا اسکواد می باشد
+            
+            <span className="bi bi-c-circle pl-2"></span>
         </div>
     )
 }
