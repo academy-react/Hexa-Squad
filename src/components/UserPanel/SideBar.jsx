@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import ProfileImage from "../../assets/image/teacher1.jpg";
+import ProfileImage from "../../assets/image/drBahr.jpg";
 import { motion } from "framer-motion";
 const SideBar = ({ listItem,mapList,openSide}) => {
   const variants = {

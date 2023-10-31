@@ -50,7 +50,7 @@ const FiltersBTN = ({
         </label>
       </div>
       <div className="flex gap-5 w-full lg:pr-6">
-        <SearchBox placeholder={"جستجو ..."} SearchFunction={filterSearch} addClass={"my-4"} />
+        <SearchBox placeholder={"جستجو ..."} SearchFunction={filterSearch} addClass={"my-4"} inputClass={'focus:border-2 border-blue-800'} />
       </div>
       <div className="flex gap-5 text-darkblue2 lg:w-6/12 w-full justify-center">
         <Select

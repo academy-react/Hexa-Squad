@@ -52,7 +52,7 @@ const Courses = () => {
       />
 
       <div className="flex w-full flex-wrap">
-        <div className="flex md:flex-row flex-col w-full px-5 ">
+        <div className="flex md:flex-row flex-col w-full px-20 ">
           <FiltersOptions
             data={AllData}
             setFilterDiv={setFilterDiv}
@@ -61,9 +61,10 @@ const Courses = () => {
           />
           <div
             className={
-              "w-full flex flex-wrap transition-all justify-end gap-3 " +
+              "w-full flex flex-wrap transition-all justify-end gap-3 duration-1000 aos-init aos-animate " +
               (showGrid ? "grid-list" : "")
             }
+            data-aos="zoom-in"
           >
             {mapData}
           </div>

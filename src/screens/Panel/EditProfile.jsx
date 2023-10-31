@@ -4,7 +4,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import TitleSection from "../../components/UserPanel/titleSection";
 import { validation } from "../../core/validations/validations";
 
-import pic from '../../assets/image/teacher1.jpg';
+import pic from '../../assets/image/drBahr.jpg';
 import PersianCalendar from "../../components/common/PersianCalendar";
 
 const EditProfile = () => {
@@ -21,7 +21,7 @@ const EditProfile = () => {
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
                     </svg>
                 </div>
-                <img src={image ? URL.createObjectURL(image) : pic} alt="image"  className="w-full h-full rounded-full" />
+                <img src={image ? URL.createObjectURL(image) : pic} alt="image"  className="w-full object-cover h-full rounded-full" />
 
                 <input id="input-file" type='file' onChange={(e) => setImage(e.target.files[0])}  className="hidden" />
             </label>

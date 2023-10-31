@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchBox = ({placeholder,SearchFunction,addClass}) => {
+const SearchBox = ({placeholder,SearchFunction,addClass ,inputClass}) => {
   return (
     <div className={"relative w-full h-12 "+addClass}>
       <input
@@ -8,7 +8,7 @@ const SearchBox = ({placeholder,SearchFunction,addClass}) => {
         type={"search"}
         name={"search"}
         onKeyUp={(event)=>{SearchFunction(event.target.value)}}
-        className="field-input outline-none text-darkblue2"
+        className={"field-input outline-none text-darkblue2 "+ inputClass}
       />
       <i
         className={

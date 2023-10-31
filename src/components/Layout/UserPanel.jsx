@@ -13,7 +13,7 @@ const UserPanel = () => {
     console.log(openSideBar)
   }
   const [listItem, setListItem] = useState([
-    { label: "داشبورد", classNameIcon: "columns-gap", address: "" },
+    { label: "داشبورد", classNameIcon: "columns-gap ", address: "" },
     { label: "اطلاعات کاربر", classNameIcon: "person-circle", address: "editProfile/" },
     { label: "دوره های من", classNameIcon: "book", address: "MyCourses/" },
     {
@@ -27,7 +27,7 @@ const UserPanel = () => {
       classNameIcon: "key rotate-[-220deg]",
       address: "ChangePassword/",
     },
-    { label: "نظرات ثبت شده", classNameIcon: "chat-left-text", address: "" },
+    // { label: "نظرات ثبت شده", classNameIcon: "chat-left-text", address: "" },
     { label: "خروج از حساب", classNameIcon: "power", address: "login" },
   ]);
   const mapList = listItem.map((item, index) => (
