@@ -9,7 +9,7 @@ import cart from "../../assets/image/cart.svg";
 import "../Landing/common.css";
 
 
-const Course = ({ data, title, courseCount, time, date, professorName,bio, like, dislike, studentCount, price,image, id,addClass }) => {
+const Course = ({ title, courseCount, time, date, professorName,bio, like, dislike, studentCount, price,image, id,addClass }) => {
   const [isLogin, setIsLogin] = useState(false);
   return (
     <div className={"course-box px-6 "+addClass}>
