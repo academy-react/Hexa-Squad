@@ -61,12 +61,12 @@ const Courses = () => {
           />
           <div
             className={
-              "w-full flex relative flex-wrap transition-all pt-10 justify-end gap-3 duration-1000 aos-init aos-animate " +
+              "w-full flex relative flex-wrap transition-all pt-0 justify-end gap-3 duration-1000 aos-init aos-animate " +
               (showGrid ? "grid-list" : "")
             }
             data-aos="zoom-in"
           >
-            <span className="m-1 text-xl absolute top-0 right-0 text-slate-950">{data.length} دوره مرتبط</span>
+            <span className="m-1 text-xl absolute -top-10 right-0 text-slate-950">{data.length} دوره مرتبط</span>
             
             {mapData}
           </div>

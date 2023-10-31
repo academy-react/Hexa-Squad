@@ -4,8 +4,6 @@ import { useState } from "react";
 
 const DropDownRange = ({ data, setData }) => {
   const [defaultValue, setDefaultValue] = useState(true);
-  const [defaultFromPrice, setDefaultFromPrice] = useState(0);
-  const [defaultToPrice, setDefaultToPrice] = useState(10000000);
   const [fromPrice, setFromPrice] = useState(0);
   const [toPrice, setToPrice] = useState(10000000);
   const filterData = () => {
@@ -25,26 +23,13 @@ const DropDownRange = ({ data, setData }) => {
         >
           فیلتر بر اساس قیمت
         </label>
-        <i
-          className={
-            (defaultValue == true && "hidden") +
-            " bi bi-x absolute top-[33%] left-0 text-xl text-red-500 cursor-pointer"
-          }
-          onClick={() => {
-            filterData();
-            setDefaultValue(true);
-          }}
-        >
-          {" "}
-          <span className="text-lg"> حذف فیلتر</span>
-        </i>
       </div>
 
       <div className={"content transition-all w-full overflow-hidden "}>
         <div className="flex w-72 py-5 gap-5 px-5 justify-center ">
           <div className="w-1/2">
             <input
-              value={defaultValue ? defaultFromPrice:fromPrice}
+              value={fromPrice}
               type="range"
               class="transparent h-[4px] w-full cursor-pointer appearance-none border-transparent bg-darkblue4 dark:bg-darkblue"
               min="0"
@@ -60,7 +45,7 @@ const DropDownRange = ({ data, setData }) => {
             <input
               type="number"
               id="fromPrice"
-              value={defaultValue ? defaultFromPrice:fromPrice}
+              value={fromPrice}
               min="0"
               max="10000000"
               step={5000}
@@ -73,7 +58,7 @@ const DropDownRange = ({ data, setData }) => {
           </div>
           <div className="w-1/2">
             <input
-              value={defaultValue ? defaultToPrice:toPrice}
+              value={toPrice}
               type="range"
               class="transparent h-[4px] w-full cursor-pointer appearance-none border-transparent bg-darkblue4 dark:bg-darkblue"
               min="0"
@@ -89,7 +74,7 @@ const DropDownRange = ({ data, setData }) => {
             <input
               type="number"
               id="toPrice"
-              value={defaultValue ? defaultToPrice:toPrice}
+              value={toPrice}
               min="0"
               max="10000000"
               step={5000}
