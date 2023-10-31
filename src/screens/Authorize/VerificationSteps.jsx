@@ -34,18 +34,18 @@ const VerificationSteps = () => {
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
   };
 
-  const [theme, setTheme] = useState("light");
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
+  // const [theme, setTheme] = useState("light");
+  // useEffect(() => {
+  //   if (theme === "dark") {
+  //     document.documentElement.classList.add("dark");
+  //   } else {
+  //     document.documentElement.classList.remove("dark");
+  //   }
+  // }, [theme]);
 
-  const handleThemeSwitch = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  // const handleThemeSwitch = () => {
+  //   setTheme(theme === "light" ? "dark" : "light");
+  // };
   return (
     <div className="bg-lightPink min-h-screen overflow-hidden dark:bg-indigo-950  flex items-center justify-center px-16">
       <div className=" relative w-full max-w-lg mx-auto mb-20 ">
@@ -75,7 +75,7 @@ const VerificationSteps = () => {
               {" "}
               <h1 className="bi bi-house-door md:text-2xl dark:text-indigo-200 text-xl text-[#6652eb] absolute left-4 top-4"></h1>
             </Link>
-            <h2
+            {/* <h2
               className={
                 theme === "light"
                   ? "dark" +
@@ -84,7 +84,7 @@ const VerificationSteps = () => {
                     "bi bi-moon text-[#ffffff] cursor-pointer absolute left-14 top-4 text-xl"
               }
               onClick={handleThemeSwitch}
-            ></h2>
+            ></h2> */}
             <Link to={"/authorize/login"}>
               <h1 class="bi bi-box-arrow-in-right dark:text-indigo-200 text-base md:text-xl  text-[#6652eb] absolute right-4 top-4"></h1>
               <h2 className="text-xs md:text-sm dark:text-indigo-200 absolute right-[40px] top-4 text-[#6652eb]">

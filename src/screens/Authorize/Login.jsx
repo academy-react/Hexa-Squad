@@ -14,18 +14,18 @@ const Login = ({ setLightMode, lightMode }) => {
     setVisibility(!visible);
   };
 
-  const [theme, setTheme] = useState("light");
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
+  // const [theme, setTheme] = useState("light");
+  // useEffect(() => {
+  //   if (theme === "dark") {
+  //     document.documentElement.classList.add("dark");
+  //   } else {
+  //     document.documentElement.classList.remove("dark");
+  //   }
+  // }, [theme]);
 
-  const handleThemeSwitch = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  // const handleThemeSwitch = () => {
+  //   setTheme(theme === "light" ? "dark" : "light");
+  // };
   return (
     <>
     <div className="bg-lightPink  dark:bg-indigo-950 overflow-hidden min-h-screen flex items-center justify-center px-16">
@@ -56,7 +56,7 @@ const Login = ({ setLightMode, lightMode }) => {
               <h1 class="bi bi-house-door md:text-2xl  text-xl dark:text-indigo-200 text-[#6652eb] absolute left-4 top-4"></h1>
             </Link>
 
-            <h2
+            {/* <h2
               className={
                 theme === "light"
                   ? "dark" +
@@ -65,7 +65,7 @@ const Login = ({ setLightMode, lightMode }) => {
                     "bi bi-moon text-[#ffffff] cursor-pointer absolute left-14 top-4 text-xl"
               }
               onClick={handleThemeSwitch}
-            ></h2>
+            ></h2> */}
 
             <div className="bg-[#e4dbff]">
               <h2 className="text-[#6652eb] dark:text-indigo-100 md:text-3xl text-2xl top-12 md:top-10 md:left-[320px] left-[140px]  absolute">
