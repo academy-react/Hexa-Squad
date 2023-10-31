@@ -18,7 +18,7 @@ const HeaderButtons = ({setLightMode,lightMode,headerStyle}) => {
         <i className={(lightMode ?'block':'hidden')+ " bi bi-brightness-high text-3xl mt-1 "}></i>
       </div>
       <div onClick={changeTheme} className={"cursor-pointer items-center hidden "+(headerStyle?'':'lg:block')}>
-        <img src={Moon} className={(lightMode ? 'hidden':'block') + ' w-8 h-8 -mt-1 '} />
+        <img src={MoonColored} className={(lightMode ? 'hidden':'block') + ' w-8 h-8 -mt-1 '} />
         <i className={(lightMode ?'block':'hidden')+ " bi bi-brightness-high text-[#3f40ea] text-3xl mt-1 "}></i>
       </div>
       <ShoppingPopover headerStyle={headerStyle}/>

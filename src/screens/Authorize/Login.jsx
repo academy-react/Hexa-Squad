@@ -6,24 +6,23 @@ import FieldInput from "../../components/common/FieldInput";
 import loginImage from "../../assets/image/Login11.svg";
 import loginDark from "../../assets/image/loginDark.svg";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { onThemeChange } from "../../redux/darkMode";
 
-const Login = ({ setLightMode, lightMode }) => {
+const Login = () => {
+  const htmlTag = document.querySelector("html");
   const [visible, setVisibility] = useState(false);
+  const theme = useSelector((state)=>state.darkModeSlice.theme);
+  const dispatch = useDispatch();
   const toggle = () => {
     setVisibility(!visible);
   };
-
-  const [theme, setTheme] = useState("light");
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
-
-  const handleThemeSwitch = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+  const setLightMode = (theme)=>{
+    dispatch(onThemeChange(theme));
+  }
+  const changeTheme = () => {
+    setLightMode(!theme);
+    theme ? (htmlTag.className = "dark") : (htmlTag.className = "");
   };
   return (
     <div className="bg-lightPink dark:bg-indigo-950 overflow-hidden min-h-screen flex items-center justify-center px-16">
@@ -56,13 +55,13 @@ const Login = ({ setLightMode, lightMode }) => {
 
             <h2
               className={
-                theme === "light"
+                theme === true
                   ? "dark" +
                     " bi bi-brightness-high cursor-pointer text-[#6652eb] absolute left-14 top-4 text-xl "
                   : "light" +
                     "bi bi-moon text-[#ffffff] cursor-pointer absolute left-14 top-4 text-xl"
               }
-              onClick={handleThemeSwitch}
+              onClick={changeTheme}
             ></h2>
 
             <div className="bg-[#e4dbff]">

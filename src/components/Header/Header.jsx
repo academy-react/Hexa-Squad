@@ -10,10 +10,16 @@ import LogoWhite from "../../assets/image/Logo - white.svg";
 import CheckboxInput from "../common/checkboxInput";
 import Login from "../Modals/Login";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { onThemeChange } from "../../redux/darkMode";
 const Header = () => {
-  const [lightMode, setLightMode] = useState(true)
+  const lightMode = useSelector((state)=>state.darkModeSlice.theme);
+  const dispatch = useDispatch();
   const location = useLocation();
-  const [headerStyle, setHeaderStyle] = useState(true);
+  const [headerStyle, setHeaderStyle] = useState(false);
+  const setLightMode = (lightMode)=>{
+    dispatch(onThemeChange(lightMode));
+  }
   useEffect(() => {
     location.pathname == '/' ? setHeaderStyle(true) : setHeaderStyle(false)
   }, [location]);

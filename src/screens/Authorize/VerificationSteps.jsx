@@ -10,12 +10,17 @@ import FirstStepPassword from "../../components/Stepper/Steps/FirstStepPassword"
 
 import ForgetPassword from "../../assets/image/forgetPassword.svg";
 import ForgetPasswordDark from "../../assets/image/forgetPasswordDark.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { onThemeChange } from "../../redux/darkMode";
 
 const VerificationSteps = () => {
+  const htmlTag = document.querySelector("html");
   const [currentStep, setCurrentStep] = useState(1);
   const steps = ["شماره تماس", "دریافت کد", " تغییر رمزعبور"];
   const [userData, setUserData] = useState("");
   const [finalData, setFinalData] = useState([]);
+  const theme = useSelector((state)=>state.darkModeSlice.theme);
+  const dispatch = useDispatch();
 
   const displayStep = (step) => {
     switch (step) {
@@ -34,17 +39,12 @@ const VerificationSteps = () => {
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
   };
 
-  const [theme, setTheme] = useState("light");
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
-
-  const handleThemeSwitch = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+  const setLightMode = (theme)=>{
+    dispatch(onThemeChange(theme));
+  }
+  const changeTheme = () => {
+    setLightMode(!theme);
+    theme ? (htmlTag.className = "dark") : (htmlTag.className = "");
   };
   return (
     <div className="bg-lightPink min-h-screen overflow-hidden dark:bg-indigo-950  flex items-center justify-center px-16">
@@ -77,13 +77,13 @@ const VerificationSteps = () => {
             </Link>
             <h2
               className={
-                theme === "light"
+                theme === true
                   ? "dark" +
                     " bi bi-brightness-high cursor-pointer text-[#6652eb] absolute left-14 top-4 text-xl "
                   : "light" +
                     "bi bi-moon text-[#ffffff] cursor-pointer absolute left-14 top-4 text-xl"
               }
-              onClick={handleThemeSwitch}
+              onClick={changeTheme}
             ></h2>
             <Link to={"/authorize/login"}>
               <h1 class="bi bi-box-arrow-in-right dark:text-indigo-200 text-base md:text-xl  text-[#6652eb] absolute right-4 top-4"></h1>

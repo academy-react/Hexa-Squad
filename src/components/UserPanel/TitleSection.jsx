@@ -1,33 +1,33 @@
 import React, {useState, useEffect} from "react";
 import TitleRight from "../../assets/icons/title right.svg";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { onThemeChange } from "../../redux/darkMode";
 const TitleSection = ({title}) => {
-  const [theme, setTheme] = useState("light");
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
+  const htmlTag = document.querySelector("html");
+  const theme = useSelector((state)=>state.darkModeSlice.theme);
+  const dispatch = useDispatch();
 
-  const handleThemeSwitch = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+  const setLightMode = (theme)=>{
+    dispatch(onThemeChange(theme));
+  }
+  const changeTheme = () => {
+    setLightMode(!theme);
+    theme ? (htmlTag.className = "dark") : (htmlTag.className = "");
   };
-
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between w-full border-b-[2px] border-solid border-[#ccccd66f] dark:border-white pb-4 gap-4 ">
       <div className="text-[#666666] dark:text-white text-2xl md:flex hidden  gap-4">
-        <i class="bi bi-cart"></i>
+        <Link to={'/shoppingCard'} class="bi bi-cart"></Link>
         {/* <i class="bi bi-bell"></i> */}
         <h2 className={
-          theme === "light"
+          theme === true
           ? "dark" + 
             "bi bi-brightness-high cursor-pointer text-lightblue"
           : "light" + 
             "bi bi-moon cursor-pointer"
         } 
-        onClick={handleThemeSwitch}
+        onClick={changeTheme}
         ></h2>
 
       </div>
