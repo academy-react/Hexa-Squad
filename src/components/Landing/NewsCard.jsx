@@ -25,7 +25,7 @@ const NewsCard = ({ name, img, description, views, date }) => {
                 {date}
               </h2>
             </div>
-            <h2 className="md:text-base h-[80px] w-[95%] text-justify text-sm md:my-2 mt-2 pl-6 text-lightblue dark:text-[#cbc7ff] dark:opacity-90 dark:group-hover:text-[#DEDCFF] opacity-60">
+            <h2 className="news-description md:text-base h-[80px] w-[95%] text-justify text-sm md:my-2 mt-2 pl-6 text-lightblue dark:text-[#cbc7ff] dark:opacity-90 dark:group-hover:text-[#DEDCFF] opacity-60">
               {description}
             </h2>
             <div className="news-readMore flex flex-row absolute  md:-mt-3 left-3  md:left-5 ">
