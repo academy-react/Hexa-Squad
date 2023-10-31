@@ -111,7 +111,7 @@ const Login = () => {
                     </Form>
                   </Formik>
                   <Link to="/authorize/Verification">
-                    <span className="absolute top-[180px] dark:text-indigo-300  md:left-0 left-16 text-sm text-[#7F52FD]">
+                    <span className="absolute top-[180px] z-20 dark:text-indigo-300  md:left-0 left-16 text-sm text-[#7F52FD]">
                       فراموشی رمز ؟
                     </span>
                   </Link>

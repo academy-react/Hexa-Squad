@@ -1,5 +1,5 @@
 import AutoTypeWriter from './AutoTypeWriter';
-import CheckboxInput from './CheckboxInput';
+import CheckboxInput from './checkboxInput';
 import FieldInput from './FieldInput';
 import FooterInput from './FooterInput';
 import HeroSectionInfo from './HeroSectionInfo';

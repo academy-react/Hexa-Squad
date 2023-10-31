@@ -1,5 +1,5 @@
 import React from "react";
-import CheckboxInput from "./CheckboxInput";
+import CheckboxInput from "./checkboxInput";
 import { useState } from "react";
 
 const DropDownRange = ({ data, setData }) => {
@@ -14,11 +14,11 @@ const DropDownRange = ({ data, setData }) => {
     setData(filterData);
   };
   return (
-    <div className="bg-[#EAE5FF] text-[#2C007F] px-7 rounded-xl mb-5 mt-3 dark:bg-newPurpleAlpha2 dark:text-[#fff]">
-      <CheckboxInput name={name} className={"checkbox"} />
+    <div className="bg-[#EAE5FF] overflow-hidden text-[#2C007F] px-7 rounded-xl mb-5 mt-3 dark:bg-newPurpleAlpha2 dark:text-[#fff]">
+      <CheckboxInput name={'price'} className={"checkbox"} />
       <div className="relative">
         <label
-          htmlFor={name}
+          htmlFor={'price'}
           className=" border-b-2 block py-[18px] xl:px-24 px-28 w-full border-[#2C007F30] dark:border-[#fff5]"
         >
           فیلتر بر اساس قیمت
@@ -26,8 +26,8 @@ const DropDownRange = ({ data, setData }) => {
       </div>
 
       <div className={"content transition-all w-full overflow-hidden "}>
-        <div className="flex w-72 py-5 gap-5 px-5 justify-center ">
-          <div className="w-1/2">
+        <div className="flex flex-col w-52 py-5 gap-5 pr-3 mx-auto justify-center h-64 ">
+          <div className="w-full">
             <input
               value={fromPrice}
               type="range"
@@ -56,7 +56,7 @@ const DropDownRange = ({ data, setData }) => {
               }}
             />
           </div>
-          <div className="w-1/2">
+          <div className="w-full">
             <input
               value={toPrice}
               type="range"

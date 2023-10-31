@@ -1,5 +1,5 @@
 import React from "react";
-import CheckboxInput from "./CheckboxInput";
+import CheckboxInput from "./checkboxInput";
 import { useState } from "react";
 
 const DropDown = ({
@@ -27,12 +27,12 @@ const DropDown = ({
     </div>
   ));
   return (
-    <div className="bg-[#EAE5FF] text-[#2C007F] px-7 rounded-xl mb-5 mt-3 dark:bg-newPurpleAlpha2 dark:text-[#fff]">
+    <div className="bg-[#EAE5FF] overflow-hidden text-[#2C007F] pr-4 rounded-xl mb-5 mt-3 dark:bg-newPurpleAlpha2 dark:text-[#fff]">
       <CheckboxInput name={name} className={"checkbox"} />
       <div className="relative">
         <label
           htmlFor={name}
-          className=" border-b-2 block py-[18px] xl:px-24 px-28 w-full border-[#2C007F30] dark:border-[#fff5]"
+          className=" border-b-2 block py-[18px] xl:px-20 px-24 w-full border-[#2C007F30] dark:border-[#fff5]"
         >
           فیلتر بر اساس موضوع
         </label>

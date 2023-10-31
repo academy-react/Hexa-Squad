@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const DesktopMenu = ({className}) => {
   const [menuItems, setMenuItems] = useState([
@@ -10,9 +10,9 @@ const DesktopMenu = ({className}) => {
   return (
     <ul className={"menu "+className}>
       {menuItems.map((item,index) => (
-        <Link to={item.address} className="menu-item group" key={index}>
+        <NavLink to={item.address} className={({ isActive }) => (isActive ? "active" : "")+" menu-item group"} key={index}>
           {item.itemName}  <span className="underline-menu "></span>
-        </Link>
+        </NavLink>
       ))}
     </ul>
   );
