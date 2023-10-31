@@ -10,6 +10,8 @@ import LastStep from "../../components/Stepper/Steps/LastStep";
 
 import RegisterImage from "../../assets/image/RegisterNew.svg";
 import RegisterDark from "../../assets/image/registerDark.svg"
+import { Fragment } from "react";
+import Copyrights from "../../components/common/Copyrights";
 
 const Register = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -49,6 +51,7 @@ const Register = () => {
   //   setTheme(theme === "light" ? "dark" : "light");
   // };
   return (
+    <Fragment>
     <div className="bg-lightPink dark:bg-indigo-950 overflow-hidden min-h-screen flex items-center justify-center px-16 ">
       <div className=" relative w-full max-w-lg  mb-20">
         <div className="h-full absolute right-32">
@@ -58,7 +61,7 @@ const Register = () => {
         </div>
         <div
           data-aos="zoom-in-left"
-          className="bg-[#e4dbff] dark:bg-indigo-800 dark:bg-opacity-30 mx-auto right-14 bg-opacity-60 rounded-lg relative h-96 w-[300px] md:min-w-[100vh] md:right-[150px] lg:min-w-[90vh] lg:h-[70vh]  lg:top-10 lg:right-40 xl:min-w-[173vh] xl:min-h-[70vh] xl:right-96 xl:top-10"
+          className="bg-[#e4dbff] dark:bg-indigo-800 dark:bg-opacity-30 mx-auto right-14 bg-opacity-60 rounded-lg relative h-96 w-[300px] md:min-w-[100vh] md:right-[150px] lg:min-w-[90vh] lg:h-[70vh]  lg:top-10 md:-top-12 lg:right-40 xl:min-w-[173vh] xl:min-h-[70vh] xl:right-96 xl:top-10"
         >
           <div className="w-[460px] h-full top-20 absolute right-2 hidden xl:block">
             <img
@@ -124,6 +127,8 @@ const Register = () => {
         </div>
       </div>
     </div>
+    <Copyrights/>
+    </Fragment>
   );
 };
 

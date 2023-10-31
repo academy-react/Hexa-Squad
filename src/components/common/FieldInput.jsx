@@ -4,7 +4,7 @@ const FieldInput = ({ placeholder, name, icon, classIcon ,type }) => {
   return (
     <div className="relative w-full pb-3">
       <div className="relative my-4 w-full h-12 ">
-        <Field placeholder={placeholder} type={type} name={name} className="field-input3"/>
+        <Field placeholder={placeholder} type={type} name={name} className="field-input3 ml-14 md:ml-0"/>
         {/* <i
           className={"bi bi-" + icon + " absolute top-3 left-1 " + classIcon}
         ></i> */}
