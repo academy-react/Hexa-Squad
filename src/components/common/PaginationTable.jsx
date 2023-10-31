@@ -45,12 +45,12 @@ const PaginationTable = ({ data, itemsPerPage ,addIcon }) => {
           <tbody>
             {currentItems.map((data, index) => (
               <tr
-                className="text-[#36353B] bg-[#CECCFF50] hover:bg-[#CECCFF80] pagination-table-tr "
+                className="text-[#36353B] dark:text-semiPink bg-[#CECCFF50] dark:bg-[#3f3fea45]  hover:bg-[#CECCFF80] pagination-table-tr "
                 key={index}
               >
                 <td className="whitespace-nowrap px-6 py-4 text-xl">
                   <i className={"bi bi-"+addIcon+" text-[#fd0000] mx-3"}></i>
-                  <i className="bi bi-eye text-[#29209380]"></i>
+                  <i className="bi bi-eye text-[#29209380] dark:text-semiPink"></i>
                 </td>
                 <td className="whitespace-nowrap px-6 py-4" dir="rtl">
                    {SeparationPrice(data.price)} تومان

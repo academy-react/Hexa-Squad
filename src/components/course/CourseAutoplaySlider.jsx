@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import Course from './Course';
-import AllData from "../../core/services/api/Data/AllData";
+import MyCourses from '../../core/services/api/Data/MyCourses';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 const CourseAutoplaySlider = () => {
-  const [coursesList, setCoursesList] = useState(AllData);
+  const [coursesList, setCoursesList] = useState(MyCourses);
     return(
         <Swiper
             spaceBetween={10}

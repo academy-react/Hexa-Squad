@@ -209,7 +209,7 @@
   }
 
   .field-input3 {
-    @apply text-right text-xs md:text-base md:w-full md:py-1 md:px-2 pr-2 h-full w-[300px] rounded-lg border-2 border-[#a48fff] bg-[#e6e2ff] dark:bg-lightblue4 absolute top-0 left-14 md:left-0 focus-visible:outline-4 focus-visible:border-2 focus-visible:outline focus-visible:outline-[#3F40EA66];
+   @apply text-right text-xs md:text-base md:w-full md:py-1 md:px-2 pr-2  h-full w-[300px]  rounded-lg border-2 border-[#a48fff] bg-[#e6e2ff] dark:bg-lightblue4 absolute top-0 left-14 md:left-0 focus-visible:outline-4 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-[#3F40EA66];
   }
 
   .primary-button {
@@ -246,7 +246,7 @@
   }
 
   .news-image {
-    @apply md:w-[220px] md:h-[186px] h-[155px] w-[180px] absolute shadow-shadow-auth my-5 mx-5 md:my-6 lg:mx-6 rounded-2xl bg-center object-cover;
+    @apply md:w-[220px] md:h-[186px] h-[180px] w-[180px] absolute shadow-shadow-auth my-6 mx-5 md:my-6 lg:mx-6 rounded-2xl bg-center object-cover;
   }
 
   .contact-teachers1 {
@@ -377,7 +377,7 @@
 
   .side-bar-container {
     width: calc(100% - 80px);
-    @apply lg:h-full lg:min-h-screen lg:static h-20 overflow-hidden fixed top-5 left-10 z-50 lg:w-[300px] md:min-w-[210px] bg-gradient-to-b from-[#8C80F6] to-[#2E11B7] lg:rounded-3xl rounded-xl px-5 py-3 transition-all;
+    @apply lg:h-full lg:min-h-screen lg:static h-20 overflow-hidden fixed top-5 left-10 z-50 lg:w-[300px] md:min-w-[210px] bg-gradient-to-b from-[#8C80F6] to-[#2E11B7] dark:from-indigo-800 dark:to-indigo-950 lg:rounded-3xl rounded-xl px-5 py-3 transition-all;
 
     .side-bar-image {
       @apply text-center lg:py-8 py-2 relative lg:block gap-4 flex border-b-[1px] border-[#fff] transition-all;
@@ -417,18 +417,20 @@
   }
 
   .paginationLink {
-    @apply text-[#191760] px-3 py-2 rounded-lg hover:text-[#fff] hover:bg-[#3F40EA];
+    @apply text-[#191760] dark:text-semiPink px-3 py-2 rounded-lg hover:text-[#fff] hover:bg-[#3F40EA];
   }
 
   .paginationLink.active {
     @apply text-[#fff] bg-[#3F40EA];
   }
-
+  .eye-img{
+    filter: brightness(0) saturate(100%) invert(97%) sepia(91%) saturate(5584%) hue-rotate(182deg) brightness(108%) contrast(104%);
+  }
   .user-panel {
-    @apply w-full px-10 py-8 flex lg:flex-row flex-col-reverse gap-10 bg-whitePink;
+    @apply w-full px-10 py-8 flex lg:flex-row flex-col-reverse gap-10 bg-whitePink dark:bg-darkblue;
 
     .user-panel-container {
-      @apply lg:w-9/12 w-full px-7 py-5 bg-[#fff] h-full min-h-screen rounded-xl overflow-hidden lg:mt-0 mt-20
+      @apply lg:w-9/12 w-full px-7 py-5 bg-semiWhite2 dark:bg-indigo-950 h-full min-h-screen rounded-xl overflow-hidden lg:mt-0 mt-20
     }
   }
 

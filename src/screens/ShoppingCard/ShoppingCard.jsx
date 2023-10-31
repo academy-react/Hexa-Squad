@@ -10,9 +10,9 @@ const ShoppingCard = () => {
   ));
 
   return (
-    <div className="pt-20">
+    <div className="pt-20" data-aos="zoom-out">
       <div className="mx-auto max-w-6xl py-16 px-4 sm:py-24 sm:px-6 lg:px-10 ">
-        <h1 className="text-center text-3xl font-bold tracking-tight text-[#111827] sm:text-4xl">
+        <h1 className="text-center text-3xl font-bold tracking-tight text-[#111827] dark:text-semiWhite2 sm:text-4xl">
           سبد خرید
         </h1>
 
@@ -26,10 +26,10 @@ const ShoppingCard = () => {
             <div>
               <dl className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <dt className="text-base font-medium text-[#111827]">
+                  <dt className="text-base font-medium text-[#111827] dark:text-semiWhite2">
                     مجموع قیمت
                   </dt>
-                  <dd className="ml-4 text-base font-medium text-[#111827]">
+                  <dd className="ml-4 text-base font-medium text-[#111827] dark:text-semiWhite2">
                     {"820,000"} تومان
                   </dd>
                 </div>

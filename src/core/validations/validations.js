@@ -7,9 +7,9 @@ export const validation = yup.object().shape({
     lastPassword: yup.string().required('این فیلد الزامیست!'),
     firstName: yup.string().required('این فیلد الزامیست!'),
     lastName: yup.string().required('این فیلد الزامیست!'),
-    idCode: yup.number().typeError('کد ملی باید باید عدد باشد!').integer("کد ملی نمی تواند شامل عدد اعشاری باشد!").positive('کد ملی باید عدد مثبت باشد!').required('این فیلد الزامیست!'),
+    idCode: yup.number().typeError('کد ملی باید عدد باشد!').integer("کد ملی نمی تواند شامل عدد اعشاری باشد!").positive('کد ملی باید عدد مثبت باشد!').required('این فیلد الزامیست!'),
     birthDate: yup.date().required('این فیلد الزامیست!'),
-    phoneNumber: yup.number().typeError('شماره موبایل باید باید عدد باشد!').integer(" شماره موبایل نمی تواند شامل عدد اعشاری باشد!").positive(' شماره موبایل نمی تواند کمتر از صفر باشد!').required('این فیلد الزامیست!'),
+    phoneNumber: yup.number().typeError('شماره موبایل باید عدد باشد!').integer(" شماره موبایل نمی تواند شامل عدد اعشاری باشد!").positive(' شماره موبایل نمی تواند کمتر از صفر باشد!').required('این فیلد الزامیست!'),
     verificationCode: yup.number().typeError('کد را به درستی وارد کنید').required('این فیلد الزامیست!'),
 
 

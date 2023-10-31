@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
-import TitleSection from "../../components/UserPanel/titleSection";
+import TitleSection from "../../components/UserPanel/TitleSection";
 import { validation } from "../../core/validations/validations";
 
 import pic from '../../assets/image/drBahr.jpg';
@@ -26,15 +26,15 @@ const EditProfile = () => {
                 <input id="input-file" type='file' onChange={(e) => setImage(e.target.files[0])}  className="hidden" />
             </label>
         </div>
-        <span className="text-[#3F3F47aa] flex justify-center mt-2">ویرایش تصویر</span>
+        <span className="text-[#3F3F47aa] dark:text-semiWhite2 flex justify-center mt-2">ویرایش تصویر</span>
 
         <div className="mt-8">
             <Formik
-            initialValues={{ firstName: "", lastName: "", idCode: "", email: "", birthDate: "", phoneNumber: "" }}
+            initialValues={{ firstName: "محمد", lastName: "بحرالعلوم", idCode: "2090425610", email: "bahr.academy@gmail.com", birthDate: "", phoneNumber: "09112233445" }}
             validationSchema={validation}
             onSubmit={() => alert("ثبت اطلاعات")}
             >
-                <Form className="flex flex-wrap gap-5 justify-center text-[#3F3F47aa]" dir="rtl">
+                <Form className="flex flex-wrap gap-5 justify-center text-[#3F3F47aa] dark:text-semiWhite2" dir="rtl">
                     <div className="editProf-input">
                         <label className="block  my-1">نام</label>
                         <Field name={"firstName"} className="editProf-field-input" />
@@ -57,7 +57,8 @@ const EditProfile = () => {
                     </div>
                     <div className="editProf-input">
                         <label className="block my-1">تاریخ تولد</label>
-                        <PersianCalendar/>
+                        <PersianCalendar name={"birthDate"}/>
+                        <ErrorMessage name="birthDate" className="editProf-errorMessage" component={'span'}/>
                     </div>
                     <div className="editProf-input">
                         <label className="block my-1">شماره موبایل</label>
@@ -67,7 +68,7 @@ const EditProfile = () => {
                     <input
                     type="submit"
                     value="ثبت اطلاعات"
-                    className="block w-2/5 md:1/6 lg:w-1/5 p-4 bg-lightblue rounded-lg text-[#fff] opacity-80 hover:opacity-100 cursor-pointer"
+                    className="primary-btn block w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
                     />
                 </Form>
             </Formik>

@@ -41,7 +41,7 @@ const Courses = () => {
     />
   ));
   return (
-    <div className="py-32">
+    <div className="py-32" data-aos="zoom-out">
       <CoursesHero typeWriterWords={typeWriterWords} />
       <FiltersBTN
         data={AllData}

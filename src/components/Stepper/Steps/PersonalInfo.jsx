@@ -12,7 +12,7 @@ const PersonalInfo = () => {
   };
   return (
     <div className="bg-[#e4dbff]">
-      <h2 className="text-[#6652eb] md:text-3xl text-2xl top-12 md:top-10 md:left-[300px] left-[130px]  absolute">
+      <h2 className="text-[#6652eb] dark:text-indigo-100 md:text-3xl text-2xl top-12 md:top-10 md:left-[300px] left-[130px]  absolute">
         {" "}
         مشخصات کاربری
       </h2>
@@ -58,7 +58,7 @@ const PersonalInfo = () => {
                 type="checkbox"
                 name=""
                 id="remember"
-                className="md:w-4 md:h-4 w-3 h-3 border-2  rounded-sm mt-1 bg-semiWhite cursor-pointer "
+                className="md:w-4 md:h-4 w-3 h-3 border-2  rounded-sm mt-1 bg-semiWhite cursor-pointer accent-purple2 "
               />
               <label htmlFor="remember" className="md:text-base text-sm">مرا به خاطر بسپار</label>
             </div>

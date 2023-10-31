@@ -1,68 +1,53 @@
 import React, { useState } from "react";
-import { UserComments, InputComment } from "../../components/News";
-
-import Topics from "../../components/CourseDetails/Topics";
-import comment from "../../assets/image/comments.svg"
-import CoursePhoto from "../../components/CourseDetails/CoursePhoto"
+import CoursePhoto from "../../components/CourseDetails/CoursePhoto";
 import DetailsBox from "../../components/CourseDetails/DetailsBox";
-
-
-const CourseDetails = () => {
-  const [userCommentsList, setUserComments] = useState([
-    {
-      name: "محمدرضا ساداتی ",
-      date: " 1402/05/23",
-      question:
-        "ممنون بابت مقاله، اما میتونست بیشتر باشه و علاوه بر اشاره به یک نکته به نکات دیگه ای که به آموزش بهتر کمک میکنه اشاره بشه، درکل خیلی کوتاه بود",
-    },
-    {
-      name: "بیتا قنبری ",
-      date: " 1402/04/15",
-      question:
-        "آیا مطالبی که در دوره جاری ارائه میدید با دوره قبلی تفاوت داره؟",
-    },
-  ]);
-  const userComments = userCommentsList.map((item, index) => {
+import WhishListData from "../../core/services/api/Data/TeacherWhishListData";
+import Course from "../../components/course/Course";
+import TabsContent from "../../components/CourseDetails/TabsContent";
+const CourseDetails = ({ like, dislike }) => {
+  const [coursesWhishList, setCoursesWhishList] = useState(WhishListData);
+  const mapCourses = coursesWhishList.map((item, index) => {
     return (
-      <UserComments
-        name={item.name}
-        date={item.date}
-        question={item.question}
+      <Course
         key={index}
+        title={item.title}
+        courseCount={item.courseCount}
+        time={item.time}
+        date={item.date}
+        professorName={item.professorName}
+        like={item.like}
+        width={"lg:w-[24%]"}
+        background={"dark:bg-darkblue2"}
+        dislike={item.dislike}
+        studentCount={item.studentCount}
+        price={item.price}
+        image={item.imageUrl}
       />
     );
   });
- 
   return (
     <div>
-      <div className="mx-auto flex">
-        <div className="w-[90%] h-full lg:max-w-[1260px] mx-auto mt-36 bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6">
+      <div className="mx-auto flex mb-20 ">
+        <div className="w-[90%] h-full overflow-hidden lg:max-w-[1260px] mx-auto mt-36 bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6">
           <div className="flex flex-col lg:flex-row">
-            <CoursePhoto />
+            <CoursePhoto like={like} dislike={dislike} />
 
             {/* moshakhasat */}
             <DetailsBox />
           </div>
-
+          <TabsContent />
           {/* Comments section */}
 
-          <div className="w-full md:w-[600px] lg:w-[800px] mx-auto lg:mt-36 mt-10 ">
-            <h2 className="md:text-2xl text-lg lg:mx-56 md:mx-32 mx-16 my-8 text-[#2C007F] dark:text-whitePink">
-              {" "}
-              سرفصل های دوره اموزشی html{" "}
+          <div className="lg:max-w-full md:max-w-[750px] sm:min-w-[640px] ml-8 mt-16 mb-12 md:ml-2 md:mx-12 lg:mt-40">
+            <h2 className="text-xl md:text-lg lg:text-2xl mr-4 text-newPurple3 dark:text-whitePink mb-10  lg:mb-10">
+              دوره های مرتبط :
             </h2>
+            <div
+              className="flex flex-wrap lg:flex-row mr-8 md:-mr-12"
 
-            <Topics />
-          </div>
-          <div className="w-[90%] mx-auto my-10">
-            <div className="lg:mt-36 mt-20 pb-6 border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70]">
-              <img src={comment} className="inline pl-4" />
-              <h3 className="text-xl md:text-2xl text-darkblue4 dark:text-[#6974FF] inline">
-                نظرات کاربران در رابطه با این مقاله{" "}
-              </h3>
+            >
+              {mapCourses}
             </div>
-            {userComments}
-            <InputComment />
           </div>
         </div>
       </div>

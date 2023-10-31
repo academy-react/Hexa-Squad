@@ -24,7 +24,7 @@ const ShoppingPopover = ({ headerStyle }) => {
         <span>
           
         </span>
-        <span className={"ml-2 text-sm absolute top-0 right-0 w-5 h-5 rounded-full "+(headerStyle ? "" : "bg-darkblue2")}>
+        <span className={"ml-2 text-sm absolute top-0 right-0 w-5 h-5 rounded-full"+(headerStyle ? "" : "text-blue-800 rounded-full bg-indigo-800")}>
           {ShoppingCardData.length}
         </span>
       </Popover.Button>
@@ -37,7 +37,7 @@ const ShoppingPopover = ({ headerStyle }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Popover.Panel className="absolute inset-x-0 top-20 mt-px bg-whitePink dark:bg-slate-600 pb-6 shadow-[0_0_20px_5px_rgba(0,0,0,0.1)] sm:px-2 sm:top-full lg:left-auto sm:left-0 sm:right-auto lg:right-0 sm:mt-3 sm:-mr-1.5 sm:w-80 sm:rounded-lg ">
+        <Popover.Panel className="absolute inset-x-0 top-20 mt-px bg-whitePink dark:bg-darkblue2 pb-6 shadow-[0_0_20px_5px_rgba(0,0,0,0.1)] sm:px-2 sm:top-full lg:left-auto sm:left-0 sm:right-auto lg:right-0 sm:mt-3 sm:-mr-1.5 sm:w-80 sm:rounded-lg ">
           <h2 className="sr-only">Shopping Cart</h2>
 
           <form className="mx-auto max-w-2xl px-4">

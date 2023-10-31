@@ -4,44 +4,74 @@ import { Link } from "react-router-dom";
 import { validation } from "../../core/validations/validations";
 import FieldInput from "../../components/common/FieldInput";
 import loginImage from "../../assets/image/Login11.svg";
+import loginDark from "../../assets/image/loginDark.svg";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
-const Login = () => {
+const Login = ({ setLightMode, lightMode }) => {
   const [visible, setVisibility] = useState(false);
   const toggle = () => {
     setVisibility(!visible);
   };
+
+  const [theme, setTheme] = useState("light");
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const handleThemeSwitch = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
   return (
-    <div className="bg-lightPink  min-h-screen flex items-center justify-center px-16">
-      <div className=" relative w-full max-w-lg mx-auto mb-20 ">
-        <div className=" absolute top-0 -left-10 w-72 h-72 bg-[#b07eff] rounded-full mix-blend-multiply filter blur-xl opacity-80 animate-blob hidden lg:block"></div>
-        <div className=" absolute top-0 -right-10 w-72 h-72 bg-lightPink2 rounded-full  mix-blend-multiply  filter blur-xl opacity-80 animate-blob animation-delay-2000  hidden lg:block"></div>
-        <div className=" absolute  -bottom-20 left-20 w-72 h-72 bg-[#7D67FF] rounded-full  mix-blend-multiply  filter blur-xl opacity-80 animate-blob animation-delay-4000  hidden lg:block"></div>
+    <div className="bg-lightPink dark:bg-indigo-950 overflow-hidden min-h-screen flex items-center justify-center px-16">
+      <div className=" relative  w-full max-w-lg mx-auto mb-20 ">
+        <div className=" absolute top-0 -left-10 w-72 h-72 bg-[#b07eff]  rounded-full mix-blend-multiply dark:mix-blend-lighten  filter blur-xl  dark:bg-lightblue dark:opacity-40 opacity-80 animate-blob hidden lg:block"></div>
+        <div className=" absolute top-0 -right-10 w-72 h-72 bg-lightPink2    rounded-full  mix-blend-multiply dark:mix-blend-lighten filter blur-xl dark:bg-violet-800 opacity-80 animate-blob animation-delay-2000  hidden lg:block"></div>
+        <div className=" absolute  -bottom-20 left-20 w-72 h-72 bg-[#7D67FF]   rounded-full  mix-blend-multiply dark:mix-blend-lighten filter blur-xl dark:bg-darkblue4 opacity-80 animate-blob animation-delay-4000  hidden lg:block"></div>
 
         <div
           data-aos="zoom-in"
-          className="bg-[#e4dbff] mx-auto right-14 bg-opacity-60 rounded-lg relative h-96 w-[300px] md:min-w-[100vh] md:h-[520px]  md:right-[160px] lg:min-w-[90vh] lg:h-[70vh]  lg:top-10 lg:right-40 xl:min-w-[173vh] xl:min-h-[70vh] xl:right-96 xl:top-10"
+          className="bg-[#e4dbff] dark:bg-indigo-800 dark:bg-opacity-30 mx-auto right-14 bg-opacity-60 rounded-lg relative h-96 w-[300px] md:min-w-[100vh] md:h-[520px]  md:right-[160px] lg:min-w-[90vh] lg:h-[70vh]  lg:top-10 lg:right-40 xl:min-w-[173vh] xl:min-h-[70vh] xl:right-96 xl:top-10"
         >
           <div className="w-[460px] h-full top-4 absolute right-2 hidden xl:block">
             <img
               src={loginImage}
-              className="object-cover rounded-e-xl hidden lg:block"
+              className="object-cover rounded-e-xl hidden lg:block dark:hidden"
+              alt=""
+            />
+             <img
+              src={loginDark}
+              className="object-cover rounded-e-xl hidden lg:hidden dark:block "
               alt=""
             />
           </div>
-          <div className="bg-[#ECE9FF] rounded-md rounded-e-xl -top-10 md:top-0 w-[400px] h-[540px] md:block md:w-[800px] lg:h-full absolute">
+          <div className="bg-[#ECE9FF] dark:bg-darkblue2 rounded-md rounded-e-xl -top-10 md:top-0 w-[400px] h-[540px] md:block md:w-[800px] lg:h-full absolute">
             <Link to="/">
               {" "}
-              <h1 class="bi bi-house-door md:text-2xl  text-xl text-[#6652eb] absolute left-4 top-4"></h1>
+              <h1 class="bi bi-house-door md:text-2xl  text-xl dark:text-indigo-200 text-[#6652eb] absolute left-4 top-4"></h1>
             </Link>
 
+            <h2
+              className={
+                theme === "light"
+                  ? "dark" +
+                    " bi bi-brightness-high cursor-pointer text-[#6652eb] absolute left-14 top-4 text-xl "
+                  : "light" +
+                    "bi bi-moon text-[#ffffff] cursor-pointer absolute left-14 top-4 text-xl"
+              }
+              onClick={handleThemeSwitch}
+            ></h2>
+
             <div className="bg-[#e4dbff]">
-              <h2 className="text-[#6652eb] md:text-3xl text-2xl top-12 md:top-10 md:left-[320px] left-[140px]  absolute">
+              <h2 className="text-[#6652eb] dark:text-indigo-100 md:text-3xl text-2xl top-12 md:top-10 md:left-[320px] left-[140px]  absolute">
                 {" "}
                 ورود به سایت
               </h2>
               <div
-                className=" text-newPurpleAlpha mx-auto w-[400px] absolute mt-32 left-0 md:left-44"
+                className=" text-newPurpleAlpha  mx-auto w-[400px] absolute mt-32 left-0 md:left-44"
                 dir="rtl"
               >
                 <Formik
@@ -80,7 +110,7 @@ const Login = () => {
                   </Form>
                 </Formik>
                 <Link to="/authorize/Verification">
-                  <span className="absolute top-[180px]  md:left-0 left-16 text-sm text-[#7F52FD]">
+                  <span className="absolute top-[180px] dark:text-indigo-300  md:left-0 left-16 text-sm text-[#7F52FD]">
                     فراموشی رمز ؟
                   </span>
                 </Link>
@@ -93,9 +123,9 @@ const Login = () => {
                   />
                 </Link>
 
-                <span className="absolute top-[320px]   right-[100px]  text-sm text-[#7F52FD]">
+                <span className="absolute top-[320px]   right-[100px]  text-sm text-[#7F52FD] dark:text-indigo-400 ">
                   حساب کاربری ندارید ؟
-                  <Link to="/authorize/register" className=" text-lightblue">
+                  <Link to="/authorize/register" className=" text-lightblue dark:text-indigo-200  ">
                     {" "}
                     ثبت نام
                   </Link>

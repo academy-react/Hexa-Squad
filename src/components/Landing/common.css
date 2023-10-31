@@ -39,14 +39,14 @@
 
    /* Course Education */
    .course-box {
-        @apply overflow-hidden duration-500 w-[325px] mx-auto bg-[#EAE5FF] dark:bg-darkblue2 rounded-[20px] shadow-shadow-Course-box m-2;
+        @apply overflow-hidden duration-500 w-[325px] mx-auto bg-[#EAE5FF] dark:bg-indigo-950 rounded-[20px] shadow-shadow-Course-box m-2;
     }
     .course-box:hover {
         box-shadow: 0px 0px 15px 0px #6D20FF4D;
         @apply translate-x-0;
     }
     .course-box:hover .course-name {
-        @apply text-newPurpule5 dark:text-semiPink;
+        @apply text-newPurpule5 dark:text-[#6974FF] ;
     }
     .course-box:hover .hover-box {
         @apply block duration-500 left-0 cursor-pointer;
@@ -57,7 +57,7 @@
              bg-[#6736FF] dark:bg-[#261A97] dark:shadow-shadow-auth rounded-r-[10px]; 
     }
     .course-name{
-        @apply text-darkBlue5 dark:text-[#6974FF] opacity-90 text-2xl pb-3 ;
+        @apply text-darkBlue5 dark:text-semiPink opacity-90 text-2xl pb-3 ;
     }
     .hover-box-img:hover {
         @apply opacity-100;
@@ -67,13 +67,13 @@
         @apply my-3 mx-2 opacity-60;
     }
     .course-svg{
-        @apply inline w-4 h-6 text-gray dark:text-[#9996F9];
+        @apply inline w-4 h-6 text-slate-600 dark:text-slate-400;
     }
     .course-info{
-        @apply inline text-grayBlue text-xs pr-1 dark:text-[#9996F9];
+        @apply inline text-slate-600 text-xs pr-1 dark:text-slate-400;
     }
     .course-like-box{
-        @apply  inline px-2 py-1 bg-semiWhite2 dark:bg-[#6974FF] rounded-md;
+        @apply  inline px-2 py-1 bg-semiWhite2 dark:bg-[#6974FF] rounded-md cursor-pointer;
     }
     .course-like-count{
         @apply inline text-base text-darkblue2 pr-2 dark:text-darkBlue5;
@@ -146,9 +146,9 @@
     .media-icons-border:hover{
         box-shadow: 0px 0px 5px 0px #3F40EA;
         cursor: pointer;
-        .media-icons{
-            @apply fill-[#3F40EA];
-        }
+    }
+    .media-icons-border:hover .media-icons{
+        @apply fill-[#3F40EA];
     }
 
     /* news details --> User Comments*/
@@ -182,22 +182,30 @@
         @apply rounded-lg md:rounded-[10px] text-darkblue2 text-right w-full py-1 px-2 pr-7 h-full bg-[#F6F7FC] dark:bg-lightblue4 absolute top-0 left-0 focus-visible:outline focus-visible:outline-lightblue;
     }
 
-    .heroSectionInfo{
-        h2{
-            @apply text-darkblue7 lg:mt-[-80px];
-        }
+    .heroSectionInfo h2{
+        @apply text-darkblue7 lg:mt-[-80px];
     }
-    /*.news-card{
-        .news-box{
-            @apply lg:w-[920px] ;
-        }
-        .news-name{
-            
-        } 
-        .more-details {
-            @apply lg:top-36 ;
-        }
-    }*/
+    .news-card{
+        @apply w-[470px] md:w-full relative flex flex-col gap-y-8 mx-auto px-4 ;
+    }
+    .news-card .news-view{
+        @apply md:absolute md:top-10 md:right-0 lg:top-12 lg:text-base;
+    }
+    .news-card .news-border{
+        @apply md:absolute md:top-10 md:right-20 lg:top-12 lg:right-24;
+    }
+    .news-card .news-date{
+        @apply md:absolute md:top-10 md:right-28 lg:top-12 lg:right-32 lg:text-base;
+    }    
+    .news-card .news-readMore{
+        @apply  md:mt-2 md:left-12 lg:ml-5 lg:bottom-[-10px] lg:text-end;
+    }
+    .news-card h2{
+        @apply lg:w-[900px];
+    }
+    .news-description{
+        @apply lg:pt-4;
+    }
 
     /* Panel --> Edit Profile */
     .editProf-input{

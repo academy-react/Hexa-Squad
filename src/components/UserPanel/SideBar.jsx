@@ -22,7 +22,7 @@ const SideBar = ({ listItem,mapList,openSide}) => {
             alt=" profile image "
             className="my w-32 h-32 object-cover"
           />
-          <h3 className="mt-3">{"کاربر سایت"}</h3>
+          <h3 className="mt-3">{"محمد بحرالعلوم"}</h3>
           <i className="bi bi-list sidebar-icon" onClick={openSide}></i>
           <NavLink
             className="bi bi-house-door sidebar-icon right-5"

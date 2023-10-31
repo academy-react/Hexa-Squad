@@ -50,24 +50,16 @@ export default function PersianCalendar() {
 function InputMask({ value, handleValueChange, openCalendar }) {
   const valueFinal = value ? fixNumbers(value.toString()) : null;
   return (
-    <Formik
-    initialValues={{ birthDate: "" }}
-    validationSchema={validation}
-    onSubmit={() => alert("ثبت اطلاعات")}
-    >
-        <Form>
             <Input  dir="ltr"
-                className="editProf-field-input w-[300px] pl-52"
-                locale={persian_fa}
                 name="birthDate"
+                className="editProf-field-input w-[300px] pl-48"
+                locale={persian_fa}
                 mask="9999/99/99"
                 maskChar="-"
                 onFocus={openCalendar}
                 onChange={handleValueChange}
                 value={valueFinal} 
             />
-            <ErrorMessage name="birthDate" className="editProf-errorMessage" component={'span'}/>
-        </Form>
-    </Formik>
+            
   );
 }
