@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { addWishList } from "../../core/services/api/addWishList";
 import { addCart } from "../../core/services/api/addCart";
-import CoutsrHeader from "./CourseHeader";
+import CourseHeader from "./CourseHeader";
 import CourseBody from "./CourseBody";
 
 import heart from "../../assets/image/heart.svg";
@@ -9,7 +9,7 @@ import cart from "../../assets/image/cart.svg";
 import "../Landing/common.css";
 
 
-const Course = ({ data, title, courseCount, time, date, professorName,bio, like, dislike, studentCount, price,image, id,addClass }) => {
+const Course = ({ title, courseCount, time, date, professorName,bio, like, dislike, studentCount, price,image, id,addClass }) => {
   const [isLogin, setIsLogin] = useState(false);
   return (
     <div className={"course-box px-6 "+addClass}>
@@ -17,7 +17,7 @@ const Course = ({ data, title, courseCount, time, date, professorName,bio, like,
         <img src={cart} className="inline hover-box-img mr-6" onClick={()=>addCart(id,isLogin)} />
         <img src={heart} className="inline hover-box-img" onClick={()=>addWishList(id ,isLogin)} />
       </div>
-        <CoutsrHeader image={image} />
+        <CourseHeader image={image} />
         <CourseBody 
           title={title} 
           courseCount={courseCount}
