@@ -353,7 +353,7 @@
     @apply block;
 
     .course-box {
-      @apply w-10/12 2xl:max-w-6xl xl:max-w-4xl float-right lg:max-w-2xl md:max-w-xl max-w-lg flex max-h-96 h-72 justify-start mr-8 ml-auto;
+      @apply w-10/12 2xl:max-w-6xl xl:max-w-4xl float-right lg:max-w-2xl md:max-w-xl max-w-lg flex max-h-96 h-72 justify-start mx-auto;
 
       .course-body {
         @apply w-9/12 px-5;

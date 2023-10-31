@@ -3,7 +3,6 @@ import CheckboxInput from "./checkboxInput";
 import { useState } from "react";
 
 const DropDownRange = ({ data, setData }) => {
-  const [defaultValue, setDefaultValue] = useState(true);
   const [fromPrice, setFromPrice] = useState(0);
   const [toPrice, setToPrice] = useState(10000000);
   const filterData = () => {

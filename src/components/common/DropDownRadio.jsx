@@ -39,7 +39,7 @@ const DropDown = ({
         <i
           className={
             (checkedData == "" && "hidden") +
-            " bi bi-x absolute top-[33%] left-0 text-xl text-red-500 cursor-pointer"
+            " bi bi-x absolute top-[33%] left-5 text-xl text-red-500 cursor-pointer"
           }
           onClick={() => {
             customFunction(courseData, "", setData, setCheckedData);
