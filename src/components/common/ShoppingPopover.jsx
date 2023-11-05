@@ -42,8 +42,8 @@ const ShoppingPopover = ({ headerStyle }) => {
 
           <form className="mx-auto max-w-2xl px-4">
             <ul role="list" className="divide-y divide-gray-200"> 
-              {ShoppingCardData.map((product) => (
-                <li key={product.id} className="flex items-center gap-2 py-6">
+              {ShoppingCardData.map((product,index) => (
+                <li key={index} className="flex items-center gap-2 py-6">
                   <img
                     src={product.imageUrl}
                     alt={product.title}

@@ -28,7 +28,8 @@ const FiltersBTN = ({
     <div className="filter-btn-section">
       <div className="flex gap-5 lg:w-4/12 w-full justify-center">
         <CheckboxInput name={"openFilter"} />
-        <label
+        <label 
+        className="relative"
           htmlFor="openFilter"
           onClick={() => {
             setFilterDiv(!filterDiv);

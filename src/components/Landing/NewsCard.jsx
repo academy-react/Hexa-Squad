@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import article from '../../assets/image/Online article-amico.svg'
 const NewsCard = ({ name, img, description, views, date }) => {
   return (
     <div
@@ -38,7 +38,7 @@ const NewsCard = ({ name, img, description, views, date }) => {
             </div>
           </div>
         </Link>
-        <img src={img} className="news-image" alt={name} />
+        <img src={img == null ? article : img} className="news-image" alt={name} />
       </div>
     </div>
   );

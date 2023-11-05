@@ -5,7 +5,7 @@ import newsShop from "../../assets/image/newsShop.svg";
 
 const NewsListHero = ({typeWriterWords}) => {
   return (
-    <div className="heroSectionInfo w-full lg:flex-row flex flex-col-reverse justify-around items-center">
+    <div className="heroSectionInfo w-full relative lg:flex-row flex flex-col-reverse justify-around items-center">
       <HeroSectionInfo
         typeWriterWords={typeWriterWords}
         title={"اخبار و مقالات هگزا اسکواد"}

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import {NewsListHero, NewsFilterMenu}from '../../components/News';
 import {NewsCard} from '../../components/Landing';
 import newsAllData from '../../core/services/api/Data/newsAllData';
-import bgNews from '../../assets/image/bg-news.svg';
+import bgNews from '../../assets/image/bg-ListHero.svg';
+import bgNewsDark from '../../assets/image/bg-ListHero-dark.svg';
 
 const NewsList = () => {
   const typeWriterWords = [
@@ -22,7 +23,8 @@ const NewsList = () => {
   )});
   return (
     <div className="py-32" data-aos="zoom-out">
-      {/* <img src={bgNews} alt="picture" className='w-[100%] absolute pt-[200px]' /> */}
+      <img src={bgNews} alt="picture" className='w-[100%] dark:hidden absolute top-0 z-0' />
+      <img src={bgNewsDark} alt="picture" className='w-[100%] dark:block hidden absolute top-0 z-0' />
       <NewsListHero typeWriterWords={typeWriterWords}/>
       <div className="lg:max-w-[1200px] md:max-w-[700px] max-w-[500px]  mx-auto mt-16">
         <NewsFilterMenu newsList={newsAllData} setNewsList={setNewsList}/>

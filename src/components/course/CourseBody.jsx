@@ -31,8 +31,8 @@ const CourseBody = ({
   const [isLogin, setIsLogin] = useState(false);
 
   return (
-    <div className="course-body mt-6 whitespace-nowrap">
-      <Link to={"/CourseDetails"}>
+    <div className="course-body mt-6 whitespace-nowrap select-none">
+      <Link to={"/CourseDetails/"}>
         <h2 className="course-name">{title}</h2>
       </Link>
       <div className="">
@@ -43,21 +43,21 @@ const CourseBody = ({
         <h3 className="course-info pl-6">{time}</h3>
 
         {calendarSvg}
-        <h3 className="course-info">{date}</h3>
+        <h3 className="course-info" dir="ltr">{date.slice(0,10)}</h3>
       </div>
       <div className=" hidden course-bio">{bio}</div>
 
       <div className="pt-8 flex justify-between whitespace-nowrap">
         <div className="professor-name">
           {graduationCapSvg}
-          <h3 className="course-info text-sm">{professorName}</h3>
+          <Link to={'/TeacherProfile'} className="course-info text-sm">{professorName}</Link>
         </div>
         <div className="likes-box">
           <div className="course-like-box mr-8" onClick={()=>addLike(id,isLogin)} >
             <img src={likePic} alt="picture" className="inline" />
             <span className="course-like-count">{like}</span>
           </div>
-          <div className="course-like-box mr-1.5 pl-4" onClick={()=>addDisLike(id,isLogin)} >
+          <div className="course-like-box mr-1.5 text-center pr-2 px-0 " onClick={()=>addDisLike(id,isLogin)} >
             <img src={dislikePic} alt="picture" className="inline" />
             <span className="course-like-count">{dislike}</span>
           </div>
@@ -69,7 +69,9 @@ const CourseBody = ({
           <h3 className="course-info text-sm">{studentCount}</h3>
         </div>
         <h3 className="inline text-xl text-newPurple4 mr-10">
-          {SeparationPrice(price)}
+          {
+          SeparationPrice(price.toString())
+          }
           <span className="text-slate-600 dark:text-[#9996F9] text-base mr-3">
             تومان
           </span>

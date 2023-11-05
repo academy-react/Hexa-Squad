@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { CheckboxInput, DropDown } from "../common";
 import filterData from "../../core/services/filterData/filterData";
 import DropDownRange from "../common/DropDownRange";
+import axios from "axios";
+import { useEffect } from "react";
 
 const FiltersOptions = ({ data, setData, filterDiv, setFilterDiv }) => {
-  const [categorydata, setCategorydata] = useState([
+  const [categoryData, setCategoryData] = useState([
     { label: "برنامه نویسی وب", category: "programming" },
     { label: "دیزاین", category: "design" },
     { label: "React", category: "react" },
@@ -15,6 +17,23 @@ const FiltersOptions = ({ data, setData, filterDiv, setFilterDiv }) => {
     { label: "TailwindCss", category: "TailwindCss" },
     { label: "همه", category: "" },
   ]);
+  const getCategories = async ()=>{
+    try {
+      const result = await axios.get('https://api-academy.iran.liara.run/api/Home/GetTechnologies')
+      try {
+        setCategoryData(result.data)
+        console.log(result.data)
+      } catch (error) {
+        console.log(error)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+    getCategories()
+  }, [])
+  
   return (
     <div
       className={"filter-options " + (filterDiv ? "block" : "hidden")}
@@ -31,9 +50,9 @@ const FiltersOptions = ({ data, setData, filterDiv, setFilterDiv }) => {
         name={"category"}
         setData={setData}
         courseData={data}
-        data={categorydata}
-        checkBoxType={"radio"}
-        height={"h-[370px]"}
+        data={categoryData}
+        checkBoxType={"checkbox"}
+        height={"h-[300px]"}
         customFunction={filterData}
       />
       <DropDownRange data={data} setData={setData} />

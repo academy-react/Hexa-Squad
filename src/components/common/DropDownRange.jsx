@@ -3,11 +3,12 @@ import CheckboxInput from "./checkboxInput";
 import { useState } from "react";
 
 const DropDownRange = ({ data, setData }) => {
+  const [defaultValue, setDefaultValue] = useState(true);
   const [fromPrice, setFromPrice] = useState(0);
   const [toPrice, setToPrice] = useState(10000000);
   const filterData = () => {
     const filterData = data.filter((el) => {
-      return el.price >= fromPrice && el.price <= toPrice;
+      return el.cost >= fromPrice && el.cost <= toPrice;
     });
     setDefaultValue(false);
     setData(filterData);
@@ -30,7 +31,7 @@ const DropDownRange = ({ data, setData }) => {
             <input
               value={fromPrice}
               type="range"
-              class="transparent h-[4px] w-full cursor-pointer appearance-none border-transparent bg-darkblue4 dark:bg-darkblue"
+              className="transparent h-[4px] w-full cursor-pointer appearance-none border-transparent bg-darkblue4 dark:bg-darkblue"
               min="0"
               max="10000000"
               step={5000}
@@ -59,7 +60,7 @@ const DropDownRange = ({ data, setData }) => {
             <input
               value={toPrice}
               type="range"
-              class="transparent h-[4px] w-full cursor-pointer appearance-none border-transparent bg-darkblue4 dark:bg-darkblue"
+              className="transparent h-[4px] w-full cursor-pointer appearance-none border-transparent bg-darkblue4 dark:bg-darkblue"
               min="0"
               max="10000000"
               step={5000}

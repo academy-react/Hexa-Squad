@@ -20,7 +20,7 @@ const NewsFilterMenu = ({newsList,setNewsList}) => {
     setNewsList(filteredData);
   }
   return (
-        <div className="flex flex-row lg:mb-12 mb-8">
+        <div className="flex flex-row lg:mb-12 mb-8 relative">
           <ul className="news-menu">
             <li className="news-menu-box hover:rounded-r-lg">همه</li>
             <li className="news-menu-box">محبوب ترین ها</li>
