@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import { addCart } from "../../core/services/api/addCart";
 
 import start from "../../assets/icons/start.svg";
@@ -10,11 +11,13 @@ import dateDark from "../../assets/icons/dateDark.svg";
 import studentDark from "../../assets/icons/studentDark.svg";
 import teacher from "../../assets/image/teacher'sProfile.jpg";
 
-const DetailsBox = ({ id }) => {
+const DetailsBox = ({id, data, title}) => {
+
   const [isLogin, setIsLogin] = useState(false);
   return (
     <div className=" lg:w-[620px]  md:w-[500px] w-full mx-auto lg:ml-14  ">
       <div
+        
         data-aos="zoom-in-right"
         data-aos-duration="1000"
         className="rounded-lg shadow-shadow-Course-details lg:h-[540px] bg-[#D7D5FF] lg:mt-10 md:mt-28 mt-20 dark:bg-[#34239f] "
@@ -33,8 +36,7 @@ const DetailsBox = ({ id }) => {
             alt=""
           />
           <h2 className=" absolute left-2 text-[#210654]  dark:text-[#f5f1ff]  ">
-            {" "}
-            27{" "}
+          {data.courseCount == undefined ? "" : data.courseCount}
           </h2>
           <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff] ">
             {" "}
@@ -50,8 +52,7 @@ const DetailsBox = ({ id }) => {
             alt=""
           />
           <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff]  ">
-            {" "}
-            در حال برگزاری{" "}
+            {id}
           </h2>
           <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff]  ">
             {" "}

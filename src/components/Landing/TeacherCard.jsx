@@ -2,9 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import teacher1 from "../../assets/image/drBahr.jpg"
 
-import teacher from "../../assets/image/teacher1.jpg";
-
-const TeacherCard = ({ title, description, course }) => {
+const TeacherCard = ({ title, description, course ,pictureAddress}) => {
   return (
     <Fragment>
       <div

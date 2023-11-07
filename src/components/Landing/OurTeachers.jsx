@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import TeacherCard from "./TeacherCard";
 import Title from "../common/Title";
-
+import axios from "axios";
+import { useCallback } from "react";
 import background from "../../assets/image/bgDesign.svg";
 
 const OurTeachers = () => {
@@ -10,29 +11,46 @@ const OurTeachers = () => {
       title: "  استاد مهدی اصغری",
       course: " مدرس ری اکت",
       description: `”موفقیت نهایی نیست. شکست کشنده نیست. این شجاعت ادامه دادن است که مهم است.“`,
-     
     },
     {
       title: "  استاد محمدحسین بحرالعلوم",
-      course: " مدرس جاوا اسکریپت" ,
+      course: " مدرس جاوا اسکریپت",
       description: `”اهمیتی نداره تو چکار میکنی؛ راکستار آن باشید. اگر به همین راحتی بود، همه این کار را می کردند.“`,
-      
     },
     {
       title: "  استاد محسن اسفندیاری",
       course: " مدرس انگولار",
       description: `”مثبت اندیشی فقط امید به بهترین ها نیست! بلکه بهتر است بهترین عملکرد خود را در عمل به کار ببندید.“`,
-      
     },
   ]);
-  const mapTeacherCard = teacherCard.map((item, index) => {
+  const [teacherList, setTeacherList] = useState([]);
+  const fetchData = useCallback(async () => {
+    try {
+      const result = await axios.get(
+        "https://api-academy.iran.liara.run/api/Home/GetTeachers"
+      );
+      console.log(result.data);
+      const receivedData = result.data;
+      setTeacherList(receivedData);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  const mapTeacherCard = teacherList.map((item, index) => {
     return (
       <TeacherCard
         key={index}
-        title={item.title}
-        description={item.description}
-        course={item.course}
-       
+        courseCount = {item.courseCount}
+        pictureAddress={item.pictureAddress}
+        title={item.fullName}
+        description={item.teacherId}
+        course={item.linkdinProfileLink}
+        
       />
     );
   });
