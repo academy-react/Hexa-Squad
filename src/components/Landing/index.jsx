@@ -6,4 +6,5 @@ import NewsCard from "./NewsCard.jsx";
 import OurTeachers from "./OurTeachers.jsx";
 import Services from "./Services.jsx";
 import Suggestions from "./Suggestions.jsx";
-export {Categories , News , CourseEducation , HeroSection,NewsCard,OurTeachers,Services,Suggestions};
+import HeroSearchBox from './HeroSearchBox.jsx'
+export {Categories , News , CourseEducation , HeroSection,NewsCard,OurTeachers,Services,Suggestions,HeroSearchBox};

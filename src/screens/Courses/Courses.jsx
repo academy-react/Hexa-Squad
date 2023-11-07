@@ -7,9 +7,9 @@ import {
   FiltersBTN,
   FiltersOptions,
 } from "../../components/CourseList";
-import AllData from "../../core/services/api/Data/AllData";
-import bgCourses from '../../assets/image/bg-ListHero.svg';
-import bgCoursesDark from '../../assets/image/bg-ListHero-dark.svg';
+import bgCourses from "../../assets/image/bg-ListHero.svg";
+import bgCoursesDark from "../../assets/image/bg-ListHero-dark.svg";
+import fetchCoursesApi from "../../core/services/api/Data/allCoursesApi";
 const Courses = () => {
   const [showGrid, setShowGrid] = useState(false);
   const [filterDiv, setFilterDiv] = useState(true);
@@ -27,63 +27,55 @@ const Courses = () => {
   const showGridView = () => {
     setShowGrid((showGrid) => !showGrid);
   };
+
+  // pagination function onChange
   const handlePageClick = (event) => {
     const newOffset = (event.selected * countInPage) % data.length;
     setItemOffset(newOffset);
   };
-  const fetchCoursesApi = async ()=>{
-    try{
-      const result = await axios.get(`https://api-academy.iran.liara.run/api/Home/GetCoursesWithPagination?PageNumber=${pageCount}&RowsOfPage=${countInPage}&SortingCol=Active&SortType=DESC&TechCount=0`);
-      try {
-        console.log(result.data.courseFilterDtos)
-        setData(result.data.courseFilterDtos)
-        setAllData(result.data.courseFilterDtos)
-      } catch (error) {
-        console.log(error)
-      }
-    }catch(error){
-      console.log(error)
-    }
-  }
+
+  // get courses data from api and fetch on data variable
   useEffect(() => {
-    fetchCoursesApi()
+    fetchCoursesApi(setData,pageCount,countInPage,setAllData);
     return () => {
       setFilterDiv(false);
       setShowGrid(false);
     };
   }, []);
-useEffect(() => {
-  console.log('data changed',data)
-
-  return () => {
-    
-  }
-}, [data])
 
   const mapData = currentItems.map((data, index) => {
-    console.log(data.technologyList)
-    return(
-    <Course
-      key={index}
-      id={data.courseId}
-      bio={data.describe}
-      title={data.title}
-      courseCount={data.levelName}
-      time={data.statusName}
-      date={data.lastUpdate}
-      professorName={data.teacherName}
-      like={data.likeCount}
-      // dislike={data.dislike}
-      studentCount={data.currentRegistrants}
-      price={data.cost}
-      addClass={"h-[441px] mx-auto"}
-      image={data.tumbImageAddress}
-    />
-  )});
+    console.log(data.technologyList);
+    return (
+      <Course
+        key={index}
+        id={data.courseId}
+        bio={data.describe}
+        title={data.title}
+        courseCount={data.levelName}
+        time={data.statusName}
+        date={data.lastUpdate}
+        professorName={data.teacherName}
+        like={data.likeCount}
+        // dislike={data.dislike}
+        studentCount={data.currentRegistrants}
+        price={data.cost}
+        addClass={"h-[441px] mx-auto"}
+        image={data.tumbImageAddress}
+      />
+    );
+  });
   return (
     <div className="py-32">
-    <img src={bgCourses} alt="picture" className='w-[100%] dark:hidden absolute top-0 z-0' />
-    <img src={bgCoursesDark} alt="picture" className='w-[100%] dark:block hidden absolute top-0 z-0' />
+      <img
+        src={bgCourses}
+        alt="picture"
+        className="w-[100%] dark:hidden absolute top-0 z-0"
+      />
+      <img
+        src={bgCoursesDark}
+        alt="picture"
+        className="w-[100%] dark:block hidden absolute top-0 z-0"
+      />
       <CoursesHero typeWriterWords={typeWriterWords} />
       <FiltersBTN
         data={allData}
@@ -115,18 +107,18 @@ useEffect(() => {
             {mapData}
           </div>
         </div>
-          <ReactPaginate
-            breakLabel="..."
-            nextLabel=">"
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={5}
-            pageCount={pageCount}
-            previousLabel="<"
-            renderOnZeroPageCount={null}
-            pageLinkClassName=" paginationLink"
-            activeLinkClassName="active"
-            containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-5 p-5"
-          />
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={pageCount}
+          previousLabel="<"
+          renderOnZeroPageCount={null}
+          pageLinkClassName=" paginationLink"
+          activeLinkClassName="active"
+          containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-5 p-5"
+        />
       </div>
     </div>
   );
