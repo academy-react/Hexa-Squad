@@ -32,7 +32,7 @@ const CourseBody = ({
 
   return (
     <div className="course-body mt-6 whitespace-nowrap select-none">
-      <Link to={"/CourseDetails/"}>
+      <Link to={"/CourseDetails/"+id}>
         <h2 className="course-name">{title}</h2>
       </Link>
       <div className="">
