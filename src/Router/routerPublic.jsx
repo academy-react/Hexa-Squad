@@ -33,7 +33,11 @@ export const routerPublic = createBrowserRouter([
       { path: "/CourseDetails", element: <CourseDetails /> },
       { path: "/Courses", element: <Courses /> },
       { path: "/news", element: <NewsList /> },
-      { path: "/NewsDetails", element: <NewsDetails /> },
+      {
+        path: "/NewsDetails",
+        element: <NewsDetails />,
+        children: [{ path: "/NewsDetails/:id", element: <NewsDetails /> }],
+      },
       { path: "/CourseDetails", element: <CourseDetails /> },
       { path: "/ShoppingCard", element: <ShoppingCard /> },
       { path: "/TeacherProfile", element: <TeacherProfile /> },

@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import article from '../../assets/image/Online article-amico.svg'
-const NewsCard = ({ name, img, description, views, date }) => {
+const NewsCard = ({ name, img, description, views, date,id }) => {
   return (
     <div
       data-aos="zoom-in"
       className=" relative rounded-xl bg-[#EAE5FF] dark:bg-[#13005A] shadow-shadow-auth hover:shadow-[#8b88c4] dark:hover:shadow-[#141339] duration-500 "
     >
       <div className=" w-[440px] h-[230px]  md:h-[240px]  md:w-[600px] cursor-pointer rounded-xl ">
-        <Link to={"/newsDetails"}>
+        <Link to={"/newsDetails/"+id}>
           <div className="absolute cursor-pointer group mr-[220px] md:mr-[260px] lg:mr-[265px] mt-5 md:mt-6 lg:mt-7 ">
             <h2 className="md:text-lg text-base text-newPurple3 group-hover:text-newPurple2 pl-6 h-14 dark:text-[#e9e8ff] dark:group-hover:text-[#F0E2FF]">
               {name}
@@ -38,7 +38,7 @@ const NewsCard = ({ name, img, description, views, date }) => {
             </div>
           </div>
         </Link>
-        <img src={img == null ? article : img} className="news-image" alt={name} />
+        <img src={img == null || undefined ? article : img} className="news-image" alt={name} />
       </div>
     </div>
   );
