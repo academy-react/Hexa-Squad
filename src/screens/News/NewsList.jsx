@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from "react";
 import {NewsListHero, NewsFilterMenu}from '../../components/News';
 import {NewsCard} from '../../components/Landing';
-import newsAllData from '../../core/services/api/Data/newsAllData';
+import fetchNewsApi from "../../core/services/api/Data/allNewsApi";
 import bgNews from '../../assets/image/bg-ListHero.svg';
 import bgNewsDark from '../../assets/image/bg-ListHero-dark.svg';
 
@@ -9,16 +9,25 @@ const NewsList = () => {
   const typeWriterWords = [
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. "
   ];
-  const [newsList, setNewsList] = useState(newsAllData);
-  const newsCardsMapper = newsList.map((item, index) => {
+
+  const [newsData, setNewsData] = useState([]);
+  const [newsAllData, setNewsAllData] = useState([]);
+
+  // get News data from api and fetch
+  useEffect(() => {
+    fetchNewsApi(setNewsData,setNewsAllData);
+  }, []);  
+
+  const newsCardsMapper = newsData.map((item, index) => {
     return (
       <NewsCard 
-        img={item.img} 
-        name={item.name} 
-        description={item.description} 
-        views={item.views}
-        date={item.date}
         key={index}
+        id={item.id}
+        img={item.currentImageAddressTumb} 
+        name={item.title} 
+        description={item.miniDescribe} 
+        views={item.currentView}
+        date={item.updateDate}
       />
   )});
   return (
@@ -27,10 +36,10 @@ const NewsList = () => {
       <img src={bgNewsDark} alt="picture" className='w-[100%] dark:block hidden absolute top-0 z-0' />
       <NewsListHero typeWriterWords={typeWriterWords}/>
       <div className="lg:max-w-[1200px] md:max-w-[700px] max-w-[500px]  mx-auto mt-16">
-        <NewsFilterMenu newsList={newsAllData} setNewsList={setNewsList}/>
+        <NewsFilterMenu newsData={newsAllData} setNewsData={setNewsData}/>
         <div className="news-card">
             {newsCardsMapper}
-        </div>       
+        </div>   
       </div>
     </div>
   )
