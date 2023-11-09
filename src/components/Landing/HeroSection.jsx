@@ -21,21 +21,22 @@ const HeroSection = () => {
   ];
 
   const [Data, setData] = useState({});
-  const fetchData = useCallback(async () => {
+  const fetchLandingReport = useCallback(async () => {
     try {
       const result = await axios.get(
         "https://api-academy.iran.liara.run/api/Home/LandingReport"
       );
       setData(result.data);
+      console.log('landing Report',result.data)
     } catch (error) {
       console.log(error);
     }
   }, []);
 
   useEffect(() => {
-    fetchData();
+    fetchLandingReport();
     return () => {};
-  }, [fetchData]);
+  }, [fetchLandingReport]);
 
   return (
     <div className="hero-section-bg">

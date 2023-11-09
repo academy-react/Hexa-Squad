@@ -1,14 +1,43 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
-import { validation } from "../../../core/validations/validations";
-import FieldInput from "../../common/FieldInput";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import * as yup from "yup";
+// import { validation } from "../../../core/validations/validations";
+import FieldInput from "../../common/FieldInput";
+import axios from "axios";
 
-const PersonalInfo = () => {
-  const [password, setPassword] = useState();
+const validation = yup.object().shape({
+  gmail: yup
+    .string()
+    .email("  ایمیل را به درستی وارد کنید")
+    .required("این فیلد الزامیست!"),
+  password: yup.string().required("این فیلد الزامیست!"),
+});
+const PersonalInfo = ({ phoneNumberValue, handleClick }) => {
   const [visible, setVisibility] = useState(false);
   const toggle = () => {
     setVisibility(!visible);
+  };
+
+  const onSubmit = async (value) => {
+    console.log(value);
+    try {
+      await axios.post(
+        "https://api-academy.iran.liara.run/api/Sign/VerifyMessage",
+        {
+          phoneNumber: value.phoneNumber,
+          verifyCode: value.verifyCode,
+          gmail: value.gmail,
+        }
+      );
+      try {
+        handleClick("next");
+      } catch (error) {
+        console.log(error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="bg-[#e4dbff]">
@@ -22,12 +51,14 @@ const PersonalInfo = () => {
       >
         <Formik
           initialValues={{
-            phoneNumber: "",
+            phoneNumber: phoneNumberValue,
             gmail: "",
             password: "",
           }}
           validationSchema={validation}
-          onSubmit={() => alert("ثبت نام")}
+          onSubmit={(value) => {
+            onSubmit(value);
+          }}
         >
           <Form autoComplete="off" className="text-[#a967ff]">
             <h2 className="md:text-sm text-xs mr-[44px] md:mr-0">
@@ -41,7 +72,7 @@ const PersonalInfo = () => {
             />
             <div className=" relative md:-mt-2 -mt-4">
               <FieldInput
-                placeholder={"رمز عبور  " }
+                placeholder={"رمز عبور  "}
                 name="password"
                 type={visible === false ? "password" : "text"}
               />
@@ -54,15 +85,22 @@ const PersonalInfo = () => {
                 )}
               </div>
             </div>
-            <div className=" flex gap-2 justify-start w-full p-4 absolute -bottom-10 md:left-4 mr-8 md:mr-0">
+            {/* <div className=" flex gap-2 justify-start w-full p-4 absolute -bottom-10 md:left-4 mr-8 md:mr-0">
               <input
                 type="checkbox"
                 name=""
                 id="remember"
                 className="md:w-4 md:h-4 w-3 h-3 border-2  rounded-sm mt-1 bg-semiWhite cursor-pointer accent-purple2 "
               />
-              <label htmlFor="remember" className="md:text-base text-sm">مرا به خاطر بسپار</label>
-            </div>
+              <label htmlFor="remember" className="md:text-base text-sm">
+                مرا به خاطر بسپار
+              </label>
+            </div> */}
+            <input
+              type="submit"
+              value="تایید کد یک بار مصرف"
+              className="md:w-72 py-[12px] mx-auto block rounded-md text-xs md:text-sm text-[#f4f1ff] bg-gradient-to-tr  from-[#7a0cff] to-[#4739ff] cursor-pointer hover:bg-gradient-to-tr hover:from-[#4739ff] hover:to-[#7a0cff]"
+            />
             {/* <Link to={"/authorize/login"} className="pointer w-100 h-100 d-inline-block">ورود به سایت</Link> */}
           </Form>
         </Formik>

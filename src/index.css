@@ -542,10 +542,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+} 
+.Toastify__toast{
+  font-family: IRANSans !important;
 }
-
 #root {
-  font-family: IRANSans;
+  font-family: IRANSans !important;
   width: 100%;
   min-height: 100vh;
 }

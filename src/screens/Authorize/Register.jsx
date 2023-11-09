@@ -17,29 +17,31 @@ import RegisterDark from "../../assets/image/registerDark.svg"
 const Register = () => {
   const htmlTag = document.querySelector("html");
   const [currentStep, setCurrentStep] = useState(1);
+  const [phoneNumberValue, setPhoneNumberValue] = useState('');
+  // const [verifyCodeValue, setVerifyCodeValue] = useState('');
   const steps = ["شماره تماس", "دریافت کد", "مشخصات کاربری", "تکمیل ثبت نام"];
   const [userData, setUserData] = useState("");
   const [finalData, setFinalData] = useState([]);
   const theme = useSelector((state)=>state.darkModeSlice.theme);
   const dispatch = useDispatch();
 
-  const displayStep = (step) => {
-    switch (step) {
-      case 1:
-        return <PhoneNumber />;
-      case 2:
-        return <VerificationCode />;
-      case 3:
-        return <PersonalInfo />;
-      case 4:
-        return <LastStep />;
-      default:
-    }
-  };
   const handleClick = (direction) => {
     let newStep = currentStep;
     direction === "next" ? newStep++ : newStep--;
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
+  };
+  const displayStep = (step) => {
+    switch (step) {
+      case 1:
+        return <PhoneNumber handleClick={handleClick} phoneNumberValue={phoneNumberValue} setPhoneNumberValue={setPhoneNumberValue}/>;
+      case 2:
+        return <VerificationCode handleClick={handleClick} phoneNumberValue={phoneNumberValue} />;
+      case 3:
+        return <PersonalInfo handleClick={handleClick} phoneNumberValue={phoneNumberValue}/>;
+      case 4:
+        return <LastStep />;
+      default:
+    }
   };
   const setLightMode = (theme)=>{
     dispatch(onThemeChange(theme));

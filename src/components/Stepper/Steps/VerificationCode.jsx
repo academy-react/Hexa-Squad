@@ -2,7 +2,32 @@ import React from "react";
 import { Formik, Form } from "formik";
 import { validation } from "../../../core/validations/validations";
 import FieldInput from "../../common/FieldInput";
-const VerificationCode = () => {
+import VerifyCodeObj from "../../../core/services/toastPromiseObj/VerifyCode";
+import axios from "axios";
+import { toast } from "react-toastify";
+const VerificationCode = ({ phoneNumberValue, handleClick }) => {
+  const onSubmit = async (value) => {
+    console.log(value);
+    try {
+      await toast.promise(
+        axios.post(
+          "https://api-academy.iran.liara.run/api/Sign/VerifyMessage",
+          { phoneNumber: value.phoneNumber, verifyCode: value.verifyCode }
+        ),
+        VerifyCodeObj
+      );
+      try {
+        setTimeout(() => {
+          toast.dismiss();
+          handleClick("next");
+        }, 3500);
+      } catch (error) {
+        console.log(error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="bg-[#e4dbff]">
       <h2 className="text-[#6652eb] dark:text-indigo-100 md:text-3xl text-2xl top-16 md:top-10 md:left-[340px] right-[140px] absolute">
@@ -15,11 +40,10 @@ const VerificationCode = () => {
       >
         <Formik
           initialValues={{
-            phoneNumber: "",
+            phoneNumber: phoneNumberValue,
             verifyCode: "",
           }}
-          validationSchema={validation}
-          onSubmit={() => alert("ثبت نام")}
+          onSubmit={(value) => {onSubmit(value)}}
         >
           <Form autoComplete="off" className="text-[#a967ff]">
             <h2 className="md:text-sm text-xs mr-[44px] md:mr-0">
@@ -32,12 +56,11 @@ const VerificationCode = () => {
               type={"verificationCode"}
             />
 
-            {/* <input
+            <input
               type="submit"
-              value="دریافت کد یک بار مصرف"
-              className="w-[260px] absolute top-[110px] right-[60px] py-[12px]  rounded-md text-sm text-[#f4f1ff] bg-gradient-to-tr  from-[#7a0cff] to-[#4739ff] cursor-pointer hover:bg-gradient-to-tr hover:from-[#4739ff] hover:to-[#7a0cff]"
-            /> */}
-            {/* <Link to={"/authorize/login"} className="pointer w-100 h-100 d-inline-block">ورود به سایت</Link> */}
+              value="تایید کد یک بار مصرف"
+              className=" w-72 absolute md:top-[120px] top-[100px] right-[60px] py-[12px]  rounded-md text-xs md:text-sm text-[#f4f1ff] bg-gradient-to-tr  from-[#7a0cff] to-[#4739ff] cursor-pointer hover:bg-gradient-to-tr hover:from-[#4739ff] hover:to-[#7a0cff]"
+            />
           </Form>
         </Formik>
       </div>
