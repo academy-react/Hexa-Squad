@@ -3,7 +3,7 @@ import Course from "../../course/Course";
 import WhishListData from "../../../core/services/api/Data/TeacherWhishListData";
 
 const TeacherWishList = () => {
-  const [coursesWhishList, setCoursesWhishList] = useState(WhishListData);
+  const [coursesWhishList, setCoursesWhishList] = useState([]);
   const mapCourses = coursesWhishList.map((item, index) => {
     return (
       <Course

@@ -91,7 +91,7 @@ const Register = () => {
             ></h2>
 
             <Link to={"/authorize/login"}>
-              <h1 class="bi bi-box-arrow-in-right text-base md:text-xl dark:text-indigo-300 text-[#6652eb] absolute right-4 top-4"></h1>
+              <h2 className="bi bi-box-arrow-in-right text-base md:text-xl dark:text-indigo-300 text-[#6652eb] absolute right-4 top-4"></h2>
               <h2 className="text-xs md:text-sm dark:text-indigo-300 absolute right-[35px] md:right-[40px]  top-4 text-[#6652eb]">
                 {" "}
                 ورود به سایت

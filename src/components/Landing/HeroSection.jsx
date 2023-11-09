@@ -1,4 +1,4 @@
-import React, { useRef, useState,useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { Typewriter } from "react-simple-typewriter";
 
 import HeroSectionImage from "../../assets/image/woman working- Hero section image.png";
@@ -14,36 +14,51 @@ import AllData from "../../core/services/api/Data/allCoursesApi";
 import SuggestedCourse from "../UserPanel/UserDashboard/SuggestedCourse";
 import fetchCoursesApi from "../../core/services/api/Data/allCoursesApi";
 import HeroSearchBox from "./HeroSearchBox";
+import axios from "axios";
 const HeroSection = () => {
-  const text = [' مرجع اموزش زنده و تعاملی دسترسی به بیش از هفت هزار ویدیوی اموزشی به زبان فارسی .']
-  
-  const [Data, setData] = useState({
-    teachers: "167",
-    students: "460789",
-    courses: "408228",
-  });
+  const text = [
+    " مرجع اموزش زنده و تعاملی دسترسی به بیش از هفت هزار ویدیوی اموزشی به زبان فارسی .",
+  ];
+
+  const [Data, setData] = useState({});
+  const fetchData = useCallback(async () => {
+    try {
+      const result = await axios.get(
+        "https://api-academy.iran.liara.run/api/Home/LandingReport"
+      );
+      setData(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+    return () => {};
+  }, [fetchData]);
+
   return (
     <div className="hero-section-bg">
       <img src={heroImage} alt="hero Image" className="hero-image" />
       <div className="hero-gradient">
         <h4>پلتفرم اموزش طراحی وب</h4>
         <h1>مرجع اموزش برنامه نویسی</h1>
-        <AutoTypeWriter Text={text} className={'hero-type-writer'} />
-        <HeroSearchBox/>
+        <AutoTypeWriter Text={text} className={"hero-type-writer"} />
+        <HeroSearchBox />
         <div className="information-section">
           <div>
             <img src={teacher} alt="مدرس" />
-            <span>{Data.teachers}</span>
+            <span>{Data.teacherCount}</span>
             <label>مدرس مجرب</label>
           </div>
           <div>
             <img src={course} alt="دوره" />
-            <span>{Data.courses}</span>
+            <span>{Data.courseCount}</span>
             <label>دقیقه اموزش</label>
           </div>
           <div>
             <img src={student} alt="دانش آموز" />
-            <span>{Data.students}</span>
+            <span>{Data.studentCount}</span>
             <label>نفر دانشجو</label>
           </div>
         </div>

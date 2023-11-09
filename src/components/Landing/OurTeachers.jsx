@@ -50,6 +50,7 @@ const OurTeachers = () => {
         title={item.fullName}
         description={item.teacherId}
         course={item.linkdinProfileLink}
+        id={item.teacherId}
         
       />
     );

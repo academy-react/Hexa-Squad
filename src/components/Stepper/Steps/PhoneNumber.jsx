@@ -3,6 +3,9 @@ import { Formik, Form } from "formik";
 import { validation } from "../../../core/validations/validations";
 import FieldInput from "../../common/FieldInput";
 const PhoneNumber = () => {
+  const onSubmit = (value) => {
+    console.log(value)
+  };
   return (
     <div className="bg-[#e4dbff]">
       <h2 className="text-[#6652eb] dark:text-indigo-100 md:text-3xl text-2xl top-16 md:top-10 md:left-[340px] right-40 absolute">
@@ -15,16 +18,10 @@ const PhoneNumber = () => {
       >
         <Formik
           initialValues={{
-            phone: "",
-            code: "",
-            firstName: "",
-            birthDate: "",
-            email: "",
-            idCode: "",
-            password: "",
+            phoneNumber: "",
           }}
           validationSchema={validation}
-          onSubmit={() => alert("ثبت نام")}
+          onSubmit={() => {onSubmit(value)}}
         >
           <Form autoComplete="off" className="text-[#a967ff]">
             <h2 className="md:text-sm text-xs mr-[44px] md:mr-0">

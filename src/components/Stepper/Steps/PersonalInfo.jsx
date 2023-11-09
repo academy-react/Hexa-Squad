@@ -22,7 +22,8 @@ const PersonalInfo = () => {
       >
         <Formik
           initialValues={{
-            email: "",
+            phoneNumber: "",
+            gmail: "",
             password: "",
           }}
           validationSchema={validation}
@@ -35,7 +36,7 @@ const PersonalInfo = () => {
             </h2>
             <FieldInput
               placeholder={"hexasquad@gmail.com"}
-              name="email"
+              name="gmail"
               type={"email"}
             />
             <div className=" relative md:-mt-2 -mt-4">

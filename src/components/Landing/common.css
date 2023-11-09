@@ -148,7 +148,7 @@
         cursor: pointer;
     }
     .media-icons-border:hover .media-icons{
-        @apply fill-[#3F40EA];
+        @apply fill-[#3F40EA] text-[#3F40EA];
     }
 
     /* news details --> User Comments*/

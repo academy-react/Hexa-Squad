@@ -15,13 +15,8 @@ const VerificationCode = () => {
       >
         <Formik
           initialValues={{
-            phone: "",
-            code: "",
-            firstName: "",
-            birthDate: "",
-            email: "",
-            verificationCode: "",
-            password: "",
+            phoneNumber: "",
+            verifyCode: "",
           }}
           validationSchema={validation}
           onSubmit={() => alert("ثبت نام")}
@@ -33,7 +28,7 @@ const VerificationCode = () => {
             </h2>
             <FieldInput
               placeholder={"  کد را وارد کنید"}
-              name="verificationCode"
+              name="verifyCode"
               type={"verificationCode"}
             />
 

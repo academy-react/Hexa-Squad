@@ -30,9 +30,11 @@ export const routerPublic = createBrowserRouter([
     element: <Main />,
     children: [
       { path: "/", element: <Landing /> },
-      { path: "/CourseDetails", element: <CourseDetails /> ,
-      children: [{ path: "/CourseDetails/:id", element: <CourseDetails /> }],
-    },
+      {
+        path: "/CourseDetails",
+        element: <CourseDetails />,
+        children: [{ path: "/CourseDetails/:id", element: <CourseDetails /> }],
+      },
       { path: "/Courses", element: <Courses /> },
       { path: "/news", element: <NewsList /> },
       {
@@ -42,7 +44,13 @@ export const routerPublic = createBrowserRouter([
       },
       { path: "/CourseDetails", element: <CourseDetails /> },
       { path: "/ShoppingCard", element: <ShoppingCard /> },
-      { path: "/TeacherProfile", element: <TeacherProfile /> },
+      {
+        path: "/TeacherProfile",
+        element: <TeacherProfile />,
+        children: [
+          { path: "/TeacherProfile/:id", element: <TeacherProfile /> },
+        ],
+      },
     ],
   },
   {
