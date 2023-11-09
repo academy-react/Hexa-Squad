@@ -2,7 +2,7 @@ import React, { useState, Fragment, useEffect, useCallback } from "react";
 import axios from "axios";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { UserComments, InputComment } from "./";
-import userCommentData from "../../core/services/api/Data/userCommentData";
+import userCommentData from "../../core/services/api/GetData/userCommentData";
 
 import { Link, useParams } from "react-router-dom";
 import {
@@ -21,6 +21,7 @@ const NewsDetails = () => {
   const [urlParam, setUrlParam] = useState(useParams());
   const [data, setData] = useState({});
   const [comment, setComment] = useState([]);
+  console.log(comment)
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -70,7 +71,7 @@ const NewsDetails = () => {
                 />
                 <div className="news-pic-info">
                   <img src={calendar} alt="picture" className="inline ml-2" />
-                  <span className="inline text-base md:text-lg ml-8 md:ml-[310px] lg:ml-14 mx-3" >
+                  <span className="inline text-base md:text-lg ml-8 md:ml-[310px] lg:ml-14 mx-3">
                     {data.insertDate == undefined
                       ? ""
                       : data.insertDate.slice(0, 10)}

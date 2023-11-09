@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 import CoursePhoto from "../../components/CourseDetails/CoursePhoto";
 import DetailsBox from "../../components/CourseDetails/DetailsBox";
-import WhishListData from "../../core/services/api/Data/TeacherWhishListData";
+import WhishListData from "../../core/services/api/GetData/TeacherWhishListData";
 import Course from "../../components/course/Course";
 import TabsContent from "../../components/CourseDetails/TabsContent";
 
@@ -36,7 +36,7 @@ const CourseDetails = () => {
   const fetchData = useCallback(async () => {
     try {
       const result = await axios.get(
-        `https://api-academy.iran.liara.run/api/Course/` + urlParam.id
+        `https://api-academy.iran.liara.run/api/Home/GetCourseDetails?CourseId=` + urlParam.id
       );
       console.log(result.data);
       const receivedData = result.data;

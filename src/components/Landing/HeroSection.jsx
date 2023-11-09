@@ -10,9 +10,9 @@ import teacher from "../../assets/image/stat-teacher.svg";
 import student from "../../assets/image/stat-student.svg";
 import course from "../../assets/image/course-state.svg";
 import heroImage from "../../assets/image/hero-image.png";
-import AllData from "../../core/services/api/Data/allCoursesApi";
+import AllData from "../../core/services/api/GetData/allCoursesApi";
 import SuggestedCourse from "../UserPanel/UserDashboard/SuggestedCourse";
-import fetchCoursesApi from "../../core/services/api/Data/allCoursesApi";
+import fetchCoursesApi from "../../core/services/api/GetData/allCoursesApi";
 import HeroSearchBox from "./HeroSearchBox";
 import axios from "axios";
 const HeroSection = () => {

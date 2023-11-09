@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Tab from "./Tab";
 import Tabs from "./Tabs";
-import Accordions from "../../core/services/api/Data/Topics";
+import Accordions from "../../core/services/api/GetData/Topics";
 import Accordion from "./Accordion";
 import { InputComment, UserComments } from "../News";
 import comment from "../../assets/image/comments.svg";
@@ -41,7 +41,10 @@ const TabsContent = () => {
             <h2 className="text-lg font-medium mb-2 hidden">توضیحات</h2>
 
             <p className="text-gray-700 w-full mt-6 ">
-              <h2 className="text-lg text-indigo-900 mt-2 dark:text-indigo-100 md:mx-2  "> HTML چیست؟</h2>
+              <h2 className="text-lg text-indigo-900 mt-2 dark:text-indigo-100 md:mx-2  ">
+                {" "}
+                HTML چیست؟
+              </h2>
               <p className=" text-zinc-700 mt-3 leading-10  lg:ml-8 md:mx-2  dark:text-indigo-200 text-justify">
                 واژه HTML (اچ‌‌تی‌‌ام‌ال) مخفف Hyper Text Markup Language به
                 معنی زبان نشانه‌‌گذاری فوق متن است. HTML به عنوان زبان بنیادی
@@ -74,15 +77,18 @@ const TabsContent = () => {
             <h2 className="hidden font-medium ">پیش نمایش ها</h2>
             <div className="w-full lg:mr-2 md:w-[600px] lg:w-[800px] wrapper md:mx-auto ">
               <h2 className="md:text-xl text-lg flex flex-row mt-6 gap-2  text-darkblue4 lg:text-right text-center  dark:text-indigo-200 ">
-                <MdOutlinePreview className="w-6 h-6 mt-1 opacity-90 dark:opacity-60" /> پیش
-                نمایش های دوره اموزشی html{" "}
+                <MdOutlinePreview className="w-6 h-6 mt-1 opacity-90 dark:opacity-60" />{" "}
+                پیش نمایش های دوره اموزشی html{" "}
               </h2>
               <div className="max-w-[750px] w-full mt-8 flex flex-col gap-2">
                 {Accordions.map((item, id) => {
                   const { title, desc, title2 } = item;
 
                   return (
-                    <div className="bg-[#8c5eff] dark:bg-[#4716E0] rounded-md " key={id}>
+                    <div
+                      className="bg-[#8c5eff] dark:bg-[#4716E0] rounded-md "
+                      key={id}
+                    >
                       <Accordion title={title} desc={desc} title2={title2} />
                     </div>
                   );

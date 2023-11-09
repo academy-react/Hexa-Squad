@@ -1,13 +1,12 @@
-import React,{ Fragment } from "react";
+import React, { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
 import shoppingCart from "../../assets/image/shopping-cart.svg";
 import shoppingCartLayout from "../../assets/image/shopping-cart-layout.svg";
-import ShoppingCardData from "../../core/services/api/Data/ShoppingCardData";
+import ShoppingCardData from "../../core/services/api/GetData/ShoppingCardData";
 
 const ShoppingPopover = ({ headerStyle }) => {
-  
   return (
     <Popover className="flow-root text-sm sm:relative">
       <Popover.Button className="group m-2 ml-0 flex items-center relative hover:border-none border-none">
@@ -21,10 +20,13 @@ const ShoppingPopover = ({ headerStyle }) => {
           alt="shoppingCartLayout"
           className={headerStyle ? "hidden" : "block"}
         />
-        <span>
-          
-        </span>
-        <span className={"ml-2 text-sm absolute top-0 right-0 w-5 h-5 rounded-full"+(headerStyle ? "" : "text-blue-800 rounded-full bg-indigo-800")}>
+        <span></span>
+        <span
+          className={
+            "ml-2 text-sm absolute top-0 right-0 w-5 h-5 rounded-full" +
+            (headerStyle ? "" : "text-blue-800 rounded-full bg-indigo-800")
+          }
+        >
           {ShoppingCardData.length}
         </span>
       </Popover.Button>
@@ -41,8 +43,8 @@ const ShoppingPopover = ({ headerStyle }) => {
           <h2 className="sr-only">Shopping Cart</h2>
 
           <form className="mx-auto max-w-2xl px-4">
-            <ul role="list" className="divide-y divide-gray-200"> 
-              {ShoppingCardData.map((product,index) => (
+            <ul role="list" className="divide-y divide-gray-200">
+              {ShoppingCardData.map((product, index) => (
                 <li key={index} className="flex items-center gap-2 py-6">
                   <img
                     src={product.imageUrl}
@@ -51,9 +53,13 @@ const ShoppingPopover = ({ headerStyle }) => {
                   />
                   <div className="ml-4 flex-auto">
                     <h3 className="font-medium ">
-                      <Link to={product.title} className="dark:text-slate-100 ">{product.title}</Link>
+                      <Link to={product.title} className="dark:text-slate-100 ">
+                        {product.title}
+                      </Link>
                     </h3>
-                    <p className="my text-newPurple3 dark:text-slate-400 text-opacity-50">{product.professorName}</p>
+                    <p className="my text-newPurple3 dark:text-slate-400 text-opacity-50">
+                      {product.professorName}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -67,10 +73,7 @@ const ShoppingPopover = ({ headerStyle }) => {
             </button>
 
             <p className="mt-6 text-center">
-              <Link
-                to="shoppingCard"
-                className="text-sm"
-              >
+              <Link to="shoppingCard" className="text-sm">
                 دیدن اطلاعات سبد خرید
               </Link>
             </p>

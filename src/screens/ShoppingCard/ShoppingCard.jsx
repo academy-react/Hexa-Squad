@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import ShoppingCardData from "../../core/services/api/Data/ShoppingCardData";
+import ShoppingCardData from "../../core/services/api/GetData/ShoppingCardData";
 import { ShoppingCardRow } from "../../components/common";
 
 const ShoppingCard = () => {

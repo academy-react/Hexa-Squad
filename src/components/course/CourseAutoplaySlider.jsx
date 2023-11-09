@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import axios from "axios";
 import Course from "./Course";
-import fetchData from "../../core/services/api/Data/getTopCourses";
+import fetchData from "../../core/services/api/GetData/getTopCourses";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -34,9 +34,9 @@ const CourseAutoplaySlider = () => {
       </SwiperSlide>
     );
   });
-  
+
   useEffect(() => {
-    fetchData(8,setCoursesList);
+    fetchData(8, setCoursesList);
   }, []);
 
   return (

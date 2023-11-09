@@ -5,23 +5,6 @@ import { AdminComments } from "../";
 import userComment from "../../../assets/image/userComment.svg";
 
 const UserComments = ({ name, date, question, uid }) => {
-  const [userInfo, setUserInfo] = useState([]);
-  const fetchUserData = useCallback(async () => {
-    try {
-      // console.log(uid)
-      const result = await axios.get(
-        "https://api-academy.iran.liara.run/api/User/UserDetails/"+uid 
-      );
-      setUserInfo(result.data);
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-  useEffect(() => {
-    fetchUserData();
-  }, [fetchUserData]);
-
   return (
     <Fragment>
       <div className="userComment">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addWishList } from "../../core/services/api/addWishList";
+import { addWishList } from "../../core/services/api/PutData/addCourseWishList";
 
 import course from "../../assets/image/course1.png";
 import likePic from "../../assets/image/like.svg";

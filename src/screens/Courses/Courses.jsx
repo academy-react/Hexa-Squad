@@ -9,7 +9,7 @@ import {
 } from "../../components/CourseList";
 import bgCourses from "../../assets/image/bg-ListHero.svg";
 import bgCoursesDark from "../../assets/image/bg-ListHero-dark.svg";
-import fetchCoursesApi from "../../core/services/api/Data/allCoursesApi";
+import fetchCoursesApi from "../../core/services/api/GetData/allCoursesApi";
 const Courses = () => {
   const [showGrid, setShowGrid] = useState(false);
   const [filterDiv, setFilterDiv] = useState(true);
@@ -20,7 +20,7 @@ const Courses = () => {
   const endOffset = itemOffset + countInPage;
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / countInPage);
-  console.log(data.indexOf((item)=>{}))
+  console.log(data.indexOf((item) => {}));
   const typeWriterWords = [
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
@@ -36,7 +36,7 @@ const Courses = () => {
 
   // get courses data from api and fetch on data variable
   useEffect(() => {
-    fetchCoursesApi(setData,pageCount,countInPage,setAllData);
+    fetchCoursesApi(setData, pageCount, countInPage, setAllData);
     return () => {
       setFilterDiv(false);
       setShowGrid(false);

@@ -42,7 +42,7 @@ const TeacherInfo = ({
           تجربه ها:
           <div className="py-4 px-4 text-base leading-8 md:text-base lg:text-lg lg:leading-10 text-[#03001C] opacity-80 dark:text-lightPink">
              استاد {title} از اساتید با تجربه و کاربلد تیم هگزا اسکواد هستند. 
-             ایشان با مهارت های فوق العاده شان که از بهترین آنها میتوان از {education ==  undefined ? 'تدریس فوق العاده ایشان نام برد': education}
+             ایشان با مهارت های فوق العاده شان که از بهترین آنها میتوان از {education ==  undefined || education == null ? 'تدریس فوق العاده ایشان ': education}نام برد
           </div>
         </div>
         <div className="teacherInfo lg:pt-8 border-none">
