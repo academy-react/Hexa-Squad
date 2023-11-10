@@ -1,0 +1,56 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { CheckboxInput, DropDown } from "../common";
+import filterData from "../../core/services/filterData/filterData";
+
+const NewsCategoriesFilter = ({ data, setData, filterDiv, setFilterDiv }) => {
+  const [categoryData, setCategoryData] = useState([
+    { label: "مقالات", category: "articles" },
+    { label: "رویدادها", category: "event" },
+    { label: "خبر های اقتصادی", category: "economicNews" },
+    { label: "خبر های ورزشی", category: "sportsNews" },
+    { label: "خبر تکنولوژی", category: "technologyNews" },
+  ]);
+  const getCategories = async ()=>{
+    try {
+      const result = await axios.get('https://api-academy.iran.liara.run/api/News/GetListNewsCategory')
+      try {
+        setCategoryData(result.data)
+        console.log(result.data)
+      } catch (error) {
+        console.log(error)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+    getCategories()
+  }, [])
+  
+  return (
+    <div
+      className={"filter-options " + (filterDiv ? "block" : "hidden")}
+      id="filterDiv"
+    >
+      <i
+        className="bi bi-x block lg:hidden text-gray text-5xl"
+        title="بستن فیلتر ها"
+        onClick={() => {
+          setFilterDiv(!filterDiv);
+        }}
+      ></i>
+      <DropDown
+        name={"category"}
+        setData={setData}
+        courseData={data}
+        data={categoryData}
+        checkBoxType={"checkbox"}
+        height={"h-[300px]"}
+        customFunction={filterData}
+      />
+    </div>
+  );
+};
+
+export default NewsCategoriesFilter;

@@ -4,6 +4,8 @@ import {NewsCard} from '../../components/Landing';
 import fetchNewsApi from "../../core/services/api/Data/allNewsApi";
 import bgNews from '../../assets/image/bg-ListHero.svg';
 import bgNewsDark from '../../assets/image/bg-ListHero-dark.svg';
+import NewsCategoriesFilter from "../../components/News/NewsCategoriesFilter";
+import { CheckboxInput } from "../../components/common";
 
 const NewsList = () => {
   const typeWriterWords = [
@@ -12,11 +14,15 @@ const NewsList = () => {
 
   const [newsData, setNewsData] = useState([]);
   const [newsAllData, setNewsAllData] = useState([]);
+  const [filterDiv, setFilterDiv] = useState(true);
 
   // get News data from api and fetch
   useEffect(() => {
     fetchNewsApi(setNewsData,setNewsAllData);
-  }, []);  
+    return () => {
+      setFilterDiv(false);
+    };
+  }, [fetchNewsApi]);  
 
   const newsCardsMapper = newsData.map((item, index) => {
     return (
@@ -28,18 +34,32 @@ const NewsList = () => {
         description={item.miniDescribe} 
         views={item.currentView}
         date={item.updateDate}
+        // category = {item.newsCatregoryName}
       />
   )});
   return (
-    <div className="py-32" data-aos="zoom-out">
+    <div className="py-32" >
       <img src={bgNews} alt="picture" className='w-[100%] dark:hidden absolute top-0 z-0' />
       <img src={bgNewsDark} alt="picture" className='w-[100%] dark:block hidden absolute top-0 z-0' />
       <NewsListHero typeWriterWords={typeWriterWords}/>
-      <div className="lg:max-w-[1200px] md:max-w-[700px] max-w-[500px]  mx-auto mt-16">
-        <NewsFilterMenu newsData={newsAllData} setNewsData={setNewsData}/>
-        <div className="news-card">
-            {newsCardsMapper}
-        </div>   
+      <div className="md:mx-10 lg:mx-40 mt-16">
+        <NewsFilterMenu 
+          newsData={newsAllData} 
+          setNewsData={setNewsData} 
+          filterDiv={filterDiv} 
+          setFilterDiv={setFilterDiv} 
+        />
+        <section className="flex flex-row">
+          <NewsCategoriesFilter
+            data={newsAllData}
+            setFilterDiv={setFilterDiv}
+            setData={setNewsData}
+            filterDiv={filterDiv}          
+          /> 
+          <div className="news-card">
+              {newsCardsMapper}
+          </div>   
+        </section>
       </div>
     </div>
   )

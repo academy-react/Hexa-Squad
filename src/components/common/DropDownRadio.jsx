@@ -19,10 +19,10 @@ const DropDown = ({
         htmlFor={name + index}
         className="pr-5"
         onClick={() => {
-          customFunction(courseData, item.techName, setData, setCheckedData);
+          customFunction(courseData, item.techName == undefined ? item.categoryName : item.techName, setData, setCheckedData);
         }}
       >
-        {item.techName}
+        {item.techName == undefined ? item.categoryName : item.techName}
       </label>
     </div>
   ));
