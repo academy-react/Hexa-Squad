@@ -1,24 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { addCart } from "../../core/services/api/PutData/addToCart";
 
 import start from "../../assets/icons/start.svg";
 import date from "../../assets/icons/date.svg";
+import levelL from "../../assets/icons/levelL.svg";
+import levelD from "../../assets/icons/levelD.svg";
 import student from "../../assets/icons/student.svg";
 import startDark from "../../assets/icons/startDark.svg";
 import dateDark from "../../assets/icons/dateDark.svg";
 import studentDark from "../../assets/icons/studentDark.svg";
 import teacher from "../../assets/image/teacher'sProfile.jpg";
 
-const DetailsBox = ({ id, data, title }) => {
+const DetailsBox = ({
+  id,
+  startTime,
+  capacity,
+  courseStatusName,
+  endTime,
+  teacherName,
+  currentRegistrants,
+  courseLevelName,
+}) => {
   const [isLogin, setIsLogin] = useState(false);
   return (
     <div className=" lg:w-[620px]  md:w-[500px] w-full mx-auto lg:ml-14  ">
       <div
         data-aos="zoom-in-right"
         data-aos-duration="1000"
-        className="rounded-lg shadow-shadow-Course-details lg:h-[540px] bg-[#D7D5FF] lg:mt-10 md:mt-28 mt-20 dark:bg-[#34239f] "
+        className="rounded-lg shadow-shadow-Course-details bg-[#D7D5FF] lg:mt-10 md:mt-28 mt-20 dark:bg-[#34239f] "
       >
         <h2 className="text-center  md:text-lg pt-8  text-md  text-[#210654]  dark:text-whitePink">
           {" "}
@@ -34,14 +45,41 @@ const DetailsBox = ({ id, data, title }) => {
             alt=""
           />
           <h2 className=" absolute left-2 text-[#210654]  dark:text-[#f5f1ff]  ">
-            {data.capacity == undefined ? "" : data.capacity}
+            {currentRegistrants == undefined ? "" : currentRegistrants}
           </h2>
           <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff] ">
             {" "}
             تعداد دانشجو
           </h2>
         </div>
-
+        <div className="mx-6 border-b border-[#b1a5ce] h-10 relative ">
+          <img src={levelL} className="absolute right-0" alt="" />
+          <img
+            src={levelD}
+            className="absolute right-0 hidden dark:block"
+            alt=""
+          />
+          <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff]  ">
+            {courseLevelName}
+          </h2>
+          <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff]  ">
+            {" "}
+            سطح دوره
+          </h2>
+        </div>
+        <div className="mx-6 border-b border-[#b1a5ce] h-10 relative ">
+          <h2
+            className=" bi bi-people absolute right-[2px] text-xl text-[#3F40EA] dark:text-[#e0ddff] "
+            alt=""
+          />
+          <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff]  ">
+            {capacity}
+          </h2>
+          <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff]  ">
+            {" "}
+            ظرفیت دوره
+          </h2>
+        </div>
         <div className="mx-6 border-b border-[#b1a5ce] h-10 relative ">
           <img src={start} className="absolute right-0" alt="" />
           <img
@@ -50,13 +88,14 @@ const DetailsBox = ({ id, data, title }) => {
             alt=""
           />
           <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff]  ">
-            {data.courseStatusName == undefined ? "" : data.courseStatusName}
+            {courseStatusName}
           </h2>
           <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff]  ">
             {" "}
             وضعیت دوره
           </h2>
         </div>
+
         <div className="mx-6 border-b border-[#b1a5ce] h-10 relative">
           <img src={date} className="absolute  right-0" alt="" />
           <img
@@ -66,7 +105,7 @@ const DetailsBox = ({ id, data, title }) => {
           />
           <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff] ">
             {" "}
-            1402/03/26
+            {startTime == undefined ? "" : startTime.slice(0, 10)}
           </h2>
           <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff] ">
             {" "}
@@ -82,7 +121,7 @@ const DetailsBox = ({ id, data, title }) => {
           />
           <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff] ">
             {" "}
-            1402/04/26
+            {endTime == undefined ? "" : endTime.slice(0, 10)}
           </h2>
           <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff] ">
             {" "}
@@ -90,7 +129,7 @@ const DetailsBox = ({ id, data, title }) => {
           </h2>
         </div>
         <div className=" rounded-md mx-6 mt-10 h-14 border-2 border-[#3F40EA] dark:border-whitePink relative">
-          <div className="flex flex-row absolute right-20 md:right-28 mt-3 ">
+          <div className="flex flex-row  absolute right-20 lg:right-32 md:right-36 mt-3 ">
             <h2 className="text-lg text-darkblue dark:text-whitePink  ">
               قیمت:
             </h2>
@@ -107,7 +146,7 @@ const DetailsBox = ({ id, data, title }) => {
             onClick={() => addCart(id, isLogin)}
             type="submit"
             value="ثبت نام در این دوره"
-            className="gradient w-full py-4 lg:mb-0 mb-4 rounded-md cursor-pointer"
+            className="gradient w-full py-4 lg:mb-10 mb-4 rounded-md cursor-pointer"
           />
         </div>
       </div>
@@ -118,7 +157,7 @@ const DetailsBox = ({ id, data, title }) => {
               مدرس:{" "}
             </h2>
             <h2 className="text-lg md:text-xl text-darkblue mr-1 dark:text-whitePink">
-              مهندس مهدی اصغری{" "}
+              {teacherName}
             </h2>
           </div>
           <h2 className="text-md text-darkblue right-32  md:right-36 mt-20 absolute opacity-80 dark:text-whitePink">

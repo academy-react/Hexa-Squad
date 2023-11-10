@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 
 import Tab from "./Tab";
 import Tabs from "./Tabs";
 import Accordions from "../../core/services/api/GetData/Topics";
 import Accordion from "./Accordion";
 import { InputComment, UserComments } from "../News";
-import comment from "../../assets/image/comments.svg";
+
+import comments from "../../assets/image/comments.svg";
 import { MdOutlinePreview } from "react-icons/md";
 
 const TabsContent = () => {
@@ -23,16 +24,20 @@ const TabsContent = () => {
         "آیا مطالبی که در دوره جاری ارائه میدید با دوره قبلی تفاوت داره؟",
     },
   ]);
-  const userComments = userCommentsList.map((item, index) => {
+  const [comment, setComment] = useState([]);
+
+  const userComments = comment.map((item, index) => {
     return (
       <UserComments
-        name={item.name}
-        date={item.date}
-        question={item.question}
+        uid={item.userId}
+        name={item.title}
+        date={item.insertDate}
+        question={item.describe}
         key={index}
       />
     );
   });
+
   return (
     <div>
       <Tabs>
@@ -102,7 +107,7 @@ const TabsContent = () => {
             <h2 className="text-lg font-medium mb-2 hidden">نظرات کاربران</h2>
             <div className="w-[96%] mx-auto lg:mr-2 mt-6 ">
               <div className=" pb-5 border-b-2 border-b-[#9999f533] dark:border-b-[#3d3d70]">
-                <img src={comment} className="inline pl-4 w-10 h-10 " />
+                <img src={comments} className="inline pl-4 w-10 h-10 " />
                 <h3 className="text-xl md:text-xl text-darkblue4 dark:text-indigo-200  inline">
                   نظرات کاربران در رابطه با این دوره{" "}
                 </h3>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { addWishList } from "../../core/services/api/PutData/addCourseWishList";
 
-import course from "../../assets/image/course1.png";
+import NullImage from "../../assets/image/Images-for-null 2.svg"
 import likePic from "../../assets/image/like.svg";
 import dislikePic from "../../assets/image/dislike.svg";
-const CoursePhoto = ({ id, like, dislike }) => {
+const CoursePhoto = ({ id, title, describe, imageAddress ,currentUserDissLike, currentUserLike}) => {
   const [isLogin, setIsLogin] = useState(false);
   return (
     <div
@@ -14,25 +14,22 @@ const CoursePhoto = ({ id, like, dislike }) => {
     >
       <div className="shadow-shadow-auth rounded-xl  ">
         <h2
-          className="bi bi-heart text-3xl text-whitePink left-3 mt-4 absolute opacity-60 hover:opacity-100 cursor-pointer "
+          className="bi bi-heart text-3xl text-[#ffff] left-3 mt-4 absolute  hover:text-violet-700 hover:scale-110 transition-all cursor-pointer "
           alt="wishlist"
           onClick={() => addWishList(id, isLogin)}
         />
         <img
-          src={course}
-          className="w-full h-full  lg:h-[420px] object-cover rounded-lg "
-          alt="figma"
+          src={imageAddress ==null ? NullImage:imageAddress}
+          className="w-full h-full  lg:h-[420px]  rounded-lg "
+          alt="course image"
         />
       </div>
       <div className="mx-4 md:mx-0 mt-2 mb-10 md:mb-0">
         <h2 className="text-xl md:text-3xl mt-8 text-[#2C007F] dark:text-[#ffff]">
-          اموزش رایگان html برای برنامه نویسان
+          {title}
         </h2>
         <p className=" mt-6 md:mt-7 text-sm leading-8 md:text-md lg:text-lg lg:leading-10 text-[#03001C]  dark:text-[#E7E7FF] ">
-          محبوب ترین کتابخانه ی جاوااسکریپت حل مساله به روش کدنویسی پیشرفته و
-          تمیز؛ برای مسائل واقعی دنیای نرم افزار محبوب ترین کتابخانه ی
-          جاوااسکریپت محبوب ترین کتابخانه ی جاوااسکریپت حل مساله به روش کدنویسی
-          پیشرفته و تمیز؛
+          {describe}
         </p>
       </div>
       <div className="absolute left-8 lg:left-0 -bottom-8 md:-bottom-20 lg:-bottom-8 md:left-2">
@@ -49,7 +46,7 @@ const CoursePhoto = ({ id, like, dislike }) => {
               alt="picture"
               className="inline cursor-pointer "
             />
-            <span className="course-like-count dark:text-indigo-100 ">148</span>
+            <span className="course-like-count dark:text-indigo-100 ">{currentUserLike}</span>
           </div>
           <div
             className="course-like-box mr-1.5 pl-4 bg-[#e3deff]"
@@ -60,7 +57,7 @@ const CoursePhoto = ({ id, like, dislike }) => {
               alt="picture"
               className="inline cursor-pointer"
             />
-            <span className="course-like-count dark:text-indigo-100">12</span>
+            <span className="course-like-count dark:text-indigo-100">{currentUserDissLike}</span>
           </div>
         </div>
       </div>

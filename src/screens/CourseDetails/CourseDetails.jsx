@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
+import fetchTopCourses from "../../core/services/api/GetData/getTopCourses";
 import CoursePhoto from "../../components/CourseDetails/CoursePhoto";
 import DetailsBox from "../../components/CourseDetails/DetailsBox";
-import WhishListData from "../../core/services/api/GetData/TeacherWhishListData";
+
 import Course from "../../components/course/Course";
 import TabsContent from "../../components/CourseDetails/TabsContent";
 
 const CourseDetails = () => {
-  const [coursesWhishList, setCoursesWhishList] = useState(WhishListData);
+  const [coursesWhishList, setCoursesWhishList] = useState([]);
 
   const [urlParam, setUrlParam] = useState(useParams());
   const [data, setData] = useState([]);
@@ -18,17 +18,18 @@ const CourseDetails = () => {
       <Course
         key={index}
         id={item.courseId}
-        courseCount={item.courseCount}
-        time={item.time}
-        date={item.date}
-        professorName={item.professorName}
-        like={item.like}
+        bio={item.describe}
+        title={item.title}
+        courseCount={item.levelName}
+        time={item.statusName}
+        date={item.lastUpdate}
+        professorName={item.teacherName}
+        like={item.likeCount}
+        // dislike={item.dislike}
+        studentCount={item.currentRegistrants}
+        price={item.cost}
         width={"lg:w-[24%]"}
-        background={"dark:bg-darkblue2"}
-        dislike={item.dislike}
-        studentCount={item.studentCount}
-        price={item.price}
-        image={item.imageUrl}
+        image={item.tumbImageAddress}
       />
     );
   });
@@ -36,7 +37,8 @@ const CourseDetails = () => {
   const fetchData = useCallback(async () => {
     try {
       const result = await axios.get(
-        `https://api-academy.iran.liara.run/api/Home/GetCourseDetails?CourseId=` + urlParam.id
+        `https://api-academy.iran.liara.run/api/Home/GetCourseDetails?CourseId=` +
+          urlParam.id
       );
       console.log(result.data);
       const receivedData = result.data;
@@ -45,6 +47,7 @@ const CourseDetails = () => {
   }, []);
   useEffect(() => {
     fetchData();
+    fetchTopCourses(3, setCoursesWhishList);
   }, []);
 
   return (
@@ -52,10 +55,25 @@ const CourseDetails = () => {
       <div className="mx-auto flex mb-20 ">
         <div className="w-[90%] h-full overflow-hidden lg:max-w-[1260px] mx-auto mt-36 bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6">
           <div className="flex flex-col lg:flex-row">
-            <CoursePhoto />
+            <CoursePhoto
+              title={data.title}
+              describe={data.describe}
+              imageAddress={data.imageAddress}
+              currentUserDissLike={data.currentUserDissLike}
+              currentUserLike={data.currentUserLike}
+            />
 
             {/* moshakhasat */}
-            <DetailsBox data={data} />
+            <DetailsBox
+              startTime={data.startTime}
+              capacity={data.capacity}
+              courseStatusName={data.courseStatusName}
+              endTime={data.endTime}
+              title={data.title}
+              teacherName={data.teacherName}
+              currentRegistrants={data.currentRegistrants}
+              courseLevelName={data.courseLevelName}
+            />
           </div>
           <TabsContent />
           {/* Comments section */}
