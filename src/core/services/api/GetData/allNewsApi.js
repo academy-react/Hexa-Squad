@@ -1,18 +1,19 @@
-import axios from "axios";
+import http from "../../interceptor";
 
 const fetchNewsApi =  async (setNewsData, setNewsAllData) => {
   console.log("fetching started...")
   try {
-    const result = await axios.get(
-      `https://api-academy.iran.liara.run/api/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC&Query=`
+    const result = await http.get(
+      `/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC&Query=`
     );
 
-    setNewsData(result.data.news);
-    setNewsAllData(result.data.news);
-    console.log('the data get from api: ', result.data.news);
+    setNewsData(result.news);
+    setNewsAllData(result.news);
+    console.log('the data get from api: ', result.news);
 
   } catch (error) {
     console.log(error);
+    return [];
   }
 };
 export default fetchNewsApi;
