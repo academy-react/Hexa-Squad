@@ -5,7 +5,6 @@ import fetchNewsApi from "../../core/services/api/Data/allNewsApi";
 import bgNews from '../../assets/image/bg-ListHero.svg';
 import bgNewsDark from '../../assets/image/bg-ListHero-dark.svg';
 import NewsCategoriesFilter from "../../components/News/NewsCategoriesFilter";
-import { CheckboxInput } from "../../components/common";
 
 const NewsList = () => {
   const typeWriterWords = [
@@ -34,7 +33,7 @@ const NewsList = () => {
         description={item.miniDescribe} 
         views={item.currentView}
         date={item.updateDate}
-        // category = {item.newsCatregoryName}
+        category = {item.newsCatregoryName}
       />
   )});
   return (

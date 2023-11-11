@@ -195,7 +195,7 @@
         @apply md:absolute md:top-10 md:right-28 lg:top-12 lg:right-32 lg:text-base;
     }    
     .news-card .news-readMore{
-        @apply  md:mt-2 md:left-12 lg:ml-5 lg:bottom-[-10px] lg:text-end;
+        @apply  fixed text-left;
     }
     .news-card h2{
         @apply lg:w-[900px];

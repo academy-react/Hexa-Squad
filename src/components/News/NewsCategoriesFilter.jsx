@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { CheckboxInput, DropDown } from "../common";
-import filterData from "../../core/services/filterData/filterData";
+import { DropDown } from "../common";
+import filterData from "../../core/services/filterData/filterNewsData";
 
 const NewsCategoriesFilter = ({ data, setData, filterDiv, setFilterDiv }) => {
   const [categoryData, setCategoryData] = useState([
@@ -30,7 +30,7 @@ const NewsCategoriesFilter = ({ data, setData, filterDiv, setFilterDiv }) => {
   
   return (
     <div
-      className={"filter-options " + (filterDiv ? "block" : "hidden")}
+      className={"lg:w-5/12 filter-options " + (filterDiv ? "block" : "hidden")}
       id="filterDiv"
     >
       <i

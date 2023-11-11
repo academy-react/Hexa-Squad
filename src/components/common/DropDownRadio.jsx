@@ -12,7 +12,7 @@ const DropDown = ({
   customFunction,
 }) => {
   const [checkedData, setCheckedData] = useState("");
-  const dataMepper = data.map((item, index) => (
+  const dataMapper = data.map((item, index) => (
     <div className="flex p-2" key={index}>
       <input type={checkBoxType} name={name} className="m-1 accent-cyan-950" id={name + index} />
       <label
@@ -50,7 +50,7 @@ const DropDown = ({
       <div
         className={"content transition-all w-full overflow-hidden " + height}
       >
-        {dataMepper}
+        {dataMapper}
       </div>
     </div>
   );

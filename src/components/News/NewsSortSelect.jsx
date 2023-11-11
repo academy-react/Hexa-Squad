@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import Select from "react-select";
 
-const NewsSortFilter = () => {
+const NewsSortSelect = () => {
   const [selectedOptions, setSelectedOption] = useState(null);
   const [options, setOptions] = useState([
     { value: "", label: "همه" },
@@ -25,4 +25,4 @@ const NewsSortFilter = () => {
         </Fragment>
     )
 }
-export default NewsSortFilter;
+export default NewsSortSelect;
