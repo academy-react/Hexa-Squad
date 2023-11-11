@@ -172,9 +172,6 @@
     }
 
     /* news List*/
-    .news-menu{
-        @apply hidden md:flex md:flex-row lg:w-[835px] md:w-[500px] h-12 rounded-[10px] my-auto text-xs lg:text-base md:text-xs text-center text-lightblue border-2 border-lightblue;
-    }
     .news-menu-box{
         @apply w-[25%] lg:py-2 md:py-2.5 hover:bg-lightblue hover:text-semiWhite2 hover:cursor-pointer;
     }
@@ -186,7 +183,7 @@
         @apply text-darkblue7 lg:mt-[-80px];
     }
     .news-card{
-        @apply w-[470px] md:w-full relative flex flex-col gap-y-8 mx-auto px-4 ;
+        @apply w-[440px] md:w-full relative flex flex-col gap-y-8 mx-auto px-4 ;
     }
     .news-card .news-view{
         @apply md:absolute md:top-10 md:right-0 lg:top-12 lg:text-base;
@@ -198,7 +195,7 @@
         @apply md:absolute md:top-10 md:right-28 lg:top-12 lg:right-32 lg:text-base;
     }    
     .news-card .news-readMore{
-        @apply  md:mt-2 md:left-12 lg:ml-5 lg:bottom-[-10px] lg:text-end;
+        @apply  fixed text-left;
     }
     .news-card h2{
         @apply lg:w-[900px];

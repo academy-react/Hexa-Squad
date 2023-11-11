@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
-import Select from "react-select";
+import React from 'react';
+import { CheckboxInput, SearchBox } from '../common';
+import NewsSortSelect from './NewsSortSelect';
 
 
-const NewsFilterMenu = ({newsData,setNewsData}) => {
-  const [selectedOptions, setSelectedOption] = useState(null);
-  const [options, setOptions] = useState([
-    { value: "", label: "همه" },
-    { value: "mostPopular", label: "محبوب ترین ها" },
-    { value: "mostVisited", label: "پربازدید ترین ها" },
-    { value: "newsest", label: "جدید ترین ها" },
-  ]);
-  const handleChange = (selectedOption) => {
-    setSelectedOption(selectedOption);
-  };
+const NewsFilterMenu = ({newsData, filterDiv, setFilterDiv, setNewsData}) => {
   const filterSearch = (value)=>{
     let filteredData = newsData.filter((item) => {
       return item.title.toLowerCase().indexOf(value.toLowerCase()) != -1
@@ -20,39 +11,48 @@ const NewsFilterMenu = ({newsData,setNewsData}) => {
     setNewsData(filteredData);
   }
   return (
-        <div className="flex flex-row lg:mb-12 mb-8 relative">
-          <ul className="news-menu">
+        <div className="flex flex-row gap-x-4 px-8 lg:mb-12 mb-8 relative">
+          <div className="hidden lg:block">
+          <CheckboxInput name={"openFilter"} />
+          <label 
+          className="relative my-4 "
+            htmlFor="openFilter"
+            onClick={() => {
+              setFilterDiv(!filterDiv);
+            }}
+          >
+            فیلتر
+            <i className="bi bi-filter"></i>
+          </label></div>
+          <ul className="hidden lg:flex flex-row w-[835px] h-12 rounded-[10px] my-auto text-base text-center text-lightblue border-2 dark:text-white border-lightblue dark:border-white">
             <li className="news-menu-box hover:rounded-r-lg">همه</li>
             <li className="news-menu-box">محبوب ترین ها</li>
             <li className="news-menu-box">پربازدید ترین ها</li>
             <li className="news-menu-box hover:rounded-l-lg">جدیدترین ها</li>
           </ul>
-          <div className="flex flex-row gap-x-4 my-4 mx-auto">
-            <div className="block md:hidden w-[190px] justify-center">
-              <Select
-                value={selectedOptions}
-                placeholder={"دسته بندی ها"}
-                options={options}
-                className="text-darkblue2 w-full"
-                onChange={handleChange}
-              />
+          <div className="w-full lg:w-auto flex flex-row gap-x-4 md:gap-x-8 my-4 mx-auto">
+            <div className="lg:hidden">
+              <CheckboxInput name={"openFilter"}/>
+              <label 
+              className="relative"
+                htmlFor="openFilter"
+                onClick={() => {
+                  setFilterDiv(!filterDiv);
+                }}
+              >
+                فیلتر
+                <i className="bi bi-filter hidden md:block"></i>
+              </label>
             </div>
-
-            <div className="relative md:mr-8 w-[190px] lg:w-[333px] md:w-[280px] h-9.5 md:h-12">
-              <input
-                placeholder={"جستجو..."}
-                type={"search"}
-                name={"search"}
-                id="search"
-                onKeyUp={(event)=>{filterSearch(event.target.value)}}
-                className="search-input text-sm md:text-base"
-              />
-              <i
-                className={
-                  "bi bi-search absolute top-2.5 md:top-3 text-base md:text-xl left-4 text-[#12124266] dark:text-[#fff]"
-                }
-              ></i>
+            <div className="block lg:hidden w-full md:w-5/12">
+              <NewsSortSelect/>
             </div>
+            <SearchBox 
+              placeholder={"جستجو..."} 
+              SearchFunction={filterSearch}
+              inputClass={"text-xs md:text-base pr-4 lg:pr-7  focus:border-2 border-blue-800 dark:bg-[#13005A] dark:border-white"}
+              addClass={"relative w-6/12 md:w-7/12 lg:w-[333px] h-9 md:h-12 "}
+            />
           </div>
         </div>
         
