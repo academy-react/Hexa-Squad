@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import axios from "axios";
 import Course from "../../components/course/Course";
 import {
   CoursesHero,

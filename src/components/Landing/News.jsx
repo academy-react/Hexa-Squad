@@ -1,17 +1,18 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import http from "../../core/services/interceptor"
+
 import NewsCard from "./NewsCard";
 import Title from "../common/Title";
-import axios from "axios";
 const News = () => {
   const [newsList, setNewsList] = useState([]);
   const fetchData = useCallback(async () => {
     try {
-      const result = await axios.get(
-        "https://api-academy.iran.liara.run/api/News?PageNumber=1&RowsOfPage=200&SortingCol=InsertDate&SortType=DESC&Query="
+      const result = await http.get(
+        "/News?PageNumber=1&RowsOfPage=200&SortingCol=InsertDate&SortType=DESC&Query="
       );
-      const recivedData = result.data.news;
-      console.log('news : ',result.data)
+      const recivedData = result.news;
+      console.log('news : ',result)
       setNewsList(
         recivedData.slice(recivedData.length - 1, recivedData.length)
       );

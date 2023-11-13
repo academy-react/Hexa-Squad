@@ -12,7 +12,7 @@ import VerificationSteps from "../screens/Authorize/VerificationSteps";
 import Error404 from "../screens/ErrorPage/Error404";
 import Courses from "../screens/Courses/Courses";
 import NewsList from "../screens/News/NewsList";
-import NewsDetails from "../components/News/NewsDetails";
+import NewsDetails from "../screens/NewsDetails/NewsDetails";
 import CourseDetails from "../screens/CourseDetails/CourseDetails";
 import AllCourse from "../screens/Panel/AllCourse";
 import WhishList from "../screens/Panel/WhishList";

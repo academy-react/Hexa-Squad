@@ -1,8 +1,7 @@
 import React, { Fragment, useState, useCallback, useEffect } from "react";
-import axios from "axios";
-import { AdminComments } from "../";
+import AdminComments from "../common/AdminComments";
 
-import userComment from "../../../assets/image/userComment.svg";
+import userComment from "../../assets/image/userComment.svg";
 
 const UserComments = ({ name, date, question, uid }) => {
   return (

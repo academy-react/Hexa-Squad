@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-import {NewsListHero, NewsFilterMenu}from '../../components/News';
+import {NewsListHero, NewsFilterMenu ,NewsCategoriesFilter }from '../../components/News';
 import {NewsCard} from '../../components/Landing';
-import NewsCategoriesFilter from "../../components/News/NewsCategoriesFilter";
 import fetchNewsApi from "../../core/services/api/GetData/allNewsApi";
 
 import bgNews from '../../assets/image/bg-ListHero.svg';
