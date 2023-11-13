@@ -29,7 +29,6 @@ const OurTeachers = () => {
       const result = await axios.get(
         "https://api-academy.iran.liara.run/api/Home/GetTeachers"
       );
-      console.log(result.data);
       const receivedData = result.data;
       setTeacherList(receivedData);
     } catch (error) {

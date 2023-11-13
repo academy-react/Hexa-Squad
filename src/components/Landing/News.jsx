@@ -11,7 +11,6 @@ const News = () => {
         "https://api-academy.iran.liara.run/api/News?PageNumber=1&RowsOfPage=200&SortingCol=InsertDate&SortType=DESC&Query="
       );
       const recivedData = result.data.news;
-      console.log('news : ',result.data)
       setNewsList(
         recivedData.slice(recivedData.length - 1, recivedData.length)
       );

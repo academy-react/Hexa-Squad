@@ -1,7 +1,9 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { validation } from "../../../core/validations/validations";
 import { Link } from "react-router-dom";
+
+import { validation } from "../../../core/validations/validations";
+
 import tick from "../../../assets/image/tick.svg";
 const LastStep = () => {
   return (
@@ -13,12 +15,11 @@ const LastStep = () => {
         {" "}
         <div className="w-full h-40  ">
           <img src={tick} className="w-32 h-32 md:mx-auto mr-16" alt="" />
-          <h2 className="absolute md:right-24 mt-4 right-8 dark:text-indigo-200">ثبت نام شما با موفقیت انجام شد</h2>
+          <h2 className="absolute md:right-24 mt-4 right-8 dark:text-indigo-200">
+            ثبت نام شما با موفقیت انجام شد
+          </h2>
         </div>
-        <Formik
-          validationSchema={validation}
-          onSubmit={() => alert("ثبت نام")}
-        >
+        <Formik validationSchema={validation} onSubmit={() => alert("ثبت نام")}>
           <Form autoComplete="off" className="text-[#a967ff]">
             <Link to="/">
               <input

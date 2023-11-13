@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import TeacherInfo from "./TeacherProfile/TeacherInfo";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Http from "../../core/services/interceptor";
 
 const TeacherProfile = () => {
   const [urlParam, setUrlParam] = useState(useParams())
@@ -17,9 +18,9 @@ const TeacherProfile = () => {
 });
   const fetchTeacherData = useCallback(async () => {
     try {
-      const result = await axios.get('https://api-academy.iran.liara.run/api/Home/GetTeacherDetails?TeacherId='+urlParam.id);
-      setTeacherInfo(result.data);
-      console.log(result.data)
+      const result = await Http.get('Home/GetTeacherDetails?TeacherId='+urlParam.id);
+      result !=undefined ? setTeacherInfo(result) :'';
+      console.log(result)
     } catch (error) {
       console.log(error)
     }
