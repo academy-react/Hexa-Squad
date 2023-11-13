@@ -12,6 +12,8 @@ import Login from "../Modals/Login";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { onThemeChange } from "../../redux/darkMode";
+import { getProfile } from "../../core/services/api/GetData/profile";
+import { onUserChange } from "../../redux/user";
 const Header = () => {
   const lightMode = useSelector((state)=>state.darkModeSlice.theme);
   const dispatch = useDispatch();
@@ -20,8 +22,14 @@ const Header = () => {
   const setLightMode = (lightMode)=>{
     dispatch(onThemeChange(lightMode));
   }
+  const getProfileFunction = async () => {
+    const user = await getProfile();
+    dispatch(onUserChange(user))
+    console.log(user)
+  };
   useEffect(() => {
-    location.pathname == '/' ? setHeaderStyle(true) : setHeaderStyle(false)
+    location.pathname == '/' ? setHeaderStyle(true) : setHeaderStyle(false);
+    getProfileFunction()
   }, [location]);
   return (
     <>

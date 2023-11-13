@@ -28,7 +28,7 @@ const UserPanel = () => {
       address: "ChangePassword/",
     },
     // { label: "نظرات ثبت شده", classNameIcon: "chat-left-text", address: "" },
-    { label: "خروج از حساب", classNameIcon: "power", address: "login" },
+    { label: "خروج از حساب", classNameIcon: "power", address: "logOut" },
   ]);
   const mapList = listItem.map((item, index) => (
     <ListItem

@@ -4,7 +4,7 @@ import Http from "../../interceptor";
 const fetchCoursesApi = async (setData, pageCount, countInPage, setAllData) => {
   try {
     const result = await Http.get(
-      `Home/GetCoursesWithPagination?PageNumber=${pageCount}&RowsOfPage=${countInPage}&SortingCol=Active&SortType=DESC&TechCount=0`
+      `/Home/GetCoursesWithPagination?PageNumber=${pageCount}&RowsOfPage=${countInPage}&SortingCol=Active&SortType=DESC&TechCount=0`
     );
     try {
       setData(result.courseFilterDtos);

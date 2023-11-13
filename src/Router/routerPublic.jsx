@@ -17,6 +17,7 @@ import CourseDetails from "../screens/CourseDetails/CourseDetails";
 import AllCourse from "../screens/Panel/AllCourse";
 import WhishList from "../screens/Panel/WhishList";
 import MyCourses from "../screens/Panel/MyCourses";
+import LogOut from "../screens/Panel/logOut";
 import ChangePassword from "../screens/Panel/ChangePassword";
 import TeacherProfile from "../components/TeacherProfile/TeacherProfile";
 
@@ -70,6 +71,7 @@ export const routerPublic = createBrowserRouter([
       { path: "/userPanel/WhishList", element: <WhishList /> },
       { path: "/userPanel/ChangePassword", element: <ChangePassword /> },
       { path: "/userPanel/editProfile", element: <EditProfile /> },
+      { path: "/userPanel/logOut", element: <LogOut/> },
       { path: "/userPanel/", element: <UserDashboard /> },
     ],
   },

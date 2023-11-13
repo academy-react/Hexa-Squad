@@ -3,6 +3,7 @@ import Select from "react-select";
 
 import PaginationTable from "../common/PaginationTable";
 import TitleSection from "./TitleSection";
+import fetchCoursesApi from "../../core/services/api/GetData/allCoursesApi";
 const PanelCourses = ({title,AllData,addIcon}) => {
   const [options, setOptions] = useState([
     { value:3, label: 3 },
@@ -15,6 +16,7 @@ const PanelCourses = ({title,AllData,addIcon}) => {
   const [data, setData] = useState(allData);
   const [selectedOptions, setSelectedOption] = useState(null);
   const [countInPage, setCountInPage] = useState(6);
+  const pageCount = Math.ceil(data.length / countInPage);
 
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
@@ -29,8 +31,7 @@ const PanelCourses = ({title,AllData,addIcon}) => {
   }
 
   useEffect(() => {
-    setData(AllData);
-    setAllData(AllData);
+    fetchCoursesApi(setData, pageCount, countInPage, setAllData)
   }, []);
 
   return (

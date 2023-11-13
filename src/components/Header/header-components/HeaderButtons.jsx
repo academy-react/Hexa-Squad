@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";
 import ThemeSwitcher from "../../common/ThemeSwitcher";
-import Moon from '../../../assets/image/Moon.svg';
-import MoonColored from '../../../assets/image/Moon - colored.svg';
+import Moon from "../../../assets/image/Moon.svg";
+import MoonColored from "../../../assets/image/Moon - colored.svg";
 import { ShoppingPopover } from "../../common";
-const HeaderButtons = ({setLightMode,lightMode,headerStyle}) => {
+import { useSelector } from "react-redux";
+const HeaderButtons = ({ setLightMode, lightMode, headerStyle }) => {
+  const userInfo = useSelector((state) => state.userInfo.info);
   const htmlTag = document.querySelector("html");
   const changeTheme = () => {
     setLightMode(!lightMode);
@@ -13,21 +15,56 @@ const HeaderButtons = ({setLightMode,lightMode,headerStyle}) => {
   };
   return (
     <div className="header-btn">
-      <div onClick={changeTheme} className={"cursor-pointer items-center hidden "+(headerStyle?'lg:block':'')}>
-        <img src={Moon} className={lightMode ? 'hidden':'block'} />
-        <i className={(lightMode ?'block':'hidden')+ " bi bi-brightness-high text-3xl mt-1 "}></i>
+      <div
+        onClick={changeTheme}
+        className={
+          "cursor-pointer items-center hidden " +
+          (headerStyle ? "lg:block" : "")
+        }
+      >
+        <img src={Moon} className={lightMode ? "hidden" : "block"} />
+        <i
+          className={
+            (lightMode ? "block" : "hidden") +
+            " bi bi-brightness-high text-3xl mt-1 "
+          }
+        ></i>
       </div>
-      <div onClick={changeTheme} className={"cursor-pointer items-center hidden "+(headerStyle?'':'lg:block')}>
-        <img src={MoonColored} className={(lightMode ? 'hidden':'block') + ' w-8 h-8 -mt-1 '} />
-        <i className={(lightMode ?'block':'hidden')+ " bi bi-brightness-high text-[#3f40ea] text-3xl mt-1 "}></i>
+      <div
+        onClick={changeTheme}
+        className={
+          "cursor-pointer items-center hidden " +
+          (headerStyle ? "" : "lg:block")
+        }
+      >
+        <img
+          src={MoonColored}
+          className={(lightMode ? "hidden" : "block") + " w-8 h-8 -mt-1 "}
+        />
+        <i
+          className={
+            (lightMode ? "block" : "hidden") +
+            " bi bi-brightness-high text-[#3f40ea] text-3xl mt-1 "
+          }
+        ></i>
       </div>
-      <ShoppingPopover headerStyle={headerStyle}/>
-      <Link to={"/authorize/login"}>
+      <ShoppingPopover headerStyle={headerStyle} />
+      {userInfo == false ? (
+        <Link to={"/authorize/login"}>
+          <button className="primary-btn">
+            <i className="bi bi-box-arrow-in-right pt-1"></i>
+            ورود به سایت
+          </button>
+        </Link>
+      ) : (
+        <Link to={"/userPanel"}>{userInfo.fName + userInfo.lName}</Link>
+      )}
+      {/* <Link to={"/authorize/login"}>
         <button className="primary-btn">
           <i className="bi bi-box-arrow-in-right pt-1"></i>
           ورود به سایت
         </button>
-      </Link>
+      </Link> */}
       <label htmlFor="openMenu" className=" openMenu ">
         <span className="w-9/12 openMenu-span"></span>
         <span className="w-full openMenu-span"></span>

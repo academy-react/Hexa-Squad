@@ -42,6 +42,7 @@ const Login = () => {
         rememberMe: value.rememberMe,
       });
       setItem("token", result.token);
+      window.location.pathname = '/'
     } catch (error) {
       console.log(error);
       return [];

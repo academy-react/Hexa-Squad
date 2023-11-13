@@ -27,7 +27,7 @@ const onError = (err) => {
 instance.interceptors.response.use(onSuccess, onError);
 instance.interceptors.request.use((opt) => {
   const token = getItem("token");
-  opt.headers.Authorization = "Bearer " + token;
+  if(token) opt.headers.Authorization = "Bearer " + token;
   return opt;
 });
 export default instance;

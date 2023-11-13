@@ -8,7 +8,7 @@ const PaginationTable = ({ data, itemsPerPage ,addIcon }) => {
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / itemsPerPage);
-
+  console.log(data)
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
     setItemOffset(newOffset);
@@ -50,17 +50,17 @@ const PaginationTable = ({ data, itemsPerPage ,addIcon }) => {
                   <i className="bi bi-eye text-[#29209380] dark:text-semiPink"></i>
                 </td>
                 <td className="whitespace-nowrap px-6 py-4" dir="rtl">
-                   {SeparationPrice(data.price)} تومان
+                   {SeparationPrice(data.cost)} تومان
                 </td>
-                <td className="whitespace-nowrap px-6 py-4">{data.date}</td>
+                <td className="whitespace-nowrap px-6 py-4">{data.statusName}</td>
                 <td className="whitespace-nowrap px-6 py-4">
-                  {data.professorName}
+                  {data.teacherName}
                 </td>
                 <td className="whitespace-nowrap px-6 py-4" dir="rtl">{data.title}</td>
                 <td className="whitespace-nowrap px-6 py-4 font-medium">
                   {" "}
                   <img
-                    src={data.imageUrl}
+                    src={data.tumbImageAddress}
                     className="min-w-[70px] w-[80px] rounded-lg "
                     alt={data.title}
                   />{" "}
