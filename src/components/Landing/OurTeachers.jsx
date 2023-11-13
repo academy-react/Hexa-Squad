@@ -27,7 +27,7 @@ const OurTeachers = () => {
   const fetchData = useCallback(async () => {
     try {
       const result = await axios.get(
-        "https://api-academy.iran.liara.run/api/Home/GetTeachers"
+        "https://acadapi.etacorealtime.ir/api/Home/GetTeachers"
       );
       console.log(result.data);
       const receivedData = result.data;

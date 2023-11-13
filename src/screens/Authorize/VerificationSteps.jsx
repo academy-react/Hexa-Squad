@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 
 import { StepperContext } from "../../contexts/StepperContext";
@@ -12,6 +12,7 @@ import ForgetPassword from "../../assets/image/forgetPassword.svg";
 import ForgetPasswordDark from "../../assets/image/forgetPasswordDark.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { onThemeChange } from "../../redux/darkMode";
+import Copyrights from "../../components/common/Copyrights";
 
 const VerificationSteps = () => {
   const htmlTag = document.querySelector("html");
@@ -19,7 +20,7 @@ const VerificationSteps = () => {
   const steps = ["شماره تماس", "دریافت کد", " تغییر رمزعبور"];
   const [userData, setUserData] = useState("");
   const [finalData, setFinalData] = useState([]);
-  const theme = useSelector((state)=>state.darkModeSlice.theme);
+  const theme = useSelector((state) => state.darkModeSlice.theme);
   const dispatch = useDispatch();
 
   const displayStep = (step) => {
@@ -39,14 +40,15 @@ const VerificationSteps = () => {
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
   };
 
-  const setLightMode = (theme)=>{
+  const setLightMode = (theme) => {
     dispatch(onThemeChange(theme));
-  }
+  };
   const changeTheme = () => {
     setLightMode(!theme);
     theme ? (htmlTag.className = "dark") : (htmlTag.className = "");
   };
   return (
+    <Fragment>
     <div className="bg-lightPink min-h-screen overflow-hidden dark:bg-indigo-950  flex items-center justify-center px-16">
       <div className=" relative w-full max-w-lg mx-auto mb-20 ">
         <div className=" h-full absolute right-32">
@@ -56,17 +58,17 @@ const VerificationSteps = () => {
         </div>
         <div
           data-aos="zoom-in-right"
-          className=" bg-[#e4dbff] dark:bg-indigo-800 dark:bg-opacity-30 mx-auto right-14 bg-opacity-60 rounded-lg relative h-96 w-[300px] md:min-w-[100vh] md:right-[130px] md:-mt-10 lg:mt-0 lg:min-w-[90vh] lg:h-[70vh]  lg:top-10 lg:right-40 xl:min-w-[173vh] xl:min-h-[70vh] xl:right-96 xl:top-10"
+          className="  relative   mx-auto right-14   h-96 w-[300px] md:w-full md:h-[520px]  md:right-[160px]    lg:top-10 lg:right-40   xl:right-96 xl:top-10"
         >
-          <div className="w-[420px] h-full top-5  absolute right-10 hidden xl:block">
+          <div className="w-[490px] dark:bg-indigo-800 dark:bg-opacity-30 bg-opacity-60 rounded-lg ml-[780px] bg-[#e4dbff] h-full   hidden xl:block">
             <img
               src={ForgetPassword}
-              className="object-cover rounded-e-xl hidden lg:block dark:hidden"
+              className="object-cover w-[400px] mx-auto pt-10  rounded-e-xl hidden lg:block dark:hidden"
               alt=""
             />
             <img
               src={ForgetPasswordDark}
-              className="object-cover rounded-e-xl hidden lg:hidden dark:block "
+              className="object-cover w-[400px] mx-auto pt-10  rounded-e-xl hidden lg:hidden dark:block  "
               alt=""
             />
           </div>
@@ -120,6 +122,8 @@ const VerificationSteps = () => {
         </div>
       </div>
     </div>
+    <Copyrights/> 
+    </Fragment>
   );
 };
 

@@ -23,8 +23,8 @@ const TeacherCard = ({ title, description, course, pictureAddress, id }) => {
         </div>
         <div className="rounded-br-3xl rounded-lg cursor-pointer mx-auto  shadow-[rgba(0,_0,_0,_0.15)_0px_25px_50px_-12px] group overflow-hidden  hover:shadow-shadow-auth  z-0 mt-[100px] lg:mt-[100px] md:mt-[90px]  bg-gradient-to-bl from-[#8800ff] to-[#8181ff] dark:bg-gradient-to-bl dark:from-[#13005A] dark:to-[#26126e]  opacity md:w-60 lg:w-full dark:hover:shadow-[#220e6b] ">
           <div className="p-5 flex-col relative h-[260px] lg:h-[260px] md:h-[200px]">
-            <div className="contact-teachers1 absolute z-3 top-[-60%] dark:bg-[#2a1079]">
-              <div className=" bi bi-instagram icons-contact mt-3  "></div>
+            <div className="contact-teachers1 text-purple-100 absolute z-3 top-[-60%] dark:bg-[#2a1079]">
+              <div className=" bi bi-instagram icons-contact  mt-3  "></div>
               <div className=" bi bi-telegram icons-contact"></div>
               <div className=" bbi bi-linkedin icons-contact"></div>
             </div>

@@ -41,7 +41,7 @@ const TabsContent = () => {
   const fetchCommentData = useCallback(async () => {
     try {
       const result = await axios.get(
-        `https://api-academy.iran.liara.run/api/Course/GetCourseCommnets/` +
+        `https://acadapi.etacorealtime.ir/api/Course/GetCourseCommnets/` +
           urlParam.id
       );
       console.log(result.data);
