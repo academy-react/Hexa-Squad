@@ -394,7 +394,7 @@
   }
 
   .filter-options {
-    @apply w-6/12 top-0 z-50 right-0  lg:p-0 bg-[#EAE5FF] lg:shadow-none shadow-shadow-all lg:bg-transparent lg:dark:bg-transparent dark:bg-slate-900 lg:h-full min-w-fit lg:w-4/12 ml-5 fixed h-screen lg:relative
+    @apply w-8/12 md:w-5/12 lg:w-4/12 top-0 z-50 right-0  lg:p-0 bg-[#EAE5FF] lg:shadow-none shadow-shadow-all lg:bg-transparent lg:dark:bg-transparent dark:bg-slate-900 lg:h-full min-w-fit ml-5 fixed h-screen lg:relative
   }
 
   .checkbox:checked~.content {
