@@ -1,4 +1,7 @@
 import React from "react";
+import FooterMapPopover from "./FooterMapPopover";
+// import FooterMap from "./FooterMap";
+import { Popup } from "react-leaflet";
 
 const FooterBottom = () => {
   return (
@@ -21,11 +24,13 @@ const FooterBottom = () => {
         </a>
       </div>
       <div className="flex gap-2">
-        <i className="bi bi-geo-alt"></i>
+        {/* <i className="bi bi-geo-alt cursor-pointer" onClick={() => showFooterMapModal.click()}></i> */}
+        <FooterMapPopover/>
         <p>
           ساری - بلوار جاده دریا - بعد از دنیای آرزو - نرسیده به دانشگاه روزبهان
         </p>
       </div>
+      
     </div>
   );
 };
