@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import axios from "axios";
+import React, { useRef, useState, useEffect, useCallback } from "react";
+import http from "../../core/services/interceptor"
 
 import AutoTypeWriter from "../common/AutoTypeWriter";
 import HeroSearchBox from "./HeroSearchBox";
@@ -16,10 +16,10 @@ const HeroSection = () => {
   const [Data, setData] = useState({});
   const fetchLandingReport = useCallback(async () => {
     try {
-      const result = await axios.get(
-        "https://api-academy.iran.liara.run/api/Home/LandingReport"
+      const result = await http.get(
+        "/Home/LandingReport"
       );
-      setData(result.data);
+      setData(result);
     } catch (error) {
       console.log(error);
     }

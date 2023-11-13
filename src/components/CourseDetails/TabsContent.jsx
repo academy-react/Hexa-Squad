@@ -5,7 +5,8 @@ import Tab from "./Tab";
 import Tabs from "./Tabs";
 import Accordions from "../../core/services/api/GetData/Topics";
 import Accordion from "./Accordion";
-import { InputComment, UserComments } from "../News";
+import InputComment from "../common/InputComment";
+import UserComments from "../common/UserComments";
 
 import comments from "../../assets/image/comments.svg";
 import { MdOutlinePreview } from "react-icons/md";

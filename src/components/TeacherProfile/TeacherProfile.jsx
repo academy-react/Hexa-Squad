@@ -1,6 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react";
-import TeacherInfo from "./TeacherProfile/TeacherInfo";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import Http from "../../core/services/interceptor";
 
