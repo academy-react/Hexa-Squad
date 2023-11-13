@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
-import axios from "axios";
+import http from "../../core/services/interceptor/index"
 import { useParams } from "react-router-dom";
+
 import fetchTopCourses from "../../core/services/api/GetData/getTopCourses";
 import CoursePhoto from "../../components/CourseDetails/CoursePhoto";
 import DetailsBox from "../../components/CourseDetails/DetailsBox";
@@ -10,7 +11,6 @@ import TabsContent from "../../components/CourseDetails/TabsContent";
 
 const CourseDetails = () => {
   const [coursesWhishList, setCoursesWhishList] = useState([]);
-
   const [urlParam, setUrlParam] = useState(useParams());
   const [data, setData] = useState([]);
   const mapCourses = coursesWhishList.map((item, index) => {
@@ -36,15 +36,17 @@ const CourseDetails = () => {
 
   const fetchData = useCallback(async () => {
     try {
-      const result = await axios.get(
-        `https://api-academy.iran.liara.run/api/Home/GetCourseDetails?CourseId=` +
+      const result = await http.get(
+        `/Home/GetCourseDetails?CourseId=` +
           urlParam.id
       );
-      console.log(result.data);
-      const receivedData = result.data;
+      console.log(result);
+      const receivedData = result;
       setData(receivedData);
     } catch (error) {}
   }, []);
+
+
   useEffect(() => {
     fetchData();
     fetchTopCourses(3, setCoursesWhishList);
