@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import axios from "axios";
-import Course from "./Course";
-import fetchData from "../../core/services/api/GetData/getTopCourses";
-
 import "swiper/css";
 import "swiper/css/pagination";
 
+import Course from "./Course";
+import fetchData from "../../core/services/api/GetData/getTopCourses";
+
+
 const CourseAutoplaySlider = () => {
   const [coursesList, setCoursesList] = useState([]);
-  const [data, setData] = useState([]);
-  const [allData, setAllData] = useState([]);
 
   const dataMapper = coursesList.map((item, index) => {
     return (
@@ -35,6 +34,10 @@ const CourseAutoplaySlider = () => {
     );
   });
 
+  useEffect(() => {
+    console.log(coursesList)
+  }, [coursesList])
+  
   useEffect(() => {
     fetchData(8, setCoursesList);
   }, []);

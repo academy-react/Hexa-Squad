@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import http from "../../core/services/interceptor"
-import TeacherInfo from "./TeacherProfile/TeacherInfo";
+import Http from "../../core/services/interceptor";
 
 const TeacherProfile = () => {
   const [urlParam, setUrlParam] = useState(useParams())
@@ -17,8 +16,8 @@ const TeacherProfile = () => {
 });
   const fetchTeacherData = useCallback(async () => {
     try {
-      const result = await http.get('/Home/GetTeacherDetails?TeacherId='+urlParam.id);
-      setTeacherInfo(result);
+      const result = await Http.get('Home/GetTeacherDetails?TeacherId='+urlParam.id);
+      result !=undefined ? setTeacherInfo(result) :'';
       console.log(result)
     } catch (error) {
       console.log(error)

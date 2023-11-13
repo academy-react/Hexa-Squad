@@ -28,11 +28,9 @@ const TeacherCard = ({ title, description, course, pictureAddress, id }) => {
               <div className=" bi bi-telegram icons-contact"></div>
               <div className=" bbi bi-linkedin icons-contact"></div>
             </div>
-            <Link to={"/TeacherProfile/" + id}>
-              <h2 className="text-xl md:text-sm lg:text-xl  mt-20 lg:mt-20 md:mt-12 text-[#ede8ff]   dark:text-[#c9baff] dark:group-hover:text-[#e4defa]">
-                {title}
-              </h2>
-            </Link>
+            <h2 className="text-xl md:text-sm lg:text-xl  mt-20 lg:mt-20 md:mt-12 text-[#ede8ff]   dark:text-[#c9baff] dark:group-hover:text-[#e4defa]">
+              {title}
+            </h2>
             <h2 className="text-sm md:text-xs lg:text-sm mt-2 text-[#d5c7ff]">
               {" "}
               {course}{" "}
