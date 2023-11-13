@@ -102,7 +102,7 @@ const Login = () => {
                     initialValues={{
                       phoneOrGmail: "",
                       password: "",
-                      rememberMe: "",
+                      rememberMe: false,
                     }}
                     enableReinitialize={true}
                     // validationSchema={validation}
