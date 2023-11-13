@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
-import http from "../../core/services/interceptor/index";
+import http from "../../core/services/interceptor";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { onThemeChange } from "../../redux/darkMode";
@@ -11,11 +11,11 @@ import Copyrights from "../../components/common/Copyrights";
 import FieldInput from "../../components/common/FieldInput";
 import loginImage from "../../assets/image/Login11.svg";
 import loginDark from "../../assets/image/loginDark.svg";
+import { setItem } from "../../core/services/local-storage/storage.services";
 
 const Login = () => {
   const htmlTag = document.querySelector("html");
   const [visible, setVisibility] = useState(false);
-  const [phoneNumberValue, setPhoneNumberValue] = useState("");
   const theme = useSelector((state) => state.darkModeSlice.theme);
   const dispatch = useDispatch();
   const toggle = () => {
@@ -30,21 +30,18 @@ const Login = () => {
   };
 
   const validation = yup.object().shape({
-    gmail: yup
-      .string()
-      .email("  ایمیل را به درستی وارد کنید")
-      .required("این فیلد الزامیست!"),
+    phoneOrGmail: yup.string().required("این فیلد الزامیست!"),
     password: yup.string().required("این فیلد الزامیست!"),
   });
   const onSubmitLogin = async (value) => {
     console.log(" fetching started ...", value);
     try {
       const result = await http.post("/Sign/Login", {
-        phoneNumber: value.phoneOrGmail,
+        phoneOrGmail: value.phoneOrGmail,
         password: value.password,
+        rememberMe: value.rememberMe,
       });
-      console.log(result);
-      handleClick("next");
+      setItem("token", result.token);
     } catch (error) {
       console.log(error);
       return [];
@@ -102,11 +99,12 @@ const Login = () => {
                 >
                   <Formik
                     initialValues={{
-                      phoneNumber: phoneNumberValue,
-                      gmail: "",
+                      phoneOrGmail: "",
                       password: "",
+                      rememberMe: "",
                     }}
-                    validationSchema={validation}
+                    enableReinitialize={true}
+                    // validationSchema={validation}
                     onSubmit={(value) => {
                       onSubmitLogin(value);
                     }}
@@ -117,9 +115,8 @@ const Login = () => {
                         نام کاربری و رمزعبور خود را وارد کنید
                       </h2>
                       <FieldInput
-                        placeholder={"  نام کاربری   "}
-                        name="gmail"
-                        type={"gmail"}
+                        placeholder={"  شماره موبایل یا ایمیل   "}
+                        name="phoneOrGmail"
                       />
                       <div className="w-full relative md:-mt-2 -mt-3">
                         <FieldInput
@@ -135,6 +132,25 @@ const Login = () => {
                           )}
                         </div>
                       </div>
+                      <div className=" flex gap-2 justify-start w-full p-4 absolute -bottom-10 md:left-4 mr-8 md:mr-0">
+                        <Field
+                          type="checkbox"
+                          name="rememberMe"
+                          id="remember"
+                          className="w-4 h-4 border-2  rounded-sm mt-1 bg-semiWhite cursor-pointer "
+                        />
+                        <label
+                          htmlFor="remember"
+                          className="md:text-base text-sm"
+                        >
+                          مرا به خاطر بسپار
+                        </label>
+                      </div>
+                      <input
+                        type="submit"
+                        value=" ورود به سایت"
+                        className="w-[270px] absolute top-64 right-[60px] py-[10px]  rounded-md text-sm text-[#f4f1ff] bg-gradient-to-tr  from-[#7a0cff] to-[#4739ff] cursor-pointer hover:bg-gradient-to-tr hover:from-[#4739ff] hover:to-[#7a0cff]"
+                      />
                       {/* <Link to={"/authorize/login"} className="pointer w-100 h-100 d-inline-block">ورود به سایت</Link> */}
                     </Form>
                   </Formik>
@@ -143,24 +159,6 @@ const Login = () => {
                       فراموشی رمز ؟
                     </span>
                   </Link>
-
-                  <div className=" flex gap-2 justify-start w-full p-4 absolute -bottom-10 md:left-4 mr-8 md:mr-0">
-                    <input
-                      type="checkbox"
-                      name=""
-                      id="remember"
-                      className="w-4 h-4 border-2  rounded-sm mt-1 bg-semiWhite cursor-pointer "
-                    />
-                    <label htmlFor="remember" className="md:text-base text-sm">
-                      مرا به خاطر بسپار
-                    </label>
-                  </div>
-
-                  <input
-                    type="submit"
-                    value=" ورود به سایت"
-                    className="w-[270px] absolute top-64 right-[60px] py-[10px]  rounded-md text-sm text-[#f4f1ff] bg-gradient-to-tr  from-[#7a0cff] to-[#4739ff] cursor-pointer hover:bg-gradient-to-tr hover:from-[#4739ff] hover:to-[#7a0cff]"
-                  />
 
                   <span className="absolute top-[320px]   right-[100px]  text-sm text-[#7F52FD] dark:text-indigo-400 ">
                     حساب کاربری ندارید ؟
