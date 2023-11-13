@@ -5,6 +5,7 @@ import * as yup from "yup";
 // import { validation } from "../../../core/validations/validations";
 import FieldInput from "../../common/FieldInput";
 import axios from "axios";
+import onSubmitFunction from "../../../core/services/api/PostData/Register";
 
 const validation = yup.object().shape({
   gmail: yup
@@ -20,24 +21,18 @@ const PersonalInfo = ({ phoneNumberValue, handleClick }) => {
   };
 
   const onSubmit = async (value) => {
-    console.log(value);
-    try {
-      await axios.post(
-        "https://api-academy.iran.liara.run/api/Sign/VerifyMessage",
-        {
-          phoneNumber: value.phoneNumber,
-          verifyCode: value.verifyCode,
-          gmail: value.gmail,
-        }
-      );
-      try {
-        handleClick("next");
-      } catch (error) {
-        console.log(error);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    const toastifyMessage = {
+      pending: "ثبت نام در حال انجام است",
+      success: "ثبت نام با موفقیت انجام شد",
+      error: "مشکلی بوجود آمد . ثبت نام ناموفق بود",
+    };
+    const api = "Sign/Register";
+    const obj = {
+      phoneNumber: value.phoneNumber,
+      verifyCode: value.verifyCode,
+      gmail: value.gmail,
+    };
+    onSubmitFunction(api, value, obj, toastifyMessage, handleClick);
   };
   return (
     <div className="bg-[#e4dbff]">

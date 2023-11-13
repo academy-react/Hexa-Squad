@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Lline from '../../../assets/image/Lline.svg';
-import admin from '../../../assets/image/admin.svg';
+import Lline from '../../assets/image/Lline.svg';
+import admin from '../../assets/image/admin.svg';
 
 const AdminComments = ({name, date, answer}) => {
     return(

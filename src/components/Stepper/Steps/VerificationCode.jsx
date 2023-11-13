@@ -1,32 +1,19 @@
 import React from "react";
 import { Formik, Form } from "formik";
+import axios from "axios";
+import { toast } from "react-toastify";
 import { validation } from "../../../core/validations/validations";
 import FieldInput from "../../common/FieldInput";
 import VerifyCodeObj from "../../../core/services/toastPromiseObj/VerifyCode";
-import axios from "axios";
-import { toast } from "react-toastify";
+import onSubmitFunction from "../../../core/services//api/PostData/Register";
 const VerificationCode = ({ phoneNumberValue, handleClick }) => {
   const onSubmit = async (value) => {
-    console.log(value);
-    try {
-      await toast.promise(
-        axios.post(
-          "https://api-academy.iran.liara.run/api/Sign/VerifyMessage",
-          { phoneNumber: value.phoneNumber, verifyCode: value.verifyCode }
-        ),
-        VerifyCodeObj
-      );
-      try {
-        setTimeout(() => {
-          toast.dismiss();
-          handleClick("next");
-        }, 3500);
-      } catch (error) {
-        console.log(error);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    const api = "Sign/VerifyMessage";
+    const obj = {
+      phoneNumber: phoneNumberValue,
+      verifyCode: value.verifyCode,
+    };
+    onSubmitFunction(api,value, obj, VerifyCodeObj, handleClick);
   };
   return (
     <div className="bg-[#e4dbff]">
@@ -43,7 +30,9 @@ const VerificationCode = ({ phoneNumberValue, handleClick }) => {
             phoneNumber: phoneNumberValue,
             verifyCode: "",
           }}
-          onSubmit={(value) => {onSubmit(value)}}
+          onSubmit={(value) => {
+            onSubmit(value);
+          }}
         >
           <Form autoComplete="off" className="text-[#a967ff]">
             <h2 className="md:text-sm text-xs mr-[44px] md:mr-0">

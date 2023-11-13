@@ -1,20 +1,13 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
-import { Typewriter } from "react-simple-typewriter";
+import http from "../../core/services/interceptor"
 
-import HeroSectionImage from "../../assets/image/woman working- Hero section image.png";
-import HeroSectionImageCroped from "../../assets/image/woman working- Hero section image - croped.png";
 import AutoTypeWriter from "../common/AutoTypeWriter";
-import { SearchBox } from "../common";
+import HeroSearchBox from "./HeroSearchBox";
 
 import teacher from "../../assets/image/stat-teacher.svg";
 import student from "../../assets/image/stat-student.svg";
 import course from "../../assets/image/course-state.svg";
 import heroImage from "../../assets/image/hero-image.png";
-import AllData from "../../core/services/api/GetData/allCoursesApi";
-import SuggestedCourse from "../UserPanel/UserDashboard/SuggestedCourse";
-import fetchCoursesApi from "../../core/services/api/GetData/allCoursesApi";
-import HeroSearchBox from "./HeroSearchBox";
-import axios from "axios";
 const HeroSection = () => {
   const text = [
     " مرجع اموزش زنده و تعاملی دسترسی به بیش از هفت هزار ویدیوی اموزشی به زبان فارسی .",
@@ -23,11 +16,10 @@ const HeroSection = () => {
   const [Data, setData] = useState({});
   const fetchLandingReport = useCallback(async () => {
     try {
-      const result = await axios.get(
-        "https://api-academy.iran.liara.run/api/Home/LandingReport"
+      const result = await http.get(
+        "/Home/LandingReport"
       );
-      setData(result.data);
-      console.log('landing Report',result.data)
+      setData(result);
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +47,7 @@ const HeroSection = () => {
           <div>
             <img src={course} alt="دوره" />
             <span>{Data.courseCount}</span>
-            <label>دقیقه اموزش</label>
+            <label>دوره آموزشی</label>
           </div>
           <div>
             <img src={student} alt="دانش آموز" />

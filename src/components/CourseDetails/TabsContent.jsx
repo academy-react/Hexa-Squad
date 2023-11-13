@@ -5,7 +5,8 @@ import Tab from "./Tab";
 import Tabs from "./Tabs";
 import Accordions from "../../core/services/api/GetData/Topics";
 import Accordion from "./Accordion";
-import { InputComment, UserComments } from "../News";
+import InputComment from "../common/InputComment";
+import UserComments from "../common/UserComments";
 
 import comments from "../../assets/image/comments.svg";
 import { MdOutlinePreview } from "react-icons/md";
@@ -60,7 +61,7 @@ const TabsContent = () => {
           <div className="py-4">
             <h2 className="text-lg font-medium mb-2 hidden">توضیحات</h2>
 
-            <p className="text-gray-700 w-full mt-6 ">
+            <div className="text-gray-700 w-full mt-6 ">
               <h2 className="text-lg text-indigo-900 mt-2 dark:text-indigo-100 md:mx-2  ">
                 {" "}
                 HTML چیست؟
@@ -89,7 +90,7 @@ const TabsContent = () => {
                 به کاربر نشان داده می‌‌شود. بنابراین، یادگیری HTML برای افرادی
                 که در زمینه طراحی وب فعالیت می‌کنند، بسیار مهم است.
               </p>
-            </p>
+            </div>
           </div>
         </Tab>
         <Tab label="پیش نمایش ها">

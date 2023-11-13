@@ -1,8 +1,8 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import http from "../../core/services/interceptor"
+
 import TeacherCard from "./TeacherCard";
 import Title from "../common/Title";
-import axios from "axios";
-import { useCallback } from "react";
 import background from "../../assets/image/bgDesign.svg";
 
 const OurTeachers = () => {
@@ -26,11 +26,11 @@ const OurTeachers = () => {
   const [teacherList, setTeacherList] = useState([]);
   const fetchData = useCallback(async () => {
     try {
-      const result = await axios.get(
-        "https://acadapi.etacorealtime.ir/api/Home/GetTeachers"
+      const result = await http.get(
+        "/Home/GetTeachers"
       );
-      console.log(result.data);
-      const receivedData = result.data;
+      console.log(result);
+      const receivedData = result;
       setTeacherList(receivedData);
     } catch (error) {
       console.log(error);

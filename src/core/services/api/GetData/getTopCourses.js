@@ -1,11 +1,12 @@
 import axios from "axios";
+import Http from "../../interceptor";
 
 const fetchData = async (Count , setCoursesList) => {
   try {
-    const result = await axios.get(
-      "https://api-academy.iran.liara.run/api/Home/GetCoursesTop?Count=" + Count
+    const result = await Http.get(
+      "Home/GetCoursesTop?Count=" + Count
     );
-    setCoursesList(result.data);
+    setCoursesList(result);
   } catch (error) {
     console.log(error);
   }

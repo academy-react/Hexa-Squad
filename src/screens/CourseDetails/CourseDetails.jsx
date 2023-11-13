@@ -50,7 +50,7 @@ const CourseDetails = () => {
   useEffect(() => {
     fetchData();
     fetchTopCourses(3, setCoursesWhishList);
-  }, []);
+  }, [coursesWhishList]);
 
   return (
     <div>

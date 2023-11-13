@@ -6,32 +6,17 @@ import { toast } from "react-toastify";
 
 import FieldInput from "../../common/FieldInput";
 import phoneNumberToastObj from "../../../core/services/toastPromiseObj/phoneNumber";
+import onSubmitFunction from "../../../core/services/api/PostData/Register";
 const PhoneNumber = ({
   handleClick,
   setPhoneNumberValue,
   phoneNumberValue,
 }) => {
-  const onSubmit = async (value) => {
-    console.log(value);
-    try {
-      await toast.promise(
-        axios.post(
-          "https://api-academy.iran.liara.run/api/Sign/SendVerifyMessage",
-          { phoneNumber: value.phoneNumber }
-        ),
-        phoneNumberToastObj
-      );
-      try {
-        setPhoneNumberValue(value.phoneNumber);
-        setTimeout(() => {
-          handleClick("next");
-        }, 3500);
-      } catch (error) {
-        console.log(error);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+  const onSubmit = (value) => {
+    const obj ={ phoneNumber: value.phoneNumber };
+    const api = "Sign/SendVerifyMessage";
+    onSubmitFunction(api,value,obj,phoneNumberToastObj,handleClick)
+    setPhoneNumberValue(value.phoneNumber);
   };
   const validation = yup.object().shape({
     phoneNumber: yup

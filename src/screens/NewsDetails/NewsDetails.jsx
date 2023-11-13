@@ -1,21 +1,21 @@
 import React, { useState, Fragment, useEffect, useCallback } from "react";
-import axios from "axios";
-import { motion, useScroll, useSpring } from "framer-motion";
-import { UserComments, InputComment } from "./";
-import userCommentData from "../../core/services/api/GetData/userCommentData";
-
 import { Link, useParams } from "react-router-dom";
+import http from "../../core/services/interceptor"
+import { motion, useScroll, useSpring } from "framer-motion";
+
+import userCommentData from "../../core/services/api/GetData/userCommentData";
+import UserComments from "../../components/common/UserComments";
+import InputComment from "../../components/common/InputComment";
 import {
   userSvg,
   facebookSvg,
   twitterSvg,
   instagramSvg,
 } from "../../assets/icons/svgIcons";
-import newsDetails1 from "../../assets/image/newsDetails1.svg";
 import eye from "../../assets/image/eye.svg";
 import calendar from "../../assets/image/calendar.svg";
 import commentImg from "../../assets/image/comments.svg";
-import "../Landing/common.css";
+import "../../components/Landing/common.css";
 
 const NewsDetails = () => {
   const [urlParam, setUrlParam] = useState(useParams());
@@ -42,12 +42,12 @@ const NewsDetails = () => {
   });
   const fetchData = useCallback(async () => {
     try {
-      const result = await axios.get(
-        "https://api-academy.iran.liara.run/api/News/" + urlParam.id
+      const result = await http.get(
+        "/News/" + urlParam.id
       );
-      console.log(result.data);
-      setData(result.data.detailsNewsDto);
-      setComment(result.data.commentDtos);
+      console.log(result);
+      setData(result.detailsNewsDto);
+      setComment(result.commentDtos);
     } catch (error) {
       console.log(error);
     }
