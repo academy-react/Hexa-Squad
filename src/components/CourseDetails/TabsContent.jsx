@@ -1,5 +1,6 @@
-import React, { useState} from "react";
-
+import React, { useState, useCallback, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import Tab from "./Tab";
 import Tabs from "./Tabs";
 import Accordions from "../../core/services/api/GetData/Topics";
@@ -25,7 +26,7 @@ const TabsContent = () => {
     },
   ]);
   const [comment, setComment] = useState([]);
-
+  const [urlParam, setUrlParam] = useState(useParams());
   const userComments = comment.map((item, index) => {
     return (
       <UserComments
@@ -37,7 +38,21 @@ const TabsContent = () => {
       />
     );
   });
+  const fetchCommentData = useCallback(async () => {
+    try {
+      const result = await axios.get(
+        `https://api-academy.iran.liara.run/api/Course/GetCourseCommnets/` +
+          urlParam.id
+      );
+      console.log(result.data);
+      const receivedData = result.data;
+      setComment(receivedData);
+    } catch (error) {}
+  }, []);
 
+  useEffect(() => {
+    fetchCommentData();
+  }, []);
   return (
     <div>
       <Tabs>

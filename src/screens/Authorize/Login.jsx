@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Formik, Form } from "formik";
 import { Link } from "react-router-dom";
+import * as yup from "yup";
+import http from "../../core/services/interceptor/index";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { onThemeChange } from "../../redux/darkMode";
 import Copyrights from "../../components/common/Copyrights";
-import { validation } from "../../core/validations/validations";
+// import { validation } from "../../core/validations/validations";
 import FieldInput from "../../components/common/FieldInput";
 import loginImage from "../../assets/image/Login11.svg";
 import loginDark from "../../assets/image/loginDark.svg";
@@ -13,6 +15,7 @@ import loginDark from "../../assets/image/loginDark.svg";
 const Login = () => {
   const htmlTag = document.querySelector("html");
   const [visible, setVisibility] = useState(false);
+  const [phoneNumberValue, setPhoneNumberValue] = useState("");
   const theme = useSelector((state) => state.darkModeSlice.theme);
   const dispatch = useDispatch();
   const toggle = () => {
@@ -25,6 +28,28 @@ const Login = () => {
     setLightMode(!theme);
     theme ? (htmlTag.className = "dark") : (htmlTag.className = "");
   };
+
+  const validation = yup.object().shape({
+    gmail: yup
+      .string()
+      .email("  ایمیل را به درستی وارد کنید")
+      .required("این فیلد الزامیست!"),
+    password: yup.string().required("این فیلد الزامیست!"),
+  });
+  const onSubmitLogin = async (value) => {
+    console.log(" fetching started ...", value);
+    try {
+      const result = await http.post("/Sign/Login", {
+        phoneNumber: value.phoneOrGmail,
+        password: value.password,
+      });
+      console.log(result);
+      handleClick("next");
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+  };
   return (
     <>
       <div className="bg-lightPink  dark:bg-indigo-950 overflow-hidden min-h-screen flex items-center justify-center px-16">
@@ -35,24 +60,24 @@ const Login = () => {
 
           <div
             data-aos="zoom-in"
-            className="bg-[#e4dbff] relative  dark:bg-indigo-800 dark:bg-opacity-30 mx-auto right-14 bg-opacity-60 rounded-lg  h-96 w-[300px] md:min-w-[100vh] md:h-[520px]  md:right-[160px] lg:min-w-[90vh] lg:h-[70vh]  lg:top-10 lg:right-40 xl:min-w-[173vh] xl:min-h-[70vh] xl:right-96 xl:top-10 "
+            className=" relative   mx-auto right-14   h-96 w-[300px] md:w-full md:h-[520px]  md:right-[160px]    lg:top-10 lg:right-40   xl:right-96 xl:top-10 "
           >
-            <div className="w-[460px]  h-full top-4 absolute right-2 hidden xl:block">
+            <div className="w-[490px] dark:bg-indigo-800 dark:bg-opacity-30 bg-opacity-60 rounded-lg ml-[780px] bg-[#e4dbff] h-full   hidden xl:block">
               <img
                 src={loginImage}
-                className="object-cover rounded-e-xl hidden lg:block dark:hidden"
+                className="object-cover w-[400px] mx-auto py-10 rounded-e-xl hidden lg:block dark:hidden"
                 alt=""
               />
               <img
                 src={loginDark}
-                className="object-cover rounded-e-xl hidden lg:hidden dark:block "
+                className="object-cover w-[400px] mx-auto py-10 rounded-e-xl hidden lg:hidden dark:block "
                 alt=""
               />
             </div>
             <div className="bg-[#ECE9FF] dark:bg-darkblue2 rounded-md rounded-e-xl -top-10 md:top-0 w-[400px] h-[540px] md:block md:w-[800px] lg:h-full absolute">
               <Link to="/">
                 {" "}
-                <h1 class="bi bi-house-door md:text-2xl  text-xl dark:text-indigo-200 text-[#6652eb] absolute left-4 top-4"></h1>
+                <h1 className="bi bi-house-door md:text-2xl  text-xl dark:text-indigo-200 text-[#6652eb] absolute left-4 top-4"></h1>
               </Link>
 
               <h2
@@ -77,11 +102,14 @@ const Login = () => {
                 >
                   <Formik
                     initialValues={{
-                      email: "",
+                      phoneNumber: phoneNumberValue,
+                      gmail: "",
                       password: "",
                     }}
                     validationSchema={validation}
-                    onSubmit={() => alert("ثبت نام")}
+                    onSubmit={(value) => {
+                      onSubmitLogin(value);
+                    }}
                   >
                     <Form autoComplete="off" className="text-[#a967ff]">
                       <h2 className="md:text-sm text-xs mr-[44px] md:mr-0">
@@ -90,8 +118,8 @@ const Login = () => {
                       </h2>
                       <FieldInput
                         placeholder={"  نام کاربری   "}
-                        name="email"
-                        type={"email"}
+                        name="gmail"
+                        type={"gmail"}
                       />
                       <div className="w-full relative md:-mt-2 -mt-3">
                         <FieldInput
@@ -127,13 +155,12 @@ const Login = () => {
                       مرا به خاطر بسپار
                     </label>
                   </div>
-                  <Link to="/">
-                    <input
-                      type="submit"
-                      value=" ورود به سایت"
-                      className="w-[270px] absolute top-64 right-[60px] py-[10px]  rounded-md text-sm text-[#f4f1ff] bg-gradient-to-tr  from-[#7a0cff] to-[#4739ff] cursor-pointer hover:bg-gradient-to-tr hover:from-[#4739ff] hover:to-[#7a0cff]"
-                    />
-                  </Link>
+
+                  <input
+                    type="submit"
+                    value=" ورود به سایت"
+                    className="w-[270px] absolute top-64 right-[60px] py-[10px]  rounded-md text-sm text-[#f4f1ff] bg-gradient-to-tr  from-[#7a0cff] to-[#4739ff] cursor-pointer hover:bg-gradient-to-tr hover:from-[#4739ff] hover:to-[#7a0cff]"
+                  />
 
                   <span className="absolute top-[320px]   right-[100px]  text-sm text-[#7F52FD] dark:text-indigo-400 ">
                     حساب کاربری ندارید ؟
