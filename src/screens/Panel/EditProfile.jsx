@@ -26,7 +26,7 @@ const EditProfile = () => {
     });
     useEffect(() => {
         getProfileInfo()
-    }, [getProfileInfo]);
+    }, []);
 
   return (
     <Fragment>
