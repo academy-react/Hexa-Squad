@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -15,6 +15,7 @@ import { getProfile } from "../core/services/api/GetData/profile";
 import { onUserChange } from "../redux/user";
 
 import "react-toastify/dist/ReactToastify.css";
+import LoadingSpinner from "../components/common/loadingSpinner";
 
 const App = () => {
   useEffect(() => {

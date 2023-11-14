@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { getProfile } from "../GetData/profile";
 
 export const addCart = async (id, isLogin) => {

@@ -1,10 +1,15 @@
-import React, { useState, useEffect, useCallback } from "react";
-import {NewsListHero, NewsFilterMenu ,NewsCategoriesFilter }from '../../components/News';
-import {NewsCard} from '../../components/Landing';
+import React, { useState, useEffect, useCallback, Fragment } from "react";
+import {
+  NewsListHero,
+  NewsFilterMenu,
+  NewsCategoriesFilter,
+} from "../../components/News";
+import { NewsCard } from "../../components/Landing";
 import fetchNewsApi from "../../core/services/api/GetData/allNewsApi";
 
-import bgNews from '../../assets/image/bg-ListHero.svg';
-import bgNewsDark from '../../assets/image/bg-ListHero-dark.svg';
+import bgNews from "../../assets/image/bg-ListHero.svg";
+import bgNewsDark from "../../assets/image/bg-ListHero-dark.svg";
+import LoadingSpinner from "../../components/common/loadingSpinner";
 
 const NewsList = () => {
   const typeWriterWords = [
@@ -17,11 +22,11 @@ const NewsList = () => {
 
   // get News data from api and fetch
   useEffect(() => {
-    fetchNewsApi(setNewsData,setNewsAllData);
+    fetchNewsApi(setNewsData, setNewsAllData);
     return () => {
       setFilterDiv(false);
     };
-  }, [fetchNewsApi]);  
+  }, [fetchNewsApi]);
 
   const newsCardsMapper = newsData.map((item, index) => {
     return (
@@ -37,30 +42,39 @@ const NewsList = () => {
     );
   });
   return (
-    <div className="py-32" >
-      <img src={bgNews} alt="picture" className='w-[100%] dark:hidden absolute top-0 z-0' />
-      <img src={bgNewsDark} alt="picture" className='w-[100%] dark:block hidden absolute top-0 z-0' />
-      <NewsListHero typeWriterWords={typeWriterWords}/>
-      <div className="md:mx-10 lg:mx-40 mt-16">
-        <NewsFilterMenu 
-          newsData={newsAllData} 
-          setNewsData={setNewsData} 
-          filterDiv={filterDiv} 
-          setFilterDiv={setFilterDiv} 
+    <Fragment>
+      <LoadingSpinner/>
+      <div className="py-32">
+        <img
+          src={bgNews}
+          alt="picture"
+          className="w-[100%] dark:hidden absolute top-0 z-0"
         />
-        <section className="flex flex-row">
-          <NewsCategoriesFilter
-            data={newsAllData}
+        <img
+          src={bgNewsDark}
+          alt="picture"
+          className="w-[100%] dark:block hidden absolute top-0 z-0"
+        />
+        <NewsListHero typeWriterWords={typeWriterWords} />
+        <div className="md:mx-10 lg:mx-40 mt-16">
+          <NewsFilterMenu
+            newsData={newsAllData}
+            setNewsData={setNewsData}
+            filterDiv={filterDiv}
             setFilterDiv={setFilterDiv}
-            setData={setNewsData}
-            filterDiv={filterDiv}          
-          /> 
-          <div className="news-card">
-              {newsCardsMapper}
-          </div>   
-        </section>
+          />
+          <section className="flex flex-row">
+            <NewsCategoriesFilter
+              data={newsAllData}
+              setFilterDiv={setFilterDiv}
+              setData={setNewsData}
+              filterDiv={filterDiv}
+            />
+            <div className="news-card">{newsCardsMapper}</div>
+          </section>
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

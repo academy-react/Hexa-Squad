@@ -13,6 +13,7 @@ import ForgetPasswordDark from "../../assets/image/forgetPasswordDark.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { onThemeChange } from "../../redux/darkMode";
 import Copyrights from "../../components/common/Copyrights";
+import LoadingSpinner from "../../components/common/loadingSpinner";
 
 const VerificationSteps = () => {
   const htmlTag = document.querySelector("html");
@@ -49,6 +50,7 @@ const VerificationSteps = () => {
   };
   return (
     <Fragment>
+      <LoadingSpinner/>
     <div className="bg-lightPink min-h-screen overflow-hidden dark:bg-indigo-950  flex items-center justify-center px-16">
       <div className=" relative w-full max-w-lg mx-auto mb-20 ">
         <div className=" h-full absolute right-32">
