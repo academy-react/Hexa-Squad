@@ -7,7 +7,6 @@ import PersianCalendar from "../../../components/common/PersianCalendar";
 const EditProfileInfo = ({email, phoneNumber, lastName, firstName, idCode, birthDate}) => {
 
   return (
-    
     <Fragment>
         <Formik
             initialValues={{ 
@@ -23,7 +22,7 @@ const EditProfileInfo = ({email, phoneNumber, lastName, firstName, idCode, birth
         >
             <Form className="flex flex-wrap gap-5 justify-center text-[#3F3F47aa] dark:text-semiWhite2" dir="rtl">
                 <div className="editProf-input">
-                    <label className="block  my-2">نام</label>
+                    <label className="block  my-2">{firstName}</label>
                     <Field name={"firstName"} className="editProf-field-input " />
                     <ErrorMessage name="firstName" className="editProf-errorMessage" component={'span'}/>
                 </div>

@@ -1,13 +1,15 @@
+import { useCallback } from "react";
 import http from "../../interceptor";
 
-const getProfileInfo = async (setUserInfo)=>{
+const getProfileInfo = async (setUserInfo) => {
     try {
       const result = await http.get('/SharePanel/GetProfileInfo')
-      setUserInfo(result);
+        // result !=undefined ? setUserInfo(result) :"";
+        setUserInfo(result);
+        console.log("result is", result)
 
     } catch (error) {
-      console.log(error);
-      return [];
+      console.log("error is",error);
     }
 };
 export default getProfileInfo;

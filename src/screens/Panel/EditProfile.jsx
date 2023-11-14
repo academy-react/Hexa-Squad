@@ -1,36 +1,46 @@
-import React, { Fragment, useState, useEffect } from "react";
-import getProfileInfo from "../../core/services/api/GetData/getProfileInfo";
+import React, { Fragment, useState, useEffect, useCallback } from "react";
+// import getProfileInfo from "../../core/services/api/GetData/getProfileInfo";
 import TitleSection from "../../components/UserPanel/TitleSection";
 import EditProfileImage from "../../components/UserPanel/EditProfile/EditProfileImage";
 import EditProfileInfo from "../../components/UserPanel/EditProfile/EditProfileInfo";
+import http from "../../core/services/interceptor";
 
 const EditProfile = () => {
-    const [userInfo, setUserInfo] = useState([])
-
-    useEffect(() => {
-        getProfileInfo(setUserInfo)
-    }, []);
+    const [userInfo, setUserInfo] = useState({
+        // email : "",
+        // "phoneNumber" : "",
+        // "lName" : "",
+        // "fName" : "",
+        // "nationalCode" : "",
+        // "birthDay" : ""
+    });
+    const getProfileInfo = useCallback (async () => {
+        try {
+          const result = await http.get('/SharePanel/GetProfileInfo')
+            setUserInfo(result);
+            console.log("result is", result)
     
-    const EditProfileInfoMapper = userInfo.map((item, index) => {
-        return (
-          <EditProfileInfo
-            key={index}
-            email={item.email}
-            phoneNumber={item.phoneNumber}
-            lastName={item.lName}
-            firstName={item.fName}
-            idCode={item.nationalCode}
-            birthDate={item.birthDay}
-          />
-        );
-      });
+        } catch (error) {
+          console.log("error is",error);
+        }
+    });
+    useEffect(() => {
+        getProfileInfo()
+    }, [getProfileInfo]);
 
   return (
     <Fragment>
         <TitleSection title={"حساب کاربری"} />   
         <EditProfileImage/>
         <div className="mt-8">
-            {EditProfileInfoMapper}
+            <EditProfileInfo
+                email = {userInfo.email}
+                phoneNumber = {userInfo.phoneNumber}
+                lastName = {userInfo.lName}
+                firstName = {userInfo.fName}
+                idCode = {userInfo.nationalCode}
+                birthDate = {userInfo.birthDay}                
+            />
             <input
                 type="submit"
                 value="ثبت اطلاعات"

@@ -12,7 +12,7 @@ const EditProfileImage = () => {
     
     <Fragment>
         <div className="flex items-center justify-center w-40 h-40 mx-auto mt-6">
-            <label for="input-file" className="relative rounded-full w-full h-full shadow-shadow-Course-image-box cursor-pointer ">
+            <label htmlFor="input-file" className="relative rounded-full w-full h-full shadow-shadow-Course-image-box cursor-pointer ">
                 <div className="absolute bottom-0 w-full h-1/2 flex justify-center pt-6 bg-darkblue bg-opacity-40 rounded-b-full">
                     {cameraSvg}
                 </div>
