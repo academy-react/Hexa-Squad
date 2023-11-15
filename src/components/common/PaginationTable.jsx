@@ -32,9 +32,11 @@ const PaginationTable = ({ data, itemsPerPage, addIcon, whishList }) => {
                   <th scope="col" className="px-6 py-4">
                     مدیریت
                   </th>
-                  <th scope="col" className="px-6 py-4">
-                    قیمت
-                  </th>
+                  {whishList === undefined && (
+                    <th scope="col" className="px-6 py-4">
+                      قیمت
+                    </th>
+                  )}
                   <th scope="col" className="px-6 py-4">
                     تاریخ شروع
                   </th>
@@ -51,7 +53,6 @@ const PaginationTable = ({ data, itemsPerPage, addIcon, whishList }) => {
               </thead>
               <tbody>
                 {currentItems.map((data, index) => {
-                  console.log(whishList);
                   if (whishList === undefined) {
                     return <AllCoursesTable key={index} data={data} />;
                   } else {

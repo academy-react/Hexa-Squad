@@ -13,9 +13,6 @@ const WhishListTable = ({ data, addIcon }) => {
         <i className={"bi bi-" + addIcon + " text-[#fd0000] mx-3"}></i>
         <Link to={'/CourseDetails/'+data.courseId} className="bi bi-eye text-[#29209380] dark:text-semiPink"></Link>
       </td>
-      <td className="whitespace-nowrap px-6 py-4" dir="rtl">
-        {SeparationPrice(data.cost)} تومان
-      </td>
       <td className="whitespace-nowrap px-6 py-4">{data.lastUpdate.slice(0,10)}</td>
       <td className="whitespace-nowrap px-6 py-4">{data.teacheName}</td>
       <td className="whitespace-nowrap px-6 py-4" dir="rtl">
