@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import http from "../../core/services/interceptor"
+import http from "../../core/services/interceptor";
 
 import TeacherCard from "./TeacherCard";
 import Title from "../common/Title";
@@ -26,33 +26,34 @@ const OurTeachers = () => {
   const [teacherList, setTeacherList] = useState([]);
   const fetchData = useCallback(async () => {
     try {
-      const result = await http.get(
-        "/Home/GetTeachers"
-      );
+      const result = await http.get("/Home/GetTeachers");
       console.log(result);
       const receivedData = result;
-      setTeacherList(receivedData);
+      const filtered = receivedData.filter((teacher) => {
+        return teacher.teacherId >= 12;
+      });
+      setTeacherList(filtered);
     } catch (error) {
       console.log(error);
     }
   }, []);
 
-  
+
+
   useEffect(() => {
     fetchData();
-  }, [fetchData]);
+  }, []);
 
   const mapTeacherCard = teacherList.map((item, index) => {
     return (
       <TeacherCard
         key={index}
-        courseCount = {item.courseCount}
+        courseCount={item.courseCount}
         pictureAddress={item.pictureAddress}
         title={item.fullName}
         description={item.teacherId}
         course={item.linkdinProfileLink}
         id={item.teacherId}
-        
       />
     );
   });
