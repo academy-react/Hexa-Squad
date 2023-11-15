@@ -1,7 +1,7 @@
 import React from "react";
 const LatestCourse = ({ id, image, title, professorName, price }) => {
   return (
-    <div className="latestCourse lg:w-[370px] lg:ml-auto mx-auto lg:mt-4 md:mx-0 w-full  flex flex-col  bg-[#fbfbff] dark:bg-indigo-800 shadow-shadow-auth rounded-lg ">
+    <div className="latestCourse lg:w-[370px]  hover:scale-105 transition-all lg:ml-auto mx-auto lg:mt-4 md:mx-0 w-full  flex flex-col  bg-[#fbfbff] dark:bg-indigo-800 shadow-shadow-auth rounded-lg ">
       <div className="latestCourse-div flex flex-row-reverse relative ">
         <img
           src={image}

@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import http from "../../interceptor";
 
 const getProfileInfo = async (setUserInfo) => {

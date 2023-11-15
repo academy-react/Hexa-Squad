@@ -22,6 +22,7 @@ const DetailsBox = ({
   teacherName,
   currentRegistrants,
   courseLevelName,
+  cost
 }) => {
   const [isLogin, setIsLogin] = useState(false);
   return (
@@ -134,7 +135,7 @@ const DetailsBox = ({
               قیمت:
             </h2>
             <h2 className="text-xl mr-2 text-[#C40F50] dark:text-[#f85691]">
-              400,000
+             {cost}
             </h2>
             <h2 className="text-md mr-1 text-darkblue opacity-90 dark:text-whitePink ">
               تومان

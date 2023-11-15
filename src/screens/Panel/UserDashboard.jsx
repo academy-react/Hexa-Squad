@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
+
 import TitleSection from "../../components/UserPanel/TitleSection";
 import UserInfo from "../../components/UserPanel/UserDashboard/UserInfo";
 import LatestCourses from "../../components/UserPanel/UserDashboard/LatestCourses";
 import SuggestedCourses from "../../components/UserPanel/UserDashboard/SuggestedCourses";
 
 const UserDashboard = () => {
+
   return (
     <div>
       <TitleSection title={" داشبورد کاربر"} />
@@ -14,7 +16,7 @@ const UserDashboard = () => {
       <div className="flex flex-col lg:flex-row-reverse  mt-16 mx-auto mb-10 ">
         <LatestCourses />
 
-        <SuggestedCourses />
+        <SuggestedCourses/>
       </div>
     </div>
   );

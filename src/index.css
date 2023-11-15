@@ -42,7 +42,7 @@
   }
 
   .logo {
-    @apply lg:mr-[94px] md:w-[145px] md:mr-[40px] w-[55px] mt-[-10px];
+    @apply lg:mr-[70px] md:w-[145px] md:mr-[40px] w-[55px] mt-[-10px];
   }
 
   .openMenu-span {
