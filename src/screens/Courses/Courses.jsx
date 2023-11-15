@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import ReactPaginate from "react-paginate";
 import Course from "../../components/course/Course";
 import {
@@ -9,6 +9,7 @@ import {
 import bgCourses from "../../assets/image/bg-ListHero.svg";
 import bgCoursesDark from "../../assets/image/bg-ListHero-dark.svg";
 import fetchCoursesApi from "../../core/services/api/GetData/allCoursesApi";
+import LoadingSpinner from "../../components/common/loadingSpinner";
 const Courses = () => {
   const [showGrid, setShowGrid] = useState(false);
   const [filterDiv, setFilterDiv] = useState(true);
@@ -63,62 +64,65 @@ const Courses = () => {
     );
   });
   return (
-    <div className="py-32">
-      <img
-        src={bgCourses}
-        alt="picture"
-        className="w-[100%] dark:hidden absolute top-0 z-0"
-      />
-      <img
-        src={bgCoursesDark}
-        alt="picture"
-        className="w-[100%] dark:block hidden absolute top-0 z-0"
-      />
-      <CoursesHero typeWriterWords={typeWriterWords} />
-      <FiltersBTN
-        data={allData}
-        setData={setData}
-        showGridView={showGridView}
-        filterDiv={filterDiv}
-        setFilterDiv={setFilterDiv}
-      />
-
-      <div className="flex w-full flex-wrap ">
-        <div className="flex md:flex-row flex-col w-full px-20 ">
-          <FiltersOptions
-            data={allData}
-            setFilterDiv={setFilterDiv}
-            setData={setData}
-            filterDiv={filterDiv}
-          />
-          <div
-            className={
-              "w-full flex relative flex-wrap transition-all pt-0 justify-end gap-3 duration-1000 aos-init aos-animate " +
-              (showGrid ? "grid-list" : "")
-            }
-            data-aos="zoom-in"
-          >
-            <span className="m-1 text-xl absolute -top-10 right-0 text-slate-950 dark:text-slate-400">
-              {data.length} دوره مرتبط
-            </span>
-
-            {mapData}
-          </div>
-        </div>
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel=">"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          pageCount={pageCount}
-          previousLabel="<"
-          renderOnZeroPageCount={null}
-          pageLinkClassName=" paginationLink"
-          activeLinkClassName="active"
-          containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-5 p-5"
+    <Fragment>
+      <LoadingSpinner/>
+      <div className="py-32">
+        <img
+          src={bgCourses}
+          alt="picture"
+          className="w-[100%] dark:hidden absolute top-0 z-0"
         />
+        <img
+          src={bgCoursesDark}
+          alt="picture"
+          className="w-[100%] dark:block hidden absolute top-0 z-0"
+        />
+        <CoursesHero typeWriterWords={typeWriterWords} />
+        <FiltersBTN
+          data={allData}
+          setData={setData}
+          showGridView={showGridView}
+          filterDiv={filterDiv}
+          setFilterDiv={setFilterDiv}
+        />
+
+        <div className="flex w-full flex-wrap ">
+          <div className="flex md:flex-row flex-col w-full px-20 ">
+            <FiltersOptions
+              data={allData}
+              setFilterDiv={setFilterDiv}
+              setData={setData}
+              filterDiv={filterDiv}
+            />
+            <div
+              className={
+                "w-full flex relative flex-wrap transition-all pt-0 justify-end gap-3 duration-1000 aos-init aos-animate " +
+                (showGrid ? "grid-list" : "")
+              }
+              data-aos="zoom-in"
+            >
+              <span className="m-1 text-xl absolute -top-10 right-0 text-slate-950 dark:text-slate-400">
+                {data.length} دوره مرتبط
+              </span>
+
+              {mapData}
+            </div>
+          </div>
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel=">"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel="<"
+            renderOnZeroPageCount={null}
+            pageLinkClassName=" paginationLink"
+            activeLinkClassName="active"
+            containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-5 p-5"
+          />
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

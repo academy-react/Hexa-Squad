@@ -21,6 +21,62 @@
 
 @layer components {
 
+  /* loading */
+  #loader {
+    z-index: 1000;
+    @apply w-full h-full grid place-items-center  top-0 left-0 fixed dark:bg-darkblue bg-slate-500 bg-opacity-80 dark:bg-opacity-90
+  }
+
+  @keyframes loader-out {
+    100% {
+      visibility: hidden;
+    }
+  }
+
+  #loader.loaded {
+    animation: loader-out .7s both;
+  }
+
+  .loader {
+    border-color: #f9f9f9 #f9f9f9 transparent transparent;
+    animation: rotation 1s linear infinite;
+    @apply w-12 h-12 rounded-full inline-block relative scale-150 border-4
+  }
+
+
+  .loader::after,
+  .loader::before {
+    content: '';
+    border-color: transparent transparent #8f44fd #8f44fd;
+    animation: rotationBack 0.5s linear infinite;
+    @apply w-10 h-10 absolute inset-0 border-4 rounded-full origin-center 
+  }
+  .loader::before {
+    border-color: #f9f9f9 #f9f9f9 transparent transparent;
+    animation: rotation 1.5s linear infinite;
+    top: 5px;
+    right: 4px;
+    left: 4px;
+    @apply w-7 h-7
+  }
+
+  @keyframes rotation {
+    0% {
+      rotate: 0deg;
+    }
+    100%{
+      rotate: 360deg;
+    }
+  }
+  @keyframes rotationBack {
+    0% {
+      rotate: 0deg;
+    }
+    100%{
+      rotate: -360deg;
+    }
+  }
+
   /* primary */
   .primary-btn {
     transition: 0.55s all;
@@ -130,6 +186,7 @@
   .menu-item.active .underline-menu {
     @apply w-11/12 block h-2 my-1 bg-gradient-to-l from-newPurpleAlpha2 to-transparentPurple2;
   }
+
   /* Mobile Menu */
   .mobile-menu {
     transition: 0.2s;
@@ -162,7 +219,7 @@
 
       .hero-search.active {
         animation: showHeroSearchModal 2s linear;
-        @apply absolute h-[80vh] w-8/12 z-[500] bg-slate-300 dark:bg-darkblue; 
+        @apply absolute h-[80vh] w-8/12 z-[500] bg-slate-300 dark:bg-darkblue;
 
         input {
           z-index: 500;
@@ -183,7 +240,8 @@
       }
     }
   }
-/* 
+
+  /* 
   @keyframes showHeroSearchModal {
     0% {
       @apply md:w-600px px-3 py-2 h-auto rounded-md bg-[#fff5] dark:bg-darkblue dark:bg-opacity-50
@@ -394,7 +452,7 @@
   }
 
   .filter-options {
-    @apply w-8/12 md:w-5/12 lg:w-4/12 top-0 z-50 right-0  lg:p-0 bg-[#EAE5FF] lg:shadow-none shadow-shadow-all lg:bg-transparent lg:dark:bg-transparent dark:bg-slate-900 lg:h-full min-w-fit ml-5 fixed h-screen lg:relative
+    @apply w-8/12 md:w-5/12 lg:w-4/12 top-0 z-50 right-0 lg:p-0 bg-[#EAE5FF] lg:shadow-none shadow-shadow-all lg:bg-transparent lg:dark:bg-transparent dark:bg-slate-900 lg:h-full min-w-fit ml-5 fixed h-screen lg:relative
   }
 
   .checkbox:checked~.content {
@@ -525,7 +583,7 @@
   .range::-webkit-slider-thumb {
     background: #00fd0a;
   }
-  
+
 
 }
 
@@ -542,10 +600,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-} 
-.Toastify__toast{
+}
+
+.Toastify__toast {
   font-family: IRANSans !important;
 }
+
 #root {
   font-family: IRANSans !important;
   width: 100%;

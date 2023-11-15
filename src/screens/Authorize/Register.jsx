@@ -13,6 +13,7 @@ import Copyrights from "../../components/common/Copyrights";
 
 import RegisterImage from "../../assets/image/RegisterNew.svg";
 import RegisterDark from "../../assets/image/registerDark.svg";
+import LoadingSpinner from "../../components/common/loadingSpinner";
 
 const Register = () => {
   const htmlTag = document.querySelector("html");
@@ -68,6 +69,7 @@ const Register = () => {
   };
   return (
     <Fragment>
+      <LoadingSpinner/>
       <div className="bg-lightPink dark:bg-indigo-950 overflow-hidden min-h-screen flex items-center justify-center px-16 ">
         <div className=" relative w-full max-w-lg  mb-20">
           <div className="h-full absolute right-32">

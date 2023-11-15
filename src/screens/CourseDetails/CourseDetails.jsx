@@ -8,6 +8,7 @@ import DetailsBox from "../../components/CourseDetails/DetailsBox";
 
 import Course from "../../components/course/Course";
 import TabsContent from "../../components/CourseDetails/TabsContent";
+import LoadingSpinner from "../../components/common/loadingSpinner";
 
 const CourseDetails = () => {
   const [coursesWhishList, setCoursesWhishList] = useState([]);
@@ -54,6 +55,7 @@ const CourseDetails = () => {
 
   return (
     <div>
+      <LoadingSpinner/>
       <div className="mx-auto flex mb-20 ">
         <div className="w-[90%] h-full overflow-hidden lg:max-w-[1260px] mx-auto mt-36 bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6">
           <div className="flex flex-col lg:flex-row">

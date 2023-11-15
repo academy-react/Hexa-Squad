@@ -16,6 +16,7 @@ import eye from "../../assets/image/eye.svg";
 import calendar from "../../assets/image/calendar.svg";
 import commentImg from "../../assets/image/comments.svg";
 import "../../components/Landing/common.css";
+import LoadingSpinner from "../../components/common/loadingSpinner";
 
 const NewsDetails = () => {
   const [urlParam, setUrlParam] = useState(useParams());
@@ -58,6 +59,7 @@ const NewsDetails = () => {
 
   return (
     <Fragment>
+      <LoadingSpinner/>
       <motion.div className="progress-bar" style={{ scaleX }} />
       <div className="pt-24 lg:pt-40 mb-52">
         <div className="news-details">

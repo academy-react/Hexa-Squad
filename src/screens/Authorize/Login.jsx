@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
@@ -12,6 +12,7 @@ import FieldInput from "../../components/common/FieldInput";
 import loginImage from "../../assets/image/Login11.svg";
 import loginDark from "../../assets/image/loginDark.svg";
 import { setItem } from "../../core/services/local-storage/storage.services";
+import LoadingSpinner from "../../components/common/loadingSpinner";
 
 const Login = () => {
   const htmlTag = document.querySelector("html");
@@ -42,7 +43,7 @@ const Login = () => {
         rememberMe: value.rememberMe,
       });
       setItem("token", result.token);
-      window.location.pathname = '/'
+      window.location.pathname = "/";
     } catch (error) {
       console.log(error);
       return [];
@@ -50,6 +51,7 @@ const Login = () => {
   };
   return (
     <>
+      <LoadingSpinner />
       <div className="bg-lightPink  dark:bg-indigo-950 overflow-hidden min-h-screen flex items-center justify-center px-16">
         <div className=" relative  w-full max-w-lg mx-auto mb-20 ">
           <div className=" absolute top-0 -left-10 w-72 h-72 bg-[#b07eff]  rounded-full mix-blend-multiply dark:mix-blend-lighten  filter blur-xl  dark:bg-lightblue dark:opacity-40 opacity-80 animate-blob hidden lg:block"></div>
