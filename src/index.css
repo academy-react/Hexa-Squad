@@ -24,7 +24,7 @@
   /* loading */
   #loader {
     z-index: 1000;
-    @apply w-full h-full grid place-items-center  top-0 left-0 fixed dark:bg-darkblue bg-slate-500 bg-opacity-80 dark:bg-opacity-90
+    @apply w-full h-full grid place-items-center  top-0 left-0 fixed dark:bg-darkblue bg-indigo-950 bg-opacity-70 dark:bg-opacity-90
   }
 
   @keyframes loader-out {
