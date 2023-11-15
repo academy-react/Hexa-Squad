@@ -18,7 +18,7 @@ const TitleSection = ({title}) => {
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between w-full border-b-[2px] border-solid border-[#ccccd66f] dark:border-white pb-4 gap-4 ">
       <div className="text-[#666666] dark:text-white text-2xl md:flex hidden  gap-4">
-        <Link to={'/shoppingCard'} class="bi bi-cart"></Link>
+        <Link to={'/shoppingCard'} className="bi bi-cart"></Link>
         {/* <i class="bi bi-bell"></i> */}
         <h2 className={
           theme === true

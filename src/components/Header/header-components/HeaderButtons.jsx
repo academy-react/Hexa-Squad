@@ -57,7 +57,7 @@ const HeaderButtons = ({ setLightMode, lightMode, headerStyle }) => {
           </button>
         </Link>
       ) : (
-        <Link to={"/userPanel"}>{userInfo.fName + userInfo.lName}</Link>
+        <Link to={"/userPanel"} className={"flex flex-row-reverse items-center mt-2 md:text-lg group "+(headerStyle?'text-indigo-200':'text-indigo-900') }>{userInfo.fName + userInfo.lName} <h2 className={"bi bi-person text-4xl pl-2 group-hover:text-indigo-600 "+(headerStyle?'text-violet-200 ':'text-indigo-900')}></h2></Link>
       )}
       {/* <Link to={"/authorize/login"}>
         <button className="primary-btn">

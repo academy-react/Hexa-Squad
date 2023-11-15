@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
@@ -7,12 +7,12 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { onThemeChange } from "../../redux/darkMode";
 import Copyrights from "../../components/common/Copyrights";
-// import { validation } from "../../core/validations/validations";
 import FieldInput from "../../components/common/FieldInput";
 import loginImage from "../../assets/image/Login11.svg";
 import loginDark from "../../assets/image/loginDark.svg";
 import { setItem } from "../../core/services/local-storage/storage.services";
 import LoadingSpinner from "../../components/common/loadingSpinner";
+import axios from "axios";
 
 const Login = () => {
   const htmlTag = document.querySelector("html");
@@ -29,24 +29,20 @@ const Login = () => {
     setLightMode(!theme);
     theme ? (htmlTag.className = "dark") : (htmlTag.className = "");
   };
-
-  const validation = yup.object().shape({
-    phoneOrGmail: yup.string().required("این فیلد الزامیست!"),
-    password: yup.string().required("این فیلد الزامیست!"),
-  });
   const onSubmitLogin = async (value) => {
-    console.log(" fetching started ...", value);
+      console.log(" fetching started ...", value);
     try {
       const result = await http.post("/Sign/Login", {
         phoneOrGmail: value.phoneOrGmail,
         password: value.password,
         rememberMe: value.rememberMe,
       });
+      console.log(result.token);
       setItem("token", result.token);
       window.location.pathname = "/";
     } catch (error) {
       console.log(error);
-      return [];
+      return false;
     }
   };
   return (
@@ -107,7 +103,6 @@ const Login = () => {
                       rememberMe: false,
                     }}
                     enableReinitialize={true}
-                    // validationSchema={validation}
                     onSubmit={(value) => {
                       onSubmitLogin(value);
                     }}

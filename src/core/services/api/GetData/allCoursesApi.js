@@ -1,4 +1,3 @@
-import axios from "axios";
 import Http from "../../interceptor";
 // get courses data from api and fetch on data variable
 const fetchCoursesApi = async (setData, pageCount, countInPage, setAllData) => {

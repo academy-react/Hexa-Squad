@@ -2,88 +2,87 @@ import React from "react";
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
 
-import SeparationPrice from "../../core/services/SeparationPrice/SeparationPrice";
-const PaginationTable = ({ data, itemsPerPage ,addIcon }) => {
+import WhishListTable from "./WhisListTable";
+import AllCoursesTable from "./AllCoursesTable";
+const PaginationTable = ({ data, itemsPerPage, addIcon, whishList }) => {
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / itemsPerPage);
-  console.log(data)
+  console.log(data);
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
     setItemOffset(newOffset);
   };
   return (
-    <div className=" py-5 flex flex-col items-scratch">
-      <div className="my-2 overflow-auto text-right" dir="rtl">
-        <table className="w-full text-left text-sm px-3 border-spacing-y-2 border-separate" dir="ltr">
-          <thead>
-            <tr className="rounded-xl bg-lightblue text-center">
-              <th scope="col" className="px-6 py-4">
-                مدیریت
-              </th>
-              <th scope="col" className="px-6 py-4">
-                قیمت
-              </th>
-              <th scope="col" className="px-6 py-4">
-                تاریخ شروع
-              </th>
-              <th scope="col" className="px-6 py-4">
-                مدرس
-              </th>
-              <th scope="col" className="px-6 py-4">
-                نام دوره
-              </th>
-              <th scope="col" className="px-6 py-4">
-                تصویر
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentItems.map((data, index) => (
-              <tr
-                className="text-[#36353B] dark:text-semiPink bg-[#CECCFF50] dark:bg-[#3f3fea45]  hover:bg-[#CECCFF80] pagination-table-tr "
-                key={index}
-              >
-                <td className="whitespace-nowrap px-6 py-4 text-xl">
-                  <i className={"bi bi-"+addIcon+" text-[#fd0000] mx-3"}></i>
-                  <i className="bi bi-eye text-[#29209380] dark:text-semiPink"></i>
-                </td>
-                <td className="whitespace-nowrap px-6 py-4" dir="rtl">
-                   {SeparationPrice(data.cost)} تومان
-                </td>
-                <td className="whitespace-nowrap px-6 py-4">{data.statusName}</td>
-                <td className="whitespace-nowrap px-6 py-4">
-                  {data.teacherName}
-                </td>
-                <td className="whitespace-nowrap px-6 py-4" dir="rtl">{data.title}</td>
-                <td className="whitespace-nowrap px-6 py-4 font-medium">
-                  {" "}
-                  <img
-                    src={data.tumbImageAddress}
-                    className="min-w-[70px] w-[80px] rounded-lg "
-                    alt={data.title}
-                  />{" "}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="w-full flex justify-center">
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel=">"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          pageCount={pageCount}
-          previousLabel="<"
-          renderOnZeroPageCount={null}
-          pageLinkClassName=" paginationLink"
-          activeLinkClassName="active"
-          containerClassName="border-[1px] border-[#0001] w-8/12 flex justify-center gap-4 p-5"
-        />
-      </div>
+    <div className=" py-5 flex flex-col items-scratch" dir="rtl">
+      {data.length == 0 ? (
+        <div className="w-full h-96 text-slate-900 flex justify-center items-center">
+          لیست مد نظر شما خالی میباشد !
+        </div>
+      ) : (
+        <>
+          <div className="my-2 overflow-auto text-right">
+            <table
+              className="w-full text-left text-sm px-3 border-spacing-y-2 border-separate"
+              dir="ltr"
+            >
+              <thead>
+                <tr className="rounded-xl bg-lightblue text-center">
+                  <th scope="col" className="px-6 py-4">
+                    مدیریت
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    قیمت
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    تاریخ شروع
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    مدرس
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    نام دوره
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    تصویر
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentItems.map((data, index) => {
+                  console.log(whishList);
+                  if (whishList === undefined) {
+                    return <AllCoursesTable key={index} data={data} />;
+                  } else {
+                    return (
+                      <WhishListTable
+                        key={index}
+                        data={data}
+                        addIcon={addIcon}
+                      />
+                    );
+                  }
+                })}
+              </tbody>
+            </table>
+          </div>
+          <div className="w-full flex justify-center">
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel=">"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={5}
+              pageCount={pageCount}
+              previousLabel="<"
+              renderOnZeroPageCount={null}
+              pageLinkClassName=" paginationLink"
+              activeLinkClassName="active"
+              containerClassName="border-[1px] border-[#0001] w-8/12 flex justify-center gap-4 p-5"
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };

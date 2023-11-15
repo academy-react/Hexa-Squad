@@ -50,7 +50,7 @@ const CourseBody = ({
       <div className=" hidden course-bio">{bio}</div>
 
       <div className="pt-8 flex justify-between whitespace-nowrap">
-        <div className="professor-name">
+        <div className="professor-name w-40 whitespace-nowrap overflow-hidden text-ellipsis" >
           {graduationCapSvg}
           <Link to={"/TeacherProfile"} className="course-info text-sm">
             {professorName}

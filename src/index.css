@@ -24,7 +24,7 @@
   /* loading */
   #loader {
     z-index: 1000;
-    @apply w-full h-full grid place-items-center  top-0 left-0 fixed dark:bg-darkblue bg-slate-500 bg-opacity-80 dark:bg-opacity-90
+    @apply w-full h-full grid place-items-center  top-0 left-0 fixed dark:bg-darkblue bg-indigo-950 bg-opacity-70 dark:bg-opacity-90
   }
 
   @keyframes loader-out {
@@ -98,7 +98,7 @@
   }
 
   .logo {
-    @apply lg:mr-[94px] md:w-[145px] md:mr-[40px] w-[55px] mt-[-10px];
+    @apply lg:mr-[70px] md:w-[145px] md:mr-[40px] w-[55px] mt-[-10px];
   }
 
   .openMenu-span {

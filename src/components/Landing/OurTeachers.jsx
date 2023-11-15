@@ -37,6 +37,7 @@ const OurTeachers = () => {
     }
   }, []);
 
+  
   useEffect(() => {
     fetchData();
   }, [fetchData]);

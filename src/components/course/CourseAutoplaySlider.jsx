@@ -8,7 +8,6 @@ import "swiper/css/pagination";
 import Course from "./Course";
 import fetchData from "../../core/services/api/GetData/getTopCourses";
 
-
 const CourseAutoplaySlider = () => {
   const [coursesList, setCoursesList] = useState([]);
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addWishList } from "../../core/services/api/PutData/addCourseWishList";
+import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
 
 import NullImage from "../../assets/image/Images-for-null 2.svg"
 import likePic from "../../assets/image/like.svg";
@@ -20,7 +20,7 @@ const CoursePhoto = ({ id, title, describe, imageAddress ,currentUserDissLike, c
         />
         <img
           src={imageAddress ==null ? NullImage:imageAddress}
-          className="w-full h-full  lg:h-[420px]  rounded-lg "
+          className="w-full h-[300px] md:h-[400px] lg:h-[420px]  rounded-lg "
           alt="course image"
         />
       </div>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
 import DesktopMenu from "./header-components/DesktopMenu";
@@ -9,8 +10,6 @@ import MobileMenu from "./header-components/MobileMenu";
 import LogoWhite from "../../assets/image/Logo - white.svg";
 import CheckboxInput from "../common/checkboxInput";
 import Login from "../Modals/Login";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { onThemeChange } from "../../redux/darkMode";
 import { getProfile } from "../../core/services/api/GetData/profile";
 import { onUserChange } from "../../redux/user";

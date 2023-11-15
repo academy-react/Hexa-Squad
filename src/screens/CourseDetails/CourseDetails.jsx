@@ -51,7 +51,7 @@ const CourseDetails = () => {
   useEffect(() => {
     fetchData();
     fetchTopCourses(3, setCoursesWhishList);
-  }, [coursesWhishList]);
+  }, []);
 
   return (
     <div>
@@ -77,6 +77,7 @@ const CourseDetails = () => {
               teacherName={data.teacherName}
               currentRegistrants={data.currentRegistrants}
               courseLevelName={data.courseLevelName}
+              cost={data.cost}
             />
           </div>
           <TabsContent />

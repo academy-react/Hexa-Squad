@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { addWishList } from "../../core/services/api/PutData/addCourseWishList";
-import { addCart } from "../../core/services/api/PutData/addToCart";
+import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
+import { addCart } from "../../core/services/api/PostData/addToCart";
 import CourseHeader from "./CourseHeader";
 import CourseBody from "./CourseBody";
 
