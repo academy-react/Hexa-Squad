@@ -6,7 +6,6 @@ const baseURL = import.meta.env.VITE_BASE_URL;
 const instance = axios.create({
   baseURL: baseURL,
 });
-
 const onSuccess = (response) => {
   return response.data;
 };

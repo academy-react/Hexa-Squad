@@ -5,7 +5,6 @@ import NullImage from "../../assets/image/Images-for-null 2.svg"
 import likePic from "../../assets/image/like.svg";
 import dislikePic from "../../assets/image/dislike.svg";
 const CoursePhoto = ({ id, title, describe, imageAddress ,currentUserDissLike, currentUserLike}) => {
-  const [isLogin, setIsLogin] = useState(false);
   return (
     <div
       data-aos="zoom-in-left"
@@ -16,7 +15,7 @@ const CoursePhoto = ({ id, title, describe, imageAddress ,currentUserDissLike, c
         <h2
           className="bi bi-heart text-3xl text-[#ffff] left-3 mt-4 absolute  hover:text-violet-700 hover:scale-110 transition-all cursor-pointer "
           alt="wishlist"
-          onClick={() => addWishList(id, isLogin)}
+          onClick={() => addWishList(id)}
         />
         <img
           src={imageAddress ==null ? NullImage:imageAddress}

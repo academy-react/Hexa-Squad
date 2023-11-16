@@ -4,7 +4,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { validation } from "../../../core/validations/validations";
 import PersianCalendar from "../../../components/common/PersianCalendar";
 
-const EditProfileInfo = ({email, phoneNumber, lastName, firstName, idCode, birthDate}) => {
+const EditProfileInfo = ({email, phoneNumber, lastName, firstName, idCode, birthDate,profileImg}) => {
   return (
     <Fragment>
         <Formik

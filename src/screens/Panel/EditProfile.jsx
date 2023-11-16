@@ -6,47 +6,45 @@ import EditProfileInfo from "../../components/UserPanel/EditProfile/EditProfileI
 import http from "../../core/services/interceptor";
 
 const EditProfile = () => {
-    const [userInfo, setUserInfo] = useState({
-        // email : "",
-        // "phoneNumber" : "",
-        // "lName" : "",
-        // "fName" : "",
-        // "nationalCode" : "",
-        // "birthDay" : ""
-    });
-    const getProfileInfo = useCallback (async () => {
-        try {
-          const result = await http.get('/SharePanel/GetProfileInfo')
-            setUserInfo(result);
-            console.log("result is", result)
-    
-        } catch (error) {
-          console.log("error is",error);
-        }
-    });
-    useEffect(() => {
-        getProfileInfo()
-    }, []);
+  const [userInfo, setUserInfo] = useState({});
+  const [profileImg, setProfileImg] = useState();
+  const getProfileInfo = useCallback(async () => {
+    try {
+      const result = await http.get("/SharePanel/GetProfileInfo");
+      setUserInfo(result);
+      setProfileImg(result.currentPictureAddress);
+    } catch (error) {
+      console.log("error is", error);
+    }
+  });
+  useEffect(() => {
+    getProfileInfo();
+  }, []);
 
   return (
     <Fragment>
-        <TitleSection title={"حساب کاربری"} />   
-        <EditProfileImage/>
-        <div className="mt-8">
-            <EditProfileInfo
-                email = {userInfo.email}
-                phoneNumber = {userInfo.phoneNumber}
-                lastName = {userInfo.lName}
-                firstName = {userInfo.fName}
-                idCode = {userInfo.nationalCode}
-                birthDate = {userInfo.birthDay}                
-            />
-            <input
-                type="submit"
-                value="ثبت اطلاعات"
-                className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
-            />
-        </div>
+      <TitleSection title={"حساب کاربری"} />
+      <EditProfileImage
+        imageProfile={profileImg}
+        setImageProfile={setProfileImg}
+        set
+      />
+      <div className="mt-8">
+        <EditProfileInfo
+          profileImg={profileImg}
+          email={userInfo.email}
+          phoneNumber={userInfo.phoneNumber}
+          lastName={userInfo.lName}
+          firstName={userInfo.fName}
+          idCode={userInfo.nationalCode}
+          birthDate={userInfo.birthDay}
+        />
+        <input
+          type="submit"
+          value="ثبت اطلاعات"
+          className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
+        />
+      </div>
     </Fragment>
   );
 };

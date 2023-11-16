@@ -14,7 +14,7 @@ const SideBar = ({ listItem, mapList, openSide }) => {
     },
   };
   const [userInfo, setUserInfo] = useState({});
-
+console.log(userInfo)
   useEffect(() => {
     getProfileInfo(setUserInfo);
   }, []);
@@ -24,7 +24,7 @@ const SideBar = ({ listItem, mapList, openSide }) => {
       <div className="side-bar-container">
         <div className="side-bar-image">
           <img
-            src={ProfileImage}
+            src={userInfo.currentPictureAddress}
             alt=" profile image "
             className="my w-32 h-32 object-cover"
           />
