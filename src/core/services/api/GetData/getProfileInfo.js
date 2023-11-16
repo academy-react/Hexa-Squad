@@ -7,7 +7,7 @@ const getProfileInfo = async (setUserInfo) => {
         setUserInfo(result);
 
     } catch (error) {
-      console.log("error is",error);
+      console.log(error);
     }
 };
 export default getProfileInfo;

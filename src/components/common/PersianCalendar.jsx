@@ -50,7 +50,7 @@ export default function PersianCalendar() {
 function InputMask({ value, handleValueChange, openCalendar }) {
   const valueFinal = value ? fixNumbers(value.toString()) : null;
   return (
-            <Field  dir="ltr"
+            <Input  dir="ltr"
                 name="birthDate"
                 className="editProf-field-input w-[300px] pl-48"
                 locale={persian_fa}
