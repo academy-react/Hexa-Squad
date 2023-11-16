@@ -31,7 +31,12 @@ const EditProfile = () => {
           lastName = {userInfo.lName}
           firstName = {userInfo.fName}
           idCode = {userInfo.nationalCode}
-          birthDate = {userInfo.birthDay}                
+          birthDate = {userInfo.birthDay} 
+          userAbout = {userInfo.userAbout}
+          homeAdderess = {userInfo.homeAdderess}
+          gender = {userInfo.gender}
+          linkdinProfile = {userInfo.linkdinProfile}
+          telegramLink = {userInfo.telegramLink}
         />
         <input
           type="submit"

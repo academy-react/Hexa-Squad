@@ -4,7 +4,21 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { validation } from "../../../core/validations/validations";
 import PersianCalendar from "../../../components/common/PersianCalendar";
 
-const EditProfileInfo = ({email, phoneNumber, lastName, firstName, idCode, birthDate}) => {
+const EditProfileInfo = (
+    {
+        email, 
+        phoneNumber, 
+        lastName, 
+        firstName, 
+        idCode, 
+        birthDate,
+        userAbout,
+        homeAdderess,
+        gender,
+        linkdinProfile,
+        telegramLink
+    }) => {
+
   return (
     <Fragment>
         <Formik
@@ -14,7 +28,12 @@ const EditProfileInfo = ({email, phoneNumber, lastName, firstName, idCode, birth
                 idCode: idCode, 
                 email: email, 
                 birthDate: birthDate, 
-                phoneNumber: phoneNumber 
+                phoneNumber: phoneNumber, 
+                userAbout: userAbout,
+                homeAdderess: homeAdderess,
+                gender: gender,
+                linkdinProfile: linkdinProfile,
+                telegramLink: telegramLink
             }}
             enableReinitialize={true}
             validationSchema={validation}
@@ -32,14 +51,23 @@ const EditProfileInfo = ({email, phoneNumber, lastName, firstName, idCode, birth
                     <ErrorMessage name="lastName" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 <div className="editProf-input">
+                    <label className="block my-2">جنسیت</label>
+                    <div className="w-full py-2 flex gap-2">
+                        <Field name={"gender"} type="radio" value={gender} className="mr-4" />
+                        <label>زن</label>
+                        <Field name={"gender"} type="radio" value={gender} className="mr-8" />
+                        <label>مرد</label>  
+                    </div>              
+                </div>
+                <div className="editProf-input">
                     <label className="block my-2">کد ملی</label>
                     <Field name={"idCode"} className="editProf-field-input"  />
                     <ErrorMessage name="idCode" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 <div className="editProf-input">
-                    <label className="block my-2">ایمیل</label>
-                    <Field type={"email"} name={"email"} placeholder={"example@gmail.com"} className="editProf-field-input" />
-                    <ErrorMessage name="email" className="editProf-errorMessage" component={'span'}/>
+                    <label className="block my-2">شماره موبایل</label>
+                    <Field name={"phoneNumber"} className="editProf-field-input"  />
+                    <ErrorMessage name="phoneNumber" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 <div className="editProf-input">
                     <label className="block my-2">تاریخ تولد</label>
@@ -47,10 +75,30 @@ const EditProfileInfo = ({email, phoneNumber, lastName, firstName, idCode, birth
                     <ErrorMessage name="birthDate" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 <div className="editProf-input">
-                    <label className="block my-2">شماره موبایل</label>
-                    <Field name={"phoneNumber"} className="editProf-field-input"  />
-                    <ErrorMessage name="phoneNumber" className="editProf-errorMessage" component={'span'}/>
+                    <label className="block my-2">ایمیل</label>
+                    <Field type={"email"} name={"email"} placeholder={"example@gmail.com"} className="editProf-field-input" />
+                    <ErrorMessage name="email" className="editProf-errorMessage" component={'span'}/>
                 </div>
+                <div className="editProf-input">
+                    <label className="block my-2">لینکدین</label>
+                    <Field name={"linkdinProfile"} className="editProf-field-input"  />
+                    {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
+                </div>
+                <div className="editProf-input">
+                    <label className="block my-2">تلگرام</label>
+                    <Field name={"telegramLink"} className="editProf-field-input"  />
+                    {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
+                </div>                
+                <div className="editProf-input">
+                    <label className="block my-2">درباره من</label>
+                    <Field name={"userAbout"} className="editProf-field-input"  />
+                    {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
+                </div>
+                <div className="editProf-input w-[600px]">
+                    <label className="block my-2">آدرس منزل</label>
+                    <Field name={"homeAdderess"} className="editProf-field-input"  />
+                    {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
+                </div>  
 
             </Form>
         </Formik>
