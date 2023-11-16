@@ -183,8 +183,11 @@
         @apply text-darkblue7 lg:mt-[-80px];
     }
     .news-card{
-        @apply w-[440px] md:w-full relative flex flex-col gap-y-8 mx-auto px-4 ;
+        @apply w-[440px] md:w-full relative flex flex-col gap-y-8 mx-auto px-4  text-ellipsis whitespace-nowrap overflow-hidden;
     }
+    /* .news-card .news-name{
+        @apply text-ellipsis whitespace-nowrap overflow-hidden;
+    } */
     .news-card .news-view{
         @apply md:absolute md:top-10 md:right-0 lg:top-12 lg:text-base;
     }
@@ -202,6 +205,9 @@
     }
     .news-description{
         @apply lg:pt-4;
+    }
+    .news-card img{
+        @apply h-[150px] w-[150px] md:w-[220px] md:h-[186px] ;
     }
 
     /* Panel --> Edit Profile */
