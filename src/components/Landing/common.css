@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @layer components {
+    #showFooterMapModal:checked+.footerMapModal {
+        display: block;
+    }
+    .footerMapModal {
+        @apply animate-zoom fixed  h-[500px] top-[16%] inset-x-12 z-[500] hidden ;
+    }
+    .closebtn{
+        @apply absolute top-2 z-50 right-5 text-slate-600 dark:text-semiWhite2 text-4xl;
+    }
+
     .title {
         width: fit-content;
         @apply mb-5 text-xl md:text-2xl lg:text-4xl lg:mx-auto mr-4 text-darkblue dark:text-semiPink relative;
