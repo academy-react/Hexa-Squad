@@ -1,7 +1,5 @@
 import React from "react";
 import FooterMapPopover from "./FooterMapPopover";
-// import FooterMap from "./FooterMap";
-import { Popup } from "react-leaflet";
 
 const FooterBottom = () => {
   return (

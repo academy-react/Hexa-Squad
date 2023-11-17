@@ -26,16 +26,16 @@ const FooterMapPopover = () => {
             scrollWheelZoom={true} 
             className="h-[calc(100vh_-_280px)] z-30"
           >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <Marker position={position}>
-            <Popup>
-              ساری - بلوار جاده دریا - بعد از دنیای آرزو <br />- نرسیده به دانشگاه روزبهان
-            </Popup>
+            <TileLayer
+              attribution='&copy;'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={position}>
+              <Popup>
+                ساری - بلوار جاده دریا - بعد از دنیای آرزو <br />- نرسیده به دانشگاه روزبهان
+              </Popup>
             </Marker>
-              </MapContainer>
+          </MapContainer>
         </div>
       </Popover.Panel>
     </Popover>

@@ -6,9 +6,7 @@ import Gradient1 from '../../assets/icons/logo-icon-gradient.svg';
 import Gradient2 from '../../assets/icons/logo-icon-gradient-part.svg';
 import FooterBottom from "./components/FooterBottom";
 import Copyrights from "../common/Copyrights";
-import FooterMap from "../Modals/FooterMap";
-import FooterPopover from "./components/FooterMapPopover";
-import { CheckboxInput } from "../common";
+
 const Footer = () => {
   return (
     <>
@@ -21,11 +19,8 @@ const Footer = () => {
           <ConectUs/>
           <FooterInput className={"my-16 hidden lg:block z-10"} />
         </div>
-        {/* <CheckboxInput name={"showFooterMapModal"} />
-        <FooterMap/> */}
         <FooterBottom/>
       </div>
-      {/* <FooterPopover/> */}
       <Copyrights/>
     </footer></>
   );
