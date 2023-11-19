@@ -10,7 +10,7 @@ const NewsCard = ({ name, img, description, views, date,id }) => {
       <div className=" w-[440px] h-[230px]  md:h-[240px]  md:w-[600px] cursor-pointer rounded-xl ">
         <Link to={"/newsDetails/"+id}>
           <div className="absolute cursor-pointer group mr-[220px] md:mr-[260px] lg:mr-[265px] mt-5 md:mt-6 lg:mt-7 ">
-            <h2 className="md:text-lg text-base text-newPurple3 group-hover:text-newPurple2 pl-6 h-14 dark:text-[#e9e8ff] dark:group-hover:text-[#F0E2FF]">
+            <h2 className="news-name md:text-lg text-base text-newPurple3 group-hover:text-newPurple2 pl-6 h-14 dark:text-[#e9e8ff] dark:group-hover:text-[#F0E2FF]">
               {name}
             </h2>
             <div className="flex flex-row my-2">

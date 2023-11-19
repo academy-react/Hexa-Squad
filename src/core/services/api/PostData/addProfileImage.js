@@ -10,6 +10,7 @@ const onSubmit = async (userImage, setUserInfo) => {
 
     try{
         const result = await http.post("/SharePanel/AddProfileImage", data)
+        // setUserInfo(result)
         console.log("result2 is:", result)
         
 
