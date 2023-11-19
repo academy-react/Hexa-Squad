@@ -3,6 +3,8 @@ import onSubmit from "../../../core/services/api/PostData/addProfileImage";
 
 import { cameraSvg } from "../../../assets/icons/svgIcons";
 import pic from '../../../assets/image/drBahr.jpg';
+import { CheckboxInput } from "../../common";
+import AddProfileImageModal from "./AddProfileImageModal";
 
 const EditProfileImage = () => {
   const [userImage, setUserImage] = useState();
@@ -35,6 +37,14 @@ const EditProfileImage = () => {
             value="ثبت عکس"
             className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
             onClick={onSubmit}
+          />
+          <CheckboxInput name={"showSelectImageModal"} />
+          <AddProfileImageModal/>
+          <input
+            type="submit"
+            value="افزودن عکس"
+            className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
+            onClick={() => showSelectImageModal.click()}
           />
         </div>
         <span className="text-[#3F3F47aa] dark:text-semiWhite2 flex justify-center mt-2">ویرایش تصویر</span>
