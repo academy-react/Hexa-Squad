@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import getProfileInfo from "../../../core/services/api/GetData/getProfileInfo";
 import ContactMe from "./ContactMe";
+import ProgressBar from "./ProgressBar";
 const NewDesign = () => {
   const [userInfo, setUserInfo] = useState({});
 
@@ -11,7 +12,12 @@ const NewDesign = () => {
 
   return (
     <>
-      <div className=" mt-10 rounded-xl pt-4 shadow-shadow-Course-details dark:bg-indigo-800">
+    <div className="flex md:flex-row-reverse flex-col items-center ">
+      <div className="md:w-2/12 w-full h-44 ">
+    <ProgressBar/>
+    </div>
+      <div className="md:w-10/12 w-full md:mr-auto mt-10 rounded-xl pt-4 shadow-shadow-Course-details dark:bg-indigo-800">
+        
         <div className="w-[95%] my-8  md:flex md:flex-row-reverse flex-col md:gap-0  mx-auto">
           <div className="flex flex-row-reverse  md:w-4/12    ">
             <h2 className="text-sm text-[#666686] dark:text-indigo-300  lg:text-lg">
@@ -80,7 +86,9 @@ const NewDesign = () => {
           />
         </Link>
       </div>
+      </div>
       <ContactMe />
+
     </>
   );
 };
