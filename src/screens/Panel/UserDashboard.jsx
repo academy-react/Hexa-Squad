@@ -8,6 +8,9 @@ import UserInfo from "../../components/UserPanel/UserDashboard/UserInfo";
 import LatestCourses from "../../components/UserPanel/UserDashboard/LatestCourses";
 import SuggestedCourses from "../../components/UserPanel/UserDashboard/SuggestedCourses";
 import NewDesign from "../../components/UserPanel/UserDashboard/UserInfo2";
+import ProgressBar from "../../components/UserPanel/UserDashboard/ProgressBar";
+
+
 
 const UserDashboard = () => {
   const [value, setValue] = useState(new Date());
@@ -17,10 +20,10 @@ const UserDashboard = () => {
       <TitleSection title={" داشبورد کاربر"} />
 
       <NewDesign />
-
+      
       <div className="flex flex-col lg:flex-row-reverse  mt-16 mx-auto mb-10 ">
         <LatestCourses />
-
+        
         <SuggestedCourses />
         
         {/* <Calendar

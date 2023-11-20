@@ -153,7 +153,7 @@
 
     /* news details --> User Comments*/
     .userComment{
-        @apply flex flex-col md:flex-row py-6;
+        @apply flex flex-col md:flex-row py-6 mt-2 bg-[#d0cdff] px-4 rounded-bl-3xl rounded-md ;
     }
     .userComment-pic{
         @apply w-[76px] h-[76px] rounded-full shadow-shadow-userComments-pic mb-2 lg:mb-0;
@@ -165,7 +165,7 @@
     }
     .comment-input{
         @apply w-[340px] h-40 md:w-[650px] lg:w-[1099px] lg:h-52 lg:mr-4 mt-2 p-4 text-base text-darkblue2 dark:text-[#7e7cb1]
-                border-2 border-lightblue4 dark:border-[#3d3d70] rounded-xl bg-newWhite dark:bg-darkblue6;
+                border-2 border-indigo-500 dark:border-[#3d3d70] rounded-xl bg-newWhite dark:bg-darkblue6;
     }
     .comment-input:focus{
         @apply outline-none border-2 border-lightblue;

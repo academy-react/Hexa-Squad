@@ -7,7 +7,7 @@ import Accordions from "../../core/services/api/GetData/Topics";
 import Accordion from "./Accordion";
 import InputComment from "../common/InputComment";
 import UserComments from "../common/UserComments";
-
+import http from "../../core/services/interceptor/index"
 import comments from "../../assets/image/comments.svg";
 import { MdOutlinePreview } from "react-icons/md";
 
@@ -31,22 +31,24 @@ const TabsContent = () => {
   const userComments = comment.map((item, index) => {
     return (
       <UserComments
-        uid={item.userId}
+        uid={item.id}
         name={item.title}
         date={item.insertDate}
         question={item.describe}
         key={index}
+        like={item.likeCount}
+        disLike={item.disslikeCount}
       />
     );
   });
   const fetchCommentData = useCallback(async () => {
     try {
-      const result = await axios.get(
-        `https://acadapi.etacorealtime.ir/api/Course/GetCourseCommnets/` +
+      const result = await http.get(
+        `/Course/GetCourseCommnets/` +
           urlParam.id
       );
-      console.log(result.data);
-      const receivedData = result.data;
+      console.log(result);
+      const receivedData = result;
       setComment(receivedData);
     } catch (error) {}
   }, []);
@@ -119,6 +121,7 @@ const TabsContent = () => {
           </div>
         </Tab>
         <Tab label="نظرات کاربران">
+
           <div className="py-4">
             <h2 className="text-lg font-medium mb-2 hidden">نظرات کاربران</h2>
             <div className="w-[96%] mx-auto lg:mr-2 mt-6 ">
@@ -128,6 +131,7 @@ const TabsContent = () => {
                   نظرات کاربران در رابطه با این دوره{" "}
                 </h3>
               </div>
+            
               {userComments}
               <InputComment />
             </div>
