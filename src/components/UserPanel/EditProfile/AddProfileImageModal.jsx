@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useRef } from "react";
+import onSubmit from "../../../core/services/api/PostData/addProfileImage";
 
 const AddProfileImageModal = () => {
     const [images, setImages] = useState([]);
@@ -131,9 +132,10 @@ const AddProfileImageModal = () => {
                         ))}
                     </div>
                     <button 
-                        onClick={uploadImages}
+                        // onClick={uploadImages}
+                        onClick={onSubmit}
                         type="button" 
-                        className="primary-btn hover:scale-100 text-white rounded py-2 px-3 w-full"
+                        className="primary-btn absolute bottom-4 z-50 inset-x-3 mx-auto hover:scale-100 text-white rounded py-2 px-3 w-[90%]"
                     >
                         Upload
                     </button>

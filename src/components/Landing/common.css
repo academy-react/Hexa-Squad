@@ -260,11 +260,19 @@
         @apply  text-[#A80065] absolute -bottom-8 right-2;
     }
     /* Modal */
+
+    #showEditImageModal:checked+.EditImageModal {
+        display: block;
+    }
+    .EditImageModal {
+        @apply animate-zoom fixed top-[16%] lg:w-[570px] h-[450px] inset-x-32 lg:inset-x-72 z-[500] rounded-xl shadow-shadow-auth hidden bg-[#D7D5FF] dark:bg-darkblue6;
+    }
+
     #showSelectImageModal:checked+.selectImageModal {
         display: block;
     }
     .selectImageModal {
-        @apply animate-zoom fixed top-[16%] lg:w-[570px] inset-x-32 lg:inset-x-72 z-[500] rounded-xl shadow-shadow-auth hidden bg-[#D7D5FF] dark:bg-darkblue6;
+        @apply animate-zoom fixed top-[16%] lg:w-[570px] h-[450px] inset-x-32 lg:inset-x-72 z-[500] rounded-xl shadow-shadow-auth hidden bg-[#D7D5FF] dark:bg-darkblue6;
     }
     .closebtn{
         @apply absolute top-2 z-50 right-5 text-slate-600 dark:text-semiWhite2 text-4xl;
