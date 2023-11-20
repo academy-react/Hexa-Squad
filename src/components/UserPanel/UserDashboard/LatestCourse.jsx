@@ -1,10 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import NullImage from "../../../assets/image/Images-for-null 2.svg";
 const LatestCourse = ({ id, image, title, professorName, price }) => {
   return (
-    <div className="latestCourse lg:w-[370px]  hover:scale-105 transition-all lg:ml-auto mx-auto lg:mt-4 md:mx-0 w-full  flex flex-col  bg-[#fbfbff] dark:bg-indigo-800 shadow-shadow-auth rounded-lg ">
-      <div className="latestCourse-div flex flex-row-reverse relative ">
+    <Link
+      to={"/CourseDetails/" + id}
+      className=" md:w-6/12 lg:w-[370px] hover:scale-105 transition-all lg:ml-auto lg:mt-4 mx-auto md:mx-0 w-full  flex flex-col bg-[#fbfbff] dark:bg-indigo-800 shadow-shadow-auth rounded-lg "
+    >
+      <div className=" flex flex-row-reverse relative ">
         <img
-          src={image}
+          src={image == null ? NullImage : image}
           className="object-cover md:w-[100px] mr-3 my-3 hidden md:block rounded-lg shadow-shadow-auth h-[80px]"
           alt=""
         />
@@ -14,14 +19,14 @@ const LatestCourse = ({ id, image, title, professorName, price }) => {
           {title}
         </h2>
 
-        <div className="latestCourse-div flex flex-row-reverse">
+        <div className=" flex flex-row-reverse">
           <h2 className="bi bi-mortarboard text-[#727297] dark:text-slate-300  mt-14 md:mt-16 mr-5 text-xs"></h2>
           <h2 className="mr-2 mb-4 text-[#727297] dark:text-slate-300  mt-14 md:mt-16  text-xs">
             {" "}
             {professorName}
           </h2>
 
-          <div className="latestCourse-div absolute left-6 flex flex-row-reverse mt-16">
+          {/* <div className="latestCourse-div absolute left-6 flex flex-row-reverse mt-16">
             <h2 className=" ml-1 text-[#727297] dark:text-slate-300   text-xs  md:hidden lg:block ">
               {" "}
               {price}
@@ -30,10 +35,10 @@ const LatestCourse = ({ id, image, title, professorName, price }) => {
               {" "}
               تومان
             </h2>
-          </div>
+          </div> */}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

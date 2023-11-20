@@ -1,31 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import http from "../../../core/services/interceptor";
 import LatestCourse from "./LatestCourse";
 import TitleRight from "../../../assets/icons/title right.svg";
-
+// import fetchWhishListCoursesApi from "../../../core/services/api/GetData/WhishList";
 const LatestCourses = () => {
-  const [latestCourse, setLatestCourse] = useState([
-    {
-      title: "اموزش نود جی اس",
-      professorName: "استاد بحرالعلوم",
-      price: "500000",
-      imageUrl:
-        "https://toplearn.com/img/course/typeorm%D8%A8%D8%B1%D8%A7%DB%8C_node_js.jpg",
-    },
-    {
-      title: "اموزش ری اکت",
-      professorName: "استاد مهدی اصغری",
-      price: "456000",
-      imageUrl:
-        "https://toplearn.com/img/course/%D8%A2%D9%85%D9%88%D8%B2%D8%B4_%D8%B5%D9%81%D8%B1_%D8%AA%D8%A7_%D8%B5%D8%AF_ReactJs.jpg",
-    },
-  ]);
-  const mapData = latestCourse.map((data, index) => (
+  const [allData, setAllData] = useState([]);
+  const [data, setData] = useState(allData);
+  const WhishListPanelApi = useCallback(async () => {
+    try {
+      const result = await http.get("/SharePanel/GetMyFavoriteCourses");
+      console.log(result.favoriteCourseDto);
+      const receivedData = result.favoriteCourseDto;
+      let slicedData = receivedData.slice(receivedData.length -2 , receivedData.length)
+
+      setData(slicedData);
+      setAllData(result.favoriteCourseDto);
+
+
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+  console.log(data);
+  useEffect(() => {
+    WhishListPanelApi();
+  }, []);
+
+  const mapData = data.map((data, index) => (
     <LatestCourse
       key={index}
-      title={data.title}
-      professorName={data.professorName}
-      price={data.price}
-      image={data.imageUrl}
+      id={data.courseId}
+      title={data.courseTitle}
+      professorName={data.teacheName}
+      image={data.tumbImageAddress}
     />
   ));
 
@@ -38,7 +45,7 @@ const LatestCourses = () => {
           alt="TitleRight"
         />
         <h2 className="relative text-xl md:text-xl text-right">
-          اخرین دوره ثبت شده
+          دوره های مورد علاقه شما
         </h2>
       </div>
       <div className="flex flex-col md:flex-row lg:flex-col gap-4 md:mt-4">
