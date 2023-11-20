@@ -1,12 +1,13 @@
 import React, { Fragment, useState } from "react";
 import onSubmit from "../../../core/services/api/PostData/addProfileImage";
+import { Link } from "react-router-dom";
 
 import { cameraSvg } from "../../../assets/icons/svgIcons";
 import pic from '../../../assets/image/drBahr.jpg';
 import { CheckboxInput } from "../../common";
 import EditProfileImageModal from "./EditProfileImageModal";
 
-const EditProfileImage = () => {
+const EditProfileImage = (disable) => {
   const [userImage, setUserImage] = useState();
   // const [pathUrl, setPathUrl] = useState();
 
@@ -25,7 +26,7 @@ const EditProfileImage = () => {
                 </div> */}
                 <img src={userImage ? URL.createObjectURL(userImage) : pic} alt="image"  className="w-full object-cover h-full rounded-full" />
 
-                <input id="input-file" type='file' onChange={handleImage}  className="hidden" />
+                <input id="input-file" type='file' onChange={handleImage}  className="hidden" disabled={disable} />
             </label>
         </div>
         <div className="flex flex-row">

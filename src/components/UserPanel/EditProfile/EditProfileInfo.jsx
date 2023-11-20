@@ -16,7 +16,8 @@ const EditProfileInfo = (
         homeAdderess,
         gender,
         linkdinProfile,
-        telegramLink
+        telegramLink,
+        disable
     }) => {
 
   return (
@@ -33,7 +34,7 @@ const EditProfileInfo = (
                 homeAdderess: homeAdderess,
                 gender: gender,
                 linkdinProfile: linkdinProfile,
-                telegramLink: telegramLink
+                telegramLink: telegramLink,
             }}
             enableReinitialize={true}
             validationSchema={validation}
@@ -42,18 +43,18 @@ const EditProfileInfo = (
             <Form className="flex flex-wrap gap-5 justify-center text-[#3F3F47aa] dark:text-semiWhite2" dir="rtl">
                 <div className="editProf-input">
                     <label className="block  my-2">نام</label>
-                    <Field name={"firstName"} className="editProf-field-input " />
+                    <Field name={"firstName"} className="editProf-field-input " disabled={disable} />
                     <ErrorMessage name="firstName" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 <div className="editProf-input">
                     <label className="block my-2">نام خانوادگی</label>
-                    <Field name={"lastName"} className="editProf-field-input" />
+                    <Field name={"lastName"} className="editProf-field-input" disabled={disable} />
                     <ErrorMessage name="lastName" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 <div className="editProf-input">
                     <label className="block my-2">جنسیت</label>
                     <div className="w-full py-2 flex gap-2">
-                        <Field name={"gender"} type="radio" value={gender} className="mr-4" />
+                        <Field name={"gender"} type="radio" value={gender} className="mr-4" disabled={disable} />
                         <label>زن</label>
                         <Field name={"gender"} type="radio" value={gender} className="mr-8" />
                         <label>مرد</label>  
@@ -61,12 +62,12 @@ const EditProfileInfo = (
                 </div>
                 <div className="editProf-input">
                     <label className="block my-2">کد ملی</label>
-                    <Field name={"idCode"} className="editProf-field-input"  />
+                    <Field name={"idCode"} className="editProf-field-input" disabled={disable} />
                     <ErrorMessage name="idCode" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 <div className="editProf-input">
                     <label className="block my-2">شماره موبایل</label>
-                    <Field name={"phoneNumber"} className="editProf-field-input"  />
+                    <Field name={"phoneNumber"} className="editProf-field-input" disabled={disable} />
                     <ErrorMessage name="phoneNumber" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 <div className="editProf-input">
@@ -76,27 +77,27 @@ const EditProfileInfo = (
                 </div>
                 <div className="editProf-input">
                     <label className="block my-2">ایمیل</label>
-                    <Field type={"email"} name={"email"} placeholder={"example@gmail.com"} className="editProf-field-input" />
+                    <Field type={"email"} name={"email"} placeholder={"example@gmail.com"} className="editProf-field-input" disabled={disable} />
                     <ErrorMessage name="email" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 <div className="editProf-input">
                     <label className="block my-2">لینکدین</label>
-                    <Field name={"linkdinProfile"} className="editProf-field-input"  />
+                    <Field name={"linkdinProfile"} className="editProf-field-input" disabled={disable} />
                     {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
                 </div>
                 <div className="editProf-input">
                     <label className="block my-2">تلگرام</label>
-                    <Field name={"telegramLink"} className="editProf-field-input"  />
+                    <Field name={"telegramLink"} className="editProf-field-input" disabled={disable} />
                     {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
                 </div>                
                 <div className="editProf-input">
                     <label className="block my-2">درباره من</label>
-                    <Field name={"userAbout"} className="editProf-field-input"  />
+                    <Field name={"userAbout"} className="editProf-field-input" disabled={disable} />
                     {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
                 </div>
                 <div className="editProf-input w-[600px]">
                     <label className="block my-2">آدرس منزل</label>
-                    <Field name={"homeAdderess"} className="editProf-field-input"  />
+                    <Field name={"homeAdderess"} className="editProf-field-input" disabled={disable} />
                     {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
                 </div>  
 

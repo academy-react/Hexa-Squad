@@ -24,6 +24,8 @@ import TeacherProfile from "../components/TeacherProfile/TeacherProfile";
 import EditProfile from "../screens/Panel/EditProfile";
 import UserDashboard from "../screens/Panel/UserDashboard";
 
+import ProfileInfoTabs from "../components/UserPanel/EditProfile/ProfileInfoTabs";
+
 import ShoppingCard from "../screens/ShoppingCard/ShoppingCard";
 export const routerPublic = createBrowserRouter([
   {
@@ -73,6 +75,7 @@ export const routerPublic = createBrowserRouter([
       { path: "/userPanel/editProfile", element: <EditProfile /> },
       { path: "/userPanel/logOut", element: <LogOut/> },
       { path: "/userPanel/", element: <UserDashboard /> },
+      { path: "/userPanel/ProfileInfoTabs", element: <ProfileInfoTabs /> }
     ],
   },
   { path: "/*", element: <Error404 /> },
