@@ -9,9 +9,9 @@ const onSubmit = async (userImage, setUserInfo) => {
     const data = onFormData(obj)
 
     try{
-        const result = await http.post("/SharePanel/AddProfileImage", data)
-        // setUserInfo(result)
-        console.log("result2 is:", result)
+        const response = await http.post("/SharePanel/AddProfileImage", data)
+        // setUserInfo([data])
+        console.log("result2 is:", response)
         
 
     } catch (error) {

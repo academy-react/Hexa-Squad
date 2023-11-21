@@ -7,14 +7,14 @@ import onSubmit from "../../core/services/api/PostData/addProfileImage";
 import handleEditProfileInfo from "../../core/services/api/PutData/handleEditProfileInfo";
 
 const EditProfile = () => {
-  const [userInfo, setUserInfo] = useState([{
+  const [userInfo, setUserInfo] = useState([
       // email : "",
       // "phoneNumber" : "",
       // "lName" : "",
       // "fName" : "",
       // "nationalCode" : "",
       // "birthDay" : ""
-  }]);
+  ]);
 
   // get Profile information
   useEffect(() => {

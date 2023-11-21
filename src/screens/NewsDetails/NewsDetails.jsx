@@ -2,10 +2,14 @@ import React, { useState, Fragment, useEffect, useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
 import http from "../../core/services/interceptor"
 import { motion, useScroll, useSpring } from "framer-motion";
+import LoadingSpinner from "../../components/common/loadingSpinner";
 
 import userCommentData from "../../core/services/api/GetData/userCommentData";
 import UserComments from "../../components/common/UserComments";
 import InputComment from "../../components/common/InputComment";
+import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
+import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike"; 
+
 import {
   userSvg,
   facebookSvg,
@@ -15,13 +19,18 @@ import {
 import eye from "../../assets/image/eye.svg";
 import calendar from "../../assets/image/calendar.svg";
 import commentImg from "../../assets/image/comments.svg";
+import likePic from "../../assets/image/like.svg";
+import dislikePic from "../../assets/image/dislike.svg";
 import "../../components/Landing/common.css";
-import LoadingSpinner from "../../components/common/loadingSpinner";
+import NewsRate from "../../components/NewsDetails/NewsRate";
 
 const NewsDetails = () => {
   const [urlParam, setUrlParam] = useState(useParams());
+  const [Param, setParam] = useState(useParams());
   const [data, setData] = useState({});
   const [comment, setComment] = useState([]);
+  const [likes, setLikes] = useState(0);
+const [changeLikeColor, setChangeLikeColor] = useState(0);
   console.log(comment)
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -33,11 +42,11 @@ const NewsDetails = () => {
   const userComments = comment.map((item, index) => {
     return (
       <UserComments
+        key={index}
         uid={item.userId}
         name={item.title}
         date={item.insertDate}
         question={item.describe}
-        key={index}
       />
     );
   });
@@ -56,6 +65,29 @@ const NewsDetails = () => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+
+  // News Like
+  const handleNewsLikeClick = useCallback(async () => {
+    try {
+      const result = await http.post(
+        "/News/NewsLike/" + urlParam.id
+      );
+      setLikes(result);
+      console.log(result);
+      setChangeLikeColor(!changeLikeColor);
+    } catch (error) {
+      console.error(error);
+    }
+    setLikes(result);
+  });
+
+  // News Rate
+  const [stars, setStars] = useState(0);
+  const [newsRate, setNewsRate] = useState();
+  const NewsId = data.id
+  const RateNumber = stars
+  console.log(NewsId)
+  console.log(RateNumber)
 
   return (
     <Fragment>
@@ -145,6 +177,50 @@ const NewsDetails = () => {
               <div className="media-icons-border">{instagramSvg}</div>
             </div>
           </div>
+
+
+
+
+          <div className="flex flex-row justify-between border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70] py-8">
+            <div className="flex flex-row">
+            <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
+              آیا از این مقاله راضی بودید؟
+            </h2>
+            <div
+              className="course-like-box py-2 mr-4 bg-[#e3deff] "
+              onClick={handleNewsLikeClick}
+            >
+              <span
+                className={` cursor-pointer ${
+                  changeLikeColor === true
+                    ? `bbi bi-hand-thumbs-up-fill text-indigo-950 `
+                    : `bi bi-hand-thumbs-up text-indigo-950`
+                }`}
+              >
+                {" "}
+                {data.currentLikeCount}
+              </span>
+            </div>
+            <div
+              className="course-like-box py-2 mr-1.5 pl-4 bg-[#e3deff]"
+              // onClick={() => addWishList(id, isLogin)}
+            >
+              <span
+                className="bbi bi-hand-thumbs-down text-zinc-500"
+              >
+              </span>
+            </div>
+            </div>
+            <div className="flex flex-row gap-x-4">
+              <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
+                میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
+              </h2>
+              <NewsRate/>
+            </div>
+          </div>
+
+
+
           <div className="mt-40 pb-6 border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70]">
             <img src={commentImg} className="inline pl-4" />
             <h2 className="text-xl md:text-2xl text-darkblue4 dark:text-[#6974FF] inline">
