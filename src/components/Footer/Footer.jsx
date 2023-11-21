@@ -6,8 +6,10 @@ import Gradient1 from '../../assets/icons/logo-icon-gradient.svg';
 import Gradient2 from '../../assets/icons/logo-icon-gradient-part.svg';
 import FooterBottom from "./components/FooterBottom";
 import Copyrights from "../common/Copyrights";
+
 const Footer = () => {
   return (
+    <>
     <footer className="footer">
       <div className="footer-content">
         <div className="w-full flex gap-10  justify-around md:items-start md:flex-row flex-col">
@@ -20,7 +22,7 @@ const Footer = () => {
         <FooterBottom/>
       </div>
       <Copyrights/>
-    </footer>
+    </footer></>
   );
 };
 

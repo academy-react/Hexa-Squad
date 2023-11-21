@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @layer components {
+    #showFooterMapModal:checked+.footerMapModal {
+        display: block;
+    }
+    .footerMapModal {
+        @apply animate-zoom fixed  h-[500px] top-[16%] inset-x-12 z-[500] hidden ;
+    }
+    .closebtn{
+        @apply absolute top-2 z-50 right-5 text-slate-600 dark:text-semiWhite2 text-4xl;
+    }
+
     .title {
         width: fit-content;
         @apply mb-5 text-xl md:text-2xl lg:text-4xl lg:mx-auto mr-4 text-darkblue dark:text-semiPink relative;
@@ -122,7 +132,7 @@
 
     /* news details */
     .progress-bar {
-        @apply fixed top-0 left-0 right-0 h-3 bg-newPurple origin-[0%];
+        @apply fixed top-0 left-0 right-0 h-2 bg-newPurple origin-[0%];
     }
     .news-details{
         /* box-shadow: 0px 0px 30px 0px #B48DFF4D; */
@@ -153,7 +163,7 @@
 
     /* news details --> User Comments*/
     .userComment{
-        @apply flex flex-col md:flex-row py-6;
+        @apply flex flex-col md:flex-row py-6 mt-2 bg-[#d0cdff] px-4 rounded-bl-3xl rounded-md ;
     }
     .userComment-pic{
         @apply w-[76px] h-[76px] rounded-full shadow-shadow-userComments-pic mb-2 lg:mb-0;
@@ -165,7 +175,7 @@
     }
     .comment-input{
         @apply w-[340px] h-40 md:w-[650px] lg:w-[1099px] lg:h-52 lg:mr-4 mt-2 p-4 text-base text-darkblue2 dark:text-[#7e7cb1]
-                border-2 border-lightblue4 dark:border-[#3d3d70] rounded-xl bg-newWhite dark:bg-darkblue6;
+                border-2 border-indigo-500 dark:border-[#3d3d70] rounded-xl bg-newWhite dark:bg-darkblue6;
     }
     .comment-input:focus{
         @apply outline-none border-2 border-lightblue;

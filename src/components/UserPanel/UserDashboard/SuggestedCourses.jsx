@@ -33,7 +33,7 @@ const SuggestedCourses = () => {
     />
   ));
   return (
-    <div className="lg:w-6/12 lg:mr-10 mt-10 lg:mt-0">
+    <div className="lg:w-9/12 lg:mr-6 mt-10 lg:mt-0">
       <div className="text-[#3F3F47] dark:text-white px-12 relative mb-6">
         <img
           src={TitleRight}
