@@ -1,8 +1,7 @@
-export const addLike = (id , isLogin)=>{
-    if (isLogin ==false){
+export const addLike = (id , userIsLiked)=>{
+    if (userIsLiked ==false){
       showLoginModal.click()
-    }
-    if (isLogin == true){
-      showLoginModal.check()
+    }else{
+      
     }
 }

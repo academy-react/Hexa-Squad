@@ -4,36 +4,40 @@ import filterData from "../../core/services/filterData/filterData";
 import DropDownRange from "../common/DropDownRange";
 import axios from "axios";
 import { useEffect } from "react";
+import http from "../../core/services/interceptor";
+import DropDownItem from "../common/DropDownItem";
 
-const FiltersOptions = ({ data, setData, filterDiv, setFilterDiv }) => {
-  const [categoryData, setCategoryData] = useState([
-    { label: "برنامه نویسی وب", category: "programming" },
-    { label: "دیزاین", category: "design" },
-    { label: "React", category: "react" },
-    { label: "ادیت ویدیو", category: "edit" },
-    { label: "Ruby", category: "Ruby" },
-    { label: "TypeScript", category: "TypeScript" },
-    { label: "Sass", category: "Sass" },
-    { label: "TailwindCss", category: "TailwindCss" },
-    { label: "همه", category: "" },
-  ]);
-  const getCategories = async ()=>{
+const FiltersOptions = ({
+  data,
+  setData,
+  filterDiv,
+  setFilterDiv,
+  setCostDown,
+  setCostUp,
+  setCourseLevelId,
+  setCourseTypeId,
+}) => {
+  const [categoryData, setCategoryData] = useState([]);
+  const [courseTypes, setCourseTypes] = useState([]);
+  const [courseLevel, setCourseLevel] = useState([]);
+  const getCategories = async (api, setState) => {
     try {
-      const result = await axios.get('https://api-academy.iran.liara.run/api/Home/GetTechnologies')
+      const result = await http.get(api);
       try {
-        setCategoryData(result.data)
-        console.log(result.data)
+        setState(result);
+        console.log(result);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
   useEffect(() => {
-    getCategories()
-  }, [])
-  
+    getCategories("/Home/GetTechnologies", setCategoryData);
+    getCategories("/CourseType/GetCourseTypes", setCourseTypes);
+    getCategories('/CourseLevel/GetAllCourseLevel', setCourseLevel);
+  }, []);
   return (
     <div
       className={"filter-options " + (filterDiv ? "block" : "hidden")}
@@ -53,9 +57,33 @@ const FiltersOptions = ({ data, setData, filterDiv, setFilterDiv }) => {
         data={categoryData}
         checkBoxType={"checkbox"}
         height={"h-[300px]"}
-        customFunction={filterData}
       />
-      <DropDownRange data={data} setData={setData} />
+      <DropDownItem
+        name={"courseTypes"}
+        label={'فیلتر بر اساس نحوه برگذاری  '}
+        setData={setData}
+        courseData={data}
+        data={courseTypes}
+        setCourseID={setCourseTypeId}
+        checkBoxType={"radio"}
+        height={"h-[90px]"}
+      />
+      <DropDownItem
+        name={"courseLevel"}
+        label={'فیلتر بر اساس سطح دوره '}
+        setData={setData}
+        courseData={data}
+        setCourseID={setCourseLevelId}
+        data={courseLevel}
+        checkBoxType={"radio"}
+        height={"h-[130px]"}
+      />
+      <DropDownRange
+        data={data}
+        setData={setData}
+        setCostDown={setCostDown}
+        setCostUp={setCostUp}
+      />
     </div>
   );
 };

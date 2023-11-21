@@ -8,7 +8,7 @@ import VerifyCodeObj from "../../../core/services/toastPromiseObj/VerifyCode";
 import onSubmitFunction from "../../../core/services//api/PostData/Register";
 const VerificationCode = ({ phoneNumberValue, handleClick }) => {
   const onSubmit = async (value) => {
-    const api = "Sign/VerifyMessage";
+    const api = "/Sign/VerifyMessage";
     const obj = {
       phoneNumber: phoneNumberValue,
       verifyCode: value.verifyCode,

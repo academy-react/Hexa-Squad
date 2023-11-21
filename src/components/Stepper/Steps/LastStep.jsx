@@ -5,7 +5,14 @@ import { Link } from "react-router-dom";
 import { validation } from "../../../core/validations/validations";
 
 import tick from "../../../assets/image/tick.svg";
+import { useEffect } from "react";
 const LastStep = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      window.location.pathname = "/authorize/login";
+    }, 1500);
+  }, [])
+  
   return (
     <div className="md:bg-[#e4dbff] relative">
       <div

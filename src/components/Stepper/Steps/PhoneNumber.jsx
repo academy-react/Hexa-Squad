@@ -14,7 +14,7 @@ const PhoneNumber = ({
 }) => {
   const onSubmit = (value) => {
     const obj ={ phoneNumber: value.phoneNumber };
-    const api = "Sign/SendVerifyMessage";
+    const api = "/Sign/SendVerifyMessage";
     onSubmitFunction(api,value,obj,phoneNumberToastObj,handleClick)
     setPhoneNumberValue(value.phoneNumber);
   };

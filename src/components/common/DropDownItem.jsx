@@ -2,27 +2,26 @@ import React from "react";
 import CheckboxInput from "./checkboxInput";
 import { useState } from "react";
 
-const DropDown = ({
+const DropDownItem = ({
   name,
   data,
+  label,
   checkBoxType,
   height,
   courseData,
   setData,
   customFunction,
+  setCourseID,
 }) => {
   const [checkedData, setCheckedData] = useState("");
+  //   console.log(data)
   const dataMapper = data.map((item, index) => (
     <div
       className="flex p-2"
       key={index}
       onClick={() => {
-        customFunction(
-          courseData,
-          item.techName == undefined ? item.categoryName : item.techName,
-          setData,
-          setCheckedData
-        );
+        setCourseID(item.id);
+        setCheckedData(" ");
       }}
     >
       <input
@@ -32,7 +31,7 @@ const DropDown = ({
         id={name + index}
       />
       <label htmlFor={name + index} className="pr-5">
-        {item.techName == undefined ? item.categoryName : item.techName}
+        {item.typeName == undefined ? item.levelName : item.typeName}
       </label>
     </div>
   ));
@@ -44,7 +43,7 @@ const DropDown = ({
           htmlFor={name}
           className=" border-b-2 block py-[18px] xl:px-20 px-24 w-full border-[#2C007F30] dark:border-[#fff5]"
         >
-          فیلتر بر اساس موضوع
+          {label}
         </label>
         <i
           className={
@@ -52,7 +51,8 @@ const DropDown = ({
             " bi bi-x absolute top-[33%] left-5 text-xl text-red-500 cursor-pointer"
           }
           onClick={() => {
-            customFunction(courseData, "", setData, setCheckedData);
+            setCourseID("");
+            setCheckedData("");
           }}
         >
           {" "}
@@ -69,4 +69,4 @@ const DropDown = ({
   );
 };
 
-export default DropDown;
+export default DropDownItem;

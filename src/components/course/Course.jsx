@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
 import { addCart } from "../../core/services/api/PostData/addToCart";
 import CourseHeader from "./CourseHeader";
 import CourseBody from "./CourseBody";
 
 import heart from "../../assets/image/heart.svg";
+import fillHeart from "../../assets/image/fill - heart.svg";
 import cart from "../../assets/image/cart.svg";
 import "../Landing/common.css";
 
@@ -22,8 +23,19 @@ const Course = ({
   price,
   image,
   addClass,
+  userFavorite,
+  userIsLiked,
 }) => {
   const [isLogin, setIsLogin] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false)
+  const addFavorite = async ()=>{
+    const result = await addWishList(id, userFavorite);
+    setIsFavorite(result)
+  }
+  useEffect(() => {
+    userFavorite == 1 && setIsFavorite(true)
+  }, [])
+  
   return (
     <div className={"course-box px-6 " + addClass}>
       <div className="hover-box z-3">
@@ -33,9 +45,9 @@ const Course = ({
           onClick={() => addCart(id, isLogin)}
         />
         <img
-          src={heart}
-          className="inline hover-box-img"
-          onClick={() => addWishList(id, isLogin)}
+          src={isFavorite ? fillHeart : heart}
+          className="inline hover-box-img w-6"
+          onClick={addFavorite}
         />
       </div>
       <CourseHeader image={image} />
@@ -49,6 +61,7 @@ const Course = ({
         like={like}
         dislike={dislike}
         bio={bio}
+        userIsLiked={userIsLiked}
         studentCount={studentCount}
         price={price}
       />

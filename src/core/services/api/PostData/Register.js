@@ -1,21 +1,27 @@
 import { toast } from "react-toastify";
 import Http from "../../interceptor";
-const onSubmit = async (api,value,dataBody,ToastObj,handleClick) => {
-    console.log(value);
+const onSubmit = async (api, value, dataBody, ToastObj, handleClick) => {
+  console.log(value);
+  try {
+    const result = await Http.post(api, dataBody);
+    console.log(result);
     try {
-      await toast.promise(
-        Http.post(api,dataBody),
-        ToastObj
-      );
-      try {
+      if (result.success) {
+        toast.success(result.message)
         setTimeout(() => {
           handleClick("next");
         }, 3500);
-      } catch (error) {
-        console.log(error);
+      } else {
+        // result.errors ==
+          toast.error(
+            result.errors == null ? result.message : result.errors[0]
+          );
       }
     } catch (error) {
       console.log(error);
     }
+  } catch (error) {
+    console.log(error);
+  }
 };
 export default onSubmit;

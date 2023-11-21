@@ -13,6 +13,7 @@ import loginDark from "../../assets/image/loginDark.svg";
 import { setItem } from "../../core/services/local-storage/storage.services";
 import LoadingSpinner from "../../components/common/loadingSpinner";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const htmlTag = document.querySelector("html");
@@ -30,7 +31,7 @@ const Login = () => {
     theme ? (htmlTag.className = "dark") : (htmlTag.className = "");
   };
   const onSubmitLogin = async (value) => {
-      console.log(" fetching started ...", value);
+    console.log(" fetching started ...", value);
     try {
       const result = await http.post("/Sign/Login", {
         phoneOrGmail: value.phoneOrGmail,
@@ -38,8 +39,13 @@ const Login = () => {
         rememberMe: value.rememberMe,
       });
       console.log(result.token);
+      console.log(result)
       setItem("token", result.token);
-      window.location.pathname = "/";
+      if (result.success) {
+        window.location.pathname = "/";
+      } else {
+        toast.error(result.errors == null ? result.message : result.errors[0])
+      }
     } catch (error) {
       console.log(error);
       return false;

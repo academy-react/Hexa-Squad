@@ -2,23 +2,21 @@ import React from "react";
 import CheckboxInput from "./checkboxInput";
 import { useState } from "react";
 
-const DropDownRange = ({ data, setData }) => {
+const DropDownRange = ({ data, setData, setCostDown, setCostUp }) => {
   const [defaultValue, setDefaultValue] = useState(true);
   const [fromPrice, setFromPrice] = useState(0);
-  const [toPrice, setToPrice] = useState(10000000);
+  const [toPrice, setToPrice] = useState(1000000);
   const filterData = () => {
-    const filterData = data.filter((el) => {
-      return el.cost >= fromPrice && el.cost <= toPrice;
-    });
+    setCostDown(fromPrice);
+    setCostUp(toPrice);
     setDefaultValue(false);
-    setData(filterData);
   };
   return (
     <div className="bg-[#EAE5FF] overflow-hidden text-[#2C007F] px-7 rounded-xl mb-5 mt-3 dark:bg-newPurpleAlpha2 dark:text-[#fff]">
-      <CheckboxInput name={'price'} className={"checkbox"} />
+      <CheckboxInput name={"price"} className={"checkbox"} />
       <div className="relative">
         <label
-          htmlFor={'price'}
+          htmlFor={"price"}
           className=" border-b-2 block py-[18px] xl:px-24 px-28 w-full border-[#2C007F30] dark:border-[#fff5]"
         >
           فیلتر بر اساس قیمت
@@ -33,12 +31,12 @@ const DropDownRange = ({ data, setData }) => {
               type="range"
               className="transparent h-[4px] w-full cursor-pointer appearance-none border-transparent bg-darkblue4 dark:bg-darkblue"
               min="0"
-              max="10000000"
-              step={5000}
+              max="1000000"
+              step='5000'
               id="customRange2"
-              onInput={(event) => {
-                filterData();
+              onChange={(event) => {
                 setFromPrice(event.target.value);
+                filterData();
               }}
             />
             <label htmlFor="fromPrice">شروع قیمت</label>
@@ -47,7 +45,7 @@ const DropDownRange = ({ data, setData }) => {
               id="fromPrice"
               value={fromPrice}
               min="0"
-              max="10000000"
+              max="1000000"
               step={5000}
               className="w-full dark:text-darkblue"
               onChange={(event) => {
@@ -62,7 +60,7 @@ const DropDownRange = ({ data, setData }) => {
               type="range"
               className="transparent h-[4px] w-full cursor-pointer appearance-none border-transparent bg-darkblue4 dark:bg-darkblue"
               min="0"
-              max="10000000"
+              max="1000000"
               step={5000}
               id="customRange2"
               onInput={(event) => {
@@ -76,7 +74,7 @@ const DropDownRange = ({ data, setData }) => {
               id="toPrice"
               value={toPrice}
               min="0"
-              max="10000000"
+              max="1000000"
               step={5000}
               className="w-full dark:text-darkblue"
               onChange={(event) => {

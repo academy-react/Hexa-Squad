@@ -69,6 +69,7 @@ const CourseDetails = () => {
 
             {/* moshakhasat */}
             <DetailsBox
+            id={data.courseId}
               startTime={data.startTime}
               capacity={data.capacity}
               courseStatusName={data.courseStatusName}
@@ -78,6 +79,7 @@ const CourseDetails = () => {
               currentRegistrants={data.currentRegistrants}
               courseLevelName={data.courseLevelName}
               cost={data.cost}
+              isCourseReseve={data.isCourseReseve}
             />
           </div>
           <TabsContent />

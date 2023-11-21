@@ -12,6 +12,7 @@ import startDark from "../../assets/icons/startDark.svg";
 import dateDark from "../../assets/icons/dateDark.svg";
 import studentDark from "../../assets/icons/studentDark.svg";
 import teacher from "../../assets/image/teacher'sProfile.jpg";
+import { addReserve } from "../../core/services/api/PostData/addCourseReserve";
 
 const DetailsBox = ({
   id,
@@ -22,7 +23,8 @@ const DetailsBox = ({
   teacherName,
   currentRegistrants,
   courseLevelName,
-  cost
+  cost,
+  isCourseReseve,
 }) => {
   const [isLogin, setIsLogin] = useState(false);
   return (
@@ -135,7 +137,7 @@ const DetailsBox = ({
               قیمت:
             </h2>
             <h2 className="text-xl mr-2 text-[#C40F50] dark:text-[#f85691]">
-             {cost}
+              {cost}
             </h2>
             <h2 className="text-md mr-1 text-darkblue opacity-90 dark:text-whitePink ">
               تومان
@@ -144,7 +146,7 @@ const DetailsBox = ({
         </div>
         <div className="mx-6 mt-3 mb-8 lg:mb-0 ">
           <input
-            onClick={() => addCart(id, isLogin)}
+            onClick={() => addReserve(id, isCourseReseve)}
             type="submit"
             value="ثبت نام در این دوره"
             className="gradient w-full py-4 lg:mb-10 mb-4 rounded-md cursor-pointer"

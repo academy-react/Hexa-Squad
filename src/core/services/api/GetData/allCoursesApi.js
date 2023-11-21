@@ -1,9 +1,16 @@
 import Http from "../../interceptor";
 // get courses data from api and fetch on data variable
-const fetchCoursesApi = async (setData, pageCount, countInPage, setAllData) => {
+const fetchCoursesApi = async (
+  setData,
+  pageCount,
+  countInPage,
+  setAllData,
+  filterObj
+) => {
   try {
     const result = await Http.get(
-      `/Home/GetCoursesWithPagination?PageNumber=${pageCount}&RowsOfPage=${countInPage}&SortingCol=Active&SortType=DESC&TechCount=0`
+      `/Home/GetCoursesWithPagination?PageNumber=${pageCount}&RowsOfPage=${countInPage}`,
+      { params: filterObj }
     );
     try {
       setData(result.courseFilterDtos);

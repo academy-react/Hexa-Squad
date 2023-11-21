@@ -15,11 +15,32 @@ const Courses = () => {
   const [filterDiv, setFilterDiv] = useState(true);
   const [data, setData] = useState([]);
   const [allData, setAllData] = useState([]);
+
+  const [sortCal, setSortCal] = useState("ASC");
+  const [sortType, setSortType] = useState("Active");
+  const [costDown, setCostDown] = useState(0);
+  const [costUp, setCostUp] = useState(10000000);
+  const [listTech, setListTech] = useState(2, 3, 4, 5, 6, 7);
+  const [courseLevelId, setCourseLevelId] = useState();
+  const [courseTypeId, setCourseTypeId] = useState();
+  const filterObj = {
+    SortingCol: sortCal,
+    SortType: sortType,
+    // searchValue:'',
+    CostDown: costDown,
+    CostUp: costUp,
+    TechCount: 1,
+    ListTech: listTech,
+    courseLevelId: courseLevelId,
+    CourseTypeId: courseTypeId,
+  };
+
   const [itemOffset, setItemOffset] = useState(0);
   const countInPage = 8;
   const endOffset = itemOffset + countInPage;
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / countInPage);
+
   const typeWriterWords = [
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
@@ -35,15 +56,26 @@ const Courses = () => {
 
   // get courses data from api and fetch on data variable
   useEffect(() => {
-    fetchCoursesApi(setData, pageCount, countInPage, setAllData);
+    fetchCoursesApi(setData, pageCount, countInPage, setAllData, filterObj);
     return () => {
       setFilterDiv(false);
       setShowGrid(false);
     };
   }, []);
 
+  useEffect(() => {
+    fetchCoursesApi(setData, pageCount, countInPage, setAllData, filterObj);
+  }, [
+    sortCal,
+    sortType,
+    costDown,
+    costUp,
+    listTech,
+    courseLevelId,
+    courseTypeId,
+  ]);
+
   const mapData = currentItems.map((data, index) => {
-    console.log(data.technologyList);
     return (
       <Course
         key={index}
@@ -65,7 +97,7 @@ const Courses = () => {
   });
   return (
     <Fragment>
-      <LoadingSpinner/>
+      <LoadingSpinner />
       <div className="py-32">
         <img
           src={bgCourses}
@@ -80,6 +112,8 @@ const Courses = () => {
         <CoursesHero typeWriterWords={typeWriterWords} />
         <FiltersBTN
           data={allData}
+          setSortCal={setSortCal}
+          setSortType={setSortType}
           setData={setData}
           showGridView={showGridView}
           filterDiv={filterDiv}
@@ -87,16 +121,20 @@ const Courses = () => {
         />
 
         <div className="flex w-full flex-wrap ">
-          <div className="flex md:flex-row flex-col w-full px-20 ">
+          <div className="flex md:flex-row items-start flex-col w-full px-20 ">
             <FiltersOptions
               data={allData}
               setFilterDiv={setFilterDiv}
               setData={setData}
+              setCostDown={setCostDown}
+              setCostUp={setCostUp}
               filterDiv={filterDiv}
+              setCourseLevelId={setCourseLevelId}
+              setCourseTypeId={setCourseTypeId}
             />
             <div
               className={
-                "w-full flex relative flex-wrap transition-all pt-0 justify-end gap-3 duration-1000 aos-init aos-animate " +
+                "w-full flex relative flex-wrap transition-all pt-0 justify-end items-start gap-y-0 gap-3 duration-1000 aos-init aos-animate " +
                 (showGrid ? "grid-list" : "")
               }
               data-aos="zoom-in"

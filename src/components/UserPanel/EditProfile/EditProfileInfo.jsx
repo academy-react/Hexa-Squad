@@ -55,7 +55,7 @@ const EditProfileInfo = (
                     <div className="w-full py-2 flex gap-2">
                         <Field name={"gender"} type="radio" value={gender} className="mr-4" />
                         <label>زن</label>
-                        <Field name={"gender"} type="radio" value={gender} className="mr-8" />
+                        <Field name={"gender"} type="radio"  value={gender} className="mr-8" />
                         <label>مرد</label>  
                     </div>              
                 </div>

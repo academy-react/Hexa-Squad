@@ -4,19 +4,32 @@ import Select from "react-select";
 
 const FiltersBTN = ({
   data,
+  setSortType,
+  setSortCal,
   setData,
   setFilterDiv,
   filterDiv,
   showGridView,
 }) => {
-  const [selectedOptions, setSelectedOption] = useState(null);
-  const [options, setOptions] = useState([
-    { value: "newest", label: "جدیدترین ها" },
-    { value: "mostView", label: "پر بازدید ترین ها" },
-    { value: "popular", label: "پرطرفدار ترین ها" },
+  const [selectedOptionsSType, setSelectedOptionSType] = useState(null);
+  const [selectedOptionsSCal, setSelectedOptionSCal] = useState(null);
+  const [SortingTypeV, setSortingTypeV] = useState([
+    { value: "Active", label: "دوره های فعال" },
+    { value: "LastUpdate", label: "جدید ترین" },
+    { value: "Cost", label: "بر اساس قیمت" },
+    { value: "CourseRate", label: "بر اساس نمره " },
   ]);
-  const handleChange = (selectedOption) => {
-    setSelectedOption(selectedOption);
+  const [SortingCal, setSortingCal] = useState([
+    { value: "ASC", label: "صعودی" },
+    { value: "DESC", label: "نزولی" },
+  ]);
+  const STypeHandleChange = (selectedOption) => {
+    setSelectedOptionSType(selectedOption);
+    setSortType(selectedOption.value);
+  };
+  const SCalHandleChange = (selectedOption) => {
+    setSelectedOptionSCal(selectedOption);
+    setSortCal(selectedOption.value);
   };
   const filterSearch = (value) => {
     let filteredData = data.filter((item) => {
@@ -28,8 +41,8 @@ const FiltersBTN = ({
     <div className="filter-btn-section">
       <div className="flex gap-5 lg:w-4/12 w-full justify-center">
         <CheckboxInput name={"openFilter"} />
-        <label 
-        className="relative"
+        <label
+          className="relative"
           htmlFor="openFilter"
           onClick={() => {
             setFilterDiv(!filterDiv);
@@ -50,15 +63,27 @@ const FiltersBTN = ({
         </label>
       </div>
       <div className="flex gap-5 w-full lg:pr-6">
-        <SearchBox placeholder={"جستجو ..."} SearchFunction={filterSearch} addClass={"my-4"} inputClass={'focus:border-2 border-blue-800'} />
+        <SearchBox
+          placeholder={"جستجو ..."}
+          SearchFunction={filterSearch}
+          addClass={"my-4"}
+          inputClass={"focus:border-2 border-blue-800"}
+        />
       </div>
-      <div className="flex gap-5 text-darkblue2 lg:w-6/12 w-full justify-center">
+      <div className="flex gap-5 text-darkblue2 lg:mr-6 lg:w-6/12 w-full justify-center">
         <Select
-          value={selectedOptions}
-          placeholder={"بر اساس :"}
-          options={options}
-          className="text-darkblue2 lg:w-[220px] w-full"
-          onChange={handleChange}
+          value={selectedOptionsSType}
+          placeholder={"دوره های فعال"}
+          options={SortingTypeV}
+          className="text-darkblue2 lg:w-2/3 w-full"
+          onChange={STypeHandleChange}
+        />
+        <Select
+          value={selectedOptionsSCal}
+          placeholder={"نزولی"}
+          options={SortingCal}
+          className="text-darkblue2 lg:w-1/3 w-full"
+          onChange={SCalHandleChange}
         />
       </div>
     </div>

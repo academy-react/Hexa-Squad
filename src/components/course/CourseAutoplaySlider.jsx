@@ -10,7 +10,7 @@ import fetchData from "../../core/services/api/GetData/getTopCourses";
 
 const CourseAutoplaySlider = () => {
   const [coursesList, setCoursesList] = useState([]);
-
+  console.log('coursesList',coursesList)
   const dataMapper = coursesList.map((item, index) => {
     return (
       <SwiperSlide key={index}>
@@ -24,6 +24,8 @@ const CourseAutoplaySlider = () => {
           professorName={item.teacherName}
           like={item.likeCount}
           // dislike={item.dislike}
+          userFavorite={item.userFavorite}
+          userIsLiked={item.userIsLiked}
           studentCount={item.currentRegistrants}
           price={item.cost}
           width={"lg:w-[24%]"}

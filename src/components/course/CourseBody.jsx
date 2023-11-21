@@ -27,6 +27,7 @@ const CourseBody = ({
   price,
   bio,
   id,
+  userIsLiked,
 }) => {
   const [isLogin, setIsLogin] = useState(false);
 
@@ -50,7 +51,7 @@ const CourseBody = ({
       <div className=" hidden course-bio">{bio}</div>
 
       <div className="pt-8 flex justify-between whitespace-nowrap">
-        <div className="professor-name w-40 whitespace-nowrap overflow-hidden text-ellipsis" >
+        <div className="professor-name w-40 whitespace-nowrap overflow-hidden text-ellipsis">
           {graduationCapSvg}
           <Link to={"/TeacherProfile"} className="course-info text-sm">
             {professorName}
@@ -59,7 +60,7 @@ const CourseBody = ({
         <div className="likes-box">
           <div
             className="course-like-box mr-8"
-            onClick={() => addLike(id, isLogin)}
+            onClick={() => addLike(id, userIsLiked)}
           >
             <img src={likePic} alt="picture" className="inline" />
             <span className="course-like-count">{like}</span>

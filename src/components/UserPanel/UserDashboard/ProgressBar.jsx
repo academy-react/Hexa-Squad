@@ -13,8 +13,7 @@ const ProgressBar = () => {
     const fetchData = async () => {
       try {
         const response = await http.get("/SharePanel/GetProfileInfo");
-        const data = response;
-        setPercentage(data.percentage);
+        setPercentage(response.profileCompletionPercentage);
       } catch (error) {
         console.error("Error fetching user information: ", error);
       }

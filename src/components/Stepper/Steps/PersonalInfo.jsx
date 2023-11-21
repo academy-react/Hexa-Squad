@@ -26,11 +26,12 @@ const PersonalInfo = ({ phoneNumberValue, handleClick }) => {
       success: "ثبت نام با موفقیت انجام شد",
       error: "مشکلی بوجود آمد . ثبت نام ناموفق بود",
     };
-    const api = "Sign/Register";
+    const api = "/Sign/Register";
     const obj = {
       phoneNumber: value.phoneNumber,
       verifyCode: value.verifyCode,
       gmail: value.gmail,
+      password: value.password
     };
     onSubmitFunction(api, value, obj, toastifyMessage, handleClick);
   };
