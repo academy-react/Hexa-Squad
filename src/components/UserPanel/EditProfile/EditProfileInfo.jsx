@@ -71,7 +71,7 @@ const EditProfileInfo = (
                 </div>
                 <div className="editProf-input">
                     <label className="block my-2">تاریخ تولد</label>
-                    <PersianCalendar name={"birthDate"}/>
+                    <PersianCalendar name={"birthDate"} birthDate={birthDate}/>
                     <ErrorMessage name="birthDate" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 <div className="editProf-input">
