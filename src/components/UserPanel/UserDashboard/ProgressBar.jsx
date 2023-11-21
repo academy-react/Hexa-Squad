@@ -37,7 +37,7 @@ const ProgressBar = () => {
           text={`${percentage}%`}
           styles={buildStyles({
             textSize: "14px",
-            pathColor: `rgba(62, 152, 199, ${percentage / 100})`,
+            pathColor: `rgba(94, 3, 252, ${percentage / 100})`,
             textColor: "#4229C5",
             trailColor: "#d6d6d6",
           })}

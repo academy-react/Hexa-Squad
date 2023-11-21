@@ -42,22 +42,22 @@ const UserComments = ({ name, date, question, uid, like, disLike }) => {
         <div className="userComment-pic">
           <img src={userComment} alt="picture" className="mx-auto" />
         </div>
-        <div className="px-4">
-          <p className="inline text-lg md:text-xl text-darkblue2 dark:text-[#9996F9]">
+        <div className="px-4 ">
+          <p className="inline text-lg md:text-xl  text-darkblue2 dark:text-[#d8d6ff]">
             {name} -
           </p>
-          <p className="inline text-sm md:text-base text-lightblue4 dark:text-[#9996F9] ">
+          <p className="inline text-sm md:text-base text-lightblue4 dark:text-[#b8b5ff] ">
             ارسال شده در{date.slice(0, 10)}{" "}
           </p>
-          <p className="text-sm md:text-base text-justify text-darkblue4 dark:text-[#7e7cb1] pt-2">
+          <p className="text-sm md:text-base text-justify text-darkblue4 dark:text-[#bebcff] pt-2">
             {question}
           </p>
           <div className="flex flex-row gap-4 mt-4">
             <span
               className={` cursor-pointer ${
                 changeLikeColor === true
-                  ? `bbi bi-hand-thumbs-up-fill text-indigo-950 `
-                  : `bi bi-hand-thumbs-up text-indigo-950`
+                  ? `bbi bi-hand-thumbs-up-fill text-indigo-950 dark:text-indigo-300 `
+                  : `bi bi-hand-thumbs-up text-indigo-950  dark:text-indigo-300`
               }`}
               onClick={handleLikeClick}
             >
@@ -67,8 +67,8 @@ const UserComments = ({ name, date, question, uid, like, disLike }) => {
             <span
               className={` cursor-pointer ${
                 changeDisLikeColor === true
-                  ? `bbi bi-hand-thumbs-down-fill text-zinc-500`
-                  : `bi bi-hand-thumbs-down text-zinc-500`
+                  ? `bbi bi-hand-thumbs-down-fill text-zinc-500  dark:text-slate-400`
+                  : `bi bi-hand-thumbs-down text-zinc-500 dark:text-slate-400`
               }`}
               onClick={handleDisLikeClick}
             >
