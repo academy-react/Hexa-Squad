@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback, Fragment } from "react";
+import ReactPaginate from "react-paginate";
+
 import {
   NewsListHero,
   NewsFilterMenu,
@@ -19,16 +21,26 @@ const NewsList = () => {
   const [newsData, setNewsData] = useState([]);
   const [newsAllData, setNewsAllData] = useState([]);
   const [filterDiv, setFilterDiv] = useState(true);
+  const [itemOffset, setItemOffset] = useState(0);
+  const countInPage = 8;
+  const endOffset = itemOffset + countInPage;
+  const currentItems = newsData.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(newsData.length / countInPage);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * countInPage) % data.length;
+    setItemOffset(newOffset);
+  };
 
   // get News data from api and fetch
   useEffect(() => {
-    fetchNewsApi(setNewsData, setNewsAllData);
+    fetchNewsApi(setNewsData, setNewsAllData, pageCount, countInPage );
     return () => {
       setFilterDiv(false);
     };
   }, [fetchNewsApi]);
 
-  const newsCardsMapper = newsData.map((item, index) => {
+  const newsCardsMapper = currentItems.map((item, index) => {
     return (
       <NewsCard
         key={index}
@@ -72,6 +84,18 @@ const NewsList = () => {
             />
             <div className="news-card">{newsCardsMapper}</div>
           </section>
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel=">"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel="<"
+            renderOnZeroPageCount={null}
+            pageLinkClassName=" paginationLink"
+            activeLinkClassName="active"
+            containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-12 p-5"
+          />
         </div>
       </div>
     </Fragment>

@@ -1,9 +1,9 @@
 import http from "../../interceptor";
 
-const fetchNewsApi =  async (setNewsData, setNewsAllData) => {
+const fetchNewsApi =  async (setNewsData, setNewsAllData, pageCount, countInPage ) => {
   try {
     const result = await http.get(
-      `/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC&Query=`
+      `/News?PageNumber=${pageCount}&RowsOfPage=${countInPage}&SortingCol=InsertDate&SortType=DESC&Query=`
     );
 
     setNewsData(result.news);
