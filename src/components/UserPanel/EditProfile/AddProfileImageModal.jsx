@@ -74,29 +74,30 @@ const AddProfileImageModal = () => {
                     <i className="bi bi-x absolute top-2 z-50 right-5 text-slate-600 dark:text-semiWhite2 text-4xl"></i>
                 </label>
                 
-                <div className="card p-4 rounded-md overflow-hidden text-black">
+                <div className="card p-4 rounded-md overflow-hidden">
                     <div className="text-center">
-                        <p className="text-blue-700 mt-4">Please Select Or Darg Your Image</p>
+                        <p className="text-blue-700 mt-4">لطفا عکس مورد نظر خود را انتخاب یا درگ کنید</p>
                     </div>
                     <div 
                         onDragOver={onDragOver}
                         onDragLeave={onDragLeave}
                         onDrop={onDrop}
-                        className="drag-area h-40 rounded-md border-2 border-dashed border-blue-600 text-blue-700 dark:text-slate-100 bg-slate-100 dark:bg-darkblue4 flex justify-center items-center select-none mt-3 focus-visible:text-lg"
+                        className="drag-area gap-x-2 h-40 rounded-md border-2 border-dashed border-blue-600 text-blue-700 dark:text-slate-100 bg-slate-100 dark:bg-darkblue4 flex justify-center items-center select-none mt-3 focus-visible:text-lg"
                     >
                         {isDragging ? (
                             <span className="select text-violet-800 dark:text-slate-400 cursor-pointer ml-1 duration-300 hover:opacity-60">
-                                Drop images here
+                                عکس را در این قسمت رها کنید
                             </span> 
                         ) : (
                             <>
-                                Drag & Drop image here or {"  "}
                                 <button 
                                     className="select text-violet-800 dark:text-slate-400 border-2 border-violet-800 bg-slate-100 rounded-md p-1 cursor-pointer ml-1 duration-300 hover:opacity-60"
                                     onClick={selectFiles}
                                 >
-                            Browse
-                        </button>
+                                    انتخاب عکس
+                                </button>
+                                عکس ها را درگ کنید و اینجا رها کنید یا 
+
                             </>
                         )}
 
@@ -116,11 +117,13 @@ const AddProfileImageModal = () => {
                                 className="image w-28 mr-1 h-28 relative m-4 border-2 border-violet-600 rounded-md"
                             >
                                 <span 
+                                    className="delete absolute -top-1 right-2 text-2xl cursor-pointer z-50 text-blue-700"
                                     onClick={() => deleteImage(index)}
-                                    className="delete absolute -top-1 right-2 text-2xl cursor-pointer z-50 text-blue-700">&times;
+                                >
+                                    &times;
                                 </span>
                                 <i 
-                                    className="bi bi-file-earmark-plus delete absolute  left-2 text-xl cursor-pointer z-50 text-blue-700"
+                                    className="bi bi-plus-square delete absolute  left-2 cursor-pointer z-50 text-blue-700"
                                 
                                 ></i>
                                 <img 
@@ -137,7 +140,7 @@ const AddProfileImageModal = () => {
                         type="button" 
                         className="primary-btn absolute bottom-4 z-50 inset-x-3 mx-auto hover:scale-100 text-white rounded py-2 px-3 w-[90%]"
                     >
-                        Upload
+                        بارگذاری عکس
                     </button>
                 </div>
 

@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import http from "../../interceptor";
 import onFormData from "../FormData";
 
@@ -10,7 +9,7 @@ const onSubmit = async (userImage, setUserInfo) => {
 
     try{
         const result = await http.post("/SharePanel/AddProfileImage", data)
-        // setUserInfo(result)
+        setUserInfo([data])
         console.log("result2 is:", result)
         
 

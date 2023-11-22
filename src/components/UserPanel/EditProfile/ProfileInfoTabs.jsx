@@ -11,12 +11,10 @@ const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
 }
 
-// const [selectedIndex, setSelectedIndex] = useState(0);
-
 const ProfileInfoTabs = () => {
 
     const [categories, setCategories] = useState([
-        "اطلاعات کاربر", "ویرایش اطلاعات", "ویرایش عکس", "تغییر رمز عبور"
+        "اطلاعات کاربر", "ویرایش اطلاعات", "تغییر رمز عبور"
     ]);
 
     const [userInfo, setUserInfo] = useState([{
@@ -69,12 +67,9 @@ const ProfileInfoTabs = () => {
                 <EditProfileImage/>
                 <EditProfile/>
             </Tab.Panel>
-            <Tab.Panel></Tab.Panel>
-
             <Tab.Panel>
                 <ChangePassword/>
             </Tab.Panel>
-
         </Tab.Panels>
       </Tab.Group>
     </div>
