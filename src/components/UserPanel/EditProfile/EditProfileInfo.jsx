@@ -65,21 +65,21 @@ const EditProfileInfo = (
                     <Field name={"idCode"} className="editProf-field-input" disabled={disable} />
                     <ErrorMessage name="idCode" className="editProf-errorMessage" component={'span'}/>
                 </div>
-                <div className="editProf-input">
+                {/* <div className="editProf-input">
                     <label className="block my-2">شماره موبایل</label>
                     <Field name={"phoneNumber"} className="editProf-field-input" disabled={disable} />
                     <ErrorMessage name="phoneNumber" className="editProf-errorMessage" component={'span'}/>
-                </div>
+                </div> */}
                 <div className="editProf-input">
                     <label className="block my-2">تاریخ تولد</label>
                     <PersianCalendar name={"birthDate"} birthDate={birthDate}/>
                     <ErrorMessage name="birthDate" className="editProf-errorMessage" component={'span'}/>
                 </div>
-                <div className="editProf-input">
+                {/* <div className="editProf-input">
                     <label className="block my-2">ایمیل</label>
                     <Field type={"email"} name={"email"} placeholder={"example@gmail.com"} className="editProf-field-input" disabled={disable} />
                     <ErrorMessage name="email" className="editProf-errorMessage" component={'span'}/>
-                </div>
+                </div> */}
                 <div className="editProf-input">
                     <label className="block my-2">لینکدین</label>
                     <Field name={"linkdinProfile"} className="editProf-field-input" disabled={disable} />
@@ -90,16 +90,16 @@ const EditProfileInfo = (
                     <Field name={"telegramLink"} className="editProf-field-input" disabled={disable} />
                     {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
                 </div>                
-                <div className="editProf-input">
-                    <label className="block my-2">درباره من</label>
-                    <Field name={"userAbout"} className="editProf-field-input" disabled={disable} />
-                    {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
-                </div>
-                <div className="editProf-input w-[600px]">
+                <div className="editProf-input lg:w-7/12">
                     <label className="block my-2">آدرس منزل</label>
                     <Field name={"homeAdderess"} className="editProf-field-input" disabled={disable} />
                     {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
                 </div>  
+                <div className="mt-5 mb-10 w-11/12">
+                    <label className="block my-2 mx-4">درباره من</label>
+                    <textarea defaultValue={userAbout} className="editProf-field-input inset-x-4 h-40 p-4" disabled={disable}></textarea>
+                    {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
+                </div>
 
             </Form>
         </Formik>

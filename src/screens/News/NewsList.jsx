@@ -22,13 +22,13 @@ const NewsList = () => {
   const [newsAllData, setNewsAllData] = useState([]);
   const [filterDiv, setFilterDiv] = useState(true);
   const [itemOffset, setItemOffset] = useState(0);
-  const countInPage = 8;
+  const countInPage = 5;
   const endOffset = itemOffset + countInPage;
   const currentItems = newsData.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(newsData.length / countInPage);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * countInPage) % data.length;
+    const newOffset = (event.selected * countInPage) % newsData.length;
     setItemOffset(newOffset);
   };
 
@@ -49,7 +49,7 @@ const NewsList = () => {
         name={item.title}
         description={item.miniDescribe}
         views={item.currentView}
-        date={item.updateDate}
+        date={item.updateDate.slice(0, 10)}
       />
     );
   });
@@ -94,7 +94,7 @@ const NewsList = () => {
             renderOnZeroPageCount={null}
             pageLinkClassName=" paginationLink"
             activeLinkClassName="active"
-            containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-12 p-5"
+            containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-16 p-5"
           />
         </div>
       </div>

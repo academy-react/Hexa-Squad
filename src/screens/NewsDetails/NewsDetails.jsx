@@ -7,8 +7,10 @@ import LoadingSpinner from "../../components/common/loadingSpinner";
 import userCommentData from "../../core/services/api/GetData/userCommentData";
 import UserComments from "../../components/common/UserComments";
 import InputComment from "../../components/common/InputComment";
+import AdminComments from "../../components/common/AdminComments";
 import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
 import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike"; 
+import NewsRate from "../../components/NewsDetails/NewsRate";
 
 import {
   userSvg,
@@ -21,13 +23,11 @@ import calendar from "../../assets/image/calendar.svg";
 import commentImg from "../../assets/image/comments.svg";
 import likePic from "../../assets/image/like.svg";
 import dislikePic from "../../assets/image/dislike.svg";
+import article from "../../assets/image/Online article-amico.svg";
 import "../../components/Landing/common.css";
-import NewsRate from "../../components/NewsDetails/NewsRate";
-import AdminComments from "../../components/common/AdminComments";
 
 const NewsDetails = () => {
   const [urlParam, setUrlParam] = useState(useParams());
-  const [Param, setParam] = useState(useParams());
   const [data, setData] = useState({});
   const [comment, setComment] = useState([]);
   const [likes, setLikes] = useState(0);
@@ -86,10 +86,11 @@ const NewsDetails = () => {
   // News Rate
   const [stars, setStars] = useState(0);
   const [newsRate, setNewsRate] = useState();
-  const NewsId = data.id
-  const RateNumber = stars
-  console.log(NewsId)
-  console.log(RateNumber)
+  // const [NewsId, setNewsId] = useState();
+  // setNewsId(data.id)
+  // const RateNumber = stars
+  // console.log("NewsId= ",NewsId)
+  // console.log("RateNumber= ",stars)
 
   return (
     <Fragment>
@@ -101,21 +102,25 @@ const NewsDetails = () => {
             <div className="relative">
               <div className="inline scale-x-110 ">
                 <img
-                  src={data.currentImageAddress}
+                  src={data.currentImageAddress == null || undefined ? article : data.currentImageAddress}
                   alt={data.title == undefined ? "" : data.title}
-                  className="mb-4 md:mb-8 lg:w-[420px]  lg:h-[450px] md:w-[642px] md:h-[430px] lg:p-2 md:object-cover md:rounded-2xl"
+                  className="mb-4 md:mb-8  border-2 w-[420px] h-[350px] lg:w-[420px] lg:h-[450px] md:w-[642px] md:h-[430px] lg:p-2 md:rounded-2xl"
                 />
-                <div className="news-pic-info">
-                  <img src={calendar} alt="picture" className="inline ml-2" />
-                  <span className="inline text-base md:text-lg ml-8 md:ml-[310px] lg:ml-14 mx-3">
-                    {data.insertDate == undefined
-                      ? ""
-                      : data.insertDate.slice(0, 10)}
-                  </span>
-                  <img src={eye} alt="picture" className="inline mr-4 ml-2" />
-                  <span className="inline text-base md:text-xl ">
-                    {data.currentView == undefined ? "" : data.currentView}
-                  </span>
+                <div className="news-pic-info flex justify-between px-8">
+                  <div>
+                    <img src={calendar} alt="picture" className="inline ml-2" />
+                    <span className="inline text-base md:text-lg ml-8 md:ml-[310px] lg:ml-14 mx-3">
+                      {data.insertDate == undefined
+                        ? ""
+                        : data.insertDate.slice(0, 10)}
+                    </span>
+                  </div>
+                  <div>
+                    <img src={eye} alt="picture" className="inline mr-8 ml-2" />
+                    <span className="inline text-base md:text-xl ">
+                      {data.currentView == undefined ? "" : data.currentView}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -165,9 +170,9 @@ const NewsDetails = () => {
           <p className="news-details-text pb-6">
             امیدوارم مقاله مفیدی برای شما واقع بوده باشه.
           </p> */}
-          <p className="news-details-text  pb-12 border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70] ">
+          <p className="news-details-text  py-12 border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70] ">
             با تشکر از:
-            <span className="text-darkblue2 dark:text-[#9996F9] pr-2">
+            <span className="text-blue-800 dark:text-[#9996F9] pr-2">
               {data.addUserFullName == undefined ? "" : data.addUserFullName}
             </span>
           </p>
@@ -180,48 +185,43 @@ const NewsDetails = () => {
             </div>
           </div>
 
-
-
-
-          <div className="flex flex-row justify-between border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70] py-8">
+          <div className="flex lg:flex-row flex-col gap-y-6 justify-between border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70] py-8">
             <div className="flex flex-row">
-            <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
-              آیا از این مقاله راضی بودید؟
-            </h2>
-            <div
-              className="course-like-box py-2 mr-4 bg-[#e3deff] "
-              onClick={() => handleNewsLikeClick(urlParam, setLikes, changeLikeColor, setChangeLikeColor)}
-            >
-              <span
-                className={` cursor-pointer ${
-                  changeLikeColor
-                    ? `bbi bi-hand-thumbs-up-fill text-indigo-950 `
-                    : `bi bi-hand-thumbs-up text-indigo-950`
-                }`}
+              <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
+                آیا از این مقاله راضی بودید؟
+              </h2>
+              <div
+                className="course-like-box py-2 mr-4 bg-[#e3deff] "
+                onClick={() => handleNewsLikeClick(urlParam, setLikes, changeLikeColor, setChangeLikeColor)}
               >
-                {" "}
-                {data.currentLikeCount}
-              </span>
-            </div>
-            <div
-              className="course-like-box py-2 mr-1.5 pl-4 bg-[#e3deff]"
-              // onClick={() => addWishList(id, isLogin)}
-            >
-              <span
-                className="bbi bi-hand-thumbs-down text-zinc-500"
+                <span
+                  className={` cursor-pointer ${
+                    changeLikeColor
+                      ? `bbi bi-hand-thumbs-up-fill text-indigo-950 `
+                      : `bi bi-hand-thumbs-up text-indigo-950`
+                  }`}
+                >
+                  {" "}
+                  {data.currentLikeCount}
+                </span>
+              </div>
+              <div
+                className="course-like-box py-2 mr-1.5 pl-4 bg-[#e3deff]"
+                // onClick={() => addWishList(id, isLogin)}
               >
-              </span>
+                <span
+                  className="bbi bi-hand-thumbs-down text-zinc-500"
+                >
+                </span>
+              </div>
             </div>
-            </div>
-            <div className="flex flex-row gap-x-4">
+            <div className="flex md:flex-row flex-wrap gap-x-4">
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
                 میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
               </h2>
-              <NewsRate/>
+              <NewsRate setNewsRate={setNewsRate} stars={stars} />
             </div>
           </div>
-
-
 
           <div className="mt-40 pb-6 border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70]">
             <img src={commentImg} className="inline pl-4" />
@@ -232,6 +232,7 @@ const NewsDetails = () => {
           {userComments}
           {/* <AdminComments/> */}
           <InputComment />
+          
         </div>
       </div>
     </Fragment>
