@@ -4,13 +4,13 @@ import http from "../../core/services/interceptor"
 import { motion, useScroll, useSpring } from "framer-motion";
 import LoadingSpinner from "../../components/common/loadingSpinner";
 
-import userCommentData from "../../core/services/api/GetData/userCommentData";
 import UserComments from "../../components/common/UserComments";
 import InputComment from "../../components/common/InputComment";
 import AdminComments from "../../components/common/AdminComments";
 import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
 import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike"; 
 import NewsRate from "../../components/NewsDetails/NewsRate";
+import AddNewsComments from "../../core/services/api/PostData/addNewsComments";
 
 import {
   userSvg,
@@ -28,8 +28,10 @@ import "../../components/Landing/common.css";
 
 const NewsDetails = () => {
   const [urlParam, setUrlParam] = useState(useParams());
+  const [param, setParam] = useState([]);
   const [data, setData] = useState({});
   const [comment, setComment] = useState([]);
+  const [ucomment, setUcomment] = useState({});
   const [likes, setLikes] = useState(0);
   const [changeLikeColor, setChangeLikeColor] = useState(0);
   console.log(comment)
@@ -39,7 +41,7 @@ const NewsDetails = () => {
     damping: 30,
     restDelta: 0.001,
   });
-  const [userCommentsList, setUserComments] = useState(userCommentData);
+  // const [userCommentsList, setUserComments] = useState(userCommentData);
   const userComments = comment.map((item, index) => {
     return (
       <UserComments
@@ -59,6 +61,7 @@ const NewsDetails = () => {
       console.log(result);
       setData(result.detailsNewsDto);
       setComment(result.commentDtos);
+      // setParam(result.commentDtos.newsId);
     } catch (error) {
       console.log(error);
     }
@@ -231,7 +234,7 @@ const NewsDetails = () => {
           </div>
           {userComments}
           {/* <AdminComments/> */}
-          <InputComment />
+          <InputComment ucomment={ucomment} param={param} />
           
         </div>
       </div>
