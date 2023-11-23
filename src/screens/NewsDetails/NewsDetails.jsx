@@ -1,9 +1,10 @@
 import React, { useState, Fragment, useEffect, useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
-import http from "../../core/services/interceptor"
 import { motion, useScroll, useSpring } from "framer-motion";
-import LoadingSpinner from "../../components/common/loadingSpinner";
+import { toast } from "react-toastify";
 
+import http from "../../core/services/interceptor"
+import LoadingSpinner from "../../components/common/loadingSpinner";
 import UserComments from "../../components/common/UserComments";
 import InputComment from "../../components/common/InputComment";
 import AdminComments from "../../components/common/AdminComments";
@@ -11,6 +12,7 @@ import { addWishList } from "../../core/services/api/PostData/addCourseWishList"
 import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike"; 
 import NewsRate from "../../components/NewsDetails/NewsRate";
 import AddNewsComments from "../../core/services/api/PostData/addNewsComments";
+import { getProfile } from "../../core/services/api/GetData/profile";
 
 import {
   userSvg,
@@ -89,11 +91,38 @@ const NewsDetails = () => {
   // News Rate
   const [stars, setStars] = useState(0);
   const [newsRate, setNewsRate] = useState();
-  // const [NewsId, setNewsId] = useState();
-  // setNewsId(data.id)
-  // const RateNumber = stars
-  // console.log("NewsId= ",NewsId)
-  // console.log("RateNumber= ",stars)
+  // console.log("mystars=",stars)
+  console.log("myID=",data.id)
+
+  const handleNewsRate = async () => {
+    const user = await getProfile();
+    if (user == false) {
+      showLoginModal.click();
+    } else {
+      try {
+        // console.log("myID=",data.id)
+        // console.log("mystars=",stars)
+        const result = await http.post(
+          `/News/NewsRate?NewsId=${data.id}&RateNumber=${stars}`
+        );
+        if (result.success === true) {
+          toast.success("امتیاز شما ثبت گردید")
+        } else {
+          toast.error(result.error)
+        }
+        setNewsRate(result);
+        console.log(result);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+
+
+
+
+
+
 
   return (
     <Fragment>
@@ -222,7 +251,7 @@ const NewsDetails = () => {
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
                 میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
               </h2>
-              <NewsRate data={data} setStars={setStars} stars={stars} />
+              <NewsRate handleNewsRate={handleNewsRate} setStars={setStars} stars={stars} />
             </div>
           </div>
 
