@@ -6,8 +6,6 @@ export default async (id) => {
       http.delete("/Course/DeleteCourseFavorite",  id),
       {
         pending: "در حال حذف کردن دوره ",
-        // success: "دوره از لیست علاقه مندی ها حذف شد",
-        // error: "دوره از لیست علاقه مندی ها حذف نشد",
       }
     );
     if (result.success) {
