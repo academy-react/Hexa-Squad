@@ -34,16 +34,14 @@ const NewsDetails = () => {
   const [data, setData] = useState({});
   const [comment, setComment] = useState([]);
   const [ucomment, setUcomment] = useState({});
-  const [likes, setLikes] = useState(0);
+  const [currentUserIsLike, setCurrentUserIsLike] = useState();
   const [changeLikeColor, setChangeLikeColor] = useState(0);
-  console.log(comment)
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001,
   });
-  // const [userCommentsList, setUserComments] = useState(userCommentData);
   const userComments = comment.map((item, index) => {
     return (
       <UserComments
@@ -63,7 +61,7 @@ const NewsDetails = () => {
       console.log(result);
       setData(result.detailsNewsDto);
       setComment(result.commentDtos);
-      // setParam(result.commentDtos.newsId);
+      setCurrentUserIsLike(result.detailsNewsDto.currentUserIsLike)
     } catch (error) {
       console.log(error);
     }
@@ -71,22 +69,6 @@ const NewsDetails = () => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
-
-  // News Like
-  // const handleNewsLikeClick = useCallback(async () => {
-  //   try {
-  //     const result = await http.post(
-  //       "/News/NewsLike/" + urlParam.id
-  //     );
-  //     setLikes(result);
-  //     console.log(result);
-  //     setChangeLikeColor(!changeLikeColor);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  //   setLikes(result);
-  // });
-
 
   // News Rate
   const [stars, setStars] = useState(0);
@@ -117,11 +99,6 @@ const NewsDetails = () => {
       }
     }
   }
-
-
-
-
-
 
 
   return (
@@ -224,11 +201,11 @@ const NewsDetails = () => {
               </h2>
               <div
                 className="course-like-box py-2 mr-4 bg-[#e3deff] "
-                onClick={() => handleNewsLikeClick(urlParam, setLikes, changeLikeColor, setChangeLikeColor)}
+                onClick={() => handleNewsLikeClick(urlParam, currentUserIsLike, changeLikeColor, setChangeLikeColor)}
               >
                 <span
                   className={` cursor-pointer ${
-                    changeLikeColor
+                    changeLikeColor || data.currentUserIsLike === true
                       ? `bbi bi-hand-thumbs-up-fill text-indigo-950 `
                       : `bi bi-hand-thumbs-up text-indigo-950`
                   }`}
