@@ -222,7 +222,7 @@ const NewsDetails = () => {
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
                 میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
               </h2>
-              <NewsRate setNewsRate={setNewsRate} stars={stars} />
+              <NewsRate data={data} setStars={setStars} stars={stars} />
             </div>
           </div>
 

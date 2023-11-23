@@ -21,11 +21,11 @@ const InputComment = () => {
         عنوان
       </p>
       <Formik
-        initialValues={{
-          // title: "",
-        }}
+        // initialValues={{
+        //   title: "",
+        // }}
         // validationSchema={validation}
-        enableReinitialize={true}
+        // enableReinitialize={true}
       >
         <Form className="editProf-input">
           <Field             

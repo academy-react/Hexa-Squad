@@ -9,9 +9,9 @@ const AddNewsComments = async (value, setComment) => {
     }
     try {
         const result = await http.post("/News/CreateNewsComment", data);
-        setComment([data]);
+        // setComment([data]);
         console.log(result);
-        if (result.success) {
+        if (result.success === true) {
             toast.success("نظر شما با موفقیت ثبت گردید")
         } else {
             toast.error(result.errors)
