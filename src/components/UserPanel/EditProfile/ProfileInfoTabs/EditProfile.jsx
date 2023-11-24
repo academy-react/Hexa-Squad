@@ -43,7 +43,7 @@ const EditProfile = () => {
           type="submit"
           value="ثبت اطلاعات"
           className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
-          onClick={handleEditProfileInfo}
+          onClick={() => handleEditProfileInfo(setUserInfo)}
         />
       </div>
     </Fragment>
