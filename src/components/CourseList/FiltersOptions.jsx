@@ -10,6 +10,8 @@ import DropDownItem from "../common/DropDownItem";
 const FiltersOptions = ({
   data,
   setData,
+  filterList,
+  pushList,
   filterDiv,
   setFilterDiv,
   setCostDown,
@@ -36,7 +38,7 @@ const FiltersOptions = ({
   useEffect(() => {
     getCategories("/Home/GetTechnologies", setCategoryData);
     getCategories("/CourseType/GetCourseTypes", setCourseTypes);
-    getCategories('/CourseLevel/GetAllCourseLevel', setCourseLevel);
+    getCategories("/CourseLevel/GetAllCourseLevel", setCourseLevel);
   }, []);
   return (
     <div
@@ -54,13 +56,15 @@ const FiltersOptions = ({
         name={"category"}
         setData={setData}
         courseData={data}
+        filterList={filterList}
+        pushList={pushList}
         data={categoryData}
         checkBoxType={"checkbox"}
         height={"h-[300px]"}
       />
       <DropDownItem
         name={"courseTypes"}
-        label={'فیلتر بر اساس نحوه برگذاری  '}
+        label={"فیلتر بر اساس نحوه برگذاری  "}
         setData={setData}
         courseData={data}
         data={courseTypes}
@@ -70,7 +74,7 @@ const FiltersOptions = ({
       />
       <DropDownItem
         name={"courseLevel"}
-        label={'فیلتر بر اساس سطح دوره '}
+        label={"فیلتر بر اساس سطح دوره "}
         setData={setData}
         courseData={data}
         setCourseID={setCourseLevelId}

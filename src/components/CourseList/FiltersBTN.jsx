@@ -3,10 +3,9 @@ import { CheckboxInput, SearchBox } from "../common";
 import Select from "react-select";
 
 const FiltersBTN = ({
-  data,
   setSortType,
   setSortCal,
-  setData,
+  setQuery,
   setFilterDiv,
   filterDiv,
   showGridView,
@@ -30,12 +29,6 @@ const FiltersBTN = ({
   const SCalHandleChange = (selectedOption) => {
     setSelectedOptionSCal(selectedOption);
     setSortCal(selectedOption.value);
-  };
-  const filterSearch = (value) => {
-    let filteredData = data.filter((item) => {
-      return item.title.toLowerCase().indexOf(value.toLowerCase()) != -1;
-    });
-    setData(filteredData);
   };
   return (
     <div className="filter-btn-section">
@@ -65,7 +58,7 @@ const FiltersBTN = ({
       <div className="flex gap-5 w-full lg:pr-6">
         <SearchBox
           placeholder={"جستجو ..."}
-          SearchFunction={filterSearch}
+          SearchFunction={(e)=>{setQuery(e)}}
           addClass={"my-4"}
           inputClass={"focus:border-2 border-blue-800"}
         />

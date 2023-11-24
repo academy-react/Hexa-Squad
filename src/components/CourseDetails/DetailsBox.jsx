@@ -148,7 +148,7 @@ const DetailsBox = ({
           <input
             onClick={() => addReserve(id, isCourseReseve)}
             type="submit"
-            value="ثبت نام در این دوره"
+            value={isCourseReseve == '1'? 'دوره از قبل رزرو شده است':"ثبت نام در این دوره"}
             className="gradient w-full py-4 lg:mb-10 mb-4 rounded-md cursor-pointer"
           />
         </div>

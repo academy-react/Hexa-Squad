@@ -68,7 +68,7 @@ const CourseDetails = () => {
               imageAddress={data.imageAddress}
               currentUserDissLike={data.currentUserDissLike}
               currentUserLike={data.currentUserLike}
-              // userIsLiked={data.userIsLiked}
+              isUserFavorite={data.isUserFavorite}
               userLikeId={data.userLikeId}
               likeCount={data.likeCount}
               dissLikeCount={data.dissLikeCount}
