@@ -1,7 +1,6 @@
 import React, { useState, Fragment, useEffect, useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { toast } from "react-toastify";
 
 import http from "../../core/services/interceptor"
 import LoadingSpinner from "../../components/common/loadingSpinner";
@@ -11,8 +10,6 @@ import AdminComments from "../../components/common/AdminComments";
 import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
 import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike"; 
 import NewsRate from "../../components/NewsDetails/NewsRate";
-import AddNewsComments from "../../core/services/api/PostData/addNewsComments";
-import { getProfile } from "../../core/services/api/GetData/profile";
 
 import {
   userSvg,
@@ -23,17 +20,13 @@ import {
 import eye from "../../assets/image/eye.svg";
 import calendar from "../../assets/image/calendar.svg";
 import commentImg from "../../assets/image/comments.svg";
-import likePic from "../../assets/image/like.svg";
-import dislikePic from "../../assets/image/dislike.svg";
 import article from "../../assets/image/Online article-amico.svg";
 import "../../components/Landing/common.css";
 
 const NewsDetails = () => {
   const [urlParam, setUrlParam] = useState(useParams());
-  const [param, setParam] = useState([]);
   const [data, setData] = useState({});
   const [comment, setComment] = useState([]);
-  const [ucomment, setUcomment] = useState({});
   const [currentUserIsLike, setCurrentUserIsLike] = useState();
   const [changeLikeColor, setChangeLikeColor] = useState(0);
   const { scrollYProgress } = useScroll();
@@ -69,37 +62,6 @@ const NewsDetails = () => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
-
-  // News Rate
-  const [stars, setStars] = useState(0);
-  const [newsRate, setNewsRate] = useState();
-  // console.log("mystars=",stars)
-  console.log("myID=",data.id)
-
-  const handleNewsRate = async () => {
-    const user = await getProfile();
-    if (user == false) {
-      showLoginModal.click();
-    } else {
-      try {
-        // console.log("myID=",data.id)
-        // console.log("mystars=",stars)
-        const result = await http.post(
-          `/News/NewsRate?NewsId=${data.id}&RateNumber=${stars}`
-        );
-        if (result.success === true) {
-          toast.success("امتیاز شما ثبت گردید")
-        } else {
-          toast.error(result.error)
-        }
-        setNewsRate(result);
-        console.log(result);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  }
-
 
   return (
     <Fragment>
@@ -228,7 +190,7 @@ const NewsDetails = () => {
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
                 میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
               </h2>
-              <NewsRate handleNewsRate={handleNewsRate} setStars={setStars} stars={stars} />
+              <NewsRate data={data} />
             </div>
           </div>
 
@@ -240,7 +202,7 @@ const NewsDetails = () => {
           </div>
           {userComments}
           {/* <AdminComments/> */}
-          <InputComment ucomment={ucomment} param={param} />
+          <InputComment/>
           
         </div>
       </div>

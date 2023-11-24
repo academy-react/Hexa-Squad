@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
+import { addReserve } from "../../core/services/api/PostData/addCourseReserve";
 import handleCourseAddLike from "../../core/services/api/PostData/addCourseLike";
 import handleCourseDisLike from "../../core/services/api/PostData/addCourseDisLike";
 import handleCourseDeleteLike from "../../core/services/api/DeleteData/deleteCourseLike";
 
-import NullImage from "../../assets/image/Images-for-null 2.svg"
+import NullImage from "../../assets/image/Images-for-null 2.svg";
 import likePic from "../../assets/image/like.svg";
 import dislikePic from "../../assets/image/dislike.svg";
 const CoursePhoto = ({ 
@@ -17,7 +18,9 @@ const CoursePhoto = ({
   currentUserLike,
   likeCount,
   dissLikeCount,
-  userLikeId
+  userLikeId,
+  isCourseReseve,
+  courseReseveId
 }) => {
 
   const [changeLikeColor, setChangeLikeColor] = useState(0);
@@ -38,10 +41,10 @@ const CoursePhoto = ({
         <h2
           className="bi bi-heart text-3xl text-[#ffff] left-3 mt-4 absolute  hover:text-violet-700 hover:scale-110 transition-all cursor-pointer "
           alt="wishlist"
-          onClick={() => addWishList(id)}
+          onClick={() => addReserve((isCourseReseve == 1 ? courseReseveId :id), isCourseReseve)}
         />
         <img
-          src={imageAddress ==null ? NullImage:imageAddress}
+          src={imageAddress == null ? NullImage : imageAddress}
           className="w-full h-[300px] md:h-[400px] lg:h-[420px]  rounded-lg "
           alt="course image"
         />

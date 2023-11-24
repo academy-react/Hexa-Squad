@@ -12,6 +12,7 @@ const CourseAutoplaySlider = () => {
   const [coursesList, setCoursesList] = useState([]);
   console.log('coursesList',coursesList)
   const dataMapper = coursesList.map((item, index) => {
+    console.log(item.userFavoriteId)
     return (
       <SwiperSlide key={index}>
         <Course
@@ -30,6 +31,7 @@ const CourseAutoplaySlider = () => {
           price={item.cost}
           width={"lg:w-[24%]"}
           image={item.tumbImageAddress}
+          userFavoriteId={item.userFavoriteId}
         />
       </SwiperSlide>
     );

@@ -62,6 +62,9 @@ const CourseDetails = () => {
               courseId={data.courseId}
               title={data.title}
               describe={data.describe}
+              id={data.courseId}
+              courseReseveId={data.courseReseveId}
+              isCourseReseve={data.isCourseReseve}
               imageAddress={data.imageAddress}
               currentUserDissLike={data.currentUserDissLike}
               currentUserLike={data.currentUserLike}

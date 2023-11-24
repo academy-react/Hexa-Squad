@@ -17,21 +17,8 @@ const handleNewsLikeClick = async (urlParam, currentUserIsLike, changeLikeColor,
         console.error(error);
       }
     } else {
-      toast.error("این مقاله را قبلا لایک کرده اید!")
+      toast.error("نظر خود را قبلا ثبت کرده اید!")
     }
-      //   const result = await http.post("/News/NewsLike/" + urlParam.id);
-      //   if (result.message == null) {
-      //     toast.error("این مقاله را قبلا لایک کرده اید!")
-      //   } else if (result.message !== null) {
-      //     toast.success("مقاله مورد نظر لایک شد")
-      //     setChangeLikeColor(!changeLikeColor);
-      //   }
-      //   console.log(result);
-      // } catch (error) {
-      //   console.error(error);
-      // }
-    }
-  
+  }
 };
-
 export default handleNewsLikeClick;
