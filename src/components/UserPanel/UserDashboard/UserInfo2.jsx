@@ -13,7 +13,7 @@ const NewDesign = () => {
   return (
     <>
     <div className="flex md:flex-row-reverse flex-col items-center ">
-      <div className="md:w-2/12 w-full h-44 ">
+      <div className=" mx-auto ">
     <ProgressBar/>
     </div>
       <div className="md:w-10/12 w-full md:mr-auto mt-10 rounded-xl pt-4 shadow-shadow-Course-details dark:bg-indigo-800">
@@ -50,7 +50,7 @@ const NewDesign = () => {
             </h2>
           </div>
         </div>
-        <div className=" w-[95%] md:mt-10 flex  md:flex-row-reverse flex-col gap-2 md:gap-0 mx-auto">
+        {/* <div className=" w-[95%] md:mt-10 flex  md:flex-row-reverse flex-col gap-2 md:gap-0 mx-auto">
           <div className="flex flex-row-reverse md:mt-0  md:w-4/12  ">
             <h2 className=" text-sm text-[#666686] dark:text-indigo-300 lg:text-lg">
               {" "}
@@ -72,7 +72,7 @@ const NewDesign = () => {
               {userInfo.homeAdderess}
             </h2>
           </div>
-        </div>
+        </div> */}
 
         <Link
           to="/userPanel/editProfile"

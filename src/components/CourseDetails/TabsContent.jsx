@@ -12,20 +12,7 @@ import comments from "../../assets/image/comments.svg";
 import { MdOutlinePreview } from "react-icons/md";
 
 const TabsContent = () => {
-  const [userCommentsList, setUserComments] = useState([
-    {
-      name: "محمدرضا ساداتی ",
-      date: " 1402/05/23",
-      question:
-        "ممنون بابت مقاله، اما میتونست بیشتر باشه و علاوه بر اشاره به یک نکته به نکات دیگه ای که به آموزش بهتر کمک میکنه اشاره بشه، درکل خیلی کوتاه بود",
-    },
-    {
-      name: "بیتا قنبری ",
-      date: " 1402/04/15",
-      question:
-        "آیا مطالبی که در دوره جاری ارائه میدید با دوره قبلی تفاوت داره؟",
-    },
-  ]);
+
   const [comment, setComment] = useState([]);
   const [urlParam, setUrlParam] = useState(useParams());
   const userComments = comment.map((item, index) => {

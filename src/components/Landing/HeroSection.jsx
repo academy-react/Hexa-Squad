@@ -34,9 +34,11 @@ const HeroSection = () => {
     <div className="hero-section-bg">
       <img src={heroImage} alt="hero Image" className="hero-image" />
       <div className="hero-gradient">
+        
         <h4>پلتفرم اموزش طراحی وب</h4>
-        <h1>مرجع اموزش برنامه نویسی</h1>
+        <h2 className="text-[54px]">مرجع اموزش برنامه نویسی</h2>
         <AutoTypeWriter Text={text} className={"hero-type-writer"} />
+        
         <HeroSearchBox />
         <div className="information-section">
           <div>
@@ -55,6 +57,7 @@ const HeroSection = () => {
             <label>نفر دانشجو</label>
           </div>
         </div>
+       
       </div>
     </div>
   );

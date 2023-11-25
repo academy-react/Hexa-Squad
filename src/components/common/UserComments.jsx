@@ -2,13 +2,25 @@ import React, { Fragment, useState, useCallback, useEffect } from "react";
 import AdminComments from "../common/AdminComments";
 import http from "../../core/services/interceptor/index";
 import userComment from "../../assets/image/userComment.svg";
-
-const UserComments = ({ name, date, question, uid, like, disLike }) => {
+import userCommentPic from "../../assets/image/usercommentpic.svg";
+import { toast } from "react-toastify";
+const UserComments = ({
+  name,
+  date,
+  question,
+  uid,
+  like,
+  disLike,
+  currentEmotion,
+}) => {
   const [comments, setComments] = useState({});
   const [likes, setLikes] = useState(0);
   const [disLikes, setDislikes] = useState(0);
+  const [removeLike, setRemoveLike] = useState(0);
   const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
   const [changeLikeColor, setChangeLikeColor] = useState(false);
+  const [liked, setLiked] = useState(false);
+  // const emojis = ["😊", "🌟", "🎉"];
   const handleLikeClick = async () => {
     try {
       const response = await http.post(
@@ -17,10 +29,29 @@ const UserComments = ({ name, date, question, uid, like, disLike }) => {
       setLikes(response);
       console.log(response);
       setChangeLikeColor(!changeLikeColor);
+      setLiked(true);
+      if (response.success) {
+        toast.success("🎉 شما کامنت را لایک کردید");
+      } else {
+        toast.error("");
+      }
+      return false;
     } catch (error) {
       console.error(error);
     }
     setLikes(response);
+  };
+  const handleRemoveLike = async () => {
+    try {
+      const response = await http.delete(
+        "/Course/DeleteCourseCommentLike?CourseCommandId=" + uid
+      );
+      setRemoveLike(response);
+      console.log(response);
+      setLiked(false);
+    } catch (error) {
+      console.error(error);
+    }
   };
   const handleDisLikeClick = async () => {
     try {
@@ -40,7 +71,11 @@ const UserComments = ({ name, date, question, uid, like, disLike }) => {
     <Fragment>
       <div className="userComment">
         <div className="userComment-pic">
-          <img src={userComment} alt="picture" className="mx-auto" />
+          <img
+            src={userCommentPic}
+            alt="picture"
+            className="mx-auto w-full h-full"
+          />
         </div>
         <div className="px-4 ">
           <p className="inline text-lg md:text-xl  text-darkblue2 dark:text-[#d8d6ff]">
@@ -53,15 +88,39 @@ const UserComments = ({ name, date, question, uid, like, disLike }) => {
             {question}
           </p>
           <div className="flex flex-row gap-4 mt-4">
+            {/* {liked ? (
+              <span
+                className={` cursor-pointer ${
+                  changeLikeColor === true
+                    ? `bbi bi-hand-thumbs-up text-indigo-950 dark:text-indigo-300 `
+                    : `bi bi-hand-thumbs-up text-indigo-950  dark:text-indigo-300`
+                }`}
+                onClick={handleRemoveLike}
+              >
+                {" "}
+                removeLike
+              </span>
+            ) : (
+              <span
+                className={` cursor-pointer ${
+                  changeLikeColor === true
+                    ? `bbi bi-hand-thumbs-up-fill text-indigo-950 dark:text-indigo-300 `
+                    : `bi bi-hand-thumbs-up text-indigo-950  dark:text-indigo-300`
+                }`}
+                onClick={handleLikeClick}
+              >
+                {" "}
+                {like} like
+              </span>
+            )} */}
             <span
               className={` cursor-pointer ${
                 changeLikeColor === true
-                  ? `bbi bi-hand-thumbs-up-fill text-indigo-950 dark:text-indigo-300 `
-                  : `bi bi-hand-thumbs-up text-indigo-950  dark:text-indigo-300`
+                  ? `bbi bi-hand-thumbs-up-fill  text-indigo-950 dark:text-indigo-300`
+                  : `bi bi-hand-thumbs-up  text-indigo-950 dark:text-indigo-300`
               }`}
               onClick={handleLikeClick}
             >
-              {" "}
               {like} like
             </span>
             <span

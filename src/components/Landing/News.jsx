@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import http from "../../core/services/interceptor"
+import http from "../../core/services/interceptor";
 
 import NewsCard from "./NewsCard";
 import Title from "../common/Title";
@@ -12,9 +12,9 @@ const News = () => {
         "/News?PageNumber=1&RowsOfPage=200&SortingCol=InsertDate&SortType=DESC&Query="
       );
       const recivedData = result.news;
-      console.log('news : ',result)
+      console.log("news : ", result);
       setNewsList(
-        recivedData.slice(recivedData.length - 1, recivedData.length)
+        recivedData.slice(recivedData.length - 2, recivedData.length)
       );
     } catch (error) {
       console.log(error);

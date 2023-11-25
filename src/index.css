@@ -86,7 +86,7 @@
   /* Header Style */
 
   .header-btn {
-    @apply flex lg:justify-center justify-end items-center lg:gap-5 gap-2 pr-8 mt-[-10px];
+    @apply flex lg:justify-center justify-end items-center lg:gap-5 gap-2 pr-20 mt-[-10px];
 
     .primary-btn {
       @apply lg:flex gap-3 hidden text-[#fff] scale-[.85]
@@ -98,7 +98,7 @@
   }
 
   .logo {
-    @apply lg:mr-[70px] md:w-[145px] md:mr-[40px] w-[55px] mt-[-10px];
+    @apply lg:mr-[70px]  md:w-[200px] md:mr-[40px] w-[150px] mt-[-10px];
   }
 
   .openMenu-span {
@@ -210,7 +210,7 @@
       }
 
       .hero-type-writer {
-        @apply text-lg sm:text-xl md:text-2xl md:w-600px w-full text-center sm:leading-10 md:leading-10 leading-10 z-10 my-3 inline-block h-20
+        @apply text-lg sm:text-xl md:text-2xl md:w-600px w-full text-center sm:leading-10 md:leading-10 leading-10 z-10 my-2 inline-block h-20
       }
 
       .hero-search {

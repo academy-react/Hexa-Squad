@@ -43,7 +43,7 @@ const ContactMe = () => {
           <div className="flex flex-row-reverse  ">
             <h2 className=" lg:text-base ">
               {" "}
-              : ایمیل <i class="bi bi-envelope-at  ml-1 "></i>
+              : ایمیل <i className="bi bi-envelope-at  ml-1 "></i>
             </h2>
             <h2 className=" text-indigo-800  dark:text-slate-300 text-sm mr-1 lg:text-base  ">
               {" "}
@@ -53,7 +53,7 @@ const ContactMe = () => {
           <div className="flex flex-row-reverse ">
             <h2 className="  lg:text-base   ">
               {" "}
-              : شماره همراه <i class="bi bi-telephone ml-1"></i>
+              : شماره همراه <i className="bi bi-telephone ml-1"></i>
             </h2>
             <h2 className="text-indigo-800 dark:text-slate-300 mr-1 lg:text-base ">
               {userInfo.phoneNumber}
