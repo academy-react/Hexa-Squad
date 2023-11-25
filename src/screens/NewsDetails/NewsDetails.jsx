@@ -22,6 +22,7 @@ import calendar from "../../assets/image/calendar.svg";
 import commentImg from "../../assets/image/comments.svg";
 import article from "../../assets/image/Online article-amico.svg";
 import "../../components/Landing/common.css";
+import addNewsFavorite from "../../core/services/api/PostData/addNewsFavorite";
 
 const NewsDetails = () => {
   const [urlParam, setUrlParam] = useState(useParams());
@@ -29,6 +30,8 @@ const NewsDetails = () => {
   const [comment, setComment] = useState([]);
   const [currentUserIsLike, setCurrentUserIsLike] = useState();
   const [changeLikeColor, setChangeLikeColor] = useState(0);
+  const [isFavorite, setIsFavorite] = useState(false);
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -63,6 +66,15 @@ const NewsDetails = () => {
     fetchData();
   }, [fetchData]);
 
+  // Add News Favorite
+  const addFavorite = async () => {
+    const result = await addNewsFavorite(data);
+    setIsFavorite(result);
+  };
+  useEffect(() => {
+    data.isCurrentUserFavorite && setIsFavorite(true);
+  }, [])
+
   return (
     <Fragment>
       <LoadingSpinner/>
@@ -72,6 +84,13 @@ const NewsDetails = () => {
           <div className="flex lg:flex-row flex-wrap border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70] mx-auto pb-12">
             <div className="relative">
               <div className="inline scale-x-110 ">
+                <h2
+                  className={`bi bi-${
+                    isFavorite || data.isCurrentUserFavorite === true ? "heart-fill" : "heart"
+                  } text-3xl text-violet-500 left-3 mt-4 absolute  hover:text-violet-700 hover:scale-110 transition-all cursor-pointer `}
+                  alt="wishlist"
+                  onClick={addFavorite}
+                />
                 <img
                   src={data.currentImageAddress == null || undefined ? article : data.currentImageAddress}
                   alt={data.title == undefined ? "" : data.title}
