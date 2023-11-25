@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { removeItem } from '../../core/services/local-storage/storage.services'
 
 const logOut = () => {
@@ -6,8 +6,12 @@ const logOut = () => {
         removeItem('token');
         window.location.pathname ='/'
     }
+    useEffect(() => {
+      clickHandler();
+    }, [])
+    
   return (
-    <div onClick={clickHandler} className='my-1 text-black '>logOut</div>
+    <div onClick={clickHandler} className='my-1 text-black  '>logOut</div>
   )
 }
 

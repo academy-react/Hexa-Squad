@@ -15,18 +15,25 @@ const Courses = () => {
   const [filterDiv, setFilterDiv] = useState(true);
   const [data, setData] = useState([]);
   const [allData, setAllData] = useState([]);
-
+  const [list, setList] = useState([]);
   const [sortCal, setSortCal] = useState("ASC");
   const [sortType, setSortType] = useState("Active");
+  const [Query, setQueryV] = useState();
   const [costDown, setCostDown] = useState(0);
   const [costUp, setCostUp] = useState(10000000);
-  const [listTech, setListTech] = useState(2, 3, 4, 5, 6, 7);
+  const [listTech, setListTechV] = useState(2);
+  const listToTech = () => {
+    let listMapped = list.join(" , ");
+    console.log('listMapped',listMapped);
+    setListTechV(listMapped);
+  };
+  console.log('listTech',listTech);
   const [courseLevelId, setCourseLevelId] = useState();
   const [courseTypeId, setCourseTypeId] = useState();
   const filterObj = {
     SortingCol: sortCal,
     SortType: sortType,
-    // searchValue:'',
+    Query: Query,
     CostDown: costDown,
     CostUp: costUp,
     TechCount: 1,
@@ -34,7 +41,6 @@ const Courses = () => {
     courseLevelId: courseLevelId,
     CourseTypeId: courseTypeId,
   };
-
   const [itemOffset, setItemOffset] = useState(0);
   const countInPage = 8;
   const endOffset = itemOffset + countInPage;
@@ -44,8 +50,23 @@ const Courses = () => {
   const typeWriterWords = [
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
+  const setQuery = (text) => {
+    console.log(text);
+  };
   const showGridView = () => {
     setShowGrid((showGrid) => !showGrid);
+  };
+  const filterList = (value) => {
+    console.log(value);
+    const filteredObj = list.filter((v) => {
+      return v !== value;
+    });
+    setList(filteredObj);
+  };
+
+  const pushList = (value) => {
+    console.log(value);
+    setList([...list, value]);
   };
 
   // pagination function onChange
@@ -53,7 +74,6 @@ const Courses = () => {
     const newOffset = (event.selected * countInPage) % data.length;
     setItemOffset(newOffset);
   };
-
   // get courses data from api and fetch on data variable
   useEffect(() => {
     fetchCoursesApi(setData, pageCount, countInPage, setAllData, filterObj);
@@ -65,16 +85,18 @@ const Courses = () => {
 
   useEffect(() => {
     fetchCoursesApi(setData, pageCount, countInPage, setAllData, filterObj);
+    listToTech();
   }, [
     sortCal,
     sortType,
+    Query,
     costDown,
     costUp,
     listTech,
     courseLevelId,
     courseTypeId,
   ]);
-
+  console.log(currentItems);
   const mapData = currentItems.map((data, index) => {
     return (
       <Course
@@ -116,6 +138,7 @@ const Courses = () => {
           setSortCal={setSortCal}
           setSortType={setSortType}
           setData={setData}
+          setQuery={setQuery}
           showGridView={showGridView}
           filterDiv={filterDiv}
           setFilterDiv={setFilterDiv}
@@ -127,6 +150,8 @@ const Courses = () => {
               data={allData}
               setFilterDiv={setFilterDiv}
               setData={setData}
+              filterList={filterList}
+              pushList={pushList}
               setCostDown={setCostDown}
               setCostUp={setCostUp}
               filterDiv={filterDiv}
