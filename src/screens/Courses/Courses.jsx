@@ -92,6 +92,7 @@ const Courses = () => {
         price={data.cost}
         addClass={"h-[441px] mx-auto"}
         image={data.tumbImageAddress}
+        userIsLiked={data.userIsLiked}
       />
     );
   });

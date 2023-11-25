@@ -25,6 +25,19 @@ const CoursePhoto = ({
 
   const [changeLikeColor, setChangeLikeColor] = useState(0);
   const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
+
+
+  const [currentUserIsLike, setCurrentUserIsLike] = useState(currentUserLike)
+  console.log("userlike=",currentUserLike)
+  console.log("currentUserLike",currentUserIsLike)
+
+  
+
+
+
+
+
+  
   // const [newLikeCount, setNewLikeCount] = useState(likeCount);
   // console.log("newLikeCount=",newLikeCount)
   // console.log("likeCount=",likeCount)

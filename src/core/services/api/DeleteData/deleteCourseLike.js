@@ -1,6 +1,7 @@
 import http from "../../interceptor";
 import { toast } from "react-toastify";
 import { getProfile } from "../GetData/profile";
+import onFormData from "../FormData";
 
 const handleCourseDeleteLike = async (userLikeId, changeLikeColor, setChangeLikeColor) => {
   const user = await getProfile();
@@ -8,7 +9,13 @@ const handleCourseDeleteLike = async (userLikeId, changeLikeColor, setChangeLike
     showLoginModal.click();
   } else {
         try {
-            const result = await http.delete("/Course/DeleteCourseLike", userLikeId);
+            const obj = {
+                userLikeId: userLikeId
+            }
+            const data = onFormData(obj)
+            console.log("data=",data)
+
+            const result = await http.delete("/Course/DeleteCourseLike", data);
             if (result.success == true) {
                 toast.success("لایک این دوره با موفقیت حذف شد")
                 setChangeLikeColor(!changeLikeColor);

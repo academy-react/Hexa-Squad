@@ -6,8 +6,7 @@ const handleNewsLikeClick = async (urlParam, currentUserIsLike, changeLikeColor,
   const user = await getProfile();
   if (user == false) {
     showLoginModal.click();
-  } else {        
-    if(currentUserIsLike === false) {
+  } else if(currentUserIsLike === false) {        
       try {
         const result = await http.post("/News/NewsLike/" + urlParam.id);
         toast.success("مقاله مورد نظر لایک شد")
@@ -19,6 +18,5 @@ const handleNewsLikeClick = async (urlParam, currentUserIsLike, changeLikeColor,
     } else {
       toast.error("نظر خود را قبلا ثبت کرده اید!")
     }
-  }
 };
 export default handleNewsLikeClick;

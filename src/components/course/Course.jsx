@@ -58,14 +58,14 @@ const Course = ({
       </div>
       <CourseHeader image={image} />
       <CourseBody
-        id={id}
+        courseId={id}
         title={title}
         courseCount={courseCount}
         time={time}
         date={date}
         professorName={professorName}
-        like={like}
-        dislike={dislike}
+        likeCount={like}
+        // dislike={dislike}
         bio={bio}
         userIsLiked={userIsLiked}
         studentCount={studentCount}

@@ -7,11 +7,11 @@ import {
   NewsCategoriesFilter,
 } from "../../components/News";
 import { NewsCard } from "../../components/Landing";
-import fetchNewsApi from "../../core/services/api/GetData/allNewsApi";
+import fetchNewsApi from "../../core/services/api/GetData/getNewsData/allNewsApi";
+import LoadingSpinner from "../../components/common/loadingSpinner";
 
 import bgNews from "../../assets/image/bg-ListHero.svg";
 import bgNewsDark from "../../assets/image/bg-ListHero-dark.svg";
-import LoadingSpinner from "../../components/common/loadingSpinner";
 
 const NewsList = () => {
   const typeWriterWords = [
@@ -26,6 +26,7 @@ const NewsList = () => {
   const endOffset = itemOffset + countInPage;
   const currentItems = newsData.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(newsData.length / countInPage);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * countInPage) % newsData.length;
@@ -34,7 +35,7 @@ const NewsList = () => {
 
   // get News data from api and fetch
   useEffect(() => {
-    fetchNewsApi(setNewsData, setNewsAllData, pageCount, countInPage );
+    fetchNewsApi(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading );
     return () => {
       setFilterDiv(false);
     };
@@ -55,7 +56,7 @@ const NewsList = () => {
   });
   return (
     <Fragment>
-      <LoadingSpinner/>
+      {/* <LoadingSpinner/> */}
       <div className="py-32">
         <img
           src={bgNews}
@@ -71,9 +72,13 @@ const NewsList = () => {
         <div className="md:mx-10 lg:mx-40 mt-16">
           <NewsFilterMenu
             newsData={newsAllData}
-            setNewsData={setNewsData}
             filterDiv={filterDiv}
             setFilterDiv={setFilterDiv}
+            setNewsData={setNewsData}
+            setNewsAllData={setNewsAllData}
+            pageCount={pageCount}
+            countInPage={countInPage}
+            setIsLoading={setIsLoading}
           />
           <section className="flex flex-row">
             <NewsCategoriesFilter
@@ -82,7 +87,8 @@ const NewsList = () => {
               setData={setNewsData}
               filterDiv={filterDiv}
             />
-            <div className="news-card">{newsCardsMapper}</div>
+            {isLoading ? ( <LoadingSpinner/> ) : <div className="news-card">{newsCardsMapper}</div>}
+            
           </section>
           <ReactPaginate
             breakLabel="..."

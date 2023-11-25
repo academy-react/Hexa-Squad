@@ -205,7 +205,7 @@
         @apply md:absolute md:top-10 md:right-28 lg:top-12 lg:right-32 lg:text-base;
     }    
     .news-card .news-description {
-        @apply text-ellipsis whitespace-nowrap overflow-hidden;
+        @apply pt-5;
     } 
     .news-card .news-readMore{
         @apply  fixed text-left;
@@ -213,9 +213,9 @@
     .news-card h2{
         @apply lg:w-[900px];
     }
-    .news-description{
+    /* .news-description{
         @apply lg:pt-4;
-    }
+    } */
     .news-card img{
         @apply h-[150px] w-[150px] md:w-[220px] md:h-[186px] ;
     }
