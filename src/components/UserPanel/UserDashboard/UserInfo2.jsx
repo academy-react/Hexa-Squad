@@ -13,7 +13,7 @@ const NewDesign = () => {
   return (
     <>
       <div className="flex md:flex-row-reverse flex-col items-center ">
-        <div className="md:w-2/12 w-full h-44 ">
+        <div className="mx-auto">
           <ProgressBar />
         </div>
         <div className="md:w-10/12 w-full md:mr-auto mt-10 rounded-xl pt-4 shadow-shadow-Course-details dark:bg-indigo-800">
