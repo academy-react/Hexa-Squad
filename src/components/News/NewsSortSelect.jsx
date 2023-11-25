@@ -1,7 +1,11 @@
 import React, { Fragment, useState } from 'react';
 import Select from "react-select";
+import NewsestNews from '../../core/services/api/GetData/getNewsData/NewestNews';
+import MostVisitedNews from '../../core/services/api/GetData/getNewsData/MostVisitedNews';
+import fetchNewsApi from '../../core/services/api/GetData/getNewsData/allNewsApi';
+import FavoritesNews from '../../core/services/api/GetData/getNewsData/FavoritesNews';
 
-const NewsSortSelect = () => {
+const NewsSortSelect = ({setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading}) => {
   const [selectedOptions, setSelectedOption] = useState(null);
   const [options, setOptions] = useState([
     { value: "", label: "همه" },

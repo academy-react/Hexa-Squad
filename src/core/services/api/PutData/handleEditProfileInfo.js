@@ -1,17 +1,18 @@
 import http from "../../interceptor";
 import onFormData from "../FormData";
+import { toast } from "react-toastify";
 
-const handleEditProfileInfo = async (userInfo, setUserInfo) => {
+const handleEditProfileInfo = async (value, setUserInfo) => {
     const obj = {
-        LName: userInfo.lName,
-        fName : userInfo.fName,
-        userAbout : userInfo.userAbout,
-        linkdinProfile : userInfo.linkdinProfile,
-        telegramLink : userInfo.telegramLink,
-        homeAdderess : userInfo.homeAdderess,
-        nationalCode : userInfo.nationalCode,
-        gender : userInfo.gender,
-        birthDay : userInfo.birthDay
+        LName: value.lName,
+        fName : value.fName,
+        userAbout : value.userAbout,
+        linkdinProfile : value.linkdinProfile,
+        telegramLink : value.telegramLink,
+        homeAdderess : value.homeAdderess,
+        nationalCode : value.nationalCode,
+        gender : value.gender,
+        birthDay : value.birthDay
     }
     const data = onFormData(obj)
 

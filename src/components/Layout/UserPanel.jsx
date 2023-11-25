@@ -14,7 +14,7 @@ const UserPanel = () => {
   }
   const [listItem, setListItem] = useState([
     { label: "داشبورد", classNameIcon: "columns-gap ", address: "" },
-    { label: "اطلاعات کاربر", classNameIcon: "person-circle", address: "editProfile/" },
+    { label: "اطلاعات کاربر", classNameIcon: "person-circle", address: "ProfileInfoTabs/" },
     { label: "دوره های من", classNameIcon: "book", address: "MyCourses/" },
     {
       label: "لیست مورد علاقه ها",
@@ -22,11 +22,11 @@ const UserPanel = () => {
       address: "WhishList/",
     },
     { label: "تمام دوره ها", classNameIcon: "book", address: "AllCourses/" },
-    {
-      label: "تغییر رمز عبور",
-      classNameIcon: "key rotate-[-220deg]",
-      address: "ChangePassword/",
-    },
+    // {
+    //   label: "تغییر رمز عبور",
+    //   classNameIcon: "key rotate-[-220deg]",
+    //   address: "ChangePassword/",
+    // },
     // { label: "نظرات ثبت شده", classNameIcon: "chat-left-text", address: "" },
     { label: "خروج از حساب", classNameIcon: "power", address: "logOut" },
   ]);

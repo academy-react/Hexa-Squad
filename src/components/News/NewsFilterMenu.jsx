@@ -1,9 +1,12 @@
 import React from 'react';
 import { CheckboxInput, SearchBox } from '../common';
 import NewsSortSelect from './NewsSortSelect';
+import NewsestNews from '../../core/services/api/GetData/getNewsData/NewestNews';
+import MostVisitedNews from '../../core/services/api/GetData/getNewsData/MostVisitedNews';
+import fetchNewsApi from '../../core/services/api/GetData/getNewsData/allNewsApi';
+import FavoritesNews from '../../core/services/api/GetData/getNewsData/FavoritesNews';
 
-
-const NewsFilterMenu = ({newsData, filterDiv, setFilterDiv, setNewsData}) => {
+const NewsFilterMenu = ({setIsLoading, newsData, filterDiv, setFilterDiv, setNewsData, setNewsAllData, pageCount, countInPage}) => {
   const filterSearch = (value)=>{
     let filteredData = newsData.filter((item) => {
       return item.title.toLowerCase().indexOf(value.toLowerCase()) != -1
@@ -25,10 +28,22 @@ const NewsFilterMenu = ({newsData, filterDiv, setFilterDiv, setNewsData}) => {
             <i className="bi bi-filter"></i>
           </label></div>
           <ul className="hidden lg:flex flex-row w-[835px] h-12 rounded-[10px] my-auto text-base text-center text-lightblue border-2 dark:text-white border-lightblue dark:border-white">
-            <li className="news-menu-box hover:rounded-r-lg">همه</li>
-            <li className="news-menu-box">محبوب ترین ها</li>
-            <li className="news-menu-box">پربازدید ترین ها</li>
-            <li className="news-menu-box hover:rounded-l-lg">جدیدترین ها</li>
+            <li 
+              className="news-menu-box hover:rounded-r-lg" 
+              onClick={() => fetchNewsApi(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading)}
+            >همه</li>
+            <li 
+              className="news-menu-box"
+              onClick={() => FavoritesNews(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading)}
+            >محبوب ترین ها</li>
+            <li 
+              className="news-menu-box"
+              onClick={() => MostVisitedNews(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading)}
+            >پربازدید ترین ها</li>
+            <li 
+              className="news-menu-box hover:rounded-l-lg"
+              onClick={() => NewsestNews(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading)}
+            >جدیدترین ها</li>
           </ul>
           <div className="w-full lg:w-auto flex flex-row gap-x-4 md:gap-x-8 my-4 mx-auto">
             <div className="lg:hidden">
@@ -45,7 +60,13 @@ const NewsFilterMenu = ({newsData, filterDiv, setFilterDiv, setNewsData}) => {
               </label>
             </div>
             <div className="block lg:hidden w-full md:w-5/12">
-              <NewsSortSelect/>
+              <NewsSortSelect
+                setNewsData={setNewsData}
+                setNewsAllData={setNewsAllData}
+                pageCount={pageCount}
+                countInPage={countInPage}
+                setIsLoading={setIsLoading}
+              />
             </div>
             <SearchBox 
               placeholder={"جستجو..."} 

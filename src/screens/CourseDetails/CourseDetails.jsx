@@ -47,7 +47,6 @@ const CourseDetails = () => {
     } catch (error) {}
   }, []);
 
-
   useEffect(() => {
     fetchData();
     fetchTopCourses(3, setCoursesWhishList);
@@ -60,16 +59,24 @@ const CourseDetails = () => {
         <div className="w-[90%] h-full overflow-hidden lg:max-w-[1260px] mx-auto mt-36 bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6">
           <div className="flex flex-col lg:flex-row">
             <CoursePhoto
+              courseId={data.courseId}
               title={data.title}
               describe={data.describe}
+              id={data.courseId}
+              courseReseveId={data.courseReseveId}
+              isCourseReseve={data.isCourseReseve}
               imageAddress={data.imageAddress}
               currentUserDissLike={data.currentUserDissLike}
               currentUserLike={data.currentUserLike}
+              isUserFavorite={data.isUserFavorite}
+              userLikeId={data.userLikeId}
+              likeCount={data.likeCount}
+              dissLikeCount={data.dissLikeCount}
             />
 
             {/* moshakhasat */}
             <DetailsBox
-            id={data.courseId}
+              id={data.courseId}
               startTime={data.startTime}
               capacity={data.capacity}
               courseStatusName={data.courseStatusName}

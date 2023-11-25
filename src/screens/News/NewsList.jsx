@@ -7,11 +7,11 @@ import {
   NewsCategoriesFilter,
 } from "../../components/News";
 import { NewsCard } from "../../components/Landing";
-import fetchNewsApi from "../../core/services/api/GetData/allNewsApi";
+import fetchNewsApi from "../../core/services/api/GetData/getNewsData/allNewsApi";
+import LoadingSpinner from "../../components/common/loadingSpinner";
 
 import bgNews from "../../assets/image/bg-ListHero.svg";
 import bgNewsDark from "../../assets/image/bg-ListHero-dark.svg";
-import LoadingSpinner from "../../components/common/loadingSpinner";
 
 const NewsList = () => {
   const typeWriterWords = [
@@ -22,19 +22,20 @@ const NewsList = () => {
   const [newsAllData, setNewsAllData] = useState([]);
   const [filterDiv, setFilterDiv] = useState(true);
   const [itemOffset, setItemOffset] = useState(0);
-  const countInPage = 8;
+  const countInPage = 5;
   const endOffset = itemOffset + countInPage;
   const currentItems = newsData.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(newsData.length / countInPage);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * countInPage) % data.length;
+    const newOffset = (event.selected * countInPage) % newsData.length;
     setItemOffset(newOffset);
   };
 
   // get News data from api and fetch
   useEffect(() => {
-    fetchNewsApi(setNewsData, setNewsAllData, pageCount, countInPage );
+    fetchNewsApi(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading );
     return () => {
       setFilterDiv(false);
     };
@@ -49,13 +50,13 @@ const NewsList = () => {
         name={item.title}
         description={item.miniDescribe}
         views={item.currentView}
-        date={item.updateDate}
+        date={item.updateDate.slice(0, 10)}
       />
     );
   });
   return (
     <Fragment>
-      <LoadingSpinner/>
+      {/* <LoadingSpinner/> */}
       <div className="py-32">
         <img
           src={bgNews}
@@ -71,9 +72,13 @@ const NewsList = () => {
         <div className="md:mx-10 lg:mx-40 mt-16">
           <NewsFilterMenu
             newsData={newsAllData}
-            setNewsData={setNewsData}
             filterDiv={filterDiv}
             setFilterDiv={setFilterDiv}
+            setNewsData={setNewsData}
+            setNewsAllData={setNewsAllData}
+            pageCount={pageCount}
+            countInPage={countInPage}
+            setIsLoading={setIsLoading}
           />
           <section className="flex flex-row">
             <NewsCategoriesFilter
@@ -82,7 +87,8 @@ const NewsList = () => {
               setData={setNewsData}
               filterDiv={filterDiv}
             />
-            <div className="news-card">{newsCardsMapper}</div>
+            {isLoading ? ( <LoadingSpinner/> ) : <div className="news-card">{newsCardsMapper}</div>}
+            
           </section>
           <ReactPaginate
             breakLabel="..."
@@ -94,7 +100,7 @@ const NewsList = () => {
             renderOnZeroPageCount={null}
             pageLinkClassName=" paginationLink"
             activeLinkClassName="active"
-            containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-12 p-5"
+            containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-16 p-5"
           />
         </div>
       </div>

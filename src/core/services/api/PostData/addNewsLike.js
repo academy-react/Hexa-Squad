@@ -1,17 +1,22 @@
 import http from "../../interceptor";
+import { toast } from "react-toastify";
+import { getProfile } from "../GetData/profile";
 
-const handleNewsLikeClick = async (Param, setLikes, changeLikeColor, setChangeLikeColor) => {
-    try {
-      const result = await http.post(
-        "/News/NewsLike/" + Param.id
-      );
-      setLikes(result);
-      console.log(result);
-      setChangeLikeColor(!changeLikeColor);
-    } catch (error) {
-      console.error(error);
+const handleNewsLikeClick = async (urlParam, currentUserIsLike, changeLikeColor, setChangeLikeColor) => {
+  const user = await getProfile();
+  if (user == false) {
+    showLoginModal.click();
+  } else if(currentUserIsLike === false) {        
+      try {
+        const result = await http.post("/News/NewsLike/" + urlParam.id);
+        toast.success("مقاله مورد نظر لایک شد")
+        setChangeLikeColor(!changeLikeColor);  
+        console.log(result)        
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      toast.error("نظر خود را قبلا ثبت کرده اید!")
     }
-    setLikes(result);
 };
-
 export default handleNewsLikeClick;

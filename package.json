@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@mui/lab": "^5.0.0-alpha.153",
+    "@mui/material": "^5.14.18",
     "@reduxjs/toolkit": "^1.9.7",
     "animejs": "^3.2.1",
     "aos": "^2.3.4",

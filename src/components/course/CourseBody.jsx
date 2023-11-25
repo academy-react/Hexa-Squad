@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SeparationPrice from "../../core/services/SeparationPrice/SeparationPrice";
 import { addLike } from "../../core/services/api/PutData/addLikeToCourse";
 // import { addDisLike } from "../../core/services/api/addDisLike";
+import handleCourseAddLike from "../../core/services/api/PostData/addCourseLike";
 
 import likePic from "../../assets/image/like.svg";
 import dislikePic from "../../assets/image/dislike.svg";
@@ -21,19 +22,21 @@ const CourseBody = ({
   time,
   date,
   professorName,
-  like,
+  likeCount,
   dislike,
   studentCount,
   price,
   bio,
-  id,
+  courseId,
   userIsLiked,
 }) => {
-  const [isLogin, setIsLogin] = useState(false);
+  // const [isLogin, setIsLogin] = useState(false);
+  const [changeLikeColor, setChangeLikeColor] = useState(0);
+  const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
 
   return (
     <div className="course-body mt-6 whitespace-nowrap select-none">
-      <Link to={"/CourseDetails/" + id}>
+      <Link to={"/CourseDetails/" + courseId}>
         <h2 className="course-name">{title}</h2>
       </Link>
       <div className="">
@@ -59,19 +62,35 @@ const CourseBody = ({
         </div>
         <div className="likes-box">
           <div
-            className="course-like-box mr-8"
-            onClick={() => addLike(id, userIsLiked)}
+            className="course-like-box py-2 mr-4 bg-[#e3deff] "
+            onClick={() => handleCourseAddLike(courseId, likeCount, changeLikeColor, setChangeLikeColor)}
           >
-            <img src={likePic} alt="picture" className="inline" />
-            <span className="course-like-count">{like}</span>
+            <span
+              className={` cursor-pointer ${
+                changeLikeColor ||  userIsLiked === true 
+                  ? `bbi bi-hand-thumbs-up-fill text-indigo-950 `
+                  : `bi bi-hand-thumbs-up text-indigo-950`
+              }`}
+            >
+                {" "}
+                {likeCount}
+            </span>
           </div>
-          <div
-            className="course-like-box mr-1.5 text-center pr-2 px-0 "
-            onClick={() => addDisLike(id, isLogin)}
+          {/* <div
+            className="course-like-box py-2 mr-4 bg-[#e3deff] "
+            onClick={() => handleCourseDisLike(courseId, changeDisLikeColor, setChangeDisLikeColor)}
           >
-            <img src={dislikePic} alt="picture" className="inline" />
-            <span className="course-like-count">{dislike}</span>
-          </div>
+            <span
+              className={` cursor-pointer ${
+                changeDisLikeColor || currentUserDissLike === "1"
+                  ? `bbi bi-hand-thumbs-down-fill text-zinc-500 `
+                  : `bbi bi-hand-thumbs-down text-zinc-500`
+              }`}
+            >
+                {" "}
+                {dissLikeCount}
+            </span>
+          </div> */}
         </div>
       </div>
       <div className="mt-6 border-t-2 border-[#00018533] pt-4 pb-8 flex justify-between whitespace-nowrap">

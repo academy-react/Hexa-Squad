@@ -5,6 +5,7 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { validation } from "../../core/validations/validations";
+// import InputMask from "react-input-mask";
 
 const persianNumbers = [
     /۰/g,
@@ -27,8 +28,16 @@ const persianNumbers = [
     }
     return str;
   };
-export default function PersianCalendar() {
+export default function PersianCalendar(birthDate) {
   const [date, setDate] = useState({});
+
+  // show Default Date
+  // const defaultDate = birthDate.birthDate
+  // console.log('defaultDate', defaultDate)
+  // const year = defaultDate.slice(0, 4)
+  // const month = defaultDate.slice(5, 7)
+  // const day = defaultDate.slice(8, 10)
+  // console.log(`year=${year} & month=${month} & day=${day}`)
 
   return (
     <div >
@@ -36,22 +45,23 @@ export default function PersianCalendar() {
         calendar={persian}
         locale={persian_fa}
         value={date}
+        // defaultValue={new Date(2020, 1, 1)}
         onChange={(date) => {
           if (date) {
             setDate(date);
           }
         }}
-        render={<InputMask />}
+        render={<InputMask year={"2023"} month={"11"} day={"22"} />}
       />
     </div>
   );
 }
 
-function InputMask({ value, handleValueChange, openCalendar }) {
+function InputMask({ year, month, day, value, handleValueChange, openCalendar }) {
   const valueFinal = value ? fixNumbers(value.toString()) : null;
+
   return (
             <Input  dir="ltr"
-                name="birthDate"
                 className="editProf-field-input w-[300px] pl-48"
                 locale={persian_fa}
                 mask="9999/99/99"
@@ -59,7 +69,7 @@ function InputMask({ value, handleValueChange, openCalendar }) {
                 onFocus={openCalendar}
                 onChange={handleValueChange}
                 value={valueFinal} 
-            />
-            
+                defaultValue={`${year}${month}${day}`}
+            />    
   );
 }

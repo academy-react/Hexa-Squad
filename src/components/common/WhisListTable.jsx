@@ -7,7 +7,7 @@ const WhishListTable = ({ data, addIcon }) => {
   const deleteFavoriteCourse = async (id) => {
     if (id !== true) {
       const result = await DeleteCourseFavorite(id);
-      console.log('if',id)
+      console.log(result)
     }
     console.log(id)
     // setVisible(deleteFavoriteCourse);
@@ -18,7 +18,7 @@ const WhishListTable = ({ data, addIcon }) => {
         <td className="whitespace-nowrap px-6 py-4 text-xl">
           <i
             onClick={() => {
-              deleteFavoriteCourse(data.courseId);
+              deleteFavoriteCourse(data.favoriteId);
             }}
             className={
               "bi cursor-pointer bi-" + addIcon + " text-[#fd0000] mx-3"

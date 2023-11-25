@@ -3,13 +3,12 @@ import http from "../../interceptor";
 export default async (id) => {
   try {
     let result = await toast.promise(
-      http.delete("/Course/DeleteCourseFavorite",  id),
+      http.delete("/Course/DeleteCourseFavorite",  {CourseFavoriteId:id}),
       {
         pending: "در حال حذف کردن دوره ",
-        // success: "دوره از لیست علاقه مندی ها حذف شد",
-        // error: "دوره از لیست علاقه مندی ها حذف نشد",
       }
     );
+    console.log(result);
     if (result.success) {
       toast.success("دوره از لیست علاقه مندی ها حذف شد");
     } else {

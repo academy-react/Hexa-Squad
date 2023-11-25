@@ -175,10 +175,7 @@
     }
     .comment-input{
         @apply w-[340px] h-40 md:w-[650px] lg:w-[1099px] lg:h-52 lg:mr-4 mt-2 p-4 text-base text-darkblue2 dark:text-[#7e7cb1]
-                border-2 border-indigo-500 dark:border-[#3d3d70] rounded-xl bg-newWhite dark:bg-darkblue6;
-    }
-    .comment-input:focus{
-        @apply outline-none border-2 border-lightblue;
+                border-2 border-indigo-400 dark:border-[#3d3d70] rounded-xl bg-newWhite dark:bg-darkblue6 focus-visible:outline-2 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-lightblue;
     }
 
     /* news List*/
@@ -207,28 +204,20 @@
     .news-card .news-date{
         @apply md:absolute md:top-10 md:right-28 lg:top-12 lg:right-32 lg:text-base;
     }    
+    .news-card .news-description {
+        @apply pt-5;
+    } 
     .news-card .news-readMore{
         @apply  fixed text-left;
     }
     .news-card h2{
         @apply lg:w-[900px];
     }
-    .news-description{
+    /* .news-description{
         @apply lg:pt-4;
-    }
+    } */
     .news-card img{
         @apply h-[150px] w-[150px] md:w-[220px] md:h-[186px] ;
-    }
-
-    /* Panel --> Edit Profile */
-    .editProf-input{
-        @apply relative my-5 w-[300px];
-    }
-    .editProf-field-input{
-        @apply bg-transparentPurple w-full h-10 pr-4 rounded-lg border-2 border-[#a48fff]  dark:bg-lightblue4 focus-visible:outline-4 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-[#3F40EA66];
-    }
-    .editProf-errorMessage{
-        @apply  text-[#A80065] absolute -bottom-8 right-2;
     }
 
     /* Teacher Profile */
@@ -268,4 +257,40 @@
     .teacher-suggestion .latestCourse .latestCourse-div{
         @apply flex flex-row;
     } */
+
+    
+    /* Panel --> Edit Profile */
+    .editProf-input{
+        @apply relative my-5 w-[300px];
+    }
+    .editProf-field-input{
+        @apply bg-transparentPurple w-full h-10 pr-4 rounded-lg border-2 border-[#a48fff]  dark:bg-lightblue4 focus-visible:outline-4 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-[#3F40EA66];
+    }
+    .editProf-errorMessage{
+        @apply  text-[#A80065] absolute -bottom-8 right-2;
+    }
+    /* Modal */
+
+    #showEditImageModal:checked+.EditImageModal {
+        display: block;
+    }
+    .EditImageModal {
+        @apply animate-zoom fixed top-[16%] lg:w-[570px] h-[450px] inset-x-32 lg:inset-x-72 z-[500] rounded-xl shadow-shadow-auth hidden bg-[#D7D5FF] dark:bg-darkblue6;
+    }
+
+    #showSelectImageModal:checked+.selectImageModal {
+        display: block;
+    }
+    .selectImageModal {
+        @apply animate-zoom fixed top-[16%] lg:w-[570px] h-[450px] inset-x-32 lg:inset-x-72 z-[500] rounded-xl shadow-shadow-auth hidden bg-[#D7D5FF] dark:bg-darkblue6;
+    }
+    .closebtn{
+        @apply absolute top-2 z-50 right-5 text-slate-600 dark:text-semiWhite2 text-4xl;
+    }
+
+    .card input,
+    .card .drag-area .on-top,
+    .card .drag-area.dragover .visible{
+        @apply hidden;
+    }
 }
