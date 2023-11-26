@@ -18,8 +18,13 @@ const handleEditProfileInfo = async (value, setUserInfo) => {
 
     try{
         const result = await http.put("/SharePanel/UpdateProfileInfo", data)
-        setUserInfo(result)
+        // setUserInfo(result)
         console.log("result2 is:", result)
+        if (result.success) {
+            toast.success(result.message)
+        } else {
+            toast.error(result.errors)
+        }
         
 
     } catch (error) {

@@ -1,11 +1,12 @@
 import React, { Fragment, useState, useRef } from "react";
-import { CheckboxInput } from "../../common";
-import AddProfileImageModal from "./AddProfileImageModal";
+import { CheckboxInput } from "../../../common";
+import AddImageModal from "./AddImageModal";
+// import AddImageDropzoneModal from "./AddImageDropzoneModal";
 
-import { cameraSvg } from "../../../assets/icons/svgIcons";
-import pic from '../../../assets/image/user-circle-icon.png';
+import { cameraSvg } from "../../../../assets/icons/svgIcons";
+import pic from '../../../../assets/image/user-circle-icon.png';
 
-const EditProfileImageModal = () => {
+const EditImageModal = () => {
     const [images, setImages] = useState();
     // const handleImage = (e) => {
     //     setImages(e.target.files[0])
@@ -48,7 +49,7 @@ const EditProfileImageModal = () => {
                             <i class="bi bi-trash"></i>
                         </span>
                         <CheckboxInput name={"showSelectImageModal"} />
-                        <AddProfileImageModal/>
+                        <AddImageModal/>
                         {/* <input
                             type="submit"
                             value="انتخاب عکس"
@@ -71,4 +72,4 @@ const EditProfileImageModal = () => {
         </Fragment>
     )
 }
-export default EditProfileImageModal;
+export default EditImageModal;

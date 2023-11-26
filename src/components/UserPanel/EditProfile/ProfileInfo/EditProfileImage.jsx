@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
-import onSubmit from "../../../core/services/api/PostData/addProfileImage";
+import onSubmit from "../../../../core/services/api/PostData/addProfileImage";
 
-import pic from '../../../assets/image/user-circle-icon.png';
-import { CheckboxInput } from "../../common";
+import pic from '../../../../assets/image/user-circle-icon.png';
+import { CheckboxInput } from "../../../common";
 import EditProfileImageModal from "./EditProfileImageModal";
 
 const EditProfileImage = () => {

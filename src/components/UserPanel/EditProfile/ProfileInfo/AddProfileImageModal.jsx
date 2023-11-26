@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useRef } from "react";
-import onSubmit from "../../../core/services/api/PostData/addProfileImage";
+import onSubmit from "../../../../core/services/api/PostData/addProfileImage";
 
 const AddProfileImageModal = () => {
     const [images, setImages] = useState([]);

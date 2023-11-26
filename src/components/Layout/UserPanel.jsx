@@ -22,6 +22,11 @@ const UserPanel = () => {
       address: "WhishList/",
     },
     { label: "تمام دوره ها", classNameIcon: "book", address: "AllCourses/" },
+    {
+      label: "لیست اخبار مورد علاقه ",
+      classNameIcon: "star",
+      address: "NewsFavorite/",
+    },
     // {
     //   label: "تغییر رمز عبور",
     //   classNameIcon: "key rotate-[-220deg]",

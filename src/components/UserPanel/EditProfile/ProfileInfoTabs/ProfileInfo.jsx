@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect, useCallback } from "react";
 import getProfileInfo from "../../../../core/services/api/GetData/getProfileInfo";
-import EditProfileInfo from "../../../../components/UserPanel/EditProfile/EditProfileInfo";
+import EditProfileInfo from "./EditProfileInfo";
 import onSubmit from "../../../../core/services/api/PostData/addProfileImage";
 
 import pic from '../../../../assets/image/user-circle-icon.png';
