@@ -12,8 +12,9 @@ const UserComments = ({
   like,
   disLike,
   currentEmotion,
+  acceptReplysCount,
+  courseId,
 }) => {
-  const [comments, setComments] = useState({});
   const [likes, setLikes] = useState(0);
   const [disLikes, setDislikes] = useState(0);
   const [removeLike, setRemoveLike] = useState(0);
@@ -33,7 +34,7 @@ const UserComments = ({
       if (response.success) {
         toast.success("🎉 شما کامنت را لایک کردید");
       } else {
-        toast.error("");
+        toast.error(" شما یکبار این کامنت را لایک کردید");
       }
       return false;
     } catch (error) {
@@ -67,6 +68,26 @@ const UserComments = ({
     setDislikes(response);
   };
 
+  const [adminComment, setAdminComment] = useState({});
+  const fetchAdminCommentData = useCallback(async () => {
+    try {
+      const result = await http.get(
+        `/Course/GetCourseReplyCommnets/${courseId}/${uid}`
+      );
+      console.log(result);
+      setAdminComment(result);
+    } catch (error) {}
+  }, []);
+
+  useEffect(() => {
+    fetchAdminCommentData();
+  }, []);
+
+  // const replyComments = adminComment.map((item, index) => {
+  //   return (
+  //     <AdminComments key={index}  />
+  //   );
+  // });
   return (
     <Fragment>
       <div className="userComment">
@@ -136,6 +157,14 @@ const UserComments = ({
           </div>
         </div>
       </div>
+      {acceptReplysCount ? (
+        <AdminComments
+          title={adminComment.title}
+          desc={adminComment.describe}
+        />
+      ) : (
+        " "
+      )}
       {/* {adminComments} */}
     </Fragment>
   );
