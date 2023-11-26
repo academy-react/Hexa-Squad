@@ -11,8 +11,8 @@ const NewsRate = ({data}) => {
   };
 
   console.log("mystars=",stars)
-  console.log("myID=",data.id)
-  console.log("newsRate=",newsRate)
+  // console.log("myID=",data.id)
+  // console.log("newsRate=",newsRate)
 
   return (
       <Fragment>

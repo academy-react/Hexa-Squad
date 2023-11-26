@@ -8,27 +8,28 @@ const EditProfileInfo = (
     {
         email, 
         phoneNumber, 
-        lastName, 
-        firstName, 
-        idCode, 
-        birthDate,
+        lName, 
+        fName, 
+        nationalCode, 
+        birthDay,
         userAbout,
         homeAdderess,
         gender,
         linkdinProfile,
         telegramLink,
-        disable
+        disable,
+        handleEditProfileInfo
     }) => {
 
   return (
     <Fragment>
         <Formik
             initialValues={{ 
-                firstName: firstName, 
-                lastName: lastName, 
-                idCode: idCode, 
+                firstName: fName, 
+                lastName: lName, 
+                idCode: nationalCode, 
                 email: email, 
-                birthDate: birthDate, 
+                birthDate: birthDay, 
                 phoneNumber: phoneNumber, 
                 userAbout: userAbout,
                 homeAdderess: homeAdderess,
@@ -37,8 +38,8 @@ const EditProfileInfo = (
                 telegramLink: telegramLink,
             }}
             enableReinitialize={true}
-            validationSchema={validation}
-            onSubmit={() => alert("ثبت اطلاعات")}
+            // validationSchema={validation}
+            onSubmit={(value) => {handleEditProfileInfo(value)}}
         >
             <Form className="flex flex-wrap gap-5 justify-center text-[#3F3F47aa] dark:text-semiWhite2" dir="rtl">
                 <div className="editProf-input">
@@ -72,7 +73,7 @@ const EditProfileInfo = (
                 </div> */}
                 <div className="editProf-input">
                     <label className="block my-2">تاریخ تولد</label>
-                    <PersianCalendar name={"birthDate"} birthDate={birthDate}/>
+                    <PersianCalendar name={"birthDate"} birthDate={birthDay}/>
                     <ErrorMessage name="birthDate" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 {/* <div className="editProf-input">
@@ -100,7 +101,12 @@ const EditProfileInfo = (
                     <textarea defaultValue={userAbout} className="editProf-field-input inset-x-4 h-40 p-4" disabled={disable}></textarea>
                     {/* <ErrorMessage name="" className="editProf-errorMessage" component={'span'}/> */}
                 </div>
-
+                <input
+                    type="submit"
+                    value="ثبت اطلاعات"
+                    className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
+                    // onClick={handleEditProfileInfo}
+                />
             </Form>
         </Formik>
     </Fragment>

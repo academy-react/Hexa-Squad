@@ -8,70 +8,72 @@ import onFormData from "../../../../core/services/api/FormData";
 import { toast } from "react-toastify";
 
 const EditProfile = () => {
-  const [userInfo, setUserInfo] = useState([{
+  const [userInfo, setUserInfo] = useState([
+    {
       // email : "",
       // "phoneNumber" : "",
       // "lName" : "",
       // "fName" : "",
       // "nationalCode" : "",
       // "birthDay" : ""
-  }]);
+    },
+  ]);
 
   // get Profile information
   useEffect(() => {
-    getProfileInfo(setUserInfo)
+    getProfileInfo(setUserInfo);
   }, []);
 
   // Update Profile Info
   const handleEditProfileInfo = async (value) => {
-    const obj = {
-        LName: value.lName,
-        fName : value.fName,
-        userAbout : value.userAbout,
-        linkdinProfile : value.linkdinProfile,
-        telegramLink : value.telegramLink,
-        homeAdderess : value.homeAdderess,
-        nationalCode : value.nationalCode,
-        gender : value.gender,
-        birthDay : value.birthDay
-    }
-    const data = onFormData(obj)
-    try{
-        const result = await http.put("/SharePanel/UpdateProfileInfo", data)
-        // setUserInfo(result)
-        console.log("result is:", result)
-        if (result.success) {
-            toast.success(result.message)
-        } else if (!result.success) {
-            toast.error(result.errors)
-        }
+    // const obj = {
+    //   lName: value.lName,
+    //   fName: value.fName,
+    //   userAbout: value.userAbout,
+    //   linkdinProfile: value.linkdinProfile,
+    //   telegramLink: value.telegramLink,
+    //   homeAdderess: value.homeAdderess,
+    //   nationalCode: value.nationalCode,
+    //   gender: value.gender,
+    //   birthDay: value.birthDay,
+    // };
+    // const data = onFormData(obj);
+
+    const obj = new FormData()
+    obj.append("LName", value.lName)
+    console.log("value=", obj);
+
+    try {
+      const result = await http.put("/SharePanel/UpdateProfileInfo", obj);
+      setUserInfo(result);
+      console.log("result is:", result);
+      if (result.success) {
+        toast.success(result.message);
+      } else if (!result.success) {
+        toast.error(result.errors);
+      }
     } catch (error) {
-        console.log('error is:', error)
+      console.log("error is:", error);
     }
-  }
+  };
 
   return (
     <Fragment>
       <div className="mt-8">
         <EditProfileInfo
-          email = {userInfo.email}
-          phoneNumber = {userInfo.phoneNumber}
-          lastName = {userInfo.lName}
-          firstName = {userInfo.fName}
-          idCode = {userInfo.nationalCode}
-          birthDate = {userInfo.birthDay} 
-          userAbout = {userInfo.userAbout}
-          homeAdderess = {userInfo.homeAdderess}
-          gender = {userInfo.gender}
-          linkdinProfile = {userInfo.linkdinProfile}
-          telegramLink = {userInfo.telegramLink}
-          disable = {false}
-        />
-        <input
-          type="submit"
-          value="ثبت اطلاعات"
-          className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
-          onClick={handleEditProfileInfo}
+          email={userInfo.email}
+          phoneNumber={userInfo.phoneNumber}
+          lName={userInfo.lName}
+          fName={userInfo.fName}
+          nationalCode={userInfo.nationalCode}
+          birthDay={userInfo.birthDay}
+          userAbout={userInfo.userAbout}
+          homeAdderess={userInfo.homeAdderess}
+          gender={userInfo.gender}
+          linkdinProfile={userInfo.linkdinProfile}
+          telegramLink={userInfo.telegramLink}
+          disable={false}
+          handleEditProfileInfo={handleEditProfileInfo}
         />
       </div>
     </Fragment>

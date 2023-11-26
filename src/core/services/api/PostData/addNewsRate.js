@@ -7,9 +7,10 @@ const handleNewsRate = async (data, stars, setNewsRate) => {
     if (user == false) {
       showLoginModal.click();
     } else {
+      console.log()
       try {
         const result = await http.post(
-          `/News/NewsRate?NewsId=${data.id}&RateNumber=${stars}`
+          `/News/NewsRate?NewsId=${data.id}&RateNumber=5`
         );
         if (result.success === true) {
           toast.success(result.message)
