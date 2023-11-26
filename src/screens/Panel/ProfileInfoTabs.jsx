@@ -1,11 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Tab } from '@headlessui/react';
-import TitleSection from '../TitleSection';
-import getProfileInfo from '../../../core/services/api/GetData/getProfileInfo';
-import ChangePassword from './ProfileInfoTabs/ChangePassword';
-import ProfileInfo from './ProfileInfoTabs/ProfileInfo';
-import EditProfile from './ProfileInfoTabs/EditProfile';
-import EditProfileImage from './EditProfileImage';
+import TitleSection from '../../components/UserPanel/TitleSection';
+import getProfileInfo from '../../core/services/api/GetData/getProfileInfo';
+import ChangePassword from '../../components/UserPanel/EditProfile/ProfileInfoTabs/ChangePassword';
+import ProfileInfo from '../../components/UserPanel/EditProfile/ProfileInfoTabs/ProfileInfo';
+import EditProfile from '../../components/UserPanel/EditProfile/ProfileInfoTabs/EditProfile';
+import ProfileImage from '../../components/UserPanel/EditProfile/ProfileInfoTabs/ProfileImage';
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
@@ -64,7 +64,7 @@ const ProfileInfoTabs = () => {
                 <ProfileInfo/>
             </Tab.Panel>
             <Tab.Panel>
-                <EditProfileImage/>
+                <ProfileImage/>
                 <EditProfile/>
             </Tab.Panel>
             <Tab.Panel>

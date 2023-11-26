@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect, useCallback } from "react";
 import getProfileInfo from "../../core/services/api/GetData/getProfileInfo";
 import TitleSection from "../../components/UserPanel/TitleSection";
-import EditProfileImage from "../../components/UserPanel/EditProfile/EditProfileImage";
-import EditProfileInfo from "../../components/UserPanel/EditProfile/EditProfileInfo";
+import EditProfileImage from "../../components/UserPanel/EditProfile/ProfileInfo/EditProfileImage";
+import EditProfileInfo from "../../components/UserPanel/EditProfile/ProfileInfo/EditProfileInfo";
 import onSubmit from "../../core/services/api/PostData/addProfileImage";
 import handleEditProfileInfo from "../../core/services/api/PutData/handleEditProfileInfo";
 

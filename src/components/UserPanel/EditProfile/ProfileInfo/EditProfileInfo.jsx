@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
-import { validation } from "../../../core/validations/validations";
-import PersianCalendar from "../../../components/common/PersianCalendar";
+import { validation } from "../../../../core/validations/validations";
+import PersianCalendar from "../../../common/PersianCalendar";
 
 const EditProfileInfo = (
     {

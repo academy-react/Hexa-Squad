@@ -24,7 +24,7 @@ import TeacherProfile from "../components/TeacherProfile/TeacherProfile";
 import EditProfile from "../screens/Panel/EditProfile";
 import UserDashboard from "../screens/Panel/UserDashboard";
 
-import ProfileInfoTabs from "../components/UserPanel/EditProfile/ProfileInfoTabs";
+import ProfileInfoTabs from "../screens/Panel/ProfileInfoTabs";
 
 import ShoppingCard from "../screens/ShoppingCard/ShoppingCard";
 import NewsFavorite from "../screens/Panel/NewsFavorite";
