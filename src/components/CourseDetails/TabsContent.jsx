@@ -7,12 +7,11 @@ import Accordions from "../../core/services/api/GetData/Topics";
 import Accordion from "./Accordion";
 import InputComment from "../common/InputComment";
 import UserComments from "../common/UserComments";
-import http from "../../core/services/interceptor/index"
+import http from "../../core/services/interceptor/index";
 import comments from "../../assets/image/comments.svg";
 import { MdOutlinePreview } from "react-icons/md";
 
 const TabsContent = () => {
-
   const [comment, setComment] = useState([]);
   const [urlParam, setUrlParam] = useState(useParams());
   const userComments = comment.map((item, index) => {
@@ -25,15 +24,14 @@ const TabsContent = () => {
         key={index}
         like={item.likeCount}
         disLike={item.disslikeCount}
+        acceptReplysCount={item.acceptReplysCount}
+        courseId={item.courseId}
       />
     );
   });
   const fetchCommentData = useCallback(async () => {
     try {
-      const result = await http.get(
-        `/Course/GetCourseCommnets/` +
-          urlParam.id
-      );
+      const result = await http.get(`/Course/GetCourseCommnets/` + urlParam.id);
       console.log(result);
       const receivedData = result;
       setComment(receivedData);
@@ -108,9 +106,13 @@ const TabsContent = () => {
           </div>
         </Tab>
         <Tab label="نظرات کاربران">
-
           <div className="py-4">
-            <h2 className="text-lg font-medium mb-2 hidden">نظرات کاربران</h2>
+            <InputComment
+              uid={comment.id}
+              name={comment.title}
+              question={comment.describe}
+            />
+            <h2 className="text-lg mb-2 hidden">نظرات کاربران</h2>
             <div className="w-[96%] mx-auto lg:mr-2 mt-6 ">
               <div className=" pb-5 border-b-2 border-b-[#9999f533] dark:border-b-[#3d3d70]">
                 <img src={comments} className="inline pl-4 w-10 h-10 " />
@@ -118,9 +120,8 @@ const TabsContent = () => {
                   نظرات کاربران در رابطه با این دوره{" "}
                 </h3>
               </div>
-            
+
               {userComments}
-              <InputComment />
             </div>
           </div>
         </Tab>
