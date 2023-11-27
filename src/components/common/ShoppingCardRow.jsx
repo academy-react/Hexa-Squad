@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SeparationPrice from "../../core/services/SeparationPrice/SeparationPrice";
+import SeparationPrice from "../../core/utility/SeparationPrice/SeparationPrice";
 
 const ShoppingCardRow = ({ product }) => {
   return (
@@ -28,8 +28,12 @@ const ShoppingCardRow = ({ product }) => {
               {SeparationPrice(product.price)} تومان
             </p>
           </div>
-          <p className="mt-1 text-sm text-[#374151] dark:text-slate-400">{product.professorName}</p>
-          <p className="mt-1 text-sm text-[#374151] dark:text-slate-400">{product.courseCount}</p>
+          <p className="mt-1 text-sm text-[#374151] dark:text-slate-400">
+            {product.professorName}
+          </p>
+          <p className="mt-1 text-sm text-[#374151] dark:text-slate-400">
+            {product.courseCount}
+          </p>
         </div>
 
         <div className="mt-4 flex flex-1 items-end justify-between">

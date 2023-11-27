@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SeparationPrice from "../../core/utility/SeparationPrice/SeparationPrice";
 import DeleteCourseFavorite from "../../core/services/api/DeleteData/deleteFavoriteCourse";
-const WhishListTable = ({ data, addIcon }) => {
+import GregorianToSolar from "../../core/utility/GregorianToSolar/GregorianToSolar";
+const MyReserveCoursesListTable = ({ data, addIcon }) => {
   const [visible, setVisible] = useState(true);
   const deleteFavoriteCourse = async (id) => {
     let result;
@@ -14,11 +15,11 @@ const WhishListTable = ({ data, addIcon }) => {
   };
   return (
     visible && (
-      <tr className="text-[#36353B] dark:text-semiPink bg-[#CECCFF50] dark:bg-[#3f3fea45]  hover:bg-[#CECCFF80] pagination-table-tr ">
+      <tr className="text-[#36353B] dark:text-semiPink bg-[#CECCFF50] dark:bg-[#3f3fea45]  hover:bg-[#CECCFF80] pagination-table-tr text-center ">
         <td className="whitespace-nowrap px-6 py-4 text-xl">
           <i
             onClick={() => {
-              deleteFavoriteCourse(data.favoriteId);
+              deleteFavoriteCourse(data.reserveId);
             }}
             className={
               "bi cursor-pointer bi-" + addIcon + " text-[#fd0000] mx-3"
@@ -29,24 +30,30 @@ const WhishListTable = ({ data, addIcon }) => {
             className="bi bi-eye text-[#29209380] dark:text-semiPink"
           ></Link>
         </td>
-        <td className="whitespace-nowrap px-6 py-4">
-          {data.lastUpdate.slice(0, 10)}
-        </td>
-        <td className="whitespace-nowrap px-6 py-4">{data.teacheName}</td>
         <td className="whitespace-nowrap px-6 py-4" dir="rtl">
-          {data.courseTitle}
+          {data.accept === false ? (
+            <p className="px text-yellow-500">هنوز تایید نشد</p>
+          ) : (
+            <p className="px text-green-500">رزرو شما تایید شد</p>
+          )}
         </td>
-        <td className="whitespace-nowrap px-6 py-4 font-medium">
+        <td className="whitespace-nowrap px-6 py-4" dir="rtl">
+          {GregorianToSolar(data.reserverDate)}
+        </td>
+        <td className="whitespace-nowrap px-6 py-4" dir="rtl">
+          {data.courseName}
+        </td>
+        {/* <td className="whitespace-nowrap px-6 py-4 font-medium">
           {" "}
           <img
             src={data.tumbImageAddress}
             className="min-w-[70px] w-[80px] h-12 rounded-lg "
             alt={data.courseTitle}
           />{" "}
-        </td>
+        </td> */}
       </tr>
     )
   );
 };
 
-export default WhishListTable;
+export default MyReserveCoursesListTable;

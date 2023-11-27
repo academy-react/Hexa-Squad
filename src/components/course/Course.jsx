@@ -46,11 +46,6 @@ const Course = ({
     <div className={"course-box px-6 " + addClass}>
       <div className="hover-box z-3">
         <img
-          src={cart}
-          className="inline hover-box-img mr-6"
-          onClick={() => addReserve(id)}
-        />
-        <img
           src={isFavorite ? fillHeart : heart}
           className="inline hover-box-img w-6"
           onClick={addFavorite}

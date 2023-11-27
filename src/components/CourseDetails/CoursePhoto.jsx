@@ -20,9 +20,7 @@ const CoursePhoto = ({
   likeCount,
   dissLikeCount,
   userLikeId,
-  isCourseReseve,
   isUserFavorite,
-  courseReseveId,
 }) => {
   const [changeLikeColor, setChangeLikeColor] = useState(0);
   const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
@@ -32,8 +30,9 @@ const CoursePhoto = ({
     setIsFavorite(result);
   };
   useEffect(() => {
-    isUserFavorite && setIsFavorite(true);
-  }, [])
+    // if course is user favorite show fill heart
+    isUserFavorite === true && setIsFavorite(true);
+  }, [isUserFavorite])
 
 
   const [currentUserIsLike, setCurrentUserIsLike] = useState(currentUserLike)

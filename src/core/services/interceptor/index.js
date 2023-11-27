@@ -26,7 +26,6 @@ const onError = (err) => {
 instance.interceptors.response.use(onSuccess, onError);
 instance.interceptors.request.use((opt) => {
   const token = getItem("token");
-  opt.headers["Content-Type"] = 'application/json';
   console.log(opt);
   if(token) opt.headers.Authorization = "Bearer " + token;
   return opt;

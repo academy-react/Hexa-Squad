@@ -9,7 +9,7 @@ const Rate = ({id, handleRate}) => {
   const ratingChanged = (newRating) => {
     // console.log("newRating",newRating)
     setStars(newRating);
-    handleRate(id, newRating)
+    console.log('newRating',newRating);
   };
 
   return (

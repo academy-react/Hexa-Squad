@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SeparationPrice from "../../core/services/SeparationPrice/SeparationPrice";
+import SeparationPrice from "../../core/utility/SeparationPrice/SeparationPrice";
 import { addLike } from "../../core/services/api/PutData/addLikeToCourse";
 // import { addDisLike } from "../../core/services/api/addDisLike";
 import handleCourseAddLike from "../../core/services/api/PostData/addCourseLike";
@@ -15,6 +15,7 @@ import {
   peopleSvg,
 } from "../../assets/icons/svgIcons";
 import "../Landing/common.css";
+import GregorianToSolar from "../../core/utility/GregorianToSolar/GregorianToSolar";
 
 const CourseBody = ({
   title,
@@ -48,7 +49,7 @@ const CourseBody = ({
 
         {calendarSvg}
         <h3 className="course-info" dir="ltr">
-          {date.slice(0, 10)}
+          {GregorianToSolar(date)}
         </h3>
       </div>
       <div className=" hidden course-bio">{bio}</div>
@@ -63,17 +64,24 @@ const CourseBody = ({
         <div className="likes-box">
           <div
             className="course-like-box py-2 mr-4 bg-[#e3deff] "
-            onClick={() => handleCourseAddLike(courseId, likeCount, changeLikeColor, setChangeLikeColor)}
+            onClick={() =>
+              handleCourseAddLike(
+                courseId,
+                likeCount,
+                changeLikeColor,
+                setChangeLikeColor
+              )
+            }
           >
             <span
               className={` cursor-pointer ${
-                changeLikeColor ||  userIsLiked === true 
+                changeLikeColor || userIsLiked === true
                   ? `bbi bi-hand-thumbs-up-fill text-indigo-950 `
                   : `bi bi-hand-thumbs-up text-indigo-950`
               }`}
             >
-                {" "}
-                {likeCount}
+              {" "}
+              {likeCount}
             </span>
           </div>
           {/* <div

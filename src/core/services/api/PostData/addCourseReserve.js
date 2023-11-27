@@ -7,16 +7,21 @@ export const addReserve = async (id, isCourseReseve) => {
   if (user == false) {
     showLoginModal.click();
   } else {
-    if (isCourseReseve == "1") {
+    if (isCourseReseve == "1" ) {
       console.log("isCourseReseve == 1", id);
-      toast.error('این دوره از قبل در دوره های شما موجود است');
-      // const result = await toast.promise(http.delete("/CourseReserve", id));
-      // console.log(result);
-      // if (result.success) {
-      //   toast.success(result.message);
-      // } else {
-      //   toast.error(result.errors == null ? result.message : result.errors[0]);
-      // }
+      // toast.error('این دوره از قبل در دوره های شما موجود است');
+      const result = await http.delete("/CourseReserve", {
+        data: { id: id },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("result", result);
+      if (result.success) {
+        toast.success(result.message);
+      } else {
+        toast.error(result.errors == null ? result.message : result.errors[0]);
+      }
     } else {
       console.log(id);
       const result = await toast.promise(
