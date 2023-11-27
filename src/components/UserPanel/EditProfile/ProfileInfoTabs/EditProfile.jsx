@@ -40,7 +40,7 @@ const EditProfile = () => {
     // const data = onFormData(obj);
 
     const obj = new FormData()
-    obj.append("LName", value.lName)
+    obj.append("LName", "value.lName")
     console.log("value=", obj);
 
     try {

@@ -4,6 +4,8 @@ import { addReserve } from "../../core/services/api/PostData/addCourseReserve";
 import handleCourseAddLike from "../../core/services/api/PostData/addCourseLike";
 import handleCourseDisLike from "../../core/services/api/PostData/addCourseDisLike";
 import handleCourseDeleteLike from "../../core/services/api/DeleteData/deleteCourseLike";
+import Rate from "../common/Rate";
+import handleCourseRate from "../../core/services/api/PostData/addCourseRate";
 
 import NullImage from "../../assets/image/Images-for-null 2.svg";
 
@@ -68,6 +70,12 @@ const CoursePhoto = ({
         </p>
       </div>
       <div className="absolute left-8 lg:left-0 -bottom-8 md:-bottom-20 lg:-bottom-8 md:left-2">
+        <div className="flex md:flex-row flex-wrap gap-x-4">
+          <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
+             میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
+          </h2>
+          <Rate id={courseId} handleRate={handleCourseRate} />
+        </div>
         <div className="flex flex-row">
           <h2 className="text-base mt-1 dark:text-indigo-400 text-[#302064]">
             آیا از این دوره راضی بودید؟

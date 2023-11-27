@@ -2,7 +2,7 @@ import http from "../../interceptor";
 import { toast } from "react-toastify";
 import { getProfile } from "../GetData/profile";
 
-const handleNewsRate = async (data, stars) => {
+const handleCourseRate = async (courseId, stars) => {
     const user = await getProfile();
     if (user == false) {
       showLoginModal.click();
@@ -10,7 +10,7 @@ const handleNewsRate = async (data, stars) => {
       console.log()
       try {
         const result = await http.post(
-          `/News/NewsRate?NewsId=${data.id}&RateNumber=${stars}`
+          `/Course/SetCourseRating?CourseId=${courseId}&RateNumber=${stars}`
         );
         if (result.success === true) {
           toast.success(result.message)
@@ -18,10 +18,10 @@ const handleNewsRate = async (data, stars) => {
         } else {
           toast.error(result.message)
         }
-        // console.log(result);
+        console.log(result);
       } catch (error) {
         console.error(error);
       }
     }
 };
-export default handleNewsRate;
+export default handleCourseRate;
