@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import { getProfile } from "../GetData/profile";
 import http from "../../interceptor";
+import deleteCourseReserve from "../DeleteData/deleteCourseReserve";
 
 export const addReserve = async (id, isCourseReseve) => {
   const user = await getProfile();
@@ -8,20 +9,7 @@ export const addReserve = async (id, isCourseReseve) => {
     showLoginModal.click();
   } else {
     if (isCourseReseve == "1" ) {
-      console.log("isCourseReseve == 1", id);
-      // toast.error('این دوره از قبل در دوره های شما موجود است');
-      const result = await http.delete("/CourseReserve", {
-        data: { id: id },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      console.log("result", result);
-      if (result.success) {
-        toast.success(result.message);
-      } else {
-        toast.error(result.errors == null ? result.message : result.errors[0]);
-      }
+      deleteCourseReserve(id)
     } else {
       console.log(id);
       const result = await toast.promise(

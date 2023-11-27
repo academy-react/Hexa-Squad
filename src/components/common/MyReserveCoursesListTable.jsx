@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import SeparationPrice from "../../core/utility/SeparationPrice/SeparationPrice";
 import DeleteCourseFavorite from "../../core/services/api/DeleteData/deleteFavoriteCourse";
 import GregorianToSolar from "../../core/utility/GregorianToSolar/GregorianToSolar";
+import deleteCourseReserve from "../../core/services/api/DeleteData/deleteCourseReserve";
 const MyReserveCoursesListTable = ({ data, addIcon }) => {
   const [visible, setVisible] = useState(true);
-  const deleteFavoriteCourse = async (id) => {
-    let result;
+  console.log(visible);
+  const deleteReserveCourse = async (id) => {
     if (id !== true) {
-      result = await DeleteCourseFavorite(id);
+      const result = await deleteCourseReserve(id);
       console.log(result);
     }
     setVisible(false);
@@ -19,7 +20,7 @@ const MyReserveCoursesListTable = ({ data, addIcon }) => {
         <td className="whitespace-nowrap px-6 py-4 text-xl">
           <i
             onClick={() => {
-              deleteFavoriteCourse(data.reserveId);
+              deleteReserveCourse(data.reserveId);
             }}
             className={
               "bi cursor-pointer bi-" + addIcon + " text-[#fd0000] mx-3"
