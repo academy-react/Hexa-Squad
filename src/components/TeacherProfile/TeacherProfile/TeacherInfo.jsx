@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import TeacherSocialMedia from "./TeacherSocialMedia";
 import TeacherWishList from "./TeacherWishList";
 
-import image from "../../../assets/image/Webinar-pana.svg";
+import teacherImg from "../../../assets/image/Webinar-pana.svg";
 
 const TeacherInfo = ({
   title,
@@ -11,6 +11,7 @@ const TeacherInfo = ({
   experiences,
   education,
   linkdin,
+  image
 }) => {
   return (
     <Fragment>
@@ -22,7 +23,7 @@ const TeacherInfo = ({
           <figure className="img-figure">
             <img
               className="teacher-image"
-              src={image}
+              src={image ? image : teacherImg}
               alt="image"
               data-aos="zoom-in"
               data-aos-duration="2500"

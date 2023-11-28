@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import teacher1 from "../../assets/image/drBahr.jpg";
+import teacherImg from "../../assets/image/Webinar-pana.svg";
 
 const TeacherCard = ({ title, description, course, pictureAddress, id }) => {
   return (
@@ -16,7 +16,7 @@ const TeacherCard = ({ title, description, course, pictureAddress, id }) => {
           <div className="rounded-full absolute overflow-hidden shadow-[0_20px_50px_rgba(88,_0,_255,_1)] dark:shadow-shadow-auth w-32 h-32  mx-2 my-2  md:w-[96px] md:h-[96px] md:mx-2 md:my-2 lg:w-32 lg:h-32 lg:mx-2 lg:my-2 ">
             <img
               className="object-cover w-32 h-32"
-              src={pictureAddress}
+              src={pictureAddress ? pictureAddress : teacherImg}
               alt="image"
             />
           </div>

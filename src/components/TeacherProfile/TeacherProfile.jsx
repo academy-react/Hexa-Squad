@@ -39,7 +39,7 @@ const TeacherProfile = () => {
           number={teacherInfo.number}
           linkdin={teacherInfo.linkdinProfileLink}
           email={teacherInfo.email}
-          image={teacherInfo.imageUrl}
+          image={teacherInfo.pictureAddress}
         />
        
       </div>
