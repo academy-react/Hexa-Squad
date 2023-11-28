@@ -342,7 +342,7 @@
   }
 
   .news-image {
-    @apply md:w-[220px] md:h-[186px] h-[180px] w-[180px] absolute shadow-shadow-auth my-6 mx-5 md:my-6 lg:mx-6 rounded-2xl bg-center object-cover;
+    @apply md:w-[220px] md:h-[186px] h-[180px] w-[180px]  shadow-shadow-auth my-6 mx-5 md:my-6 lg:mx-6 rounded-2xl bg-center object-cover;
   }
 
   .contact-teachers1 {
