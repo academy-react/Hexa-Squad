@@ -2,6 +2,7 @@ import React, { Fragment, useState, useRef } from "react";
 import { toast } from "react-toastify";
 import http from "../../../../core/services/interceptor";
 // import onSubmit from "../../../../core/services/api/PostData/addProfileImage";
+import onFormData from "../../../../core/services/api/FormData";
 
 const AddImageModal = ({userInfo}) => {
 
@@ -71,18 +72,23 @@ const AddImageModal = ({userInfo}) => {
 
     // Add Image 
     const onSubmit = async () => {
-        let formData = new FormData();
+        // let formData = new FormData();
   
-        formData.append("formFile", images);
-        console.log('formData: ', formData);
+        // formData.append("formFile", images);
+        // console.log('formData: ', formData)
+        
+        const obj = {
+            formFile: images
+        }
+        const data = onFormData(obj)
+        ;
         console.log('Images: ', images[1].url);
+        console.log('formData: ', data);
 
         try {
-            const result = await http.post("/SharePanel/AddProfileImage", formData);
+            const result = await http.post("/SharePanel/AddProfileImage", data);
             if (result.success) {
               toast.success(result.message)
-              setChangeLikeColor(!changeLikeColor);
-            //   setNewLikeCount(likeCount+1)
             } else if (!result.success) {
               toast.error(result.message)
             }

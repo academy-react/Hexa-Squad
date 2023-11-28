@@ -1,8 +1,6 @@
 import React, { Fragment, useState, useEffect, useCallback } from "react";
 import getProfileInfo from "../../../../core/services/api/GetData/getProfileInfo";
 import EditProfileInfo from "./EditProfileInfo";
-import onSubmit from "../../../../core/services/api/PostData/addProfileImage";
-// import handleEditProfileInfo from "../../../../core/services/api/PutData/handleEditProfileInfo";
 import http from "../../../../core/services/interceptor";
 import onFormData from "../../../../core/services/api/FormData";
 import { toast } from "react-toastify";
@@ -15,27 +13,24 @@ const EditProfile = () => {
     getProfileInfo(setUserInfo);
   }, []);
 
-  // Update Profile Info
+  // Edit User Profile Info
   const handleEditProfileInfo = async (value) => {
-    // const obj = {
-    //   lName: value.lName,
-    //   fName: value.fName,
-    //   userAbout: value.userAbout,
-    //   linkdinProfile: value.linkdinProfile,
-    //   telegramLink: value.telegramLink,
-    //   homeAdderess: value.homeAdderess,
-    //   nationalCode: value.nationalCode,
-    //   gender: value.gender,
-    //   birthDay: value.birthDay,
-    // };
-    // const data = onFormData(obj);
-
-    const obj = new FormData()
-    obj.append("LName", "value.lName")
-    console.log("value=", obj);
+    const obj = {
+      lName: value.lName,
+      fName: value.fName,
+      userAbout: value.userAbout,
+      linkdinProfile: value.linkdinProfile,
+      telegramLink: value.telegramLink,
+      homeAdderess: value.homeAdderess,
+      nationalCode: value.nationalCode,
+      gender: value.gender,
+      birthDay: value.birthDay,
+    };
+    const data = onFormData(obj);
+    console.log("formData=", data)
 
     try {
-      const result = await http.put("/SharePanel/UpdateProfileInfo", obj);
+      const result = await http.put("/SharePanel/UpdateProfileInfo", data);
       setUserInfo(result);
       console.log("result is:", result);
       if (result.success) {

@@ -4,7 +4,6 @@ import TitleSection from "../../components/UserPanel/TitleSection";
 import EditProfileImage from "../../components/UserPanel/EditProfile/ProfileInfo/EditProfileImage";
 import EditProfileInfo from "../../components/UserPanel/EditProfile/ProfileInfo/EditProfileInfo";
 import onSubmit from "../../core/services/api/PostData/addProfileImage";
-import handleEditProfileInfo from "../../core/services/api/PutData/handleEditProfileInfo";
 
 const EditProfile = () => {
   const [userInfo, setUserInfo] = useState([
@@ -43,7 +42,7 @@ const EditProfile = () => {
           type="submit"
           value="ثبت اطلاعات"
           className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
-          onClick={handleEditProfileInfo}
+          // onClick={handleEditProfileInfo}
         />
       </div>
     </Fragment>
