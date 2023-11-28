@@ -14,7 +14,6 @@ const SideBar = ({ listItem, mapList, openSide }) => {
     },
   };
   const [userInfo, setUserInfo] = useState({});
-console.log(userInfo)
   useEffect(() => {
     getProfileInfo(setUserInfo);
   }, []);
@@ -29,7 +28,7 @@ console.log(userInfo)
             className="my w-32 h-32 object-cover"
           />
          
-          <h3 className="mt-3">{userInfo.fName + userInfo.lName}</h3>
+          <h3 className="mt-3">{userInfo.fName + " " + userInfo.lName}</h3>
          
          
           <i className="bi bi-list sidebar-icon" onClick={openSide}></i>

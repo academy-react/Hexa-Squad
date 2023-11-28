@@ -1,17 +1,26 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import onSubmit from "../../../../core/services/api/PostData/addProfileImage";
-
-import pic from '../../../../assets/image/user-circle-icon.png';
 import { CheckboxInput } from "../../../common";
 import EditImageModal from "./EditImageModal";
+import getProfileInfo from "../../../../core/services/api/GetData/getProfileInfo";
+
+import pic from "../../../../assets/image/user-circle-icon.png";
+import darkPic from "../../../../assets/image/user-circle-icon-white.png";
+
 
 const ProfileImage = () => {
-  const [userImage, setUserImage] = useState();
+  const [userImage, setUserImage] = useState([]);
 
   // const handleImage = (e) => {
   //   setUserImage(e.target.files[0])
   //   console.log(e.target.files[0])
   // };
+
+  // get User Image from Profile information
+  const [userInfo, setUserInfo] = useState([]);
+  useEffect(() => {
+    getProfileInfo(setUserInfo);
+  }, []);
 
   return (
     <Fragment>
@@ -21,7 +30,8 @@ const ProfileImage = () => {
 
                 <input id="input-file" type='file' onChange={handleImage}  className="hidden" disabled={disable} />
             </label> */}
-          <img src={userImage ? URL.createObjectURL(userImage) : pic} alt="image"  className="w-full object-cover h-full rounded-full" />
+          <img src={userInfo.currentPictureAddress ? userInfo.currentPictureAddress : pic} alt="image"  className="dark:hidden w-full object-cover h-full rounded-full" />
+          <img src={userInfo.currentPictureAddress ? userInfo.currentPictureAddress : darkPic} alt="image"  className="hidden dark:block w-full object-cover h-full rounded-full" />
 
         </div>
 
@@ -48,7 +58,7 @@ const ProfileImage = () => {
           />
         </div> */}
           <CheckboxInput name={"showEditImageModal"} />
-          <EditImageModal/>
+          <EditImageModal userInfo={userInfo} />
           <span 
             className="flex gap-x-3 mt-8 text-slate-600/90 dark:text-semiWhite2 justify-center cursor-pointer"
             dir="ltr"
