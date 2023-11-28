@@ -21,6 +21,7 @@ const CoursePhoto = ({
   dissLikeCount,
   userLikeId,
   isUserFavorite,
+  miniDescribe
 }) => {
   const [changeLikeColor, setChangeLikeColor] = useState(0);
   const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
@@ -32,13 +33,11 @@ const CoursePhoto = ({
   useEffect(() => {
     // if course is user favorite show fill heart
     isUserFavorite === true && setIsFavorite(true);
-  }, [isUserFavorite])
+  }, [isUserFavorite]);
 
-
-  const [currentUserIsLike, setCurrentUserIsLike] = useState(currentUserLike)
-  console.log("userlike=",currentUserLike)
-  console.log("currentUserLike",currentUserIsLike)
-  
+  const [currentUserIsLike, setCurrentUserIsLike] = useState(currentUserLike);
+  console.log("userlike=", currentUserLike);
+  console.log("currentUserLike", currentUserIsLike);
 
   return (
     <div
@@ -64,19 +63,19 @@ const CoursePhoto = ({
         <h2 className="text-xl md:text-3xl mt-8 text-[#2C007F] dark:text-[#ffff]">
           {title}
         </h2>
-        <p className=" mt-6 md:mt-7 text-sm leading-8 md:text-md lg:text-lg lg:leading-10 text-[#03001C]  dark:text-[#E7E7FF] ">
-          {describe}
+        <p className="h-48 mt-6 md:mt-7 text-sm leading-8 md:text-md lg:text-lg lg:leading-10 text-[#03001C]  dark:text-[#E7E7FF] ">
+          {miniDescribe}
         </p>
       </div>
-      <div className="absolute left-8 lg:left-0 -bottom-8 md:-bottom-20 lg:-bottom-8 md:left-2">
+      <div className="flex flex-col mt-10 ">
         <div className="flex md:flex-row flex-wrap gap-x-4">
-          <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
-             میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
+          <h2 className="lg:text-lg text-sm mt-1 dark:text-indigo-400 text-[#302064]">
+            میزان رضایت مندی خود نسبت به این دوره را ثبت نمایید!
           </h2>
           <Rate id={courseId} handleRate={handleCourseRate} />
         </div>
-        <div className="flex flex-row">
-          <h2 className="text-base mt-1 dark:text-indigo-400 text-[#302064]">
+        <div className="flex flex-row mt-8">
+          <h2 className="lg:text-base text-sm mt-1 dark:text-indigo-400 text-[#302064]">
             آیا از این دوره راضی بودید؟
           </h2>
           <div

@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useCallback, useEffect } from "react";
 import AdminComments from "../common/AdminComments";
+import { useParams } from "react-router-dom";
 import http from "../../core/services/interceptor/index";
 import userComment from "../../assets/image/userComment.svg";
 import userCommentPic from "../../assets/image/usercommentpic.svg";
@@ -11,22 +12,25 @@ const UserComments = ({
   uid,
   like,
   disLike,
-  currentEmotion,
-  acceptReplysCount,
+
   courseId,
 }) => {
   const [likes, setLikes] = useState(0);
+  const [comment, setComment] = useState({});
   const [disLikes, setDislikes] = useState(0);
   const [removeLike, setRemoveLike] = useState(0);
   const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
   const [changeLikeColor, setChangeLikeColor] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [urlParam, setUrlParam] = useState(useParams());
   // const emojis = ["😊", "🌟", "🎉"];
+
   const handleLikeClick = async () => {
     try {
       const response = await http.post(
         "/Course/AddCourseCommentLike?CourseCommandId=" + uid
       );
+
       setLikes(response);
       console.log(response);
       setChangeLikeColor(!changeLikeColor);
@@ -40,8 +44,13 @@ const UserComments = ({
     } catch (error) {
       console.error(error);
     }
-    setLikes(response);
   };
+
+  // const handleLike = async () => {
+    
+  //   let result = await http.get("/Course/GetCourseCommnets/" + urlParam.id);
+  //   setLikes(result);
+  // };
   const handleRemoveLike = async () => {
     try {
       const response = await http.delete(
@@ -80,6 +89,7 @@ const UserComments = ({
   }, []);
 
   useEffect(() => {
+
     fetchAdminCommentData();
   }, []);
 
@@ -157,10 +167,10 @@ const UserComments = ({
           </div>
         </div>
       </div>
-      {acceptReplysCount ? (
+      {adminComment[0] ? (
         <AdminComments
-          title={adminComment.title}
-          desc={adminComment.describe}
+          title={adminComment[0].title}
+          desc={adminComment[0].describe}
         />
       ) : (
         " "

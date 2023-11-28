@@ -11,7 +11,7 @@ import http from "../../core/services/interceptor/index";
 import comments from "../../assets/image/comments.svg";
 import { MdOutlinePreview } from "react-icons/md";
 
-const TabsContent = () => {
+const TabsContent = ({ describe }) => {
   const [comment, setComment] = useState([]);
   const [urlParam, setUrlParam] = useState(useParams());
   const userComments = comment.map((item, index) => {
@@ -26,6 +26,7 @@ const TabsContent = () => {
         disLike={item.disslikeCount}
         acceptReplysCount={item.acceptReplysCount}
         courseId={item.courseId}
+        setComment={setComment}
       />
     );
   });
@@ -49,33 +50,15 @@ const TabsContent = () => {
             <h2 className="text-lg font-medium mb-2 hidden">توضیحات</h2>
 
             <div className="text-gray-700 w-full mt-6 ">
-              <h2 className="text-lg text-indigo-900 mt-2 dark:text-indigo-100 md:mx-2  ">
-                {" "}
-                HTML چیست؟
-              </h2>
               <p className=" text-zinc-700 mt-3 leading-10  lg:ml-8 md:mx-2  dark:text-indigo-200 text-justify">
-                واژه HTML (اچ‌‌تی‌‌ام‌ال) مخفف Hyper Text Markup Language به
+                {/* واژه HTML (اچ‌‌تی‌‌ام‌ال) مخفف Hyper Text Markup Language به
                 معنی زبان نشانه‌‌گذاری فوق متن است. HTML به عنوان زبان بنیادی
                 طراحی وب، یکی از ساده‌ترین زبان‌های کامپیوتری است که با استفاه
                 از آن می‌توانیم اسکلت اصلی وب‌سایت را طراحی کنیم. HTML از تگ‌ها
                 یا نشانگرهای خاص برای نشان دادن محتوا و ساختار صفحات استفاده
                 می‌کند، این تگ‌ها به مرورگر اعلام می‌‌کنند، که هر بخش از صفحه چه
-                نوع عنصری است و باید به چه صورت نمایش داده شود.
-              </p>
-              <h2 className="text-lg text-indigo-900 mt-7 dark:text-indigo-100 md:mx-2 ">
-                اهمیت یادگیری HTML چیست؟{" "}
-              </h2>
-              <p className=" text-zinc-700 mt-3 leading-10  lg:ml-8 text-justify dark:text-indigo-200 md:mx-2 ">
-                {" "}
-                وقتی حرف از طراحی وب‌‌سایت به میان می‌‌آید، ذهن تمامی افراد
-                ناخواسته به سمت زبان HTML و CSS هدایت می‌‌شود. این زبان، زبان
-                استاندارد صفحات وب است و زبان نهایی است که توسط مرورگر ترجمه‌
-                شده و به کاربر نمایش داده می‌‌شود. به طور دقیق‌‌تر، وقتی شما
-                وب‌‌سایتی را به زبان PHP و یا ASP.Net طراحی و برنامه‌‌نویسی
-                می‌کنید، این وب‌‌سایت بعد از اجرا بر روی سرور و همین طور سیستم
-                کاربر، تبدیل به قطعه کدهای HTML شده و بر روی مرورگر ترجمه شده و
-                به کاربر نشان داده می‌‌شود. بنابراین، یادگیری HTML برای افرادی
-                که در زمینه طراحی وب فعالیت می‌کنند، بسیار مهم است.
+                نوع عنصری است و باید به چه صورت نمایش داده شود. */}
+                {describe}
               </p>
             </div>
           </div>
@@ -111,6 +94,7 @@ const TabsContent = () => {
               uid={comment.id}
               name={comment.title}
               question={comment.describe}
+              setComment={setComment}
             />
             <h2 className="text-lg mb-2 hidden">نظرات کاربران</h2>
             <div className="w-[96%] mx-auto lg:mr-2 mt-6 ">

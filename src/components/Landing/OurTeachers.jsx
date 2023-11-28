@@ -30,7 +30,7 @@ const OurTeachers = () => {
       console.log(result);
       const receivedData = result;
       const filtered = receivedData.filter((teacher) => {
-        return teacher.teacherId > 12;
+        return teacher.teacherId > 16;
       });
       setTeacherList(filtered);
     } catch (error) {
@@ -54,6 +54,7 @@ const OurTeachers = () => {
         description={item.teacherId}
         course={item.linkdinProfileLink}
         id={item.teacherId}
+        
       />
     );
   });

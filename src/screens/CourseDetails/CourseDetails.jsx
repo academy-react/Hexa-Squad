@@ -31,6 +31,7 @@ const CourseDetails = () => {
         price={item.cost}
         width={"lg:w-[24%]"}
         image={item.tumbImageAddress}
+        
       />
     );
   });
@@ -72,6 +73,7 @@ const CourseDetails = () => {
               userLikeId={data.userLikeId}
               likeCount={data.likeCount}
               dissLikeCount={data.dissLikeCount}
+              miniDescribe={data.miniDescribe}
             />
 
             {/* moshakhasat */}
@@ -90,7 +92,7 @@ const CourseDetails = () => {
               courseReseveId={data.courseReseveId}
             />
           </div>
-          <TabsContent />
+          <TabsContent describe={data.describe} />
           {/* Comments section */}
 
           <div className="lg:max-w-full md:max-w-[750px] sm:min-w-[640px] ml-8 mt-16 mb-12 md:ml-2 md:mx-12 lg:mt-40">

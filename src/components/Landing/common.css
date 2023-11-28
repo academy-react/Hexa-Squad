@@ -174,7 +174,7 @@
                 md:mt-[-50px] mb-6 pr-2 md:pl-4 bg-[#D0CDFF80] dark:bg-darkblue3 border-r-4 border-r-lightblue;
     }
     .comment-input{
-        @apply w-[340px] h-40 md:w-[650px] lg:w-[1099px] lg:h-52 lg:mr-4 mt-2 p-4 text-base text-darkblue2 dark:text-[#7e7cb1]
+        @apply  w-full lg:mr-4 mt-2 p-4 text-base text-darkblue2 dark:text-[#7e7cb1]
                 border-2 border-indigo-400 dark:border-[#3d3d70] rounded-xl bg-newWhite dark:bg-darkblue6 focus-visible:outline-2 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-lightblue;
     }
 
