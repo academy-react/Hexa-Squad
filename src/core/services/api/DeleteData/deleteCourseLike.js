@@ -13,7 +13,10 @@ const handleCourseDeleteLike = async (userLikeId, changeLikeColor, setChangeLike
                 userLikeId: userLikeId
             }
             const data = onFormData(obj)
-            console.log("data=",data)
+            // let data = new FormData();
+  
+            // data.append("userLikeId", userLikeId);
+            // console.log("data=",data)
 
             const result = await http.delete("/Course/DeleteCourseLike", data);
             if (result.success == true) {

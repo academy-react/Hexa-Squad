@@ -9,7 +9,8 @@ import InputComment from "../../components/common/InputComment";
 import AdminComments from "../../components/common/AdminComments";
 import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
 import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike"; 
-import NewsRate from "../../components/NewsDetails/NewsRate";
+import Rate from "../../components/common/Rate";
+import handleNewsRate from "../../core/services/api/PostData/addNewsRate";
 
 import {
   userSvg,
@@ -44,7 +45,7 @@ const NewsDetails = () => {
         key={index}
         uid={item.userId}
         name={item.title}
-        date={item.insertDate}
+        date={item.inserDate}
         question={item.describe}
       />
     );
@@ -209,7 +210,7 @@ const NewsDetails = () => {
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
                 میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
               </h2>
-              <NewsRate data={data} />
+              <Rate id={data} handleRate={handleNewsRate} />
             </div>
           </div>
 

@@ -63,7 +63,7 @@
     }
     
     .hover-box {
-        @apply top-3 float-left h-[44px] w-[110px] absolute mb-[-50px] left-[-50%] 
+        @apply top-3 float-left h-[44px] w-16 pr-2 absolute mb-[-50px] left-[-50%] 
              bg-[#6736FF] dark:bg-[#261A97] dark:shadow-shadow-auth rounded-r-[10px]; 
     }
     .course-name{

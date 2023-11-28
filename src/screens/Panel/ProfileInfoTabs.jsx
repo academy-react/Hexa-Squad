@@ -1,9 +1,7 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState} from 'react';
 import { Tab } from '@headlessui/react';
 import TitleSection from '../../components/UserPanel/TitleSection';
-import getProfileInfo from '../../core/services/api/GetData/getProfileInfo';
 import ChangePassword from '../../components/UserPanel/EditProfile/ProfileInfoTabs/ChangePassword';
-import ProfileInfo from '../../components/UserPanel/EditProfile/ProfileInfoTabs/ProfileInfo';
 import EditProfile from '../../components/UserPanel/EditProfile/ProfileInfoTabs/EditProfile';
 import ProfileImage from '../../components/UserPanel/EditProfile/ProfileInfoTabs/ProfileImage';
 
@@ -14,22 +12,8 @@ const classNames = (...classes) => {
 const ProfileInfoTabs = () => {
 
     const [categories, setCategories] = useState([
-        "اطلاعات کاربر", "ویرایش اطلاعات", "تغییر رمز عبور"
+        "ویرایش اطلاعات", "تغییر رمز عبور"
     ]);
-
-    const [userInfo, setUserInfo] = useState([{
-        // email : "",
-        // "phoneNumber" : "",
-        // "lName" : "",
-        // "fName" : "",
-        // "nationalCode" : "",
-        // "birthDay" : ""
-    }]);
-
-    // get Profile information
-    useEffect(() => {
-    getProfileInfo(setUserInfo)
-    }, []);
 
   return (
     <Fragment>
@@ -45,8 +29,8 @@ const ProfileInfoTabs = () => {
                   'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
                   'ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
                   selected
-                    ? 'bg-white text-blue-700 shadow lg:text-lg'
-                    : 'text-slate-600 hover:bg-white/[0.12] hover:text-blue-500'
+                    ? 'bg-white dark:bg-indigo-950 text-blue-700 shadow lg:text-lg'
+                    : 'text-slate-600 dark:text-slate-400 hover:bg-white/[0.12] hover:text-blue-500'
                 )
               }
             >
@@ -56,14 +40,11 @@ const ProfileInfoTabs = () => {
         </Tab.List>
         <Tab.Panels className="mt-2">
             <Tab.Panel
-            //   className={classNames(
-            //     'rounded-xl bg-white p-3',
-            //     'ring-white/60 ring-offset-2 ring-offset-red-800 focus:outline-none focus:ring-2'
-            //   )}
+              // className={classNames(
+              //   'rounded-xl bg-white p-3',
+              //   'ring-white/60 ring-offset-2 ring-offset-red-800 focus:outline-none focus:ring-2'
+              // )}
             >
-                <ProfileInfo/>
-            </Tab.Panel>
-            <Tab.Panel>
                 <ProfileImage/>
                 <EditProfile/>
             </Tab.Panel>

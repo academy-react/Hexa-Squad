@@ -3,7 +3,7 @@ import http from "../../interceptor";
 export default async (id) => {
   try {
     let result = await toast.promise(
-      http.delete("/Course/DeleteCourseFavorite",  {CourseFavoriteId:id}),
+      http.delete("/Course/DeleteCourseFavorite",  {data:{CourseFavoriteId:id} , headers:{"Content-Type":'multipart/form-data'}}),
       {
         pending: "در حال حذف کردن دوره ",
       }

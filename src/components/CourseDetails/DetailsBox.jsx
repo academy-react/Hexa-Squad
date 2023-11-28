@@ -13,6 +13,7 @@ import dateDark from "../../assets/icons/dateDark.svg";
 import studentDark from "../../assets/icons/studentDark.svg";
 import teacher from "../../assets/image/teacher'sProfile.jpg";
 import { addReserve } from "../../core/services/api/PostData/addCourseReserve";
+import { useEffect } from "react";
 
 const DetailsBox = ({
   id,
@@ -25,8 +26,17 @@ const DetailsBox = ({
   courseLevelName,
   cost,
   isCourseReseve,
+  courseReseveId,
 }) => {
   const [isLogin, setIsLogin] = useState(false);
+  const [courseReserve, setCourseReserve] = useState(false);
+  console.log(courseReserve);
+  useEffect(() => {
+    if (isCourseReseve == "1") {
+      setCourseReserve(true);
+    }
+  }, [isCourseReseve]);
+
   return (
     <div className=" lg:w-[620px]  md:w-[500px] w-full mx-auto lg:ml-14  ">
       <div
@@ -146,9 +156,17 @@ const DetailsBox = ({
         </div>
         <div className="mx-6 mt-3 mb-8 lg:mb-0 ">
           <input
-            onClick={() => addReserve(id, isCourseReseve)}
+            onClick={() => {
+              addReserve(
+                isCourseReseve == "1" ? courseReseveId : id,
+                isCourseReseve
+              );
+              setCourseReserve(!courseReserve);
+            }}
             type="submit"
-            value={isCourseReseve == '1'? 'دوره از قبل رزرو شده است':"ثبت نام در این دوره"}
+            value={
+              courseReserve ? " رزرو شده " : "ثبت نام در این دوره"
+            }
             className="gradient w-full py-4 lg:mb-10 mb-4 rounded-md cursor-pointer"
           />
         </div>

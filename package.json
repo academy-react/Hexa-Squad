@@ -20,6 +20,7 @@
     "bootstrap-icons": "^1.11.1",
     "formik": "^2.4.5",
     "framer-motion": "^10.16.4",
+    "jalaali-js": "^1.2.6",
     "leaflet": "^1.9.4",
     "react": "^18.2.0",
     "react-accessible-accordion": "^5.0.0",

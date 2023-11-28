@@ -21,13 +21,18 @@ const Courses = () => {
   const [Query, setQueryV] = useState();
   const [costDown, setCostDown] = useState(0);
   const [costUp, setCostUp] = useState(10000000);
-  const [listTech, setListTechV] = useState(2);
+  const [listTech, setListTechV] = useState(undefined);
+  const [texhText, setTechText] = useState("");
+
   const listToTech = () => {
-    let listMapped = list.join(" , ");
-    console.log('listMapped',listMapped);
+    console.log("category kist", list);
+    let listMapped = list.toString();
+    console.log("listMapped", listMapped);
     setListTechV(listMapped);
   };
-  console.log('listTech',listTech);
+  console.log("listTech", listTech);
+  console.log("list : ", list);
+  console.log("texhText", texhText);
   const [courseLevelId, setCourseLevelId] = useState();
   const [courseTypeId, setCourseTypeId] = useState();
   const filterObj = {
@@ -36,13 +41,12 @@ const Courses = () => {
     Query: Query,
     CostDown: costDown,
     CostUp: costUp,
-    TechCount: 1,
     ListTech: listTech,
     courseLevelId: courseLevelId,
     CourseTypeId: courseTypeId,
   };
   const [itemOffset, setItemOffset] = useState(0);
-  const countInPage = 8;
+  const countInPage = 6;
   const endOffset = itemOffset + countInPage;
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / countInPage);
@@ -62,11 +66,16 @@ const Courses = () => {
       return v !== value;
     });
     setList(filteredObj);
+    let listMapped = list.toString();
+    setListTechV(listMapped);
   };
 
   const pushList = (value) => {
-    console.log(value);
+    console.log("pushList", value);
     setList([...list, value]);
+    setTechText((prev) => value + "," + prev);
+    let listMapped = list.toString();
+    setListTechV(listMapped);
   };
 
   // pagination function onChange
@@ -85,7 +94,6 @@ const Courses = () => {
 
   useEffect(() => {
     fetchCoursesApi(setData, pageCount, countInPage, setAllData, filterObj);
-    listToTech();
   }, [
     sortCal,
     sortType,
@@ -182,7 +190,7 @@ const Courses = () => {
             renderOnZeroPageCount={null}
             pageLinkClassName=" paginationLink"
             activeLinkClassName="active"
-            containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-5 p-5"
+            containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-5 p-5 z-10"
           />
         </div>
       </div>

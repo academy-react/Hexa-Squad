@@ -4,7 +4,14 @@ import ReactPaginate from "react-paginate";
 
 import WhishListTable from "./WhisListTable";
 import AllCoursesTable from "./AllCoursesTable";
-const PaginationTable = ({ data, itemsPerPage, addIcon, whishList }) => {
+import MyReserveCoursesListTable from "./myReserveCoursesListTable";
+const PaginationTable = ({
+  data,
+  itemsPerPage,
+  addIcon,
+  whishList,
+  reserveCourses,
+}) => {
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = data.slice(itemOffset, endOffset);
@@ -32,30 +39,38 @@ const PaginationTable = ({ data, itemsPerPage, addIcon, whishList }) => {
                   <th scope="col" className="px-6 py-4">
                     مدیریت
                   </th>
-                  {whishList === undefined && (
+                  {whishList === undefined && reserveCourses === undefined && (
                     <th scope="col" className="px-6 py-4">
                       قیمت
+                    </th>
+                  )}
+                  {reserveCourses !== undefined && (
+                    <th scope="col" className="px-6 py-4">
+                      وضعیت تایید
                     </th>
                   )}
                   <th scope="col" className="px-6 py-4">
                     تاریخ شروع
                   </th>
-                  <th scope="col" className="px-6 py-4">
-                    مدرس
-                  </th>
+                  {reserveCourses === undefined && (
+                    <th scope="col" className="px-6 py-4">
+                      مدرس
+                    </th>
+                  )}
                   <th scope="col" className="px-6 py-4">
                     نام دوره
                   </th>
-                  <th scope="col" className="px-6 py-4">
-                    تصویر
-                  </th>
+
+                  {reserveCourses === undefined && (
+                    <th scope="col" className="px-6 py-4">
+                      تصویر
+                    </th>
+                  )}
                 </tr>
               </thead>
               <tbody>
                 {currentItems.map((data, index) => {
-                  if (whishList === undefined) {
-                    return <AllCoursesTable key={index} data={data} />;
-                  } else {
+                  if (whishList !== undefined) {
                     return (
                       <WhishListTable
                         key={index}
@@ -63,6 +78,17 @@ const PaginationTable = ({ data, itemsPerPage, addIcon, whishList }) => {
                         addIcon={addIcon}
                       />
                     );
+                  }
+                  if (reserveCourses !== undefined) {
+                    return (
+                      <MyReserveCoursesListTable
+                        data={data}
+                        addIcon={addIcon}
+                        key={index}
+                      />
+                    );
+                  } else {
+                    return <AllCoursesTable key={index} data={data} />;
                   }
                 })}
               </tbody>
@@ -77,9 +103,9 @@ const PaginationTable = ({ data, itemsPerPage, addIcon, whishList }) => {
               pageCount={pageCount}
               previousLabel="<"
               renderOnZeroPageCount={null}
-              pageLinkClassName=" paginationLink"
+              pageLinkClassName="paginationLink"
               activeLinkClassName="active"
-              containerClassName="border-[1px] border-[#0001] w-8/12 flex justify-center gap-4 p-5"
+              containerClassName="w-8/12 flex justify-center gap-4 p-5"
             />
           </div>
         </>

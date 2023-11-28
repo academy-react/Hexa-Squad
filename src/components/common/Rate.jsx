@@ -1,25 +1,19 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
-import handleNewsRate from "../../core/services/api/PostData/addNewsRate";
 
-const NewsRate = ({data}) => {
+const Rate = ({id, handleRate}) => {
 
   const [stars, setStars] = useState(0);
-  const [newsRate, setNewsRate] = useState();
+  // const [newsRate, setNewsRate] = useState();
+
   const ratingChanged = (newRating) => {
+    // console.log("newRating",newRating)
     setStars(newRating);
+    console.log('newRating',newRating);
   };
 
-  console.log("mystars=",stars)
-  console.log("myID=",data.id)
-  console.log("newsRate=",newsRate)
-
   return (
-      <Fragment>
-        <div 
-          dir="ltr"
-          onClick={() => handleNewsRate(data, stars, setNewsRate)}
-        >
+        <div dir="ltr">
           <ReactStars
               count={5}         
               size={28}
@@ -29,11 +23,10 @@ const NewsRate = ({data}) => {
               fullIcon={<i className="fa fa-star"></i>}
               activeColor="#ffd700"
               onChange={(e) => ratingChanged(e)}
-              value={newsRate}
+              value={stars}
           />
         </div>
-      </Fragment>
   );
 };
 
-export default NewsRate;
+export default Rate;

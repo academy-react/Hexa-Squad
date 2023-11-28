@@ -13,6 +13,7 @@ const PanelCourses = ({
   data,
   // allData,
   whishList,
+  reserveCourses,
 }) => {
   const options = [
     { value: 3, label: 3 },
@@ -63,6 +64,7 @@ const PanelCourses = ({
         data={data}
         addIcon={addIcon}
         whishList={whishList}
+        reserveCourses={reserveCourses}
         itemsPerPage={countInPage}
       />
     </>

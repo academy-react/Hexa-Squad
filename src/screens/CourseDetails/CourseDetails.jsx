@@ -87,6 +87,7 @@ const CourseDetails = () => {
               courseLevelName={data.courseLevelName}
               cost={data.cost}
               isCourseReseve={data.isCourseReseve}
+              courseReseveId={data.courseReseveId}
             />
           </div>
           <TabsContent />
