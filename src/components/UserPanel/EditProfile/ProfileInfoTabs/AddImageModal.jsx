@@ -1,7 +1,10 @@
 import React, { Fragment, useState, useRef } from "react";
-import onSubmit from "../../../../core/services/api/PostData/addProfileImage";
+import { toast } from "react-toastify";
+import http from "../../../../core/services/interceptor";
+// import onSubmit from "../../../../core/services/api/PostData/addProfileImage";
 
-const AddImageModal = () => {
+const AddImageModal = ({userInfo}) => {
+
     const [images, setImages] = useState([]);
     const [isDragging, setIsDragging] = useState(false);
     const fileInputRef = useRef(null);
@@ -66,9 +69,32 @@ const AddImageModal = () => {
         console.log('Images: ', images);
     }
 
+    // Add Image 
+    const onSubmit = async () => {
+        let formData = new FormData();
+  
+        formData.append("formFile", images);
+        console.log('formData: ', formData);
+        console.log('Images: ', images[1].url);
+
+        try {
+            const result = await http.post("/SharePanel/AddProfileImage", formData);
+            if (result.success) {
+              toast.success(result.message)
+              setChangeLikeColor(!changeLikeColor);
+            //   setNewLikeCount(likeCount+1)
+            } else if (!result.success) {
+              toast.error(result.message)
+            }
+            console.log(result);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     return(
         <Fragment>
-            <div className="selectImageModal">
+            <div className="selectImageModal dark:bg-indigo-800">
 
                 <label htmlFor="showSelectImageModal" className="cursor-pointer">
                     <i className="bi bi-x absolute top-2 z-50 right-5 text-slate-600 dark:text-semiWhite2 text-4xl"></i>
@@ -76,13 +102,13 @@ const AddImageModal = () => {
                 
                 <div className="card p-4 rounded-md overflow-hidden">
                     <div className="text-center">
-                        <p className="text-blue-700 mt-4">لطفا عکس مورد نظر خود را انتخاب یا درگ کنید</p>
+                        <p className="text-blue-700 dark:text-slate-200 mt-4">لطفا عکس مورد نظر خود را انتخاب یا درگ کنید</p>
                     </div>
                     <div 
                         onDragOver={onDragOver}
                         onDragLeave={onDragLeave}
                         onDrop={onDrop}
-                        className="drag-area gap-x-2 h-40 rounded-md border-2 border-dashed border-blue-600 text-blue-700 dark:text-slate-100 bg-slate-100 dark:bg-darkblue4 flex justify-center items-center select-none mt-3 focus-visible:text-lg"
+                        className="drag-area gap-x-2 h-40 rounded-md border-2 border-dashed border-blue-600 dark:border-slate-400 text-blue-700 dark:text-slate-100 bg-slate-100 dark:bg-darkblue4 flex justify-center items-center select-none mt-3 focus-visible:text-lg"
                     >
                         {isDragging ? (
                             <span className="select text-violet-800 dark:text-slate-400 cursor-pointer ml-1 duration-300 hover:opacity-60">
@@ -91,7 +117,7 @@ const AddImageModal = () => {
                         ) : (
                             <>
                                 <button 
-                                    className="select text-violet-800 dark:text-slate-400 border-2 border-violet-800 bg-slate-100 rounded-md p-1 cursor-pointer ml-1 duration-300 hover:opacity-60"
+                                    className="select text-violet-800 border-2 border-violet-800 bg-slate-100 rounded-md p-1 cursor-pointer ml-1 duration-300 hover:opacity-60"
                                     onClick={selectFiles}
                                 >
                                     انتخاب عکس

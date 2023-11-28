@@ -8,16 +8,7 @@ import onFormData from "../../../../core/services/api/FormData";
 import { toast } from "react-toastify";
 
 const EditProfile = () => {
-  const [userInfo, setUserInfo] = useState([
-    {
-      // email : "",
-      // "phoneNumber" : "",
-      // "lName" : "",
-      // "fName" : "",
-      // "nationalCode" : "",
-      // "birthDay" : ""
-    },
-  ]);
+  const [userInfo, setUserInfo] = useState([]);
 
   // get Profile information
   useEffect(() => {
@@ -72,7 +63,6 @@ const EditProfile = () => {
           gender={userInfo.gender}
           linkdinProfile={userInfo.linkdinProfile}
           telegramLink={userInfo.telegramLink}
-          disable={false}
           handleEditProfileInfo={handleEditProfileInfo}
         />
       </div>
