@@ -24,7 +24,7 @@ const CourseBody = ({
   date,
   professorName,
   likeCount,
-  dislike,
+  courseRate,
   studentCount,
   price,
   bio,
@@ -84,21 +84,12 @@ const CourseBody = ({
               {likeCount}
             </span>
           </div>
-          {/* <div
-            className="course-like-box py-2 mr-4 bg-[#e3deff] "
-            onClick={() => handleCourseDisLike(courseId, changeDisLikeColor, setChangeDisLikeColor)}
-          >
-            <span
-              className={` cursor-pointer ${
-                changeDisLikeColor || currentUserDissLike === "1"
-                  ? `bbi bi-hand-thumbs-down-fill text-zinc-500 `
-                  : `bbi bi-hand-thumbs-down text-zinc-500`
-              }`}
-            >
-                {" "}
-                {dissLikeCount}
-            </span>
-          </div> */}
+          {courseRate !== undefined && (
+            <div className="course-like-box py-2 mr-4 bg-transparent text-zinc-500">
+              <span className={"cursor-pointer  bi bi-star mx-1 "}></span>
+              {courseRate}
+            </div>
+          )}
         </div>
       </div>
       <div className="mt-6 border-t-2 border-[#00018533] pt-4 pb-8 flex justify-between whitespace-nowrap">

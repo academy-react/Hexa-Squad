@@ -117,7 +117,7 @@ const Courses = () => {
         date={data.lastUpdate}
         professorName={data.teacherName}
         like={data.likeCount}
-        // dislike={data.dislike}
+        courseRate={data.courseRate}
         studentCount={data.currentRegistrants}
         price={data.cost}
         addClass={"h-[441px] mx-auto"}
