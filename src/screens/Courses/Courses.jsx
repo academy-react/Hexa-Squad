@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment, useRef } from "react";
 import ReactPaginate from "react-paginate";
 import Course from "../../components/course/Course";
 import {
@@ -11,6 +11,7 @@ import bgCoursesDark from "../../assets/image/bg-ListHero-dark.svg";
 import fetchCoursesApi from "../../core/services/api/GetData/allCoursesApi";
 import LoadingSpinner from "../../components/common/loadingSpinner";
 const Courses = () => {
+  const searchRef = useRef();
   const [showGrid, setShowGrid] = useState(false);
   const [filterDiv, setFilterDiv] = useState(true);
   const [data, setData] = useState([]);
@@ -18,63 +19,74 @@ const Courses = () => {
   const [list, setList] = useState([]);
   const [sortCal, setSortCal] = useState("ASC");
   const [sortType, setSortType] = useState("Active");
-  const [Query, setQueryV] = useState();
+  const [Query, setQueryV] = useState(undefined);
   const [costDown, setCostDown] = useState(0);
   const [costUp, setCostUp] = useState(10000000);
+  const [techCount, setTechCount] = useState(undefined);
   const [listTech, setListTechV] = useState(undefined);
-  const [texhText, setTechText] = useState("");
-
-  const listToTech = () => {
-    console.log("category kist", list);
-    let listMapped = list.toString();
-    console.log("listMapped", listMapped);
-    setListTechV(listMapped);
-  };
-  console.log("listTech", listTech);
-  console.log("list : ", list);
-  console.log("texhText", texhText);
-  const [courseLevelId, setCourseLevelId] = useState();
-  const [courseTypeId, setCourseTypeId] = useState();
+  const [courseLevelId, setCourseLevelId] = useState(undefined);
+  const [courseTypeId, setCourseTypeId] = useState(undefined);
+  const [itemOffset, setItemOffset] = useState(0);
+  const countInPage = 6;
+  const endOffset = itemOffset + countInPage;
+  const currentItems = data.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(data.length / countInPage);
+  console.log("Query", Query);
   const filterObj = {
     SortingCol: sortCal,
     SortType: sortType,
     Query: Query,
     CostDown: costDown,
     CostUp: costUp,
+    TechCount: techCount,
     ListTech: listTech,
     courseLevelId: courseLevelId,
     CourseTypeId: courseTypeId,
   };
-  const [itemOffset, setItemOffset] = useState(0);
-  const countInPage = 6;
-  const endOffset = itemOffset + countInPage;
-  const currentItems = data.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(data.length / countInPage);
-
   const typeWriterWords = [
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
-  const setQuery = (text) => {
-    console.log(text);
+
+  const setQuery = (e) => {
+    clearTimeout(searchRef.current);
+    const timeOut = setTimeout(() => {
+      if (e === "" || e === " ") {
+        setQueryV(undefined);
+      } else {
+        setQueryV(e);
+      }
+    }, 1000);
+    searchRef.current = timeOut;
   };
+  // show the card grid view
   const showGridView = () => {
     setShowGrid((showGrid) => !showGrid);
   };
+  // unCheck the input type checkbox and that function
   const filterList = (value) => {
     console.log(value);
-    const filteredObj = list.filter((v) => {
+    let filteredObj = list.filter((v) => {
       return v !== value;
     });
     setList(filteredObj);
-    let listMapped = list.toString();
-    setListTechV(listMapped);
+    if (filteredObj.length === 0) {
+      filteredObj = undefined;
+      setTechCount(filteredObj);
+      setListTechV(filteredObj);
+    }
+    if (filteredObj !== undefined) {
+      let listMapped = filteredObj.toString();
+      setListTechV(listMapped);
+    }
   };
 
+  // Check the input type checkbox and that function
   const pushList = (value) => {
     console.log("pushList", value);
     setList([...list, value]);
-    setTechText((prev) => value + "," + prev);
-    let listMapped = list.toString();
+    let newList = [...list, value];
+    let listMapped = newList.toString();
+    setTechCount(1);
     setListTechV(listMapped);
   };
 
@@ -159,6 +171,8 @@ const Courses = () => {
               setFilterDiv={setFilterDiv}
               setData={setData}
               filterList={filterList}
+              setTechCount={setTechCount}
+              setListTechV={setListTechV}
               pushList={pushList}
               setCostDown={setCostDown}
               setCostUp={setCostUp}

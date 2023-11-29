@@ -12,7 +12,7 @@ const FiltersOptions = ({
   setData,
   filterList,
   pushList,
-  filterDiv,
+  filterDiv,setListTechV,setTechCount,
   setFilterDiv,
   setCostDown,
   setCostUp,
@@ -58,7 +58,7 @@ const FiltersOptions = ({
         courseData={data}
         filterList={filterList}
         pushList={pushList}
-        data={categoryData}
+        data={categoryData}setListV={setListTechV}setCount={setTechCount}
         checkBoxType={"checkbox"}
         height={"h-[300px]"}
       />
