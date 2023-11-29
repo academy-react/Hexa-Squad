@@ -41,21 +41,25 @@ const CourseBody = ({
         <h2 className="course-name">{title}</h2>
       </Link>
       <div className="">
-        {countSvg}
-        <h3 className="course-info pl-6">{courseCount}</h3>
-
-        {timeSvg}
-        <h3 className="course-info pl-6">{time}</h3>
-
-        {calendarSvg}
-        <h3 className="course-info" dir="ltr">
-          {GregorianToSolar(date)}
-        </h3>
+        <span className="skeleton-handler inline-block mx-1">
+          {countSvg}
+          <h3 className="  course-info pl-6">{courseCount}</h3>
+        </span>
+        <span className="skeleton-handler inline-block mx-1">
+          {timeSvg}
+          <h3 className="course-info pl-6 ">{time}</h3>
+        </span>
+        <span className="skeleton-handler inline-block mx-1">
+          {calendarSvg}
+          <h3 className="course-info  " dir="ltr">
+            {date && GregorianToSolar(date)}
+          </h3>
+        </span>
       </div>
-      <div className=" hidden course-bio">{bio}</div>
+      <div className=" hidden course-bio skeleton-handler">{bio}</div>
 
       <div className="pt-8 flex justify-between whitespace-nowrap">
-        <div className="professor-name w-40 whitespace-nowrap overflow-hidden text-ellipsis">
+        <div className="professor-name w-40 whitespace-nowrap overflow-hidden text-ellipsis skeleton-handler">
           {graduationCapSvg}
           <Link to={"/TeacherProfile"} className="course-info text-sm">
             {professorName}
@@ -63,7 +67,7 @@ const CourseBody = ({
         </div>
         <div className="likes-box">
           <div
-            className="course-like-box py-2 mr-4 bg-[#e3deff] "
+            className="course-like-box py-2 mr-4 bg-[#e3deff] skeleton-handler"
             onClick={() =>
               handleCourseAddLike(
                 courseId,
@@ -74,10 +78,10 @@ const CourseBody = ({
             }
           >
             <span
-              className={` cursor-pointer ${
+              className={` cursor-pointer text-indigo-950 bi ${
                 changeLikeColor || userIsLiked === true
-                  ? `bbi bi-hand-thumbs-up-fill text-indigo-950 `
-                  : `bi bi-hand-thumbs-up text-indigo-950`
+                  ? ` bi-hand-thumbs-up-fill `
+                  : likeCount && ` bi-hand-thumbs-up `
               }`}
             >
               {" "}
@@ -85,7 +89,7 @@ const CourseBody = ({
             </span>
           </div>
           {courseRate !== undefined && (
-            <div className="course-like-box py-2 mr-4 bg-transparent text-zinc-500">
+            <div className="course-like-box py-2 mr-4 bg-transparent text-zinc-500 skeleton-handler">
               <span className={"cursor-pointer  bi bi-star mx-1 "}></span>
               {courseRate}
             </div>
@@ -93,14 +97,14 @@ const CourseBody = ({
         </div>
       </div>
       <div className="mt-6 border-t-2 border-[#00018533] pt-4 pb-8 flex justify-between whitespace-nowrap">
-        <div className="student-count">
-          {peopleSvg}
+        <div className="student-count skeleton-handler">
+          {studentCount && peopleSvg}
           <h3 className="course-info text-sm">{studentCount}</h3>
         </div>
-        <h3 className="inline text-xl text-newPurple4 mr-10">
-          {SeparationPrice(price.toString())}
+        <h3 className="inline text-xl text-newPurple4 mr-10 skeleton-handler">
+          {price && SeparationPrice(price.toString())}
           <span className="text-slate-600 dark:text-[#9996F9] text-base mr-3">
-            تومان
+            {price && "تومان"}
           </span>
         </h3>
       </div>

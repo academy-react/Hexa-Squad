@@ -27,7 +27,6 @@ const FiltersOptions = ({
       const result = await http.get(api);
       try {
         setState(result);
-        console.log(result);
       } catch (error) {
         console.log(error);
       }

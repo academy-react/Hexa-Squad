@@ -2,7 +2,6 @@ const filterData = (data, category, setData,setCheckedData) => {
   let filteredData = data.filter((item) => {
     return item.technologyList == category;
   });
-  console.log(data)
   if (category == "") {
     setData(data);
     setCheckedData('')

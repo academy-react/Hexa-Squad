@@ -10,7 +10,6 @@ const UserPanel = () => {
   const [openSideBar, setOpenSideBar] = useState(false);
   const openSide = () => {
     setOpenSideBar((openSideBar) => !openSideBar);
-    console.log(openSideBar);
   };
   const [listItem, setListItem] = useState([
     { label: "داشبورد", classNameIcon: "columns-gap ", address: "" },

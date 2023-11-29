@@ -55,7 +55,6 @@ const NewsDetails = () => {
       const result = await http.get(
         "/News/" + urlParam.id
       );
-      console.log(result);
       setData(result.detailsNewsDto);
       setComment(result.commentDtos);
       setCurrentUserIsLike(result.detailsNewsDto.currentUserIsLike)

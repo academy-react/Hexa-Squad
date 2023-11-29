@@ -19,7 +19,6 @@ const TeacherProfile = () => {
     try {
       const result = await Http.get('Home/GetTeacherDetails?TeacherId='+urlParam.id);
       result !=undefined ? setTeacherInfo(result) :'';
-      console.log(result)
     } catch (error) {
       console.log(error)
     }

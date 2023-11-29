@@ -14,7 +14,10 @@ const Courses = () => {
   const searchRef = useRef();
   const [showGrid, setShowGrid] = useState(false);
   const [filterDiv, setFilterDiv] = useState(true);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true}]);
+
+  console.log(data);
+
   const [allData, setAllData] = useState([]);
   const [list, setList] = useState([]);
   const [sortCal, setSortCal] = useState("ASC");
@@ -31,7 +34,6 @@ const Courses = () => {
   const endOffset = itemOffset + countInPage;
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / countInPage);
-  console.log("Query", Query);
   const filterObj = {
     SortingCol: sortCal,
     SortType: sortType,
@@ -64,7 +66,6 @@ const Courses = () => {
   };
   // unCheck the input type checkbox and that function
   const filterList = (value) => {
-    console.log(value);
     let filteredObj = list.filter((v) => {
       return v !== value;
     });
@@ -82,7 +83,6 @@ const Courses = () => {
 
   // Check the input type checkbox and that function
   const pushList = (value) => {
-    console.log("pushList", value);
     setList([...list, value]);
     let newList = [...list, value];
     let listMapped = newList.toString();
@@ -116,13 +116,13 @@ const Courses = () => {
     courseLevelId,
     courseTypeId,
   ]);
-  console.log(currentItems);
   const mapData = currentItems.map((data, index) => {
     return (
       <Course
         key={index}
         id={data.courseId}
         bio={data.describe}
+        skeleton={data.skeleton}
         title={data.title}
         courseCount={data.levelName}
         time={data.statusName}

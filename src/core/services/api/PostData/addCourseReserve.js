@@ -11,7 +11,6 @@ export const addReserve = async (id, isCourseReseve) => {
     if (isCourseReseve == "1" ) {
       deleteCourseReserve(id)
     } else {
-      console.log(id);
       const result = await toast.promise(
         http.post("/CourseReserve/ReserveAdd", { courseId: id }),
         {
@@ -23,7 +22,6 @@ export const addReserve = async (id, isCourseReseve) => {
       } else {
         toast.error(result.errors == null ? result.message : result.errors[0]);
       }
-      console.log(result);
       return true;
     }
   }

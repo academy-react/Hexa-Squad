@@ -7,10 +7,6 @@ const SuggestedCourses = () => {
   const [coursesList, setCoursesList] = useState([]);
 
   useEffect(() => {
-    console.log(coursesList);
-  }, [coursesList]);
-
-  useEffect(() => {
     fetchData(2, setCoursesList);
   }, []);
 

@@ -33,7 +33,6 @@ const TabsContent = ({ describe }) => {
   const fetchCommentData = useCallback(async () => {
     try {
       const result = await http.get(`/Course/GetCourseCommnets/` + urlParam.id);
-      console.log(result);
       const receivedData = result;
       setComment(receivedData);
     } catch (error) {}

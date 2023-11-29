@@ -9,15 +9,15 @@ import Course from "./Course";
 import fetchData from "../../core/services/api/GetData/getTopCourses";
 
 const CourseAutoplaySlider = () => {
-  const [coursesList, setCoursesList] = useState([]);
-  console.log('coursesList',coursesList)
+  const [coursesList, setCoursesList] = useState([{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true}]);
+  console.log(coursesList);
   const dataMapper = coursesList.map((item, index) => {
-    console.log(item.userFavoriteId)
     return (
       <SwiperSlide key={index}>
         <Course
           id={item.courseId}
           bio={item.describe}
+          skeleton={item.skeleton}
           title={item.title}
           courseCount={item.levelName}
           time={item.statusName}
@@ -36,10 +36,6 @@ const CourseAutoplaySlider = () => {
       </SwiperSlide>
     );
   });
-
-  useEffect(() => {
-    console.log(coursesList)
-  }, [coursesList])
   
   useEffect(() => {
     fetchData(8, setCoursesList);

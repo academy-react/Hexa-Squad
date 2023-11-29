@@ -15,7 +15,6 @@ const handleCourseDisLike = async (courseId, changeDisLikeColor, setChangeDisLik
         } else if (result.success == false) {
           toast.error(result.message)
         }
-        console.log(result);
       } catch (error) {
         console.error(error);
       }

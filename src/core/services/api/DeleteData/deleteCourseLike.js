@@ -16,7 +16,6 @@ const handleCourseDeleteLike = async (userLikeId, changeLikeColor, setChangeLike
             // let data = new FormData();
   
             // data.append("userLikeId", userLikeId);
-            // console.log("data=",data)
 
             const result = await http.delete("/Course/DeleteCourseLike", data);
             if (result.success == true) {
@@ -25,7 +24,6 @@ const handleCourseDeleteLike = async (userLikeId, changeLikeColor, setChangeLike
             } else if (result.success == false) {
                 toast.error(result.message)
             }
-            console.log(result);
             } catch (error) {
             console.error(error);
         }
