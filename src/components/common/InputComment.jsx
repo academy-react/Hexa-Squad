@@ -26,16 +26,11 @@ const InputComment = ({ question, name, setComment }) => {
       formData.append("Describe", value.Describe);
 
       const response = await http.post("/Course/AddCommentCourse", formData);
-      console.log(urlParam.id);
-      console.log(value.Describe);
-      console.log(response);
       if (response.success) {
         toast.success("🎉کامنت شما ثبت شد");
       } else {
         toast.error(" لطفا متن کامنت را به درستی وارد کنید");
       }
-
-      console.log("Comment submitted successfully!");
     } catch (error) {
       console.error("Error submitting comment:", error);
     }

@@ -11,7 +11,6 @@ const onSuccess = (response) => {
 };
 
 const onError = (err) => {
-  console.log(err);
     if (err.response.status === 401) {
         removeItem('token');
         window.location.pathname='/authorize/login';
@@ -26,7 +25,6 @@ const onError = (err) => {
 instance.interceptors.response.use(onSuccess, onError);
 instance.interceptors.request.use((opt) => {
   const token = getItem("token");
-  console.log(opt);
   if(token) opt.headers.Authorization = "Bearer " + token;
   return opt;
 });

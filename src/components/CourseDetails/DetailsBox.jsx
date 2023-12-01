@@ -30,7 +30,6 @@ const DetailsBox = ({
 }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [courseReserve, setCourseReserve] = useState(false);
-  console.log(courseReserve);
   useEffect(() => {
     if (isCourseReseve == "1") {
       setCourseReserve(true);

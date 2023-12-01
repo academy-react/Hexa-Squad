@@ -16,7 +16,6 @@ const handleCourseAddLike = async (courseId,likeCount, changeLikeColor, setChang
         } else if (result.success == false) {
           toast.error(result.message)
         }
-        console.log(result);
       } catch (error) {
         console.error(error);
       }

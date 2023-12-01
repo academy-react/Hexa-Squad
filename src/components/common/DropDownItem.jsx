@@ -14,7 +14,6 @@ const DropDownItem = ({
   setCourseID,
 }) => {
   const [checkedData, setCheckedData] = useState("");
-  //   console.log(data)
   const dataMapper = data.map((item, index) => (
     <div
       className="flex p-2"

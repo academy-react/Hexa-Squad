@@ -27,7 +27,6 @@ const OurTeachers = () => {
   const fetchData = useCallback(async () => {
     try {
       const result = await http.get("/Home/GetTeachers");
-      console.log(result);
       const receivedData = result;
       const filtered = receivedData.filter((teacher) => {
         return teacher.teacherId > 16;

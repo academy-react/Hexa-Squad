@@ -41,19 +41,19 @@ const HeroSection = () => {
         
         <HeroSearchBox />
         <div className="information-section">
-          <div>
+          <div className="scale-[1.15]">
             <img src={teacher} alt="مدرس" />
-            <span>{Data.teacherCount}</span>
+            <span>{Data.teacherCount?Data.teacherCount:'6'}</span>
             <label>مدرس مجرب</label>
           </div>
-          <div>
+          <div className="scale-[1.15]">
             <img src={course} alt="دوره" />
-            <span>{Data.courseCount}</span>
+            <span>{Data.courseCount?Data.courseCount:'10'}</span>
             <label>دوره آموزشی</label>
           </div>
-          <div>
+          <div className="scale-[1.15]">
             <img src={student} alt="دانش آموز" />
-            <span>{Data.studentCount}</span>
+            <span>{Data.studentCount?Data.studentCount: '23' }</span>
             <label>نفر دانشجو</label>
           </div>
         </div>

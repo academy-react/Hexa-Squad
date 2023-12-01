@@ -6,11 +6,9 @@ import GregorianToSolar from "../../core/utility/GregorianToSolar/GregorianToSol
 import deleteCourseReserve from "../../core/services/api/DeleteData/deleteCourseReserve";
 const MyReserveCoursesListTable = ({ data, addIcon }) => {
   const [visible, setVisible] = useState(true);
-  console.log(visible);
   const deleteReserveCourse = async (id) => {
     if (id !== true) {
       const result = await deleteCourseReserve(id);
-      console.log(result);
     }
     setVisible(false);
   };

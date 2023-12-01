@@ -31,20 +31,17 @@ const Login = () => {
     theme ? (htmlTag.className = "dark") : (htmlTag.className = "");
   };
   const onSubmitLogin = async (value) => {
-    console.log(" fetching started ...", value);
     try {
       const result = await http.post("/Sign/Login", {
         phoneOrGmail: value.phoneOrGmail,
         password: value.password,
         rememberMe: value.rememberMe,
       });
-      console.log(result.token);
-      console.log(result)
       setItem("token", result.token);
       if (result.success) {
         window.location.pathname = "/";
       } else {
-        toast.error(result.errors == null ? result.message : result.errors[0])
+        toast.error(result.errors == null ? result.message : result.errors[0]);
       }
     } catch (error) {
       console.log(error);

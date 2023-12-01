@@ -24,7 +24,6 @@ const Header = () => {
   const getProfileFunction = async () => {
     const user = await getProfile();
     dispatch(onUserChange(user));
-    console.log(user);
   };
   useEffect(() => {
     location.pathname == "/" ? setHeaderStyle(true) : setHeaderStyle(false);

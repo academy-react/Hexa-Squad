@@ -32,7 +32,6 @@ const UserComments = ({
       );
 
       setLikes(response);
-      console.log(response);
       setChangeLikeColor(!changeLikeColor);
       setLiked(true);
       if (response.success) {
@@ -57,7 +56,6 @@ const UserComments = ({
         "/Course/DeleteCourseCommentLike?CourseCommandId=" + uid
       );
       setRemoveLike(response);
-      console.log(response);
       setLiked(false);
     } catch (error) {
       console.error(error);
@@ -69,7 +67,6 @@ const UserComments = ({
         "/Course/AddCourseCommentDissLike?CourseCommandId=" + uid
       );
       setDislikes(response);
-      console.log(response);
       setChangeDisLikeColor(!changeDisLikeColor);
     } catch (error) {
       console.error(error);
@@ -83,7 +80,6 @@ const UserComments = ({
       const result = await http.get(
         `/Course/GetCourseReplyCommnets/${courseId}/${uid}`
       );
-      console.log(result);
       setAdminComment(result);
     } catch (error) {}
   }, []);

@@ -7,9 +7,7 @@ const Rate = ({id, handleRate}) => {
   // const [newsRate, setNewsRate] = useState();
 
   const ratingChanged = (newRating) => {
-    // console.log("newRating",newRating)
     setStars(newRating);
-    console.log('newRating',newRating);
   };
 
   return (

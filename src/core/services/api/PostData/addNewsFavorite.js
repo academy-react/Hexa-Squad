@@ -20,7 +20,6 @@ const addNewsFavorite = async (data) => {
         else {
             toast.error("در لیست علاقمندی های شما موجود می باشد.");
         }
-        console.log(result);
         return true;
     }
 };

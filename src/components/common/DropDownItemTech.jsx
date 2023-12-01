@@ -1,7 +1,6 @@
 import React from "react";
 
 const DropDownItemTech = ({ item, name }) => {
-  console.log('item',item)
   return (
     <div className="flex p-2">
       <input

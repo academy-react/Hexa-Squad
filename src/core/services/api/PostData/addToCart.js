@@ -6,6 +6,5 @@ export const addCart = async (id, isLogin) => {
     showLoginModal.click();
   }
   else{
-    console.log(userInfo)
   }
 };

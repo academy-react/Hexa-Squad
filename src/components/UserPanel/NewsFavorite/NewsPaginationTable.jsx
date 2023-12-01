@@ -12,7 +12,6 @@ const NewsPaginationTable = ({ data, itemsPerPage, addIcon, whishList }) => {
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / itemsPerPage);
-  console.log(data);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;

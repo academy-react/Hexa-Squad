@@ -6,10 +6,12 @@
     #showFooterMapModal:checked+.footerMapModal {
         display: block;
     }
+
     .footerMapModal {
-        @apply animate-zoom fixed  h-[500px] top-[16%] inset-x-12 z-[500] hidden ;
+        @apply animate-zoom fixed h-[500px] top-[16%] inset-x-12 z-[500] hidden;
     }
-    .closebtn{
+
+    .closebtn {
         @apply absolute top-2 z-50 right-5 text-slate-600 dark:text-semiWhite2 text-4xl;
     }
 
@@ -25,10 +27,7 @@
 
     /*  services-box */
     .services-box {
-        @apply w-[30%] p-2 m-2 duration-500 rounded-xl rounded-bl-[45px] shadow-shadow-Categories-box 
-            hover:scale-105 hover:shadow-shadow-Services-box hover:cursor-pointer lg:p-8 lg:m-10 hover:bg-[#FFFFFF1A] 
-            lg:hover:shadow-shadow-Services-box1 lg:hover:rounded-[36px] md:p-4 md:m-4 md:rounded-none 
-            md:shadow-shadow-none md:hover:shadow-shadow-Services-box2 md:hover:rounded-[15px] dark:hover:bg-darkblue2;
+        @apply w-[30%] p-2 m-2 duration-500 rounded-xl rounded-bl-[45px] shadow-shadow-Categories-box hover:scale-105 hover:shadow-shadow-Services-box hover:cursor-pointer lg:p-8 lg:m-10 hover:bg-[#FFFFFF1A] lg:hover:shadow-shadow-Services-box1 lg:hover:rounded-[36px] md:p-4 md:m-4 md:rounded-none md:shadow-shadow-none md:hover:shadow-shadow-Services-box2 md:hover:rounded-[15px] dark:hover:bg-darkblue2;
     }
 
     .services-box img {
@@ -47,28 +46,32 @@
         @apply pt-4 lg:text-lg md:text-xs text-right text-lightblue4 dark:text-[#b3b1c2] hidden md:block;
     }
 
-   /* Course Education */
-   .course-box {
+    /* Course Education */
+    .course-box {
         @apply overflow-hidden duration-500 w-[325px] relative mx-auto bg-[#EAE5FF] dark:bg-indigo-950 rounded-[20px] shadow-shadow-Course-box m-2;
     }
+
     .course-box:hover {
         box-shadow: 0px 0px 15px 0px #6D20FF4D;
         @apply translate-x-0;
     }
+
     .course-box:hover .course-name {
-        @apply text-newPurpule5 dark:text-[#6974FF] ;
+        @apply text-newPurpule5 dark:text-[#6974FF];
     }
+
     .course-box:hover .hover-box {
         @apply block duration-500 left-0 cursor-pointer;
     }
-    
+
     .hover-box {
-        @apply top-3 float-left h-[44px] w-16 pr-2 absolute mb-[-50px] left-[-50%] 
-             bg-[#6736FF] dark:bg-[#261A97] dark:shadow-shadow-auth rounded-r-[10px]; 
+        @apply top-3 float-left h-[44px] w-16 pr-2 absolute mb-[-50px] left-[-50%] bg-[#6736FF] dark:bg-[#261A97] dark:shadow-shadow-auth rounded-r-[10px];
     }
-    .course-name{
-        @apply text-darkBlue5 dark:text-semiPink opacity-90 text-2xl pb-3 ;
+
+    .course-name {
+        @apply text-darkBlue5 dark:text-semiPink opacity-90 text-2xl pb-3;
     }
+
     .hover-box-img:hover {
         @apply opacity-100;
     }
@@ -76,18 +79,25 @@
     .hover-box-img {
         @apply my-3 mx-2 opacity-60;
     }
-    .course-svg{
+
+    .course-svg {
         @apply inline w-4 h-6 text-slate-600 dark:text-slate-400;
     }
-    .course-info{
+
+    .course-info {
         @apply inline text-slate-600 text-xs pr-1 dark:text-slate-400;
     }
-    .course-like-box{
-        @apply  inline px-2 py-1 bg-semiWhite2 dark:bg-[#6974FF] rounded-md cursor-pointer;
+
+    .course-like-box {
+        min-width: 35px;
+        min-height: 40px;
+        @apply inline-block px-2 py-1 bg-semiWhite2 dark:bg-[#6974FF] rounded-md cursor-pointer;
     }
-    .course-like-count{
+
+    .course-like-count {
         @apply inline text-base text-darkblue2 pr-2 dark:text-darkBlue5;
     }
+
     .prof-name {
         @apply text-lightblue4 dark:text-[#848DFF];
     }
@@ -99,9 +109,11 @@
     .course-details:hover {
         @apply text-darkblue;
     }
-    .mySwiper .swiper-pagination-bullet{
+
+    .mySwiper .swiper-pagination-bullet {
         @apply dark:bg-whitePink;
     }
+
     .mySwiper .swiper-pagination-bullet-active {
         @apply bg-newPurpleAlpha;
     }
@@ -109,148 +121,174 @@
     /* categories-box */
     .categories-box {
         transition: box-shadow 0.5s ease-out;
-        @apply w-40 md:w-[160px] lg:w-[22%] h-44 lg:h-52 md:h-48 m-5 md:m-3 text-center bg-gradient-to-tr from-[#6B3FEA] dark:from-[#574199] 
-            from-[0%] to-[#7070FF] to-[189%] rounded-xl rounded-bl-[45px] transition-all shadow-shadow-Categories-box;
+        @apply w-40 md:w-[160px] lg:w-[22%] h-44 lg:h-52 md:h-48 m-5 md:m-3 text-center bg-gradient-to-tr from-[#6B3FEA] dark:from-[#574199] from-[0%] to-[#7070FF] to-[189%] rounded-xl rounded-bl-[45px] transition-all shadow-shadow-Categories-box;
     }
 
     .categories-img {
-        @apply mx-auto mt-9 md:mt-11 mb-3 w-[35%]  md:w-auto;
+        @apply mx-auto mt-9 md:mt-11 mb-3 w-[35%] md:w-auto;
     }
-    .categories-name{
+
+    .categories-name {
         @apply text-xl lg:text-2xl;
     }
+
     .categories-box:hover {
         box-shadow: 0px 5px 30px 0px #6D50F14D;
         background: #EBE0FF;
         color: #6D53F2;
         cursor: pointer;
         @apply dark:bg-darkblue2 opacity-75;
+
         .categories-img {
             filter: brightness(0) saturate(100%) invert(39%) sepia(80%) saturate(2693%) hue-rotate(231deg) brightness(90%) contrast(112%);
         }
-    }  
+    }
 
     /* news details */
     .progress-bar {
         @apply fixed top-0 left-0 right-0 h-2 bg-newPurple origin-[0%];
     }
-    .news-details{
+
+    .news-details {
         /* box-shadow: 0px 0px 30px 0px #B48DFF4D; */
-        @apply max-w-[400px] md:max-w-[740px] lg:max-w-[1260px] mx-auto p-8 md:p-12 lg:p-16 
-            bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6;
+        @apply max-w-[400px] md:max-w-[740px] lg:max-w-[1260px] mx-auto p-8 md:p-12 lg:p-16 bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6;
     }
-    .news-pic-info{
+
+    .news-pic-info {
         @apply absolute bottom-4 md:bottom-8 lg:bottom-10 left-0 right-0 lg:left-2 lg:right-2 px-8 py-4 inline bg-gradient-to-t from-darkblue bg-opacity-40 rounded-b-xl;
     }
-    .news-details-text{
-        @apply text-base md:text-xl text-darkblue3 dark:text-slate-300 text-justify 
-            leading-10 md:leading-[50px] lg:leading-[50px] tracking-normal ; 
+
+    .news-details-text {
+        @apply text-base md:text-xl text-darkblue3 dark:text-slate-300 text-justify leading-10 md:leading-[50px] lg:leading-[50px] tracking-normal;
     }
-    .media-icons{
-        @apply  w-6 h-6 md:w-8 md:h-8 m-1.5 md:m-2.5;
+
+    .media-icons {
+        @apply w-6 h-6 md:w-8 md:h-8 m-1.5 md:m-2.5;
     }
-    .media-icons-border{
+
+    .media-icons-border {
         box-shadow: 0px 0px 5px 0px #12124266;
         @apply w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-[#12124266] dark:border-[#3d3d70] mx-2;
     }
-    .media-icons-border:hover{
+
+    .media-icons-border:hover {
         box-shadow: 0px 0px 5px 0px #3F40EA;
         cursor: pointer;
     }
-    .media-icons-border:hover .media-icons{
+
+    .media-icons-border:hover .media-icons {
         @apply fill-[#3F40EA] text-[#3F40EA];
     }
 
     /* news details --> User Comments*/
-    .userComment{
-        @apply flex flex-col md:flex-row py-6 mt-2 dark:bg-indigo-700 bg-[#d0cdff] px-4 rounded-bl-3xl rounded-md ;
+    .userComment {
+        @apply flex flex-col md:flex-row py-6 mt-2 dark:bg-indigo-700 bg-[#d0cdff] px-4 rounded-bl-3xl rounded-md;
     }
-    .userComment-pic{
-        @apply w-[76px] h-[76px] mt-1 bg-violet-200 rounded-full shadow-shadow-userComments-pic ;
+
+    .userComment-pic {
+        @apply w-[76px] h-[76px] mt-1 bg-violet-200 rounded-full shadow-shadow-userComments-pic;
     }
-    
-    .adminComment{
-        @apply py-6 w-[350px] md:w-[520px] lg:w-[1020px] mr-[-30px] md:mr-[75px]
-                md:mt-[-50px] mb-6 pr-2 md:pl-4 bg-[#D0CDFF80] dark:bg-darkblue3 border-r-4 border-r-lightblue;
+
+    .adminComment {
+        @apply py-6 w-[350px] md:w-[520px] lg:w-[1020px] mr-[-30px] md:mr-[75px] md:mt-[-50px] mb-6 pr-2 md:pl-4 bg-[#D0CDFF80] dark:bg-darkblue3 border-r-4 border-r-lightblue;
     }
-    .comment-input{
-        @apply  w-full lg:mr-4 mt-2 p-4 text-base text-darkblue2 dark:text-[#7e7cb1]
-                border-2 border-indigo-400 dark:border-[#3d3d70] rounded-xl bg-newWhite dark:bg-darkblue6 focus-visible:outline-2 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-lightblue;
+
+    .comment-input {
+        @apply w-full lg:mr-4 mt-2 p-4 text-base text-darkblue2 dark:text-[#7e7cb1] border-2 border-indigo-400 dark:border-[#3d3d70] rounded-xl bg-newWhite dark:bg-darkblue6 focus-visible:outline-2 focus-visible:border-2 dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800 focus-visible:outline focus-visible:outline-lightblue;
     }
 
     /* news List*/
-    .news-menu-box{
+    .news-menu-box {
         @apply w-[25%] lg:py-2 md:py-2.5 hover:bg-lightblue hover:text-semiWhite2 hover:cursor-pointer;
     }
+
     .search-input {
         @apply rounded-lg md:rounded-[10px] text-darkblue2 text-right w-full py-1 px-2 pr-7 h-full bg-[#F6F7FC] dark:bg-lightblue4 absolute top-0 left-0 focus-visible:outline focus-visible:outline-lightblue;
     }
 
-    .heroSectionInfo h2{
+    .heroSectionInfo h2 {
         @apply text-darkblue7 lg:mt-[-80px];
     }
-    .news-card{
-        @apply w-[440px] md:w-full relative flex flex-col gap-y-8 mx-auto px-4  text-ellipsis whitespace-nowrap overflow-hidden;
+
+    .news-card {
+        @apply w-[440px] md:w-full relative flex flex-col gap-y-8 mx-auto px-4 text-ellipsis whitespace-nowrap overflow-hidden;
     }
+
     /* .news-card .news-name{
         @apply text-ellipsis whitespace-nowrap overflow-hidden;
     } */
-    .news-card .news-view{
+    .news-card .news-view {
         @apply md:absolute md:top-10 md:right-0 lg:top-12 lg:text-base;
     }
-    .news-card .news-border{
+
+    .news-card .news-border {
         @apply md:absolute md:top-10 md:right-20 lg:top-12 lg:right-24;
     }
-    .news-card .news-date{
+
+    .news-card .news-date {
         @apply md:absolute md:top-10 md:right-28 lg:top-12 lg:right-32 lg:text-base;
-    }    
+    }
+
     .news-card .news-description {
         @apply pt-5;
-    } 
-    .news-card .news-readMore{
-        @apply  fixed text-left;
     }
-    .news-card h2{
+
+    .news-card .news-readMore {
+        @apply fixed text-left;
+    }
+
+    .news-card h2 {
         @apply lg:w-[900px];
     }
+
     /* .news-description{
         @apply lg:pt-4;
     } */
-    .news-card img{
-        @apply h-[150px] w-[150px] md:w-[220px] md:h-[186px] ;
+    .news-card img {
+        @apply h-[150px] w-[150px] md:w-[220px] md:h-[186px];
     }
 
     /* Teacher Profile */
-    .img-figure{
+    .img-figure {
         @apply w-60 h-60 md:w-52 md:h-52 lg:w-80 lg:h-80 mx-auto rounded-full shadow-shadow-auth border-8 border-[#9333ea];
     }
-    .teacher-image{
+
+    .teacher-image {
         @apply w-full h-full rounded-full object-cover blur-none duration-300 ease-in-out;
     }
-    .img-figure:hover .teacher-image{
-        @apply cursor-pointer blur-[3px] ;
+
+    .img-figure:hover .teacher-image {
+        @apply cursor-pointer blur-[3px];
     }
-    .teacher-image-hover{
+
+    .teacher-image-hover {
         @apply absolute bottom-36 -left-12 block opacity-0 w-72 mx-auto text-2xl text-[#2C007F] dark:text-whitePink text-center duration-300 ease-in-out;
     }
-    .img-figure:hover+.teacher-image-hover{
+
+    .img-figure:hover+.teacher-image-hover {
         @apply left-[400px] opacity-100;
     }
-    .teacher-education{
+
+    .teacher-education {
         @apply w-60 h-20 md:w-52 md:h-20 lg:w-72 lg:h-24 mx-auto my-8 py-6 lg:py-8 text-xl md:text-lg lg:text-2xl text-darkblue2 dark:text-whitePink rounded-lg shadow-shadow-Course-details text-center bg-[#c4b5fd] dark:bg-darkblue2;
     }
-    .teacherInfo{
+
+    .teacherInfo {
         @apply w-full ml-16 pr-4 pt-4 lg:pt-8 text-2xl md:text-lg lg:text-2xl text-newPurple3 dark:text-whitePink border-b-2 border-dotted border-b-[#94a3b8];
     }
-    .contact-teacher{
+
+    .contact-teacher {
         @apply pr-4 text-lg md:text-xl lg:text-2xl text-[#03001C] opacity-60 dark:text-whitePink;
     }
-    .teacher-media-icons{
+
+    .teacher-media-icons {
         @apply md:w-10 md:h-10 lg:w-14 lg:h-14;
     }
-    .teacher-media-icons .media-icons{
+
+    .teacher-media-icons .media-icons {
         @apply md:w-6 md:h-6 lg:w-8 lg:h-8 md:m-1.5 lg:m-2.5;
     }
+
     /* .teacher-suggestion .latestCourse{
         @apply bg-[#D7D5FF] dark:bg-[#34239f];
     }
@@ -258,22 +296,26 @@
         @apply flex flex-row;
     } */
 
-    
+
     /* Panel --> Edit Profile */
-    .editProf-input{
+    .editProf-input {
         @apply relative my-5 w-[300px];
     }
-    .editProf-field-input{
-        @apply bg-transparentPurple w-full h-10 pr-4 rounded-lg border-2 border-[#a48fff]  dark:bg-lightblue4 focus-visible:outline-4 focus-visible:border-2  dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800  focus-visible:outline focus-visible:outline-[#3F40EA66];
+
+    .editProf-field-input {
+        @apply bg-transparentPurple w-full h-10 pr-4 rounded-lg border-2 border-[#a48fff] dark:bg-lightblue4 focus-visible:outline-4 focus-visible:border-2 dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800 focus-visible:outline focus-visible:outline-[#3F40EA66];
     }
-    .editProf-errorMessage{
-        @apply  text-[#A80065] absolute -bottom-8 right-2;
+
+    .editProf-errorMessage {
+        @apply text-[#A80065] absolute -bottom-8 right-2;
     }
+
     /* Modal */
 
     #showEditImageModal:checked+.EditImageModal {
         display: block;
     }
+
     .EditImageModal {
         @apply animate-zoom fixed top-[16%] lg:w-[570px] h-[480px] inset-x-32 lg:inset-x-72 z-[500] rounded-xl shadow-shadow-auth hidden bg-[#D7D5FF] dark:bg-darkblue6;
     }
@@ -281,16 +323,29 @@
     #showSelectImageModal:checked+.selectImageModal {
         display: block;
     }
+
     .selectImageModal {
         @apply animate-zoom fixed top-[16%] lg:w-[570px] h-[480px] inset-x-32 lg:inset-x-72 z-[500] rounded-xl shadow-shadow-auth hidden bg-[#D7D5FF] dark:bg-darkblue6;
     }
-    .closebtn{
+
+    .closebtn {
         @apply absolute top-2 z-50 right-5 text-slate-600 dark:text-semiWhite2 text-4xl;
     }
 
     .card input,
     .card .drag-area .on-top,
-    .card .drag-area.dragover .visible{
+    .card .drag-area.dragover .visible {
         @apply hidden;
+    }
+    .skeleton .skeleton-handler {
+        min-height: 35px;
+        min-width: 60px;
+        @apply bg-[#dfdfdfda] ;
+        *{
+            @apply hidden
+        };
+        @keyframes skeleton-animation {
+            
+        }
     }
 }

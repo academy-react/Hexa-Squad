@@ -8,7 +8,6 @@ export default async (id) => {
         pending: "در حال حذف کردن دوره ",
       }
     );
-    console.log(result);
     if (result.success) {
       toast.success("دوره از لیست علاقه مندی ها حذف شد");
     } else {

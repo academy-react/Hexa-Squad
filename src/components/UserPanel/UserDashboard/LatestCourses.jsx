@@ -9,7 +9,6 @@ const LatestCourses = () => {
   const WhishListPanelApi = useCallback(async () => {
     try {
       const result = await http.get("/SharePanel/GetMyFavoriteCourses");
-      console.log(result.favoriteCourseDto);
       const receivedData = result.favoriteCourseDto;
       let slicedData = receivedData.slice(receivedData.length -2 , receivedData.length)
 
@@ -21,7 +20,6 @@ const LatestCourses = () => {
       console.log(error);
     }
   }, []);
-  console.log(data);
   useEffect(() => {
     WhishListPanelApi();
   }, []);

@@ -21,7 +21,6 @@ const handleCourseDeleteLike = async (userLikeId, changeLikeColor, setChangeLike
             } else if (result.success == false) {
                 toast.error(result.message)
             }
-            console.log(result);
             } catch (error) {
             console.error(error);
         }

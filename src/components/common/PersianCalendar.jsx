@@ -33,11 +33,9 @@ export default function PersianCalendar(birthDate) {
 
   // show Default Date
   // const defaultDate = birthDate.birthDate
-  // console.log('defaultDate', defaultDate)
   // const year = defaultDate.slice(0, 4)
   // const month = defaultDate.slice(5, 7)
   // const day = defaultDate.slice(8, 10)
-  // console.log(`year=${year} & month=${month} & day=${day}`)
 
   return (
     <div >
