@@ -10,15 +10,11 @@ const handleCourseDeleteLike = async (userLikeId, changeLikeColor, setChangeLike
   } else {
         try {
             const obj = {
-                userLikeId: userLikeId
+                CourseLikeId: userLikeId
             }
             const data = onFormData(obj)
-            // let data = new FormData();
-  
-            // data.append("userLikeId", userLikeId);
-            // console.log("data=",data)
 
-            const result = await http.delete("/Course/DeleteCourseLike", data);
+            const result = await http.delete("/Course/DeleteCourseLike", {data: data});
             if (result.success == true) {
                 toast.success("لایک این دوره با موفقیت حذف شد")
                 setChangeLikeColor(!changeLikeColor);
