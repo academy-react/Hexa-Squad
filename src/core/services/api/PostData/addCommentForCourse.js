@@ -12,7 +12,6 @@ const commentForCourse = async(value) =>{
   try{
     const result = await http.post("/Course/AddCommentCourse", data)
     // setUserComment(result)
-    console.log("result2 is:", result)
     
 
 } catch (error) {

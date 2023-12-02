@@ -26,7 +26,6 @@ export const addWishList = async (id, isFavorite) => {
       else {
         toast.error(result.message);
       }
-      console.log(result);
       return true;
     }
   }

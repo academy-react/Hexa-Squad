@@ -12,7 +12,6 @@ const News = () => {
         "/News?PageNumber=1&RowsOfPage=200&SortingCol=InsertDate&SortType=DESC&Query="
       );
       const recivedData = result.news;
-      console.log("news : ", result);
       setNewsList(
         recivedData.slice(recivedData.length - 2, recivedData.length)
       );

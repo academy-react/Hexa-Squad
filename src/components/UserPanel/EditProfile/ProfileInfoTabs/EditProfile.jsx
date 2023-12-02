@@ -25,6 +25,8 @@ const EditProfile = () => {
       nationalCode: value.nationalCode,
       gender: value.gender,
       birthDay: value.birthDay,
+      latitude: "0",
+      longitude: "1"
     };
     const data = onFormData(obj);
     console.log("formData=", data)

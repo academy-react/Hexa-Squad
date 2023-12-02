@@ -4,16 +4,15 @@ import { useState } from "react";
 
 const DropDown = ({
   name,
+  setListV,
+  setCount,
   data,
   checkBoxType,
   height,
-  courseData,
-  setData,
-  customFunction,
   filterList,
   pushList,
 }) => {
-  const [checkedData, setCheckedData] = useState("");
+  const [checkedData, setCheckedData] = useState(false);
   const dataMapper = data.map((item, index) => (
     <div className="flex p-2" key={index}>
       <input
@@ -22,7 +21,12 @@ const DropDown = ({
         className="m-1 accent-cyan-950"
         id={name + index}
         onChange={(e) => {
-          e.target.checked ? pushList(item.id) : filterList(item.id);
+          if (e.target.checked) {
+            pushList(item.id);
+            setCheckedData(true);
+          } else {
+            filterList(item.id);
+          }
         }}
       />
       <label htmlFor={name + index} className="pr-5">
@@ -42,11 +46,13 @@ const DropDown = ({
         </label>
         <i
           className={
-            (checkedData == "" && "hidden") +
+            (checkedData == false && "hidden") +
             " bi bi-x absolute top-[33%] left-5 text-xl text-red-500 cursor-pointer"
           }
           onClick={() => {
-            customFunction(courseData, "", setData, setCheckedData);
+            setListV(undefined);
+            setCount(undefined);
+            setCheckedData(false);
           }}
         >
           {" "}

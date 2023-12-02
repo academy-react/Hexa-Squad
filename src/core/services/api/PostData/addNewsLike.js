@@ -10,8 +10,7 @@ const handleNewsLikeClick = async (urlParam, currentUserIsLike, changeLikeColor,
       try {
         const result = await http.post("/News/NewsLike/" + urlParam.id);
         toast.success("مقاله مورد نظر لایک شد")
-        setChangeLikeColor(!changeLikeColor);  
-        console.log(result)        
+        setChangeLikeColor(!changeLikeColor);    
       } catch (error) {
         console.error(error);
       }

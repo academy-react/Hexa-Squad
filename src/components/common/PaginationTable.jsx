@@ -16,7 +16,6 @@ const PaginationTable = ({
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / itemsPerPage);
-  console.log(data);
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
     setItemOffset(newOffset);
@@ -49,9 +48,16 @@ const PaginationTable = ({
                       وضعیت تایید
                     </th>
                   )}
-                  <th scope="col" className="px-6 py-4">
-                    تاریخ شروع
-                  </th>
+                  {reserveCourses !== undefined && (
+                    <th scope="col" className="px-6 py-4">
+                      تاریخ رزرو
+                    </th>
+                  )}
+                  {reserveCourses === undefined && (
+                    <th scope="col" className="px-6 py-4">
+                      تاریخ شروع
+                    </th>
+                  )}
                   {reserveCourses === undefined && (
                     <th scope="col" className="px-6 py-4">
                       مدرس

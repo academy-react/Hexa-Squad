@@ -3,10 +3,12 @@ import { toast } from "react-toastify";
 import http from "../../../../core/services/interceptor";
 // import onSubmit from "../../../../core/services/api/PostData/addProfileImage";
 import onFormData from "../../../../core/services/api/FormData";
+import axios from "axios";
 
-const AddImageModal = ({userInfo}) => {
+const AddImageModal = () => {
 
     const [images, setImages] = useState([]);
+    const [imageFile, setImageFile] = useState([]);
     const [isDragging, setIsDragging] = useState(false);
     const fileInputRef = useRef(null);
 
@@ -16,6 +18,9 @@ const AddImageModal = ({userInfo}) => {
 
     const onFileSelect = (e) => {
         const files = e.target.files;
+        console.log(files)
+        setImageFile(files)
+        console.log("file=",files)
         if(files.length === 0) return;
         for(let i = 0; i < files.length; i++) {
             if(files[i].type.split('/')[0] !== 'image') continue;
@@ -25,6 +30,7 @@ const AddImageModal = ({userInfo}) => {
                     {
                         name: files[i].name,
                         url: URL.createObjectURL(files[i]),
+                        file: files[i]
                     },
                 ]);
             }
@@ -52,6 +58,7 @@ const AddImageModal = ({userInfo}) => {
         e.preventDefault();
         setIsDragging(false);
         const files = e.dataTransfer.files;
+            console.log('files',files)
         for(let i = 0; i < files.length; i++) {
             if(files[i].type.split('/')[0] !== 'image') continue;
             if(!images.some((item) => item.name === files[i].name)) {
@@ -60,6 +67,7 @@ const AddImageModal = ({userInfo}) => {
                     {
                         name: files[i].name,
                         url: URL.createObjectURL(files[i]),
+                        file: files[i]
                     },
                 ]);
             }
@@ -67,26 +75,42 @@ const AddImageModal = ({userInfo}) => {
     }
 
     const uploadImages = () => {
-        console.log('Images: ', images);
+        // console.log('Images: ', images);
     }
-
+    // console.log('Images: ', images);
     // Add Image 
     const onSubmit = async () => {
         // let formData = new FormData();
   
         // formData.append("formFile", images);
         // console.log('formData: ', formData)
+
+        // const imagess = [
+        //     {name:"ss",url:"http", file: File},
+        //     {name:"ss",url:"http", file: File},
+        //     {name:"ss",url:"http", file: File},
+        //     {name:"ss",url:"http", file: File},
+        // ]
         
-        const obj = {
-            formFile: images
-        }
-        const data = onFormData(obj)
-        ;
-        console.log('Images: ', images[1].url);
+        // const obj = {
+        //     formFile: images.map(m => m.file)
+        // }
+
+        
+        // const obj = {
+        //     formFile: imageFile
+        // }
+        // const data = onFormData(obj)
+        // ;
+
+        const data = new FormData()
+        data.append("formFile",imageFile)
+
+        console.log('Images: ', imageFile);
         console.log('formData: ', data);
 
         try {
-            const result = await http.post("/SharePanel/AddProfileImage", data);
+            const result = await http.post("/SharePanel/AddProfileImage", data,{headers:{"Content-Type":'form-data',Accept:'form-data'}});
             if (result.success) {
               toast.success(result.message)
             } else if (!result.success) {

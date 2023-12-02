@@ -3,7 +3,6 @@ import SeparationPrice from "../../core/utility/SeparationPrice/SeparationPrice"
 import { Link } from "react-router-dom";
 
 const AllCoursesTable = ({ data, addIcon }) => {
-  console.log(data);
   return (
     <tr className="text-[#36353B] dark:text-semiPink bg-[#CECCFF50] dark:bg-[#3f3fea45]  hover:bg-[#CECCFF80] pagination-table-tr ">
       <td className="whitespace-nowrap px-6 py-4 text-xl">

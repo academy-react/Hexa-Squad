@@ -35,8 +35,6 @@ const InputComment = ({ question, name, setComment, accept }) => {
       } else {
         toast.error(" لطفا متن کامنت را به درستی وارد کنید");
       }
-
-      console.log("Comment submitted successfully!");
     } catch (error) {
       console.error("Error submitting comment:", error);
     }

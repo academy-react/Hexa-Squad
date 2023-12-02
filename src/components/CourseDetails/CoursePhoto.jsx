@@ -36,8 +36,6 @@ const CoursePhoto = ({
   }, [isUserFavorite]);
 
   const [currentUserIsLike, setCurrentUserIsLike] = useState(currentUserLike);
-  console.log("userlike=", currentUserLike);
-  console.log("currentUserLike", currentUserIsLike);
 
   return (
     <div

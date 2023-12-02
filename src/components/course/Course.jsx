@@ -6,9 +6,7 @@ import CourseBody from "./CourseBody";
 
 import heart from "../../assets/image/heart.svg";
 import fillHeart from "../../assets/image/fill - heart.svg";
-import cart from "../../assets/image/cart.svg";
 import "../Landing/common.css";
-import { addReserve } from "../../core/services/api/PostData/addCourseReserve";
 
 const Course = ({
   id,
@@ -27,27 +25,26 @@ const Course = ({
   userFavorite,
   userIsLiked,
   userFavoriteId,
+  skeleton,
 }) => {
-  const [isLogin, setIsLogin] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const addFavorite = async () => {
     const result = await addWishList(id, userFavorite);
     setIsFavorite(result);
   };
   useEffect(() => {
-    if (userFavorite == 1 ) {
+    if (userFavorite == 1) {
       setIsFavorite(true);
-      id = userFavoriteId;  
-      console.log(userFavoriteId)
+      id = userFavoriteId;
     }
   }, []);
 
   return (
-    <div className={"course-box px-6 " + addClass}>
-      <div className="hover-box z-3">
+    <div className={"course-box px-6 "+ addClass +' ' +( skeleton == true ? "skeleton" :'') }>
+      <div className="hover-box z-3 skeleton-handler">
         <img
           src={isFavorite ? fillHeart : heart}
-          className="inline hover-box-img w-6"
+          className="inline hover-box-img w-6 "
           onClick={addFavorite}
         />
       </div>

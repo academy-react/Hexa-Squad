@@ -7,8 +7,6 @@ const HeroSearchBox = () => {
   const [searching, setSearching] = useState(false);
   const [courseData, setCourseData] = useState([]);
   const [AllData, setAllData] = useState([]);
-
-  console.log(AllData)
   const searchModal = (values) => {
     if (values == "") {
       setSearching(false);

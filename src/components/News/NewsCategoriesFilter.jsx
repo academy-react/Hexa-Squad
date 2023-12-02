@@ -16,7 +16,6 @@ const NewsCategoriesFilter = ({ data, setData, filterDiv, setFilterDiv }) => {
       const result = await http.get('/News/GetListNewsCategory')
       try {
         setCategoryData(result)
-        console.log(result)
       } catch (error) {
         console.log(error)
       }

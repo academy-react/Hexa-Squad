@@ -12,7 +12,7 @@ const FiltersOptions = ({
   setData,
   filterList,
   pushList,
-  filterDiv,
+  filterDiv,setListTechV,setTechCount,
   setFilterDiv,
   setCostDown,
   setCostUp,
@@ -27,7 +27,6 @@ const FiltersOptions = ({
       const result = await http.get(api);
       try {
         setState(result);
-        console.log(result);
       } catch (error) {
         console.log(error);
       }
@@ -58,7 +57,7 @@ const FiltersOptions = ({
         courseData={data}
         filterList={filterList}
         pushList={pushList}
-        data={categoryData}
+        data={categoryData}setListV={setListTechV}setCount={setTechCount}
         checkBoxType={"checkbox"}
         height={"h-[300px]"}
       />

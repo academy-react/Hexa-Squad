@@ -8,7 +8,6 @@ const WhishListTable = ({ data, addIcon }) => {
     let result;
     if (id !== true) {
       result = await DeleteCourseFavorite(id);
-      console.log(result);
     }
     setVisible(false);
   };

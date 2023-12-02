@@ -1,0 +1,31 @@
+.EditProfilePictureUserFigure:hover {
+  border: 5px dotted #406dd5;
+}
+
+.EditProfilePictureUserPicturesList {
+  display: none;
+}
+
+.EditProfilePictureUserFigure:hover + .EditProfilePictureUserPicturesList {
+  position: relative;
+  display: block;
+
+  z-index: 500;
+}
+
+.EditProfilePictureUserPicturesList:hover {
+  position: relative;
+  display: block;
+
+  z-index: 500;
+}
+
+.EditProfileListImagesDivDetails {
+  border-radius: 6px;
+  opacity: 0;
+  visibility: hidden;
+}
+.EditProfileListImagesFigure:hover .EditProfileListImagesDivDetails {
+  opacity: 1;
+  visibility: visible;
+}

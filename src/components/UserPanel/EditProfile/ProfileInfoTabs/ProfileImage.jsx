@@ -9,7 +9,7 @@ import darkPic from "../../../../assets/image/user-circle-icon-white.png";
 
 
 const ProfileImage = () => {
-  const [userImage, setUserImage] = useState([]);
+  // const [userImage, setUserImage] = useState([]);
 
   // const handleImage = (e) => {
   //   setUserImage(e.target.files[0])
@@ -35,41 +35,17 @@ const ProfileImage = () => {
 
         </div>
 
-
-        {/* <div className="flex flex-row">
-          <input
-            type="submit"
-            value="حذف عکس"
-            className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
-          />
-          <input
-            type="submit"
-            value="ثبت عکس"
-            className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
-            onClick={()=>{onSubmit(userImage)}}
-          />
-          <CheckboxInput name={"showEditImageModal"} />
-          <EditProfileImageModal/>
-          <input
-            type="submit"
-            value="ویرایش تصویر"
-            className="primary-btn block mx-auto mt-12 w-2/5 md:1/6 lg:w-3/12 p-4 mb-8 lg:mb-0 rounded-lg text-[#fff] cursor-pointer"
-            onClick={() => showEditImageModal.click()}
-          />
-        </div> */}
-          <CheckboxInput name={"showEditImageModal"} />
-          <EditImageModal userInfo={userInfo} />
-          <span 
-            className="flex gap-x-3 mt-8 text-slate-600/90 dark:text-semiWhite2 justify-center cursor-pointer"
-            dir="ltr"
-            onClick={() => showEditImageModal.click()} 
-          >
-            ویرایش عکس
-            <i class="bi bi-pencil-square"></i>
-          </span>          
+        <CheckboxInput name={"showEditImageModal"} />
+        <EditImageModal userInfo={userInfo} />
+        <span 
+          className="flex gap-x-3 mt-8 text-slate-600/90 dark:text-semiWhite2 justify-center cursor-pointer"
+          dir="ltr"
+          onClick={() => showEditImageModal.click()} 
+        >
+          ویرایش عکس
+          <i class="bi bi-pencil-square"></i>
+        </span>          
         
-        {/* <span className="text-[#3F3F47aa] dark:text-semiWhite2 flex justify-center mt-2">ویرایش تصویر</span> */}
-
     </Fragment>
   );
 };

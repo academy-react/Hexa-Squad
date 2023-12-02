@@ -58,7 +58,6 @@ const UserComments = ({
         "/Course/DeleteCourseCommentLike?CourseCommandId=" + uid
       );
       setRemoveLike(response);
-      console.log(response);
       setLiked(false);
     } catch (error) {
       console.error(error);
@@ -70,7 +69,6 @@ const UserComments = ({
         "/Course/AddCourseCommentDissLike?CourseCommandId=" + uid
       );
       setDislikes(response);
-      console.log(response);
       setChangeDisLikeColor(!changeDisLikeColor);
       if (response.success) {
         toast.success("نظر شما ثبت شد");
