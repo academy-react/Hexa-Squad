@@ -45,7 +45,7 @@ const CoursePhoto = ({
       data-aos-duration="1000"
       className="w-full lg:w-[860px]  md:w-[500px] relative  mx-auto md:my-10 lg:mt-10 lg:mx-12"
     >
-      <div className="shadow-shadow-auth rounded-xl  ">
+      <div className="shadow-shadow-auth dark:shadow-shadow-userComments-pic  rounded-xl  ">
         <h2
           className={`bi bi-${
             isFavorite ? "heart-fill" : "heart"
@@ -55,7 +55,7 @@ const CoursePhoto = ({
         />
         <img
           src={imageAddress == null ? NullImage : imageAddress}
-          className="w-full h-[300px] md:h-[400px] lg:h-[420px]  rounded-lg "
+          className="w-full h-[300px] md:h-[400px]  lg:h-[420px]  rounded-lg "
           alt="course image"
         />
       </div>
@@ -63,7 +63,7 @@ const CoursePhoto = ({
         <h2 className="text-xl md:text-3xl mt-8 text-[#2C007F] dark:text-[#ffff]">
           {title}
         </h2>
-        <p className="h-48 mt-6 md:mt-7 text-sm leading-8 md:text-md lg:text-lg lg:leading-10 text-[#03001C]  dark:text-[#E7E7FF] ">
+        <p className="h-48 mt-6 md:mt-7  text-sm leading-8 md:text-md lg:text-lg lg:leading-10 text-indigo-950  dark:text-[#E7E7FF] ">
           {miniDescribe}
         </p>
       </div>

@@ -27,15 +27,21 @@ const TabsContent = ({ describe }) => {
         acceptReplysCount={item.acceptReplysCount}
         courseId={item.courseId}
         setComment={setComment}
+        author={item.author}
+        accept={item.accept}
+        currentUserDissLike ={item.currentUserDissLike }
+        currentUserEmotion={item.currentUserEmotion}
+        pictureAddress={item.pictureAddress}
       />
     );
   });
   const fetchCommentData = useCallback(async () => {
+    
     try {
       const result = await http.get(`/Course/GetCourseCommnets/` + urlParam.id);
       console.log(result);
-      const receivedData = result;
-      setComment(receivedData);
+      
+      setComment(result);
     } catch (error) {}
   }, []);
 
@@ -95,6 +101,7 @@ const TabsContent = ({ describe }) => {
               name={comment.title}
               question={comment.describe}
               setComment={setComment}
+              accept={comment.accept}
             />
             <h2 className="text-lg mb-2 hidden">نظرات کاربران</h2>
             <div className="w-[96%] mx-auto lg:mr-2 mt-6 ">
@@ -104,7 +111,7 @@ const TabsContent = ({ describe }) => {
                   نظرات کاربران در رابطه با این دوره{" "}
                 </h3>
               </div>
-
+              
               {userComments}
             </div>
           </div>

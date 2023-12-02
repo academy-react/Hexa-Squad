@@ -22,8 +22,8 @@ const ContactMe = () => {
             درباره ی من
           </h2>
         </div>
-        <div className=" md:h-52 h-20 rounded-xl mx-5 border-2 border-[#D4D4FF] md:flex md:flex-row-reverse flex-col md:gap-0">
-          <p className="text-right mx-4 my-4 lg:text-lg text-base text-[#4229C5] dark:text-slate-300">
+        <div className=" h-20 rounded-xl mx-5 border-2 border-[#D4D4FF] md:flex md:flex-row-reverse flex-col md:gap-0">
+          <p className="text-right mx-4 my-5 lg:text-lg text-base text-[#4229C5] dark:text-slate-300">
             {userInfo.userAbout}
           </p>
         </div>
@@ -59,7 +59,7 @@ const ContactMe = () => {
               {userInfo.phoneNumber}
             </h2>
           </div>
-          <div className="flex flex-row-reverse relative ">
+          {/* <div className="flex flex-row-reverse relative ">
             <h2 className="lg:text-base mr-6">
               {" "}
               : اکانت لینکدین
@@ -72,8 +72,8 @@ const ContactMe = () => {
               {" "}
               {userInfo.linkdinProfile}
             </h2>
-          </div>
-          <div className="flex flex-row-reverse relative ">
+          </div> */}
+          {/* <div className="flex flex-row-reverse relative ">
             <h2 className=" lg:text-base  mr-6 ">
               {" "}
               : اکانت تلگرام{" "}
@@ -85,7 +85,7 @@ const ContactMe = () => {
               {" "}
               {userInfo.telegramLink}
             </h2>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

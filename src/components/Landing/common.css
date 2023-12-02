@@ -163,15 +163,15 @@
 
     /* news details --> User Comments*/
     .userComment{
-        @apply flex flex-col md:flex-row py-6 mt-2 dark:bg-indigo-700 bg-[#d0cdff] px-4 rounded-bl-3xl rounded-md ;
+        @apply flex flex-col md:flex-row py-6 mt-2 dark:bg-indigo-700 bg-[#d0cdff] px-4 rounded-tl-3xl rounded-md ;
     }
     .userComment-pic{
-        @apply w-[76px] h-[76px] mt-1 bg-violet-200 rounded-full shadow-shadow-userComments-pic ;
+        @apply w-[76px] h-[76px] bg-violet-200 dark:bg-indigo-700 rounded-full shadow-shadow-userComments-pic ;
     }
     
     .adminComment{
-        @apply py-6 w-[350px] md:w-[520px] lg:w-[1020px] mr-[-30px] md:mr-[75px]
-                md:mt-[-50px] mb-6 pr-2 md:pl-4 bg-[#D0CDFF80] dark:bg-darkblue3 border-r-4 border-r-lightblue;
+        @apply flex flex-row py-6 w-[350px] md:w-[520px] lg:w-[1020px] mr-[-30px] md:mr-[75px]
+                md:mt-[-50px] mb-6 pr-2 md:pl-4 bg-[#c8c5ff] dark:bg-darkblue3 border-r-4 border-r-lightblue dark:border-r-indigo-300;
     }
     .comment-input{
         @apply  w-full lg:mr-4 mt-2 p-4 text-base text-darkblue2 dark:text-[#7e7cb1]
@@ -190,7 +190,7 @@
         @apply text-darkblue7 lg:mt-[-80px];
     }
     .news-card{
-        @apply w-[440px] md:w-full relative flex flex-col gap-y-8 mx-auto px-4  text-ellipsis whitespace-nowrap overflow-hidden;
+        @apply w-[440px] md:w-full  relative flex flex-col gap-y-8 mx-auto  text-ellipsis whitespace-nowrap  overflow-clip;
     }
     /* .news-card .news-name{
         @apply text-ellipsis whitespace-nowrap overflow-hidden;
@@ -205,7 +205,7 @@
         @apply md:absolute md:top-10 md:right-28 lg:top-12 lg:right-32 lg:text-base;
     }    
     .news-card .news-description {
-        @apply pt-5;
+        @apply pt-5  ;
     } 
     .news-card .news-readMore{
         @apply  fixed text-left;

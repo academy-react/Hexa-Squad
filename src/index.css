@@ -338,7 +338,7 @@
   }
 
   .news-wrapper {
-    @apply w-full md:w-[100%] md:h-[540px] lg:h-[360px] mt-8 flex relative mx-auto md:mt-20 lg:mt-10 px-4 h-[520px] lg:gap-10 md:gap-10 md:my-0 items-center justify-center flex-col gap-10 md:flex-col lg:flex-row;
+    @apply w-full md:w-[100%] md:h-[540px] lg:h-[360px] mt-20 flex relative mx-auto md:mt-20 lg:mt-10 px-4 h-[520px] lg:gap-10 md:gap-10 md:my-0 items-center justify-center flex-col gap-10 md:flex-col lg:flex-row;
   }
 
   .news-image {

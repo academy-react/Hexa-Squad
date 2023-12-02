@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import { addCart } from "../../core/services/api/PostData/addToCart";
+import { addReserve } from "../../core/services/api/PostData/addCourseReserve";
+import SeparationPrice from "../../core/utility/SeparationPrice/SeparationPrice";
 
 import start from "../../assets/icons/start.svg";
 import date from "../../assets/icons/date.svg";
@@ -12,8 +13,7 @@ import startDark from "../../assets/icons/startDark.svg";
 import dateDark from "../../assets/icons/dateDark.svg";
 import studentDark from "../../assets/icons/studentDark.svg";
 import teacher from "../../assets/image/teacher'sProfile.jpg";
-import { addReserve } from "../../core/services/api/PostData/addCourseReserve";
-import { useEffect } from "react";
+import GregorianToSolar from "../../core/utility/GregorianToSolar/GregorianToSolar";
 
 const DetailsBox = ({
   id,
@@ -36,6 +36,7 @@ const DetailsBox = ({
       setCourseReserve(true);
     }
   }, [isCourseReseve]);
+  console.log(startTime);
 
   return (
     <div className=" lg:w-[620px]  md:w-[500px] w-full mx-auto lg:ml-14  ">
@@ -118,7 +119,9 @@ const DetailsBox = ({
           />
           <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff] ">
             {" "}
-            {startTime == undefined ? "" : startTime.slice(0, 10)}
+            {startTime == undefined ? " ": GregorianToSolar(startTime)}
+            {/* {startTime} */}
+            {/* {startTime == undefined ? "" : startTime.slice(0, 10)} */}
           </h2>
           <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff] ">
             {" "}
@@ -134,7 +137,7 @@ const DetailsBox = ({
           />
           <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff] ">
             {" "}
-            {endTime == undefined ? "" : endTime.slice(0, 10)}
+            {endTime == undefined ? " ": GregorianToSolar(endTime)}
           </h2>
           <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff] ">
             {" "}
@@ -147,7 +150,7 @@ const DetailsBox = ({
               قیمت:
             </h2>
             <h2 className="text-xl mr-2 text-[#C40F50] dark:text-[#f85691]">
-              {cost}
+              {SeparationPrice(cost)}
             </h2>
             <h2 className="text-md mr-1 text-darkblue opacity-90 dark:text-whitePink ">
               تومان
@@ -164,9 +167,7 @@ const DetailsBox = ({
               setCourseReserve(!courseReserve);
             }}
             type="submit"
-            value={
-              courseReserve ? " رزرو شده " : "ثبت نام در این دوره"
-            }
+            value={courseReserve ? " رزرو شده " : "ثبت نام در این دوره"}
             className="gradient w-full py-4 lg:mb-10 mb-4 rounded-md cursor-pointer"
           />
         </div>

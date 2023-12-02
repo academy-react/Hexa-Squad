@@ -28,17 +28,11 @@ const OurTeachers = () => {
     try {
       const result = await http.get("/Home/GetTeachers");
       console.log(result);
-      const receivedData = result;
-      const filtered = receivedData.filter((teacher) => {
-        return teacher.teacherId > 16;
-      });
-      setTeacherList(filtered);
+      setTeacherList(result.slice(result.length - 3, result.length));
     } catch (error) {
       console.log(error);
     }
   }, []);
-
-
 
   useEffect(() => {
     fetchData();
@@ -54,7 +48,6 @@ const OurTeachers = () => {
         description={item.teacherId}
         course={item.linkdinProfileLink}
         id={item.teacherId}
-        
       />
     );
   });

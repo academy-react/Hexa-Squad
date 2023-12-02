@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useCallback, useEffect } from "react";
-import AdminComments from "../common/AdminComments";
 import { useParams } from "react-router-dom";
 import http from "../../core/services/interceptor/index";
-import userComment from "../../assets/image/userComment.svg";
 import userCommentPic from "../../assets/image/usercommentpic.svg";
+import GregorianToSolar from "../../core/utility/GregorianToSolar/GregorianToSolar";
 import { toast } from "react-toastify";
+import ReplyComment from "../CourseDetails/ReplyComment";
 const UserComments = ({
   name,
   date,
@@ -12,10 +12,15 @@ const UserComments = ({
   uid,
   like,
   disLike,
-
+  author,
   courseId,
+  accept,
+  acceptReplysCount,
+  currentUserEmotion,
+  pictureAddress,
 }) => {
   const [likes, setLikes] = useState(0);
+  const [addLike, setAddLike] = useState(like);
   const [comment, setComment] = useState({});
   const [disLikes, setDislikes] = useState(0);
   const [removeLike, setRemoveLike] = useState(0);
@@ -31,12 +36,13 @@ const UserComments = ({
         "/Course/AddCourseCommentLike?CourseCommandId=" + uid
       );
 
-      setLikes(response);
+      setComment(response);
+
       console.log(response);
       setChangeLikeColor(!changeLikeColor);
-      setLiked(true);
+
       if (response.success) {
-        toast.success("🎉 شما کامنت را لایک کردید");
+        toast.success("🎉 نظر شما ثبت شد");
       } else {
         toast.error(" شما یکبار این کامنت را لایک کردید");
       }
@@ -46,11 +52,6 @@ const UserComments = ({
     }
   };
 
-  // const handleLike = async () => {
-    
-  //   let result = await http.get("/Course/GetCourseCommnets/" + urlParam.id);
-  //   setLikes(result);
-  // };
   const handleRemoveLike = async () => {
     try {
       const response = await http.delete(
@@ -63,7 +64,7 @@ const UserComments = ({
       console.error(error);
     }
   };
-  const handleDisLikeClick = async () => {
+  const handleDisLikeClick = async (value) => {
     try {
       const response = await http.post(
         "/Course/AddCourseCommentDissLike?CourseCommandId=" + uid
@@ -71,111 +72,144 @@ const UserComments = ({
       setDislikes(response);
       console.log(response);
       setChangeDisLikeColor(!changeDisLikeColor);
+      if (response.success) {
+        toast.success("نظر شما ثبت شد");
+      } else {
+        toast.error(" شما قبلا نظر خود را درباره ی این دیدگاه ثبت کردید");
+      }
+      return false;
     } catch (error) {
       console.error(error);
     }
-    setDislikes(response);
   };
 
-  const [adminComment, setAdminComment] = useState({});
+  const [adminComment, setAdminComment] = useState([]);
   const fetchAdminCommentData = useCallback(async () => {
     try {
       const result = await http.get(
         `/Course/GetCourseReplyCommnets/${courseId}/${uid}`
       );
-      console.log(result);
+      // console.log("aadmin",result);
       setAdminComment(result);
     } catch (error) {}
   }, []);
 
   useEffect(() => {
-
     fetchAdminCommentData();
   }, []);
 
-  // const replyComments = adminComment.map((item, index) => {
-  //   return (
-  //     <AdminComments key={index}  />
-  //   );
-  // });
+  const handleDeleteComment = async () => {
+    try {
+      const response = await http.delete(
+        "/Course/DeleteCourseComment?CourseCommandId=" + uid
+      );
+      console.log(uid);
+
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleAccept = async () => {
+    let formData = new FormData();
+    formData.append("CommentCourseId", uid);
+
+    try {
+      const response = await http.post("/Course/AcceptCourseComment", formData);
+      console.log(uid);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [show, setShow] = useState(false);
   return (
     <Fragment>
-      <div className="userComment">
-        <div className="userComment-pic">
+      <div className="userComment relative ">
+        <div className="userComment-pic border-4 border-violet-300">
           <img
-            src={userCommentPic}
+            src={pictureAddress == null ? userCommentPic : pictureAddress}
             alt="picture"
-            className="mx-auto w-full h-full"
+            className="mx-auto w-full h-full rounded-full"
           />
         </div>
         <div className="px-4 ">
-          <p className="inline text-lg md:text-xl  text-darkblue2 dark:text-[#d8d6ff]">
-            {name} -
+          {accept ? (
+            ""
+          ) : (
+            <h2 className="text-pink-500 cursor-pointer" onClick={handleAccept}>
+              not accepted
+            </h2>
+          )}
+          <p className="inline text-lg md:text-xl  text-violet-950 dark:text-[#d8d6ff]">
+            {author + " - "}
           </p>
           <p className="inline text-sm md:text-base text-lightblue4 dark:text-[#b8b5ff] ">
-            ارسال شده در{date.slice(0, 10)}{" "}
+            ارسال شده در {GregorianToSolar(date)}
+            {""}
           </p>
-          <p className="text-sm md:text-base text-justify text-darkblue4 dark:text-[#bebcff] pt-2">
+          <p className="text-sm md:text-sm text-justify text-darkblue4 dark:text-[#bebcff] pt-2">
+            عنوان : {name}
+          </p>
+          <p className="text-sm md:text-base my-3 text-justify text-darkblue4 dark:text-[#bebcff] pt-2">
             {question}
           </p>
-          <div className="flex flex-row gap-4 mt-4">
-            {/* {liked ? (
-              <span
-                className={` cursor-pointer ${
-                  changeLikeColor === true
-                    ? `bbi bi-hand-thumbs-up text-indigo-950 dark:text-indigo-300 `
-                    : `bi bi-hand-thumbs-up text-indigo-950  dark:text-indigo-300`
-                }`}
-                onClick={handleRemoveLike}
-              >
-                {" "}
-                removeLike
-              </span>
-            ) : (
-              <span
-                className={` cursor-pointer ${
-                  changeLikeColor === true
-                    ? `bbi bi-hand-thumbs-up-fill text-indigo-950 dark:text-indigo-300 `
-                    : `bi bi-hand-thumbs-up text-indigo-950  dark:text-indigo-300`
-                }`}
-                onClick={handleLikeClick}
-              >
-                {" "}
-                {like} like
-              </span>
-            )} */}
+          <div className="flex flex-row gap-4 mt-4 ">
+            <h2 className="absolute left-[160px] bottom-5 text-sm text-indigo-800 dark:text-indigo-300">
+              ایا این دیدگاه مفید بود ؟
+            </h2>
             <span
-              className={` cursor-pointer ${
-                changeLikeColor === true
-                  ? `bbi bi-hand-thumbs-up-fill  text-indigo-950 dark:text-indigo-300`
-                  : `bi bi-hand-thumbs-up  text-indigo-950 dark:text-indigo-300`
+              className={` cursor-pointer  absolute left-[120px] bottom-4  ${
+                currentUserEmotion === "LIKED" || changeLikeColor === true
+                  ? `bbi bi-hand-thumbs-up-fill  text-zinc-600 dark:text-indigo-300`
+                  : `bi bi-hand-thumbs-up  text-zinc-600 dark:text-indigo-300`
               }`}
               onClick={handleLikeClick}
             >
-              {like} like
+              {addLike}
             </span>
             <span
-              className={` cursor-pointer ${
+              className={` cursor-pointer absolute left-[83px]  bottom-4 ${
+                currentUserEmotion === "DISSLIKED" ||
                 changeDisLikeColor === true
-                  ? `bbi bi-hand-thumbs-down-fill text-zinc-500  dark:text-slate-400`
-                  : `bi bi-hand-thumbs-down text-zinc-500 dark:text-slate-400`
+                  ? `bbi bi-hand-thumbs-down-fill text-zinc-600  dark:text-slate-400`
+                  : `bi bi-hand-thumbs-down text-zinc-600 dark:text-slate-400`
               }`}
               onClick={handleDisLikeClick}
             >
-              {disLike} DisLike
+              {disLike}
             </span>
+            {/* <span
+              className="bg-red-500 w-4 h-4"
+              onClick={handleDeleteComment}
+            ></span> */}
           </div>
+          <span
+            onClick={() => setShow(!show)}
+            className="bi bi-chat-dots absolute left-8 bottom-4 cursor-pointer text-zinc-600  dark:text-slate-400"
+          >
+            {" " + acceptReplysCount}
+          </span>
         </div>
       </div>
-      {adminComment[0] ? (
-        <AdminComments
-          title={adminComment[0].title}
-          desc={adminComment[0].describe}
-        />
-      ) : (
-        " "
-      )}
-      {/* {adminComments} */}
+
+      {acceptReplysCount > 0
+        ? show &&
+          adminComment.map((item, index) => {
+            return (
+              <ReplyComment
+                key={index}
+                pictureAddress={item.pictureAddress}
+                author={item.author}
+                title={item.title}
+                desc={item.describe}
+                insertDate={item.insertDate}
+              />
+            );
+          })
+        : " "}
     </Fragment>
   );
 };

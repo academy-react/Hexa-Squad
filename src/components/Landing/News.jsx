@@ -39,7 +39,7 @@ const News = () => {
     );
   });
   return (
-    <section className="mb-28 overflow-hidden">
+    <section className="mb-28">
       <div className=" w-[440px] md:w-[740px] relative mt-20 lg:m-auto  mx-auto lg:mt-56">
         <Title inner={"اخبار و مقالات"} className={"title1"} />
         <Link to="/news" className={"text-newWhite hover:text-newWhite"}>
@@ -49,7 +49,7 @@ const News = () => {
         </Link>
       </div>
 
-      <div className="news-wrapper">{newsCardsMapper}</div>
+      <div className="news-wrapper ">{newsCardsMapper}</div>
       <Link to="/news" className={"text-newWhite hover:text-newWhite"}>
         <button className="primary-btn w-auto lg:w-56 lg:my-10 py-3 hidden md:hidden lg:block mx-auto">
           مشاهده ی همه

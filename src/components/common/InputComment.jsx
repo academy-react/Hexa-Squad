@@ -1,19 +1,19 @@
 import React, { Fragment, useState, useEffect } from "react";
-import AddNewsComments from "../../core/services/api/PostData/addNewsComments";
-import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useParams } from "react-router-dom";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import http from "../../core/services/interceptor/index";
+import { getProfile } from "../../core/services/api/GetData/profile";
 import getProfileInfo from "../../core/services/api/GetData/getProfileInfo";
 import { toast } from "react-toastify";
-import addCommentForCourse from "../../core/services/api/PostData/addCommentForCourse";
-const InputComment = ({ question, name, setComment }) => {
-  // const [comment, setComment] = useState([]);
+
+const InputComment = ({ question, name, setComment, accept }) => {
   const [urlParam, setUrlParam] = useState(useParams());
   const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
     getProfileInfo(setUserInfo);
   }, []);
+
   const initialValues = {
     Title: name,
     Describe: question,
@@ -29,8 +29,9 @@ const InputComment = ({ question, name, setComment }) => {
       console.log(urlParam.id);
       console.log(value.Describe);
       console.log(response);
+
       if (response.success) {
-        toast.success("🎉کامنت شما ثبت شد");
+        toast.success(" کامنت شما ثبت شد");
       } else {
         toast.error(" لطفا متن کامنت را به درستی وارد کنید");
       }
@@ -43,23 +44,31 @@ const InputComment = ({ question, name, setComment }) => {
 
   const handle = async (value) => {
     addComment(value);
+
     let result = await http.get("/Course/GetCourseCommnets/" + urlParam.id);
     setComment(result);
+  };
+  const handleClick = async () => {
+    const user = await getProfile();
+    if (user == false) {
+      showLoginModal.click();
+      return false;
+    } else {
+      handle(value);
+      return true;
+    }
   };
   useEffect(() => {
     handle();
   }, []);
   return (
-
-
     <Fragment>
       <h2 className="text-xl md:text-3xl lg:text-3xl text-darkblue2 dark:text-[#6974FF] pt-4 lg:pr-2 pb-8">
         افزودن نظر
       </h2>
       <div>
-     
         <p className="inline text-base md:text-xl lg:text-xl text-darkblue2 dark:text-[#9996F9] lg:pr-4">
-          {userInfo.fName +" "+ userInfo.lName}
+          {userInfo.fName + " " + userInfo.lName}
         </p>
       </div>
       <Formik initialValues={initialValues} onSubmit={handle}>
@@ -79,7 +88,9 @@ const InputComment = ({ question, name, setComment }) => {
           </div>
 
           <div>
-            <label htmlFor="Describe" className="hidden">Describe</label>
+            <label htmlFor="Describe" className="hidden">
+              Describe
+            </label>
             <Field
               as="textarea"
               id="Describe"
@@ -93,6 +104,7 @@ const InputComment = ({ question, name, setComment }) => {
           <button
             type="submit"
             className="primary-btn md:w-[150px] lg:w-[180px] mt-8  lg:mr-6 lg:mb-20"
+            onClick={handleClick}
           >
             ثبت نظر
           </button>
