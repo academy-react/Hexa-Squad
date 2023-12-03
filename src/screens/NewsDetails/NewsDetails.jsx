@@ -195,7 +195,7 @@ const NewsDetails = () => {
                   {data.currentLikeCount}
                 </span>
               </div>
-              <div
+              {/* <div
                 className="course-like-box py-2 mr-1.5 pl-4 bg-[#e3deff]"
                 // onClick={() => addWishList(id, isLogin)}
               >
@@ -203,7 +203,7 @@ const NewsDetails = () => {
                   className="bbi bi-hand-thumbs-down text-zinc-500"
                 >
                 </span>
-              </div>
+              </div> */}
             </div>
             <div className="flex md:flex-row flex-wrap gap-x-4">
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">

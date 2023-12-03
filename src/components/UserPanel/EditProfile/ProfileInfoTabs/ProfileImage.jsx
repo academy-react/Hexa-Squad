@@ -36,7 +36,7 @@ const ProfileImage = () => {
         </div>
 
         <CheckboxInput name={"showEditImageModal"} />
-        <EditImageModal userInfo={userInfo} />
+        <EditImageModal userInfo={userInfo} setUserInfo={setUserInfo} />
         <span 
           className="flex gap-x-3 mt-8 text-slate-600/90 dark:text-semiWhite2 justify-center cursor-pointer"
           dir="ltr"

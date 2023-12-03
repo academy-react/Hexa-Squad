@@ -4,6 +4,7 @@ import SeparationPrice from "../../core/utility/SeparationPrice/SeparationPrice"
 import { addLike } from "../../core/services/api/PutData/addLikeToCourse";
 // import { addDisLike } from "../../core/services/api/addDisLike";
 import handleCourseAddLike from "../../core/services/api/PostData/addCourseLike";
+import handleCourseDisLike from "../../core/services/api/PostData/addCourseDisLike";
 
 import likePic from "../../assets/image/like.svg";
 import dislikePic from "../../assets/image/dislike.svg";
@@ -24,12 +25,14 @@ const CourseBody = ({
   date,
   professorName,
   likeCount,
+  dissLikeCount,
   courseRate,
   studentCount,
   price,
   bio,
   courseId,
   userIsLiked,
+  userIsDissLiked,
 }) => {
   // const [isLogin, setIsLogin] = useState(false);
   const [changeLikeColor, setChangeLikeColor] = useState(0);
@@ -88,19 +91,46 @@ const CourseBody = ({
               {likeCount}
             </span>
           </div>
-          {courseRate !== undefined && (
+          <div
+            className="course-like-box py-2 mr-4 bg-[#e3deff] "
+            onClick={() =>
+              handleCourseDisLike(
+                courseId,
+                changeDisLikeColor,
+                setChangeDisLikeColor
+              )
+            }
+          >
+            <span
+              className={` cursor-pointer ${
+                changeDisLikeColor || userIsDissLiked === true
+                  ? `bbi bi-hand-thumbs-down-fill text-zinc-500 `
+                  : `bbi bi-hand-thumbs-down text-zinc-500`
+              }`}
+            >
+              {" "}
+              {dissLikeCount}
+            </span>
+          </div>
+          {/* {courseRate !== undefined && (
             <div className="course-like-box py-2 mr-4 bg-transparent text-zinc-500 skeleton-handler">
               <span className={"cursor-pointer  bi bi-star mx-1 "}></span>
               {courseRate}
             </div>
-          )}
+          )} */}
         </div>
       </div>
       <div className="mt-6 border-t-2 border-[#00018533] pt-4 pb-8 flex justify-between whitespace-nowrap">
-        <div className="student-count skeleton-handler">
+        {/* <div className="student-count skeleton-handler">
           {studentCount && peopleSvg}
           <h3 className="course-info text-sm">{studentCount}</h3>
-        </div>
+        </div> */}
+          {courseRate !== undefined && (
+            <div className="course-like-box mr-4 bg-transparent text-zinc-500 skeleton-handler">
+              <span className={"bi bi-star ml-3 "}></span>
+              {courseRate}
+            </div>
+          )}
         <h3 className="inline text-xl text-newPurple4 mr-10 skeleton-handler">
           {price && SeparationPrice(price.toString())}
           <span className="text-slate-600 dark:text-[#9996F9] text-base mr-3">

@@ -10,8 +10,9 @@ import AddImageModal from "./AddImageModal";
 
 import pic from '../../../../assets/image/user-circle-icon.png';
 import darkPic from "../../../../assets/image/user-circle-icon-white.png";
+import getProfileInfo from "../../../../core/services/api/GetData/getProfileInfo";
 
-const EditImageModal = ({userInfo}) => {
+const EditImageModal = ({userInfo, setUserInfo}) => {
 
     const navigate = useNavigate();
     // Select Profile Image API
@@ -28,6 +29,7 @@ const EditImageModal = ({userInfo}) => {
             // setTimeout(() => {
             //     navigate("/userPanel");
             //   }, 2000);
+            getProfileInfo(setUserInfo)
 
            } else if (!result.success) {
             toast.error(result.message)
@@ -51,6 +53,8 @@ const EditImageModal = ({userInfo}) => {
             // setTimeout(() => {
             //     navigate("/userPanel");
             //   }, 2000);
+            
+            getProfileInfo(setUserInfo)
 
            } else if (!result.success) {
             toast.error(result.message)

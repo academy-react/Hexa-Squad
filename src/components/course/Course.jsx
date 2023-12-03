@@ -17,6 +17,7 @@ const Course = ({
   professorName,
   bio,
   like,
+  dissLike,
   courseRate,
   studentCount,
   price,
@@ -24,6 +25,7 @@ const Course = ({
   addClass,
   userFavorite,
   userIsLiked,
+  userIsDissLiked,
   userFavoriteId,
   skeleton,
 }) => {
@@ -57,9 +59,11 @@ const Course = ({
         date={date}
         professorName={professorName}
         likeCount={like}
+        dissLikeCount={dissLike}
         courseRate={courseRate}
         bio={bio}
         userIsLiked={userIsLiked}
+        userIsDissLiked={userIsDissLiked}
         studentCount={studentCount}
         price={price}
       />

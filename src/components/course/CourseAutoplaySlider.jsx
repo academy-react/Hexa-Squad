@@ -24,9 +24,11 @@ const CourseAutoplaySlider = () => {
           date={item.lastUpdate}
           professorName={item.teacherName}
           like={item.likeCount}
+          dissLike={item.dissLikeCount}
           courseRate={item.courseRate}
           userFavorite={item.userFavorite}
           userIsLiked={item.userIsLiked}
+          userIsDissLiked={item.userIsDissLiked}
           studentCount={item.currentRegistrants}
           price={item.cost}
           width={"lg:w-[24%]"}

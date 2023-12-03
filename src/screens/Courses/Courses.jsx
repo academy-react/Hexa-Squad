@@ -129,12 +129,14 @@ const Courses = () => {
         date={data.lastUpdate}
         professorName={data.teacherName}
         like={data.likeCount}
+        dissLike={data.dissLikeCount}
         courseRate={data.courseRate}
         studentCount={data.currentRegistrants}
         price={data.cost}
         addClass={"h-[441px] mx-auto"}
         image={data.tumbImageAddress}
         userIsLiked={data.userIsLiked}
+        userIsDissLiked={data.currentUserDissLike}
       />
     );
   });
