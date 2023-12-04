@@ -53,7 +53,7 @@ const Login = () => {
             icon={"lock-fill"}
             type="password"
           />
-          <div className=" flex gap-2 justify-start w-full p-4 absolute -bottom-10 md:left-4 mr-8 md:mr-0">
+          <div className=" flex gap-2 justify-start w-full p-4 absolute bottom-48 md:-left-8 mr-8 md:mr-0">
             <Field
               type="checkbox"
               name="rememberMe"
@@ -69,7 +69,7 @@ const Login = () => {
           </div>
           <Link
             to={"/authorize/Verification"}
-            className="mb-12 ml-[-200px] pointer text-violet-700 dark:text-slate-300"
+            className="mb-11 ml-[-200px] pointer text-violet-700 dark:text-slate-300"
           >
             فراموشی رمز؟
           </Link>

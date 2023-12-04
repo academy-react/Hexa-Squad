@@ -3,17 +3,23 @@ import { Formik, Form } from "formik";
 import { validation } from "../../../core/validations/validations";
 import FieldInput from "../../common/FieldInput";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ChangePassword = () => {
+  const navigator = useNavigate();
   const [visible, setVisibility] = useState(false);
   const toggle = () => {
     setVisibility(!visible);
   };
+  useEffect(() => {
+    // navigator("/authorize/Verification/2");
+  }, []);
   return (
     <div className="bg-[#e4dbff]">
       <h2 className="text-[#6652eb] md:text-3xl dark:text-indigo-100 text-2xl top-14 md:top-10 md:left-[320px] left-[140px]  absolute">
         {" "}
-           رمز عبور جدید
+        رمز عبور جدید
       </h2>
       <div
         className=" text-newPurpleAlpha mx-auto w-[400px] absolute mt-16 left-0 md:left-44"

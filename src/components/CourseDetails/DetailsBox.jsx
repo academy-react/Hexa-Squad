@@ -14,6 +14,7 @@ import dateDark from "../../assets/icons/dateDark.svg";
 import studentDark from "../../assets/icons/studentDark.svg";
 import teacher from "../../assets/image/teacher'sProfile.jpg";
 import GregorianToSolar from "../../core/utility/GregorianToSolar/GregorianToSolar";
+import { getItem } from "../../core/services/local-storage/storage.services";
 
 const DetailsBox = ({
   id,
@@ -30,6 +31,15 @@ const DetailsBox = ({
 }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [courseReserve, setCourseReserve] = useState(false);
+  const addReserve = () => {
+    const token = getItem("token");
+    if (token) {
+      addReserve(isCourseReseve == "1" ? courseReseveId : id, isCourseReseve);
+      setCourseReserve(!courseReserve);
+    } else {
+      showLoginModal.click();
+    }
+  };
   useEffect(() => {
     if (isCourseReseve == "1") {
       setCourseReserve(true);
@@ -118,7 +128,7 @@ const DetailsBox = ({
           />
           <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff] ">
             {" "}
-            {startTime == undefined ? " ": GregorianToSolar(startTime)}
+            {startTime == undefined ? " " : GregorianToSolar(startTime)}
             {/* {startTime} */}
             {/* {startTime == undefined ? "" : startTime.slice(0, 10)} */}
           </h2>
@@ -136,7 +146,7 @@ const DetailsBox = ({
           />
           <h2 className="text-sm absolute left-2 text-[#210654] dark:text-[#f5f1ff] ">
             {" "}
-            {endTime == undefined ? " ": GregorianToSolar(endTime)}
+            {endTime == undefined ? " " : GregorianToSolar(endTime)}
           </h2>
           <h2 className="text-sm mr-8 my-6 text-[#210654] opacity-80 dark:text-[#f5f1ff] ">
             {" "}
@@ -158,13 +168,7 @@ const DetailsBox = ({
         </div>
         <div className="mx-6 mt-3 mb-8 lg:mb-0 ">
           <input
-            onClick={() => {
-              addReserve(
-                isCourseReseve == "1" ? courseReseveId : id,
-                isCourseReseve
-              );
-              setCourseReserve(!courseReserve);
-            }}
+            onClick={addReserve}
             type="submit"
             value={courseReserve ? " رزرو شده " : "ثبت نام در این دوره"}
             className="gradient w-full py-4 lg:mb-10 mb-4 rounded-md cursor-pointer"

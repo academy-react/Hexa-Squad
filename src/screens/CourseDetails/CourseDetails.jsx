@@ -14,6 +14,7 @@ const CourseDetails = () => {
   const [coursesWhishList, setCoursesWhishList] = useState([]);
   const [urlParam, setUrlParam] = useState(useParams());
   const [data, setData] = useState([]);
+  console.log(data);
   const mapCourses = coursesWhishList.map((item, index) => {
     return (
       <Course

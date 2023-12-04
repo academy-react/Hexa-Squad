@@ -24,7 +24,7 @@ const myCoursesReserve = () => {
       setCountInPage={setCountInPage}
       pageCount={pageCount}
       title={"لیست مورد علاقه ها"}
-      addIcon={"trash"}
+      addIcon={"pencil"}
       AllData={List}
     />
   );

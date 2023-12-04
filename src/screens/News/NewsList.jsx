@@ -18,8 +18,9 @@ const NewsList = () => {
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
 
-  const [newsData, setNewsData] = useState([]);
-  const [newsAllData, setNewsAllData] = useState([]);
+  const [newsData, setNewsData] = useState([{skeleton: true},{skeleton: true},{skeleton: true}]);
+  console.log(newsData);
+  const [newsAllData, setNewsAllData] = useState([{skeleton: true},{skeleton: true},{skeleton: true}]);
   const [filterDiv, setFilterDiv] = useState(true);
   const [itemOffset, setItemOffset] = useState(0);
   const countInPage = 5;
@@ -42,15 +43,17 @@ const NewsList = () => {
   }, [fetchNewsApi]);
 
   const newsCardsMapper = currentItems.map((item, index) => {
+    console.log(item);
     return (
       <NewsCard
         key={index}
         id={item.id}
         img={item.currentImageAddressTumb}
         name={item.title}
+        skeleton={item.skeleton}
         description={item.miniDescribe}
         views={item.currentView}
-        date={item.updateDate.slice(0, 10)}
+        date={item.updateDate}
       />
     );
   });

@@ -5,7 +5,10 @@ import http from "../../core/services/interceptor";
 import NewsCard from "./NewsCard";
 import Title from "../common/Title";
 const News = () => {
-  const [newsList, setNewsList] = useState([]);
+  const [newsList, setNewsList] = useState([
+    { skeleton: true },
+    { skeleton: true },
+  ]);
   const fetchData = useCallback(async () => {
     try {
       const result = await http.get(
@@ -31,6 +34,7 @@ const News = () => {
         name={item.title}
         description={item.miniDescribe}
         views={item.currentView}
+        skeleton={item.skeleton}
         date={item.insertDate}
         key={item.id}
         id={item.id}
