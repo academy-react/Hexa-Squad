@@ -4,7 +4,6 @@ import ReactSwitch from "react-switch";
 import ThemeSwitcher from "../../common/ThemeSwitcher";
 import Moon from "../../../assets/image/Moon.svg";
 import MoonColored from "../../../assets/image/Moon - colored.svg";
-import { ShoppingPopover } from "../../common";
 import { useSelector } from "react-redux";
 const HeaderButtons = ({ setLightMode, lightMode, headerStyle }) => {
   const userInfo = useSelector((state) => state.userInfo.info);
@@ -48,10 +47,10 @@ const HeaderButtons = ({ setLightMode, lightMode, headerStyle }) => {
           }
         ></i>
       </div>
-      <ShoppingPopover headerStyle={headerStyle} />
+      {/* <ShoppingPopover headerStyle={headerStyle} /> */}
       {userInfo == false ? (
         <Link to={"/authorize/login"}>
-          <button className="primary-btn">
+          <button className="primary-btn whitespace-nowrap">
             <i className="bi bi-box-arrow-in-right pt-1"></i>
             ورود به سایت
           </button>

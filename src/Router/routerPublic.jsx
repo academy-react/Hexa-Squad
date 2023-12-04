@@ -29,8 +29,6 @@ import UserDashboard from "../screens/Panel/UserDashboard";
 import ProfileInfoTabs from "../screens/Panel/ProfileInfoTabs";
 import NewsFavorite from "../screens/Panel/NewsFavorite";
 import MyCoursesReserve from "../screens/Panel/myCoursesReserve";
-
-import ShoppingCard from "../screens/ShoppingCard/ShoppingCard";
 export const routerPublic = createBrowserRouter([
   {
     path: "/",
@@ -50,7 +48,6 @@ export const routerPublic = createBrowserRouter([
         children: [{ path: "/NewsDetails/:id", element: <NewsDetails /> }],
       },
       { path: "/CourseDetails", element: <CourseDetails /> },
-      { path: "/ShoppingCard", element: <ShoppingCard /> },
       {
         path: "/TeacherProfile",
         element: <TeacherProfile />,
