@@ -72,6 +72,8 @@ const CourseDetails = () => {
               likeCount={data.likeCount}
               dissLikeCount={data.dissLikeCount}
               miniDescribe={data.miniDescribe}
+              currentUserSetRate={data.currentUserSetRate}
+              currentUserRateNumber={data.currentUserRateNumber}
             />
 
             {/* moshakhasat */}

@@ -1,8 +1,11 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
 import { EditProfileValidation } from "../../../../core/validations/EditProfileValidation";
 import PersianCalendar from "../../../common/PersianCalendar";
+// import PersianCalendarNew from "../../../common/newDatePicker/PersianCalendarNew";
+// import MakeDatePickerDatePersian from "../../../common/newDatePicker/MakeDatePickerDatePersian";
+// import MakeDateEnglish from "../../../common/newDatePicker/MakeDateEnglish";
 
 const EditProfileInfo = (
     {
@@ -19,6 +22,21 @@ const EditProfileInfo = (
         telegramLink,
         handleEditProfileInfo
     }) => {
+
+    // const [datePickerDateTime, setDatePickerDateTime] = useState(
+    //     MakeDatePickerDatePersian(birthDay)
+    // );
+
+    // const handleSubmit = (value) => {    
+    //     const newValue = {
+    //       ...value,
+    //     //   LinkdinProfile: value.LinkdinProfile?.toString(),
+    //       Gender: Boolean(value.Gender),
+    //       BirthDay: MakeDateEnglish(datePickerDateTime),
+    //     };
+    
+    //     handleEditProfileInfo(newValue)
+    //   };
 
   return (
     <Fragment>
@@ -75,6 +93,10 @@ const EditProfileInfo = (
                 <div className="editProf-input">
                     <label className="block my-2">تاریخ تولد</label>
                     <PersianCalendar name={"birthDay"} birthDate={birthDay}/>
+                    {/* <PersianCalendarNew
+                        datePickerDateTime={datePickerDateTime}
+                        setDatePickerDateTime={setDatePickerDateTime}
+                    /> */}
                     <ErrorMessage name="birthDay" className="editProf-errorMessage" component={'span'}/>
                 </div>
                 {/* <div className="editProf-input">

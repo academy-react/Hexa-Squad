@@ -21,7 +21,9 @@ const CoursePhoto = ({
   dissLikeCount,
   userLikeId,
   isUserFavorite,
-  miniDescribe
+  miniDescribe,
+  currentUserSetRate,
+  currentUserRateNumber,
 }) => {
   const [changeLikeColor, setChangeLikeColor] = useState(0);
   const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
@@ -35,7 +37,7 @@ const CoursePhoto = ({
     isUserFavorite === true && setIsFavorite(true);
   }, [isUserFavorite]);
 
-  const [currentUserIsLike, setCurrentUserIsLike] = useState(currentUserLike);
+  // const [currentUserIsLike, setCurrentUserIsLike] = useState(currentUserLike);
 
   return (
     <div
@@ -70,7 +72,12 @@ const CoursePhoto = ({
           <h2 className="lg:text-lg text-sm mt-1 dark:text-indigo-400 text-[#302064]">
             میزان رضایت مندی خود نسبت به این دوره را ثبت نمایید!
           </h2>
-          <Rate id={courseId} handleRate={handleCourseRate} />
+          <Rate 
+            id={courseId} 
+            handleRate={handleCourseRate} 
+            currentUserSetRate={currentUserSetRate} 
+            currentUserRateNumber={currentUserRateNumber}
+          />
         </div>
         <div className="flex flex-row mt-8">
           <h2 className="lg:text-base text-sm mt-1 dark:text-indigo-400 text-[#302064]">
@@ -85,7 +92,7 @@ const CoursePhoto = ({
                       courseId,
                       likeCount,
                       changeLikeColor,
-                      setChangeLikeColor
+                      setChangeLikeColor,
                     )
                 : () =>
                     handleCourseDeleteLike(
