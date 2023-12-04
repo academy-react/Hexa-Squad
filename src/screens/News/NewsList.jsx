@@ -21,7 +21,7 @@ const NewsList = () => {
   const [newsData, setNewsData] = useState([{skeleton: true},{skeleton: true},{skeleton: true}]);
   console.log(newsData);
   const [newsAllData, setNewsAllData] = useState([{skeleton: true},{skeleton: true},{skeleton: true}]);
-  const [filterDiv, setFilterDiv] = useState(true);
+  const [filterDiv, setFilterDiv] = useState(false);
   const [itemOffset, setItemOffset] = useState(0);
   const countInPage = 5;
   const endOffset = itemOffset + countInPage;

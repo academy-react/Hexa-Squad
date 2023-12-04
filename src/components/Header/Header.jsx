@@ -21,6 +21,7 @@ const Header = () => {
   const setLightMode = (lightMode) => {
     dispatch(onThemeChange(lightMode));
   };
+  console.log("headerStyle", headerStyle);
   const getProfileFunction = async () => {
     const user = await getProfile();
     dispatch(onUserChange(user));
@@ -47,13 +48,9 @@ const Header = () => {
                 src={Logo}
                 alt="Hexa Squad Logo"
                 className={
-                  "logo hidden dark:hidden  " + (headerStyle ? "" : "md:block")
+                  "logo dark:hidden  " +
+                  (headerStyle ?'hidden': "block")
                 }
-              />
-              <img
-                src={LogoIcon}
-                alt="Hexa Squad Logo"
-                className="logo md:hidden "
               />
               <img
                 data-aos="zoom-in"
@@ -61,8 +58,7 @@ const Header = () => {
                 src={LogoWhite}
                 alt="Hexa Squad Logo"
                 className={
-                  "md:logo hidden dark:md:block " +
-                  (headerStyle ? "md:block" : "")
+                  "logo dark:block " + (headerStyle ? "block" : "hidden")
                 }
               />
             </Link>
@@ -78,7 +74,7 @@ const Header = () => {
               headerStyle={headerStyle}
             />
           </li>
-          <li className="mobile-menu-holder">
+          <li className="mobile-menu-holder z-[5000]">
             <MobileMenu lightMode={lightMode} setLightMode={setLightMode} />
           </li>
         </ul>

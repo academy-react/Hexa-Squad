@@ -12,7 +12,7 @@ const SearchBox = ({placeholder,SearchFunction,addClass ,inputClass}) => {
       />
       <i
         className={
-          "bi bi-search absolute z-[500] top-3 text-xl left-4 text-[#12124266] dark:text-[#fff] " + inputClass
+          "bi bi-search absolute top-3 text-xl left-4 text-[#12124266] dark:text-[#fff] " + inputClass
         }
       ></i>
     </div>

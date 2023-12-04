@@ -13,7 +13,7 @@ import LoadingSpinner from "../../components/common/loadingSpinner";
 const Courses = () => {
   const searchRef = useRef();
   const [showGrid, setShowGrid] = useState(false);
-  const [filterDiv, setFilterDiv] = useState(true);
+  const [filterDiv, setFilterDiv] = useState(false);
   const [data, setData] = useState([{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true}]);
 
   console.log(data);

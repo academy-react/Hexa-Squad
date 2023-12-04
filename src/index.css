@@ -144,12 +144,12 @@
 
   #openMenu:checked+.header-buttons .openMenu {
     background-color: #1212421a;
-    @apply rounded-lg left-[85%] dark:bg-darkblue;
+    @apply rounded-lg left-[85%] z-[50000] dark:bg-darkblue;
   }
 
   #openMenu:checked~.mobile-menu-holder .mobile-menu {
     box-shadow: 0 0 1500px 1000px #0005;
-    @apply w-8/12 p-8;
+    @apply w-8/12 p-8 z-[5000];
   }
 
   /* 
@@ -190,7 +190,7 @@
   /* Mobile Menu */
   .mobile-menu {
     transition: 0.2s;
-    @apply flex lg:hidden absolute left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden dark:bg-darkblue2;
+    @apply flex lg:hidden absolute z-50 left-0 top-0 h-[100vh] bg-lightPink w-0 flex-col items-end overflow-hidden dark:bg-darkblue2;
   }
 
   /* Hero Section */
