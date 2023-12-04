@@ -42,8 +42,7 @@ const CourseDetails = () => {
         `/Home/GetCourseDetails?CourseId=` +
           urlParam.id
       );
-      const receivedData = result;
-      setData(receivedData);
+      setData(result);
     } catch (error) {}
   }, []);
 

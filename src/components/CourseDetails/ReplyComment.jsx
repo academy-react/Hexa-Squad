@@ -12,6 +12,8 @@ const ReplyComment = ({ author, title, desc, pictureAddress, insertDate }) => {
         transition={{ duration: 0.3 }}
         className="overflow-clip"
       >
+        
+        
         <div className=" w-full bg-[#d0cdff] py-1 dark:bg-indigo-700 dark:text-indigo-300 ">
           <AdminComments
             title={title}

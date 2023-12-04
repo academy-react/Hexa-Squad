@@ -5,6 +5,7 @@ import userCommentPic from "../../assets/image/usercommentpic.svg";
 import GregorianToSolar from "../../core/utility/GregorianToSolar/GregorianToSolar";
 import { toast } from "react-toastify";
 import ReplyComment from "../CourseDetails/ReplyComment";
+import AddReplyComment from "../CourseDetails/AddReplyComment";
 const UserComments = ({
   name,
   date,
@@ -87,7 +88,6 @@ const UserComments = ({
       const result = await http.get(
         `/Course/GetCourseReplyCommnets/${courseId}/${uid}`
       );
-      // console.log("aadmin",result);
       setAdminComment(result);
     } catch (error) {}
   }, []);
@@ -95,6 +95,18 @@ const UserComments = ({
   useEffect(() => {
     fetchAdminCommentData();
   }, []);
+  const replyComments = adminComment.map((item, index) => {
+    return (
+      <ReplyComment
+        key={index}
+        pictureAddress={item.pictureAddress}
+        author={item.author}
+        title={item.title}
+        desc={item.describe}
+        insertDate={item.insertDate}
+      />
+    );
+  });
 
   const handleDeleteComment = async () => {
     try {
@@ -126,14 +138,14 @@ const UserComments = ({
   return (
     <Fragment>
       <div className="userComment relative ">
-        <div className="userComment-pic border-4 border-violet-300">
+        <div className="userComment-pic border-4 border-violet-300 ">
           <img
             src={pictureAddress == null ? userCommentPic : pictureAddress}
             alt="picture"
             className="mx-auto w-full h-full rounded-full"
           />
         </div>
-        <div className="px-4 ">
+        <div className="pr-4">
           {accept ? (
             ""
           ) : (
@@ -154,12 +166,12 @@ const UserComments = ({
           <p className="text-sm md:text-base my-3 text-justify text-darkblue4 dark:text-[#bebcff] pt-2">
             {question}
           </p>
-          <div className="flex flex-row gap-4 mt-4 ">
-            <h2 className="absolute left-[160px] bottom-5 text-sm text-indigo-800 dark:text-indigo-300">
+          <div className="flex flex-row gap-4  ">
+            <h2 className="absolute left-40  lg:left-[160px]  lg:bottom-5 text-sm text-indigo-800 dark:text-indigo-300">
               ایا این دیدگاه مفید بود ؟
             </h2>
             <span
-              className={` cursor-pointer  absolute left-[120px] bottom-4  ${
+              className={` cursor-pointer  absolute left-[120px]  lg:bottom-4  ${
                 currentUserEmotion === "LIKED" || changeLikeColor === true
                   ? `bbi bi-hand-thumbs-up-fill  text-zinc-600 dark:text-indigo-300`
                   : `bi bi-hand-thumbs-up  text-zinc-600 dark:text-indigo-300`
@@ -169,7 +181,7 @@ const UserComments = ({
               {addLike}
             </span>
             <span
-              className={` cursor-pointer absolute left-[83px]  bottom-4 ${
+              className={` cursor-pointer absolute left-[83px]  lg:bottom-4 ${
                 currentUserEmotion === "DISSLIKED" ||
                 changeDisLikeColor === true
                   ? `bbi bi-hand-thumbs-down-fill text-zinc-600  dark:text-slate-400`
@@ -183,31 +195,27 @@ const UserComments = ({
               className="bg-red-500 w-4 h-4"
               onClick={handleDeleteComment}
             ></span> */}
+            <span
+              onClick={() => setShow(!show)}
+              className="bi bi-chat-dots absolute left-8  lg:bottom-4 cursor-pointer text-zinc-600  dark:text-slate-400"
+            >
+              {" " + acceptReplysCount}
+            </span>
           </div>
-          <span
-            onClick={() => setShow(!show)}
-            className="bi bi-chat-dots absolute left-8 bottom-4 cursor-pointer text-zinc-600  dark:text-slate-400"
-          >
-            {" " + acceptReplysCount}
-          </span>
+
+          <AddReplyComment
+            title={adminComment.title}
+            desc={adminComment.describe}
+            author={adminComment.author}
+            uid={uid}
+            courseId={courseId}
+            accept={accept}
+            setAdminComment={setAdminComment}
+          />
         </div>
       </div>
 
-      {acceptReplysCount > 0
-        ? show &&
-          adminComment.map((item, index) => {
-            return (
-              <ReplyComment
-                key={index}
-                pictureAddress={item.pictureAddress}
-                author={item.author}
-                title={item.title}
-                desc={item.describe}
-                insertDate={item.insertDate}
-              />
-            );
-          })
-        : " "}
+      {acceptReplysCount > 0 ? show && replyComments : " "}
     </Fragment>
   );
 };

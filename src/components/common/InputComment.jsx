@@ -18,6 +18,7 @@ const InputComment = ({ question, name, setComment, accept }) => {
     Title: name,
     Describe: question,
   };
+  
   const addComment = async (value) => {
     try {
       let formData = new FormData();
@@ -26,9 +27,9 @@ const InputComment = ({ question, name, setComment, accept }) => {
       formData.append("Describe", value.Describe);
 
       const response = await http.post("/Course/AddCommentCourse", formData);
-      console.log(urlParam.id);
-      console.log(value.Describe);
-      console.log(response);
+      // console.log(urlParam.id);
+      // console.log(value.Describe);
+      // console.log(response);
 
       if (response.success) {
         toast.success(" کامنت شما ثبت شد");
@@ -76,7 +77,7 @@ const InputComment = ({ question, name, setComment, accept }) => {
               Title
             </label>
             <Field
-              type="text"
+              
               id="Title"
               name="Title"
               placeholder=" عنوان پیام را وارد کنید"

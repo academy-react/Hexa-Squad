@@ -29,18 +29,17 @@ const TabsContent = ({ describe }) => {
         setComment={setComment}
         author={item.author}
         accept={item.accept}
-        currentUserDissLike ={item.currentUserDissLike }
+        currentUserDissLike={item.currentUserDissLike}
         currentUserEmotion={item.currentUserEmotion}
         pictureAddress={item.pictureAddress}
       />
     );
   });
   const fetchCommentData = useCallback(async () => {
-    
     try {
       const result = await http.get(`/Course/GetCourseCommnets/` + urlParam.id);
       console.log(result);
-      
+
       setComment(result);
     } catch (error) {}
   }, []);
@@ -57,13 +56,6 @@ const TabsContent = ({ describe }) => {
 
             <div className="text-gray-700 w-full mt-6 ">
               <p className=" text-zinc-700 mt-3 leading-10  lg:ml-8 md:mx-2  dark:text-indigo-200 text-justify">
-                {/* واژه HTML (اچ‌‌تی‌‌ام‌ال) مخفف Hyper Text Markup Language به
-                معنی زبان نشانه‌‌گذاری فوق متن است. HTML به عنوان زبان بنیادی
-                طراحی وب، یکی از ساده‌ترین زبان‌های کامپیوتری است که با استفاه
-                از آن می‌توانیم اسکلت اصلی وب‌سایت را طراحی کنیم. HTML از تگ‌ها
-                یا نشانگرهای خاص برای نشان دادن محتوا و ساختار صفحات استفاده
-                می‌کند، این تگ‌ها به مرورگر اعلام می‌‌کنند، که هر بخش از صفحه چه
-                نوع عنصری است و باید به چه صورت نمایش داده شود. */}
                 {describe}
               </p>
             </div>
@@ -111,7 +103,7 @@ const TabsContent = ({ describe }) => {
                   نظرات کاربران در رابطه با این دوره{" "}
                 </h3>
               </div>
-              
+
               {userComments}
             </div>
           </div>
