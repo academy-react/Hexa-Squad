@@ -9,6 +9,8 @@ import InputComment from "../../components/common/InputComment";
 import AdminComments from "../../components/common/AdminComments";
 import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
 import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike"; 
+import handleNewsDisLike from "../../core/services/api/PostData/addNewsDisLike";
+import handleNewsDeleteLike from "../../core/services/api/DeleteData/deleteNewsLike";
 import Rate from "../../components/common/Rate";
 import handleNewsRate from "../../core/services/api/PostData/addNewsRate";
 
@@ -31,6 +33,8 @@ const NewsDetails = () => {
   const [comment, setComment] = useState([]);
   const [currentUserIsLike, setCurrentUserIsLike] = useState();
   const [changeLikeColor, setChangeLikeColor] = useState(0);
+  const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
+  const [newsLikeId, setNewsLikeId] = useState();
   const [isFavorite, setIsFavorite] = useState(false);
 
   const { scrollYProgress } = useScroll();
@@ -58,6 +62,7 @@ const NewsDetails = () => {
       setData(result.detailsNewsDto);
       setComment(result.commentDtos);
       setCurrentUserIsLike(result.detailsNewsDto.currentUserIsLike)
+      setNewsLikeId(result.detailsNewsDto.likeId)
     } catch (error) {
       console.log(error);
     }
@@ -74,6 +79,8 @@ const NewsDetails = () => {
   useEffect(() => {
     data.isCurrentUserFavorite && setIsFavorite(true);
   }, [])
+
+  console.log("data.data.likeId",newsLikeId)
 
   return (
     <Fragment>
@@ -182,7 +189,23 @@ const NewsDetails = () => {
               </h2>
               <div
                 className="course-like-box py-2 mr-4 bg-[#e3deff] "
-                onClick={() => handleNewsLikeClick(urlParam, currentUserIsLike, changeLikeColor, setChangeLikeColor)}
+                // onClick={() => handleNewsLikeClick(urlParam, currentUserIsLike, changeLikeColor, setChangeLikeColor)}
+                onClick={
+                  data.currentUserIsLike === false
+                  ? () => 
+                    handleNewsLikeClick(
+                      urlParam, 
+                      currentUserIsLike, 
+                      changeLikeColor, 
+                      setChangeLikeColor
+                    )
+                  : () => 
+                    handleNewsDeleteLike(
+                      newsLikeId, 
+                      changeLikeColor, 
+                      setChangeLikeColor
+                    )
+                }
               >
                 <span
                   className={` cursor-pointer ${
@@ -195,15 +218,27 @@ const NewsDetails = () => {
                   {data.currentLikeCount}
                 </span>
               </div>
-              {/* <div
-                className="course-like-box py-2 mr-1.5 pl-4 bg-[#e3deff]"
-                // onClick={() => addWishList(id, isLogin)}
+              <div
+                className="course-like-box py-2 mr-4 bg-[#e3deff] "
+                onClick={() =>
+                  handleNewsDisLike(
+                    urlParam,
+                    changeDisLikeColor,
+                    setChangeDisLikeColor
+                  )
+                }
               >
                 <span
-                  className="bbi bi-hand-thumbs-down text-zinc-500"
+                  className={` cursor-pointer ${
+                    changeDisLikeColor || data.currentUserIsDissLike === true
+                      ? `bbi bi-hand-thumbs-down-fill text-zinc-500 `
+                      : `bbi bi-hand-thumbs-down text-zinc-500`
+                  }`}
                 >
+                  {" "}
+                  {data.currentDissLikeCount}
                 </span>
-              </div> */}
+              </div>
             </div>
             <div className="flex md:flex-row flex-wrap gap-x-4">
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
