@@ -2,13 +2,13 @@ import React, { useState, Fragment, useEffect, useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion, useScroll, useSpring } from "framer-motion";
 
-import http from "../../core/services/interceptor"
+import http from "../../core/services/interceptor";
 import LoadingSpinner from "../../components/common/loadingSpinner";
 import UserComments from "../../components/common/UserComments";
 import InputComment from "../../components/common/InputComment";
 import AdminComments from "../../components/common/AdminComments";
 import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
-import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike"; 
+import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike";
 import Rate from "../../components/common/Rate";
 import handleNewsRate from "../../core/services/api/PostData/addNewsRate";
 
@@ -24,6 +24,8 @@ import commentImg from "../../assets/image/comments.svg";
 import article from "../../assets/image/Online article-amico.svg";
 import "../../components/Landing/common.css";
 import addNewsFavorite from "../../core/services/api/PostData/addNewsFavorite";
+import NewsComments from "../../components/NewsDetails/NewsComments";
+import AddNewsComment from "../../components/NewsDetails/AddNewsComment";
 
 const NewsDetails = () => {
   const [urlParam, setUrlParam] = useState(useParams());
@@ -41,23 +43,30 @@ const NewsDetails = () => {
   });
   const userComments = comment.map((item, index) => {
     return (
-      <UserComments
+      <NewsComments
         key={index}
-        uid={item.userId}
+        uid={item.id}
         name={item.title}
         date={item.inserDate}
         question={item.describe}
+        replyCount={item.replyCount}
+        likeCount={item.likeCount}
+        dissLikeCount={item.dissLikeCount}
+        autor={item.autor}
+        newsId={item.newsId}
+        pictureAddress={item.pictureAddress}
+        currentUserIsLike={item.currentUserIsLike}
+        currentUserIsDissLike={item.currentUserIsDissLike}
+        
       />
     );
   });
   const fetchData = useCallback(async () => {
     try {
-      const result = await http.get(
-        "/News/" + urlParam.id
-      );
+      const result = await http.get("/News/" + urlParam.id);
       setData(result.detailsNewsDto);
       setComment(result.commentDtos);
-      setCurrentUserIsLike(result.detailsNewsDto.currentUserIsLike)
+      setCurrentUserIsLike(result.detailsNewsDto.currentUserIsLike);
     } catch (error) {
       console.log(error);
     }
@@ -73,11 +82,11 @@ const NewsDetails = () => {
   };
   useEffect(() => {
     data.isCurrentUserFavorite && setIsFavorite(true);
-  }, [])
+  }, []);
 
   return (
     <Fragment>
-      <LoadingSpinner/>
+      <LoadingSpinner />
       <motion.div className="progress-bar" style={{ scaleX }} />
       <div className="pt-24 lg:pt-40 mb-52">
         <div className="news-details">
@@ -86,13 +95,19 @@ const NewsDetails = () => {
               <div className="inline scale-x-110 ">
                 <h2
                   className={`bi bi-${
-                    isFavorite || data.isCurrentUserFavorite === true ? "heart-fill" : "heart"
+                    isFavorite || data.isCurrentUserFavorite === true
+                      ? "heart-fill"
+                      : "heart"
                   } text-3xl text-violet-500 left-3 mt-4 absolute  hover:text-violet-700 hover:scale-110 transition-all cursor-pointer `}
                   alt="wishlist"
                   onClick={addFavorite}
                 />
                 <img
-                  src={data.currentImageAddress == null || undefined ? article : data.currentImageAddress}
+                  src={
+                    data.currentImageAddress == null || undefined
+                      ? article
+                      : data.currentImageAddress
+                  }
                   alt={data.title == undefined ? "" : data.title}
                   className="mb-4 md:mb-8  border-2 w-[420px] h-[350px] lg:w-[420px] lg:h-[450px] md:w-[642px] md:h-[430px] lg:p-2 md:rounded-2xl"
                 />
@@ -174,7 +189,6 @@ const NewsDetails = () => {
               <div className="media-icons-border">{instagramSvg}</div>
             </div>
           </div>
-
           <div className="flex lg:flex-row flex-col gap-y-6 justify-between border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70] py-8">
             <div className="flex flex-row">
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
@@ -182,7 +196,14 @@ const NewsDetails = () => {
               </h2>
               <div
                 className="course-like-box py-2 mr-4 bg-[#e3deff] "
-                onClick={() => handleNewsLikeClick(urlParam, currentUserIsLike, changeLikeColor, setChangeLikeColor)}
+                onClick={() =>
+                  handleNewsLikeClick(
+                    urlParam,
+                    currentUserIsLike,
+                    changeLikeColor,
+                    setChangeLikeColor
+                  )
+                }
               >
                 <span
                   className={` cursor-pointer ${
@@ -212,17 +233,15 @@ const NewsDetails = () => {
               <Rate id={data} handleRate={handleNewsRate} />
             </div>
           </div>
-
-          <div className="mt-40 pb-6 border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70]">
+          <AddNewsComment  uid={comment.id} newsId={comment.newsId} setComment={setComment} />
+          <div className="my-10 border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70]">
             <img src={commentImg} className="inline pl-4" />
             <h2 className="text-xl md:text-2xl text-darkblue4 dark:text-[#6974FF] inline">
               نظرات کاربران در رابطه با این مقاله{" "}
             </h2>
-          </div>
+          </div>{" "}
           {userComments}
           {/* <AdminComments/> */}
-          <InputComment/>
-          
         </div>
       </div>
     </Fragment>

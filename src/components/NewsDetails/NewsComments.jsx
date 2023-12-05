@@ -1,40 +1,33 @@
 import React, { Fragment, useState, useCallback, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import http from "../../core/services/interceptor/index";
 import userCommentPic from "../../assets/image/usercommentpic.svg";
 import GregorianToSolar from "../../core/utility/GregorianToSolar/GregorianToSolar";
+import http from "../../core/services/interceptor/index";
 import { toast } from "react-toastify";
 import ReplyComment from "../CourseDetails/ReplyComment";
 import AddReplyComment from "../CourseDetails/AddReplyComment";
-const UserComments = ({
+import AddNewsReply from "./AddNewsReply";
+
+const NewsComments = ({
+  uid,
   name,
   date,
   question,
-  uid,
-  like,
-  disLike,
-  author,
-  courseId,
-  accept,
-  acceptReplysCount,
-  currentUserEmotion,
+  replyCount,
+  likeCount,
+  dissLikeCount,
+  autor,
+  newsId,
   pictureAddress,
+  currentUserIsLike,
+  currentUserIsDissLike,
 }) => {
-  const [likes, setLikes] = useState(0);
-  const [addLike, setAddLike] = useState(like);
-  const [comment, setComment] = useState({});
-  const [disLikes, setDislikes] = useState(0);
-  const [removeLike, setRemoveLike] = useState(0);
   const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
   const [changeLikeColor, setChangeLikeColor] = useState(false);
-  const [liked, setLiked] = useState(false);
-  const [urlParam, setUrlParam] = useState(useParams());
+  const [comment, setComment] = useState({});
 
   const handleLikeClick = async () => {
     try {
-      const response = await http.post(
-        "/Course/AddCourseCommentLike?CourseCommandId=" + uid
-      );
+      const response = await http.post("/News/CommentLike/" + uid);
       setComment(response);
       setChangeLikeColor(!changeLikeColor);
       if (response.success) {
@@ -48,42 +41,29 @@ const UserComments = ({
     }
   };
 
-  const handleRemoveLike = async () => {
-    try {
-      const response = await http.delete(
-        "/Course/DeleteCourseCommentLike?CourseCommandId=" + uid
-      );
-      setRemoveLike(response);
-      setLiked(false);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const handleDisLikeClick = async () => {
     try {
-      const response = await http.post(
-        "/Course/AddCourseCommentDissLike?CourseCommandId=" + uid
-      );
-      setDislikes(response);
+      // const response = await http.post(
+      //   "/Course/AddCourseCommentDissLike?CourseCommandId=" + uid
+      // );
+      // setDislikes(response);
       setChangeDisLikeColor(!changeDisLikeColor);
-      if (response.success) {
-        toast.success("نظر شما ثبت شد");
-      } else {
-        toast.error(" شما قبلا نظر خود را درباره ی این دیدگاه ثبت کردید");
-      }
-      return false;
+      // if (response.success) {
+      //   toast.success("نظر شما ثبت شد");
+      // } else {
+      //   toast.error(" شما قبلا نظر خود را درباره ی این دیدگاه ثبت کردید");
+      // }
+      // return false;
     } catch (error) {
       console.error(error);
     }
   };
 
   const [adminComment, setAdminComment] = useState([]);
+  const [show, setShow] = useState(false);
   const fetchAdminCommentData = useCallback(async () => {
     try {
-      const result = await http.get(
-        `/Course/GetCourseReplyCommnets/${courseId}/${uid}`
-      );
+      const result = await http.get(`/News/GetRepliesComments?Id=` + uid);
       setAdminComment(result);
     } catch (error) {}
   }, []);
@@ -91,48 +71,21 @@ const UserComments = ({
   useEffect(() => {
     fetchAdminCommentData();
   }, []);
+
   const replyComments = adminComment.map((item, index) => {
     return (
       <ReplyComment
         key={index}
         pictureAddress={item.pictureAddress}
-        author={item.author}
+        author={item.autor}
         title={item.title}
         desc={item.describe}
-        insertDate={item.insertDate}
+        insertDate={item.inserDate}
       />
     );
   });
-
-  const handleDeleteComment = async () => {
-    try {
-      const response = await http.delete(
-        "/Course/DeleteCourseComment?CourseCommandId=" + uid
-      );
-      console.log(uid);
-
-      console.log(response);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleAccept = async () => {
-    let formData = new FormData();
-    formData.append("CommentCourseId", uid);
-
-    try {
-      const response = await http.post("/Course/AcceptCourseComment", formData);
-      console.log(uid);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const [show, setShow] = useState(false);
   return (
-    <Fragment>
+    <>
       <div className="userComment relative ">
         <div className="userComment-pic border-4 border-violet-300 ">
           <img
@@ -142,15 +95,8 @@ const UserComments = ({
           />
         </div>
         <div className="pr-4">
-          {accept ? (
-            ""
-          ) : (
-            <h2 className="text-pink-500 cursor-pointer" onClick={handleAccept}>
-              not accepted
-            </h2>
-          )}
           <p className="inline text-lg md:text-xl  text-violet-950 dark:text-[#d8d6ff]">
-            {author + " - "}
+            {autor + " - "}
           </p>
           <p className="inline text-sm md:text-base text-lightblue4 dark:text-[#b8b5ff] ">
             ارسال شده در {GregorianToSolar(date)}
@@ -168,52 +114,46 @@ const UserComments = ({
             </h2>
             <span
               className={` cursor-pointer  absolute left-[120px]  lg:bottom-4  ${
-                currentUserEmotion === "LIKED" || changeLikeColor === true
+                currentUserIsLike === true || changeLikeColor === true
                   ? `bbi bi-hand-thumbs-up-fill  text-zinc-600 dark:text-indigo-300`
                   : `bi bi-hand-thumbs-up  text-zinc-600 dark:text-indigo-300`
               }`}
               onClick={handleLikeClick}
             >
-              {addLike}
+              {likeCount}
             </span>
             <span
               className={` cursor-pointer absolute left-[83px]  lg:bottom-4 ${
-                currentUserEmotion === "DISSLIKED" ||
-                changeDisLikeColor === true
+                currentUserIsDissLike === true || changeDisLikeColor === true
                   ? `bbi bi-hand-thumbs-down-fill text-zinc-600  dark:text-slate-400`
                   : `bi bi-hand-thumbs-down text-zinc-600 dark:text-slate-400`
               }`}
               onClick={handleDisLikeClick}
             >
-              {disLike}
+              {dissLikeCount}
             </span>
-            {/* <span
-              className="bg-red-500 w-4 h-4"
-              onClick={handleDeleteComment}
-            ></span> */}
             <span
               onClick={() => setShow(!show)}
               className="bi bi-chat-dots absolute left-8  lg:bottom-4 cursor-pointer text-zinc-600  dark:text-slate-400"
             >
-              {" " + acceptReplysCount}
+              {" " + replyCount}
             </span>
           </div>
 
-          <AddReplyComment
+          <AddNewsReply
             title={adminComment.title}
-            desc={adminComment.describe}
+            describe={adminComment.describe}
             author={adminComment.author}
             uid={uid}
-            courseId={courseId}
-            accept={accept}
+            NewsId={newsId}
+            parentId={adminComment.parentId}
             setAdminComment={setAdminComment}
           />
         </div>
       </div>
-
-      {acceptReplysCount > 0 ? show && replyComments : " "}
-    </Fragment>
+      {replyCount > 0 ? show && replyComments : " "}
+    </>
   );
 };
 
-export default UserComments;
+export default NewsComments;
