@@ -19,14 +19,14 @@ const NewsFavoriteTable = ({ data, addIcon }) => {
     visible && (
       <tr className="text-[#36353B] dark:text-semiPink bg-[#CECCFF50] dark:bg-[#3f3fea45]  hover:bg-[#CECCFF80] pagination-table-tr ">
         <td className="whitespace-nowrap pl-12 py-4 text-xl">
-          <i
+          {/* <i
             onClick={() => {
               deleteFavoriteNews(data.currentUserFavoriteId);
             }}
             className={
               "bi cursor-pointer bi-" + addIcon + " text-[#fd0000] mx-3"
             }
-          ></i>
+          ></i> */}
           <Link
             to={"/newsDetails/" + data.newsId}
             className="bi bi-eye text-[#29209380] dark:text-semiPink"
