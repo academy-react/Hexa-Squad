@@ -11,7 +11,9 @@ const TeacherInfo = ({
   experiences,
   education,
   linkdin,
-  image
+  image,
+  courseCounts,
+  newsCount
 }) => {
   return (
     <Fragment>
@@ -31,7 +33,7 @@ const TeacherInfo = ({
           </figure>
           {/* <span className="teacher-image-hover  -z-1"> تماس با استاد:{`\n`}{number}</span> */}
         </div>
-        <div className="teacher-education">{education}</div>
+        <div className="teacher-education">{education ? education : "مهندس نرم افزار"}</div>
       </div>
       <div
         className="md:float-left md:w-3/5 md:px-4 lg:px-12 rounded-lg md:shadow-shadow-Course-details dark:bg-darkblue2"
@@ -46,10 +48,24 @@ const TeacherInfo = ({
              ایشان با مهارت های فوق العاده شان که از بهترین آنها میتوان از {education ==  undefined || education == null ? 'تدریس فوق العاده ایشان ': education}نام برد
           </div>
         </div>
-        <div className="teacherInfo lg:pt-8 border-none">
+        <div className="teacherInfo lg:pt-4 ">
           {" "}
           راه های ارتباطی:
           <TeacherSocialMedia number={number} email={email} linkdin={linkdin} />
+        </div>
+        <div className="teacherInfo lg:pt-8 border-none">
+          {" "}
+          تعداد دوره ها:
+          <span className="py-4 px-4 text-base leading-8 md:text-base lg:text-lg lg:leading-10 text-[#03001C] opacity-80 dark:text-lightPink">
+          {courseCounts}
+          </span>
+        </div>
+        <div className="teacherInfo lg:pt-4 lg:pb-8 border-none">
+          {" "}
+          تعداد مقالات:
+          <span className="py-4 px-4 text-base leading-8 md:text-base lg:text-lg lg:leading-10 text-[#03001C] opacity-80 dark:text-lightPink">
+          {newsCount}
+          </span>
         </div>
         {/* <div className="teacher-suggestion"><TeacherWishList/></div> */}
       </div>

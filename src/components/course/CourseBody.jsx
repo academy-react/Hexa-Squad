@@ -92,7 +92,7 @@ const CourseBody = ({
             </span>
           </div>
           <div
-            className="course-like-box py-2 mr-4 bg-[#e3deff] "
+            className="course-like-box py-2 mr-4 bg-[#e3deff] skeleton-handler "
             onClick={() =>
               handleCourseDisLike(
                 courseId,
@@ -102,10 +102,10 @@ const CourseBody = ({
             }
           >
             <span
-              className={` cursor-pointer ${
+              className={` cursor-pointer bbi  text-indigo-900 ${
                 changeDisLikeColor || userIsDissLiked === true
-                  ? `bbi bi-hand-thumbs-down-fill text-zinc-500 `
-                  : `bbi bi-hand-thumbs-down text-zinc-500`
+                  ? `bi-hand-thumbs-down-fill`
+                  : `bi-hand-thumbs-down`
               }`}
             >
               {" "}

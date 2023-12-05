@@ -132,7 +132,7 @@ const AddImageModal = () => {
                 
                 <div className="card p-4 rounded-md overflow-hidden">
                     <div className="text-center">
-                        <p className="text-blue-700 dark:text-slate-200 mt-4">لطفا عکس مورد نظر خود را انتخاب یا درگ کنید</p>
+                        <p className="text-blue-700 dark:text-slate-200 mt-4">لطفا عکس مورد نظر خود را انتخاب یا  به اینجا بکشید</p>
                     </div>
                     <div 
                         onDragOver={onDragOver}
@@ -178,10 +178,10 @@ const AddImageModal = () => {
                                 >
                                     &times;
                                 </span>
-                                <i 
+                                {/* <i 
                                     className="bi bi-plus-square delete absolute  left-2 cursor-pointer z-50 text-blue-700"
                                 
-                                ></i>
+                                ></i> */}
                                 <img 
                                     src={images.url} 
                                     alt={images.name} 

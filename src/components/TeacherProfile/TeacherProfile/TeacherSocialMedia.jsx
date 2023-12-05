@@ -21,7 +21,7 @@ const TeacherSocialMedia = ({
   whatsApp,
 }) => {
   return (
-    <div className="my-4 pr-4 md:pb-4 lg:pb-8">
+    <div className="my-4 pr-4 md:pb-4">
       {/* <div className="flex flex-row gap-8"> */}
       {number != undefined ? (
         <div className="my-6 lg:my-8 flex flex-row">
@@ -40,7 +40,7 @@ const TeacherSocialMedia = ({
         ""
       )}
       {/* </div> */}
-      <div className="md:mt-8 lg:mt-12 flex flex-row lg:gap-x-3 -mr-2">
+      <div className="md:mt-4 flex flex-row lg:gap-x-3 -mr-2">
         {facebook != undefined ? (
           <a
             href={"" + facebook}

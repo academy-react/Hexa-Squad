@@ -7,7 +7,7 @@ import {
   NewsCategoriesFilter,
 } from "../../components/News";
 import { NewsCard } from "../../components/Landing";
-import fetchNewsApi from "../../core/services/api/GetData/getNewsData/allNewsApi";
+import getNewsApi from "../../core/services/api/GetData/getNewsData/allNewsApi";
 import LoadingSpinner from "../../components/common/loadingSpinner";
 
 import bgNews from "../../assets/image/bg-ListHero.svg";
@@ -28,6 +28,15 @@ const NewsList = () => {
   const currentItems = newsData.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(newsData.length / countInPage);
   const [isLoading, setIsLoading] = useState(false);
+  const [sortCal, setSortCal] = useState(undefined);
+  const [sortType, setSortType] = useState("DESC");
+  const [Query, setQueryV] = useState(undefined);
+
+  const filterParams = {
+    SortingCol: sortCal,
+    SortType: sortType,
+    Query: Query,
+  };
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * countInPage) % newsData.length;
@@ -36,14 +45,15 @@ const NewsList = () => {
 
   // get News data from api and fetch
   useEffect(() => {
-    fetchNewsApi(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading );
+    getNewsApi(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading, filterParams );
     return () => {
       setFilterDiv(false);
     };
-  }, [fetchNewsApi]);
+  }, 
+    [getNewsApi]
+  );
 
   const newsCardsMapper = currentItems.map((item, index) => {
-    console.log(item);
     return (
       <NewsCard
         key={index}
@@ -82,6 +92,9 @@ const NewsList = () => {
             pageCount={pageCount}
             countInPage={countInPage}
             setIsLoading={setIsLoading}
+            sortCal={sortCal}
+            setSortCal={setSortCal}
+            filterParams={filterParams}
           />
           <section className="flex flex-row">
             <NewsCategoriesFilter
