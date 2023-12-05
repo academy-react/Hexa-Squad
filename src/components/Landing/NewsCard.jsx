@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import article from "../../assets/image/Online article-amico.svg";
 import GregorianToSolar from "../../core/utility/GregorianToSolar/GregorianToSolar";
 const NewsCard = ({ name, img, description, views, date, id, skeleton }) => {
+  console.log(skeleton);
   return (
     <div
       data-aos="zoom-in"

@@ -8,7 +8,7 @@ const getNewsApi =  async (
   setIsLoading, 
   filterParams 
   ) => {
-  setIsLoading(true)
+  // setIsLoading(true)
   try {
     const result = await http.get(
       `/News?PageNumber=${pageCount}&RowsOfPage=${countInPage}`,
