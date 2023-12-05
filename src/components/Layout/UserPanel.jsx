@@ -20,7 +20,7 @@ const UserPanel = () => {
     },
     { label: "دوره های من", classNameIcon: "book", address: "MyCourses/" },
     {
-      label: "لیست مورد علاقه ها",
+      label: " دوره های مورد علاقه",
       classNameIcon: "star",
       address: "WhishList/",
     },
@@ -29,12 +29,12 @@ const UserPanel = () => {
       classNameIcon: "book",
       address: "myCoursesReserve/",
     },
+    { label: "تمام دوره ها", classNameIcon: "book", address: "AllCourses/" },
     {
-      label: "لیست اخبار مورد علاقه ",
+      label: " اخبار مورد علاقه ",
       classNameIcon: "star",
       address: "NewsFavorite/",
     },
-    { label: "تمام دوره ها", classNameIcon: "book", address: "AllCourses/" },
     // {
     //   label: "تغییر رمز عبور",
     //   classNameIcon: "key rotate-[-220deg]",

@@ -1,12 +1,20 @@
 import http from "../../../interceptor";
 
-const fetchNewsApi =  async (setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading ) => {
+const getNewsApi =  async (
+  setNewsData, 
+  setNewsAllData, 
+  pageCount, 
+  countInPage, 
+  setIsLoading, 
+  filterParams 
+  ) => {
   setIsLoading(true)
   try {
     const result = await http.get(
-      `/News?PageNumber=${pageCount}&RowsOfPage=${countInPage}`
+      `/News?PageNumber=${pageCount}&RowsOfPage=${countInPage}`,
+      { params: filterParams }
     );
-
+    
     setNewsData(result.news);
     setNewsAllData(result.news);
     setIsLoading(false)
@@ -15,4 +23,4 @@ const fetchNewsApi =  async (setNewsData, setNewsAllData, pageCount, countInPage
     return [];
   }
 };
-export default fetchNewsApi;
+export default getNewsApi;

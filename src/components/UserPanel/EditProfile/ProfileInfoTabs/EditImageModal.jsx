@@ -81,7 +81,7 @@ const EditImageModal = ({userInfo, setUserInfo}) => {
                         <img 
                             src={userInfo.currentPictureAddress ? userInfo.currentPictureAddress : pic} 
                             alt="image"  
-                            className="dark:hidden w-full h-full rounded-full"
+                            className="dark:hidden w-full h-full rounded-full shadow-shadow-auth"
                         />
                         <img 
                             src={userInfo.currentPictureAddress ? userInfo.currentPictureAddress : darkPic} 
@@ -116,20 +116,20 @@ const EditImageModal = ({userInfo, setUserInfo}) => {
                         ))}
                     </div>
 
-                    <div className="flex flew-row justify-between mt-4 text-slate-700 dark:text-slate-300 border-t-2 border-t-slate-400/50 dark:border-t-slate-400">
-                        <span 
+                    <div className="flex flew-row justify-end mt-4 text-slate-700 dark:text-slate-300 border-t-2 border-t-slate-400/50 dark:border-t-slate-400">
+                        {/* <span 
                             className="flex gap-x-3 mt-2 ml-4 text-red-800 cursor-pointer"
                         >
                             حذف عکس
                             <i class="bi bi-trash"></i>
-                        </span>
+                        </span> */}
                         <CheckboxInput name={"showSelectImageModal"} />
                         <AddImageModal userInfo={userInfo} />
                         <span 
                             onClick={() => showSelectImageModal.click()} 
                             className="flex gap-x-3 mt-2 mr-4 cursor-pointer"
                         >
-                            انتخاب عکس
+                            افزودن عکس
                             <i class="bi bi-plus-square"></i>
                         </span>
 

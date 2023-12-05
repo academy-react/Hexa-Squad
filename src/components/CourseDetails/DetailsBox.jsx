@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { addCart } from "../../core/services/api/PostData/addToCart";
 import { addReserve } from "../../core/services/api/PostData/addCourseReserve";
 import SeparationPrice from "../../core/utility/SeparationPrice/SeparationPrice";
+import Http from "../../core/services/interceptor";
 
 import start from "../../assets/icons/start.svg";
 import date from "../../assets/icons/date.svg";
@@ -28,6 +29,7 @@ const DetailsBox = ({
   cost,
   isCourseReseve,
   courseReseveId,
+  teacherId,
 }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [courseReserve, setCourseReserve] = useState(false);
@@ -45,7 +47,20 @@ const DetailsBox = ({
       setCourseReserve(true);
     }
   }, [isCourseReseve]);
-  console.log(startTime);
+
+  // get Teacher info
+  const [teacherInfo, setTeacherInfo] = useState( {});
+  const fetchTeacherData = useCallback(async () => {
+    try {
+      const result = await Http.get('Home/GetTeacherDetails?TeacherId='+teacherId);
+      result !=undefined ? setTeacherInfo(result) :'';
+    } catch (error) {
+      console.log(error)
+    }
+  }, []);
+  useEffect(() => {
+    fetchTeacherData();
+  }, [fetchTeacherData]);
 
   return (
     <div className=" lg:w-[620px]  md:w-[500px] w-full mx-auto lg:ml-14  ">
@@ -175,7 +190,7 @@ const DetailsBox = ({
           />
         </div>
       </div>
-      <Link to="/TeacherProfile">
+      <Link to={"/TeacherProfile/" + teacherId} >
         <div className="rounded-lg relative shadow-shadow-Course-details h-[140px] bg-[#D7D5FF] lg:mt-16 dark:bg-[#34239f]">
           <div className="flex flex-row absolute right-32 md:right-36 mt-8 ">
             <h2 className="text-lg md:text-xl text-darkblue dark:text-whitePink">
@@ -186,11 +201,11 @@ const DetailsBox = ({
             </h2>
           </div>
           <h2 className="text-md text-darkblue right-32  md:right-36 mt-20 absolute opacity-80 dark:text-whitePink">
-            مهندس نرم افزار{" "}
+            { "مهندس نرم افزار"}{" "}
           </h2>
           <div className="w-24 h-24 rounded-full  right-6 mt-6 absolute">
             <img
-              src={teacher}
+              src={teacherInfo.pictureAddress ? teacherInfo.pictureAddress : teacher}
               className="rounded-full w-24 h-24 object-cover"
               alt=""
             />

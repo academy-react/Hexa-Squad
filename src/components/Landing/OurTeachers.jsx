@@ -6,23 +6,23 @@ import Title from "../common/Title";
 import background from "../../assets/image/bgDesign.svg";
 
 const OurTeachers = () => {
-  const [teacherCard, setTeacherCard] = useState([
-    {
-      title: "  استاد مهدی اصغری",
-      course: " مدرس ری اکت",
-      description: `”موفقیت نهایی نیست. شکست کشنده نیست. این شجاعت ادامه دادن است که مهم است.“`,
-    },
-    {
-      title: "  استاد محمدحسین بحرالعلوم",
-      course: " مدرس جاوا اسکریپت",
-      description: `”اهمیتی نداره تو چکار میکنی؛ راکستار آن باشید. اگر به همین راحتی بود، همه این کار را می کردند.“`,
-    },
-    {
-      title: "  استاد محسن اسفندیاری",
-      course: " مدرس انگولار",
-      description: `”مثبت اندیشی فقط امید به بهترین ها نیست! بلکه بهتر است بهترین عملکرد خود را در عمل به کار ببندید.“`,
-    },
-  ]);
+  // const [teacherCard, setTeacherCard] = useState([
+  //   {
+  //     title: "  استاد مهدی اصغری",
+  //     course: " مدرس ری اکت",
+  //     description: `”موفقیت نهایی نیست. شکست کشنده نیست. این شجاعت ادامه دادن است که مهم است.“`,
+  //   },
+  //   {
+  //     title: "  استاد محمدحسین بحرالعلوم",
+  //     course: " مدرس جاوا اسکریپت",
+  //     description: `”اهمیتی نداره تو چکار میکنی؛ راکستار آن باشید. اگر به همین راحتی بود، همه این کار را می کردند.“`,
+  //   },
+  //   {
+  //     title: "  استاد محسن اسفندیاری",
+  //     course: " مدرس انگولار",
+  //     description: `”مثبت اندیشی فقط امید به بهترین ها نیست! بلکه بهتر است بهترین عملکرد خود را در عمل به کار ببندید.“`,
+  //   },
+  // ]);
   const [teacherList, setTeacherList] = useState([]);
   const fetchData = useCallback(async () => {
     try {
