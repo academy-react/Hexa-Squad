@@ -27,6 +27,7 @@ const HeroSearchBox = () => {
   const mapData = courseData.map((data, index) => (
     <SuggestedCourse
       key={index}
+      id={data.courseId}
       title={data.title}
       professorName={data.teacherName}
       price={data.cost}

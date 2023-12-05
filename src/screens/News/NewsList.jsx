@@ -45,7 +45,7 @@ const NewsList = () => {
 
   // get News data from api and fetch
   useEffect(() => {
-    getNewsApi(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading, filterParams );
+    getNewsApi(setNewsData, setNewsAllData, pageCount, 1000, setIsLoading, filterParams );
     return () => {
       setFilterDiv(false);
     };
