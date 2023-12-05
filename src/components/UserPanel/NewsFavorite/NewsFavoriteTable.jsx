@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import article from "../../../assets/image/Online article-amico.svg"
+import GregorianToSolar from "../../../core/utility/GregorianToSolar/GregorianToSolar";
 
 const NewsFavoriteTable = ({ data, addIcon }) => {
 
@@ -32,7 +33,7 @@ const NewsFavoriteTable = ({ data, addIcon }) => {
           ></Link>
         </td>
         <td className="whitespace-nowrap px-6 py-4">
-          {data.updateDate.slice(0, 10)}
+          {GregorianToSolar(data.updateDate)}
         </td>
         <td className="whitespace-nowrap pl-16 py-4">{data.currentView}</td>
         <td className="whitespace-nowrap pl-16 py-4">{data.currentLikeCount}</td>

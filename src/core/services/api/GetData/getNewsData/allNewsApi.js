@@ -4,7 +4,7 @@ const fetchNewsApi =  async (setNewsData, setNewsAllData, pageCount, countInPage
   setIsLoading(true)
   try {
     const result = await http.get(
-      `/News?PageNumber=${pageCount}&RowsOfPage=${countInPage}&SortingCol=InsertDate&SortType=DESC&Query=`
+      `/News?PageNumber=${pageCount}&RowsOfPage=${countInPage}`
     );
 
     setNewsData(result.news);
