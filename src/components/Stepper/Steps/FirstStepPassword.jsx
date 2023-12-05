@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik, Form } from "formik";
 import { validation } from "../../../core/validations/validations";
 import FieldInput from "../../common/FieldInput";
-const FirstStepPassword = () => {
+import { useNavigate } from "react-router-dom";
+import http from "../../../core/services/interceptor";
+import { toast } from "react-toastify";
+const FirstStepPassword = ({ handleClick }) => {
+  const navigator = useNavigate();
+  const fetchForgetPassword = async (value) => {
+    const obj = {
+      email: value.email,
+      baseUrl: "http://localhost:5173/authorize/Verification/1",
+    };
+    try {
+      const fetch = await toast.promise(
+        http.post("/Sign/ForgetPassword", obj),
+        { pending: "ایمیل در حال ارسال است" }
+      );
+      if (fetch.success) {
+        handleClick("next");
+        toast.success('ایمیل با موفقیت ارسال شد');
+      } else {
+        toast.success('ارسال ایمیل با مشکل مواجه شد');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    // navigator("/authorize/Verification/0");
+  }, []);
+
   return (
     <div className="bg-[#e4dbff]">
       <h2 className="text-[#6652eb] md:text-3xl dark:text-indigo-100 text-2xl top-16 md:top-10 md:left-[315px] left-[150px]  absolute">
@@ -15,19 +43,19 @@ const FirstStepPassword = () => {
       >
         <Formik
           initialValues={{
-            password: "",
+            email: "",
           }}
-          validationSchema={validation}
-          onSubmit={() => alert("ثبت نام")}
+          // validationSchema={validation}
+          onSubmit={(v) =>{ fetchForgetPassword(v)}}
         >
           <Form autoComplete="off" className="text-[#a967ff]">
             <h2 className="md:text-sm text-xs mr-[44px] md:mr-0">
               {" "}
-              جهت دریافت کد یک بار مصرف شماره تلفن خود را وارد کنید
+              جهت دریافت کد یک بار مصرف ایمیل خود را وارد کنید
             </h2>
             <FieldInput
-              placeholder={" شماره موبایل خود را وارد کنید"}
-              name="phoneNumber"
+              placeholder={" ایمیل خود را وارد کنید"}
+              name="email"
               type={"phoneNumber"}
             />
 

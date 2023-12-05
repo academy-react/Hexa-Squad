@@ -29,8 +29,6 @@ import UserDashboard from "../screens/Panel/UserDashboard";
 import ProfileInfoTabs from "../screens/Panel/ProfileInfoTabs";
 import NewsFavorite from "../screens/Panel/NewsFavorite";
 import MyCoursesReserve from "../screens/Panel/myCoursesReserve";
-
-import ShoppingCard from "../screens/ShoppingCard/ShoppingCard";
 export const routerPublic = createBrowserRouter([
   {
     path: "/",
@@ -50,7 +48,6 @@ export const routerPublic = createBrowserRouter([
         children: [{ path: "/NewsDetails/:id", element: <NewsDetails /> }],
       },
       { path: "/CourseDetails", element: <CourseDetails /> },
-      { path: "/ShoppingCard", element: <ShoppingCard /> },
       {
         path: "/TeacherProfile",
         element: <TeacherProfile />,
@@ -65,7 +62,22 @@ export const routerPublic = createBrowserRouter([
     children: [
       { path: "/authorize/login", element: <Login /> },
       { path: "/authorize/register", element: <Register /> },
-      { path: "/authorize/Verification", element: <VerificationSteps /> },
+      {
+        path: "/authorize/Verification",
+        element: <VerificationSteps />,
+        children: [
+          {
+            path: "/authorize/Verification/:step",
+            element: <VerificationSteps />,
+            children: [
+              {
+                path: "/authorize/Verification/:step/:config",
+                element: <VerificationSteps />,
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
   {
@@ -78,10 +90,10 @@ export const routerPublic = createBrowserRouter([
       { path: "/userPanel/WhishList", element: <WhishList /> },
       { path: "/userPanel/NewsFavorite", element: <NewsFavorite /> },
       { path: "/userPanel/ChangePassword", element: <ChangePassword /> },
-      {path:'/userPanel/myCoursesReserve', element: <MyCoursesReserve/>},
+      { path: "/userPanel/myCoursesReserve", element: <MyCoursesReserve /> },
       { path: "/userPanel/editProfile", element: <EditProfile /> },
-      { path: "/userPanel/logOut", element: <LogOut/> },
-      { path: "/userPanel/ProfileInfoTabs", element: <ProfileInfoTabs /> }
+      { path: "/userPanel/logOut", element: <LogOut /> },
+      { path: "/userPanel/ProfileInfoTabs", element: <ProfileInfoTabs /> },
     ],
   },
   { path: "/*", element: <Error404 /> },

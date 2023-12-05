@@ -12,10 +12,12 @@ const HeroSearchBox = () => {
       setSearching(false);
     } else {
       setSearching(true);
+      console.log("values", values);
       filterSearch(values);
     }
   };
   const filterSearch = (values) => {
+    console.log('All data', AllData);
     let filteredData = AllData.filter((item) => {
       return item.title.toLowerCase().indexOf(values.toLowerCase()) != -1;
     });
@@ -25,6 +27,7 @@ const HeroSearchBox = () => {
   const mapData = courseData.map((data, index) => (
     <SuggestedCourse
       key={index}
+      id={data.courseId}
       title={data.title}
       professorName={data.teacherName}
       price={data.cost}

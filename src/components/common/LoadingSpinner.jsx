@@ -10,8 +10,8 @@ const LoadingSpinner = () => {
     }, 700);
   }, []);
   return (
-    <div id="loader" class={"loading visible " + (loadingHidden ? 'hidden ':'') + (loaderClass ? 'loaded ':'') }>
-      <span class="loader"></span>
+    <div id="loader" className={"loading visible " + (loadingHidden ? 'hidden ':'') + (loaderClass ? 'loaded ':'') }>
+      <span className="loader"></span>
     </div>
   );
 };

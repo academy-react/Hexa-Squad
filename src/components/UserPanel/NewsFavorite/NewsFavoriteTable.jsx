@@ -1,38 +1,39 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import article from "../../../assets/image/Online article-amico.svg"
+import DeleteNewsFavorite from "../../../core/services/api/DeleteData/deleteFavoriteNews";
+import GregorianToSolar from "../../../core/utility/GregorianToSolar/GregorianToSolar";
 
 const NewsFavoriteTable = ({ data, addIcon }) => {
 
   const [visible, setVisible] = useState(true);
-  // const deleteFavoriteCourse = async (id) => {
-  //   if (id !== true) {
-  //     const result = await DeleteCourseFavorite(id);
-  //     console.log(result)
-  //   }
-  //   console.log(id)
-  //   // setVisible(deleteFavoriteCourse);
-  // };
+  const deleteFavoriteNews = async (id) => {
+    let result;
+    if (id !== true) {
+      result = await DeleteNewsFavorite(id);
+    }
+    setVisible(false);
+  };
 
   return (
     visible && (
       <tr className="text-[#36353B] dark:text-semiPink bg-[#CECCFF50] dark:bg-[#3f3fea45]  hover:bg-[#CECCFF80] pagination-table-tr ">
         <td className="whitespace-nowrap pl-12 py-4 text-xl">
-          {/* <i
+          <i
             onClick={() => {
-              deleteFavoriteCourse(data.favoriteId);
+              deleteFavoriteNews(data.currentUserFavoriteId);
             }}
             className={
               "bi cursor-pointer bi-" + addIcon + " text-[#fd0000] mx-3"
             }
-          ></i> */}
+          ></i>
           <Link
             to={"/newsDetails/" + data.newsId}
             className="bi bi-eye text-[#29209380] dark:text-semiPink"
           ></Link>
         </td>
         <td className="whitespace-nowrap px-6 py-4">
-          {data.updateDate.slice(0, 10)}
+          {GregorianToSolar(data.updateDate)}
         </td>
         <td className="whitespace-nowrap pl-16 py-4">{data.currentView}</td>
         <td className="whitespace-nowrap pl-16 py-4">{data.currentLikeCount}</td>

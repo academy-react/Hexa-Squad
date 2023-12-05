@@ -14,6 +14,7 @@ const CourseDetails = () => {
   const [coursesWhishList, setCoursesWhishList] = useState([]);
   const [urlParam, setUrlParam] = useState(useParams());
   const [data, setData] = useState([]);
+  console.log(data);
   const mapCourses = coursesWhishList.map((item, index) => {
     return (
       <Course
@@ -26,11 +27,12 @@ const CourseDetails = () => {
         date={item.lastUpdate}
         professorName={item.teacherName}
         like={item.likeCount}
-        // dislike={item.dislike}
+        dissLike={item.dissLikeCount}
         studentCount={item.currentRegistrants}
         price={item.cost}
         width={"lg:w-[24%]"}
         image={item.tumbImageAddress}
+        courseRate={item.courseRate}
         
       />
     );
@@ -90,6 +92,7 @@ const CourseDetails = () => {
               cost={data.cost}
               isCourseReseve={data.isCourseReseve}
               courseReseveId={data.courseReseveId}
+              teacherId={data.teacherId}
             />
           </div>
           <TabsContent describe={data.describe} />

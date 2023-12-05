@@ -5,14 +5,41 @@ import NewsestNews from '../../core/services/api/GetData/getNewsData/NewestNews'
 import MostVisitedNews from '../../core/services/api/GetData/getNewsData/MostVisitedNews';
 import fetchNewsApi from '../../core/services/api/GetData/getNewsData/allNewsApi';
 import FavoritesNews from '../../core/services/api/GetData/getNewsData/FavoritesNews';
+import getNewsApi from '../../core/services/api/GetData/getNewsData/allNewsApi';
 
-const NewsFilterMenu = ({setIsLoading, newsData, filterDiv, setFilterDiv, setNewsData, setNewsAllData, pageCount, countInPage}) => {
+const NewsFilterMenu = ({
+  setIsLoading, 
+  newsData, 
+  filterDiv, 
+  setFilterDiv, 
+  setNewsData, 
+  setNewsAllData, 
+  pageCount, 
+  countInPage,
+  filterParams,
+  setSortCal,
+  sortCal
+}) => {
+
   const filterSearch = (value)=>{
     let filteredData = newsData.filter((item) => {
       return item.title.toLowerCase().indexOf(value.toLowerCase()) != -1
     });
     setNewsData(filteredData);
   }
+
+  // const FavoritesNews = () => {
+  //   setSortCal("currentRate");
+  //   getNewsApi(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading, filterParams );
+  //   console.log("sortCal=",sortCal)
+  // }
+  
+  // const MostVisitedNews = () => {
+  //   setSortCal("currentView");
+  //   getNewsApi(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading, filterParams );
+  //   console.log("sortCal=",sortCal)
+  // }
+  
   return (
         <div className="flex flex-row gap-x-4 px-8 lg:mb-12 mb-8 relative">
           <div className="hidden lg:block">

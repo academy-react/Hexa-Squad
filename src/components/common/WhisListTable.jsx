@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SeparationPrice from "../../core/utility/SeparationPrice/SeparationPrice";
 import DeleteCourseFavorite from "../../core/services/api/DeleteData/deleteFavoriteCourse";
+
+import courseImg from "../../assets/image/Images-for-null 2.svg";
+
 const WhishListTable = ({ data, addIcon }) => {
   const [visible, setVisible] = useState(true);
   const deleteFavoriteCourse = async (id) => {
@@ -14,7 +17,7 @@ const WhishListTable = ({ data, addIcon }) => {
   return (
     visible && (
       <tr className="text-[#36353B] dark:text-semiPink bg-[#CECCFF50] dark:bg-[#3f3fea45]  hover:bg-[#CECCFF80] pagination-table-tr ">
-        <td className="whitespace-nowrap px-6 py-4 text-xl">
+        <td className="whitespace-nowrap pl-12 py-4 text-xl">
           <i
             onClick={() => {
               deleteFavoriteCourse(data.favoriteId);
@@ -28,17 +31,17 @@ const WhishListTable = ({ data, addIcon }) => {
             className="bi bi-eye text-[#29209380] dark:text-semiPink"
           ></Link>
         </td>
-        <td className="whitespace-nowrap px-6 py-4">
+        <td className="whitespace-nowrap pl-12 py-4">
           {data.lastUpdate.slice(0, 10)}
         </td>
-        <td className="whitespace-nowrap px-6 py-4">{data.teacheName}</td>
-        <td className="whitespace-nowrap px-6 py-4" dir="rtl">
+        <td className="whitespace-nowrap pl-12 py-4">{data.teacheName}</td>
+        <td className="whitespace-nowrap pl-12 py-4" dir="rtl">
           {data.courseTitle}
         </td>
-        <td className="whitespace-nowrap px-6 py-4 font-medium">
+        <td className="whitespace-nowrap pl-12 py-4 font-medium">
           {" "}
           <img
-            src={data.tumbImageAddress}
+            src={data.tumbImageAddress ? data.tumbImageAddress : courseImg }
             className="min-w-[70px] w-[80px] h-12 rounded-lg "
             alt={data.courseTitle}
           />{" "}

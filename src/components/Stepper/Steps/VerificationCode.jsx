@@ -2,19 +2,25 @@ import React from "react";
 import { Formik, Form } from "formik";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { validation } from "../../../core/validations/validations";
 import FieldInput from "../../common/FieldInput";
 import VerifyCodeObj from "../../../core/services/toastPromiseObj/VerifyCode";
 import onSubmitFunction from "../../../core/services//api/PostData/Register";
-const VerificationCode = ({ phoneNumberValue, handleClick }) => {
+import { useEffect } from "react";
+const VerificationCode = ({ phoneNumberValue, handleClick,config }) => {
+  const navigator = useNavigate();
   const onSubmit = async (value) => {
     const api = "/Sign/VerifyMessage";
     const obj = {
       phoneNumber: phoneNumberValue,
       verifyCode: value.verifyCode,
     };
-    onSubmitFunction(api,value, obj, VerifyCodeObj, handleClick);
+    onSubmitFunction(api, value, obj, VerifyCodeObj, handleClick);
   };
+  useEffect(() => {
+    // navigator("/authorize/Verification/1");
+  }, []);
   return (
     <div className="bg-[#e4dbff]">
       <h2 className="text-[#6652eb] dark:text-indigo-100 md:text-3xl text-2xl top-16 md:top-10 md:left-[340px] right-[140px] absolute">

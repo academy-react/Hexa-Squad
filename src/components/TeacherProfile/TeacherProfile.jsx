@@ -34,11 +34,13 @@ const TeacherProfile = () => {
         <TeacherInfo
           title={teacherInfo.fullName}
           education={teacherInfo.skills[0]}
-          experiences={teacherInfo.experiences}
+          experiences={teacherInfo.skills[0]}
           number={teacherInfo.number}
           linkdin={teacherInfo.linkdinProfileLink}
           email={teacherInfo.email}
           image={teacherInfo.pictureAddress}
+          courseCounts={teacherInfo.courseCounts}
+          newsCount={teacherInfo.newsCount}
         />
        
       </div>

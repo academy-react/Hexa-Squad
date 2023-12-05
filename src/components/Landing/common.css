@@ -121,7 +121,7 @@
     /* categories-box */
     .categories-box {
         transition: box-shadow 0.5s ease-out;
-        @apply w-40 md:w-[160px] lg:w-[22%] h-44 lg:h-52 md:h-48 m-5 md:m-3 text-center bg-gradient-to-tr from-[#6B3FEA] dark:from-[#574199] from-[0%] to-[#7070FF] to-[189%] rounded-xl rounded-bl-[45px] transition-all shadow-shadow-Categories-box;
+        @apply w-40 md:w-[160px] lg:w-[22%] text-slate-300 h-44 lg:h-52 md:h-48 m-5 md:m-3 text-center bg-gradient-to-tr from-[#6B3FEA] dark:from-[#574199] from-[0%] to-[#7070FF] to-[189%] rounded-xl rounded-bl-[45px] transition-all shadow-shadow-Categories-box;
     }
 
     .categories-img {
@@ -216,6 +216,10 @@
     /* .news-card .news-name{
         @apply text-ellipsis whitespace-nowrap overflow-hidden;
     } */
+    .skeleton .news-name.skeleton-handler{
+        width: 150%;
+        @apply h-8 ;
+    }
     .news-card .news-view {
         @apply md:absolute md:top-10 md:right-0 lg:top-12 lg:text-base;
     }
@@ -228,6 +232,11 @@
         @apply md:absolute md:top-10 md:right-28 lg:top-12 lg:right-32 lg:text-base;
     }
 
+    .skeleton .news-description.skeleton-handler{
+        height:50px;
+        width: 180% !important;
+        @apply mb-4 ;
+    }
     .news-card .news-description {
         @apply pt-5  ;
     } 
@@ -248,6 +257,12 @@
     } */
     .news-card img {
         @apply h-[150px] w-[150px] md:w-[220px] md:h-[186px];
+    }
+    .skeleton .news-border {
+        display: none;
+    }
+    .skeleton .news-readMore{
+        @apply hidden
     }
 
     /* Teacher Profile */
@@ -339,15 +354,30 @@
     .card .drag-area.dragover .visible {
         @apply hidden;
     }
+
     .skeleton .skeleton-handler {
         min-height: 35px;
         min-width: 60px;
-        @apply bg-[#dfdfdfda] ;
-        *{
+        border-radius: 5px;
+        animation: skeleton-loading 1s linear infinite alternate;
+
+        * {
             @apply hidden
-        };
-        @keyframes skeleton-animation {
-            
         }
+    }
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+@keyframes skeleton-loading {
+    0% {
+        background-color: #d1cbec;
+    }
+
+    100% {
+        background-color: #dfdede;
     }
 }

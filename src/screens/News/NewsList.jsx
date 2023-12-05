@@ -7,7 +7,7 @@ import {
   NewsCategoriesFilter,
 } from "../../components/News";
 import { NewsCard } from "../../components/Landing";
-import fetchNewsApi from "../../core/services/api/GetData/getNewsData/allNewsApi";
+import getNewsApi from "../../core/services/api/GetData/getNewsData/allNewsApi";
 import LoadingSpinner from "../../components/common/loadingSpinner";
 
 import bgNews from "../../assets/image/bg-ListHero.svg";
@@ -18,15 +18,25 @@ const NewsList = () => {
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
 
-  const [newsData, setNewsData] = useState([]);
-  const [newsAllData, setNewsAllData] = useState([]);
-  const [filterDiv, setFilterDiv] = useState(true);
+  const [newsData, setNewsData] = useState([{skeleton: true},{skeleton: true},{skeleton: true}]);
+  console.log(newsData);
+  const [newsAllData, setNewsAllData] = useState([{skeleton: true},{skeleton: true},{skeleton: true}]);
+  const [filterDiv, setFilterDiv] = useState(false);
   const [itemOffset, setItemOffset] = useState(0);
   const countInPage = 5;
   const endOffset = itemOffset + countInPage;
   const currentItems = newsData.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(newsData.length / countInPage);
   const [isLoading, setIsLoading] = useState(false);
+  const [sortCal, setSortCal] = useState(undefined);
+  const [sortType, setSortType] = useState("DESC");
+  const [Query, setQueryV] = useState(undefined);
+
+  const filterParams = {
+    SortingCol: sortCal,
+    SortType: sortType,
+    Query: Query,
+  };
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * countInPage) % newsData.length;
@@ -35,11 +45,13 @@ const NewsList = () => {
 
   // get News data from api and fetch
   useEffect(() => {
-    fetchNewsApi(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading );
+    getNewsApi(setNewsData, setNewsAllData, pageCount, 1000, setIsLoading, filterParams );
     return () => {
       setFilterDiv(false);
     };
-  }, [fetchNewsApi]);
+  }, 
+    [getNewsApi]
+  );
 
   const newsCardsMapper = currentItems.map((item, index) => {
     return (
@@ -48,9 +60,10 @@ const NewsList = () => {
         id={item.id}
         img={item.currentImageAddressTumb}
         name={item.title}
+        skeleton={item.skeleton}
         description={item.miniDescribe}
         views={item.currentView}
-        date={item.updateDate.slice(0, 10)}
+        date={item.updateDate}
       />
     );
   });
@@ -79,6 +92,9 @@ const NewsList = () => {
             pageCount={pageCount}
             countInPage={countInPage}
             setIsLoading={setIsLoading}
+            sortCal={sortCal}
+            setSortCal={setSortCal}
+            filterParams={filterParams}
           />
           <section className="flex flex-row">
             <NewsCategoriesFilter
