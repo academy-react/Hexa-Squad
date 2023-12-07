@@ -14,7 +14,7 @@ const FiltersBTN = ({
   const [selectedOptionsSCal, setSelectedOptionSCal] = useState(null);
   const [SortingTypeV, setSortingTypeV] = useState([
     { value: "Active", label: "دوره های فعال" },
-    { value: "LastUpdate", label: "جدید ترین" },
+    { value: "LastUpdate", label: "آخرین تغییرات" },
     { value: "Cost", label: "بر اساس قیمت" },
     { value: "CourseRate", label: "بر اساس نمره " },
   ]);

@@ -32,9 +32,11 @@ const TabsContent = ({ describe }) => {
         currentUserDissLike={item.currentUserDissLike}
         currentUserEmotion={item.currentUserEmotion}
         pictureAddress={item.pictureAddress}
+        currentUserLikeId={item.currentUserLikeId}
       />
     );
   });
+  console.log(userComments)
   const fetchCommentData = useCallback(async () => {
     try {
       const result = await http.get(`/Course/GetCourseCommnets/` + urlParam.id);

@@ -5,20 +5,22 @@ export default async (id) => {
     deleteEntityId: id,
   };
   try {
+    console.log("id", id);
     let result = await toast.promise(
       http.delete("/News/DeleteFavoriteNews", { data: obj }),
       {
         pending: "در حال حذف کردن مقاله ",
       }
     );
-    if (result.success) {
+    console.log(result);
+    if (result.message === "عملیات با موفقیت انجام شد.") {
       toast.success("مقاله از لیست علاقه مندی ها حذف شد");
     } else {
       // toast.error("مقاله از لیست علاقه مندی ها حذف نشد");
       toast.error(result.message);
     }
-    return false;
+    return result;
   } catch (error) {
-    return true;
+    return false;
   }
 };
