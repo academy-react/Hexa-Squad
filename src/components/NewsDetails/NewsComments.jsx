@@ -84,6 +84,7 @@ const NewsComments = ({
       />
     );
   });
+
   return (
     <>
       <div className="userComment relative ">
@@ -151,7 +152,8 @@ const NewsComments = ({
           />
         </div>
       </div>
-      {replyCount > 0 ? show && replyComments : " "}
+      {show && replyComments}
+      {/* {replyCount > 0 ? show && replyComments : " "} */}
     </>
   );
 };

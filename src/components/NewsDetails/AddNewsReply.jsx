@@ -18,7 +18,7 @@ const AddNewsReply = ({
     try {
       const response = await http.post("/News/CreateNewsReplyComment", {
         NewsId: NewsId,
-        parentId: parentId,
+        parentId: uid,
         title: "title test",
         describe: value.describe,
       });
