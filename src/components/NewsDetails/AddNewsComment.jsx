@@ -18,13 +18,14 @@ const AddNewsComment = ({ question, name, uid, NewsId, setComment }) => {
     describe: question,
   };
 
-  const addComment = async () => {
+  const addComment = async (value) => {
     try {
       const response = await http.post("/News/CreateNewsComment", {
         NewsId: urlParam.id,
         title: value.title,
         describe: value.describe,
       });
+      
       console.log(response);
       if (response.success) {
         toast.success(" کامنت شما ثبت شد");

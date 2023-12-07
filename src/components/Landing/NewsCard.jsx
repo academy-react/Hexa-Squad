@@ -10,12 +10,12 @@ const NewsCard = ({ name, img, description, views, date, id, skeleton }) => {
     >
       <div
         className={
-          " w-[440px] h-[230px]  md:h-[240px]  md:w-[600px] cursor-pointer rounded-xl " +
+          " w-[440px] h-[230px]  md:h-[220px]  md:w-[600px] cursor-pointer rounded-xl " +
           (skeleton == true ? "skeleton" : "")
         }
       >
         <Link to={id ? "/newsDetails/" + id : "/undefinedError"}>
-          <div className="absolute cursor-pointer group mr-[220px] md:mr-[260px] lg:mr-[265px] mt-5 md:mt-6 lg:mt-7 ">
+          <div className="absolute cursor-pointer group mr-[220px] md:mr-[260px] lg:mr-[265px] mt-5 md:mt-6 lg:mt-4 ">
             <h2 className="news-name md:text-lg text-base text-newPurple3 group-hover:text-newPurple2 skeleton-handler pl-6 h-14 dark:text-[#e9e8ff] dark:group-hover:text-[#F0E2FF]">
               {name ? name : ""}
             </h2>
@@ -31,7 +31,7 @@ const NewsCard = ({ name, img, description, views, date, id, skeleton }) => {
                 {date ? GregorianToSolar(date) : ""}
               </h2>
             </div>
-            <h2 className="news-description md:text-base h-[80px] w-[95%] text-justify text-sm md:my-2 mt-2 pl-6 text-lightblue skeleton-handler dark:text-[#cbc7ff] dark:opacity-90 dark:group-hover:text-[#DEDCFF] opacity-60">
+            <h2 className="news-description whitespace-pre-wrap md:text-base h-[80px] w-[95%] text-justify text-sm md:my-2 mt-2 pl-6 text-lightblue skeleton-handler dark:text-[#cbc7ff] dark:opacity-90 dark:group-hover:text-[#DEDCFF] opacity-60">
               {description ? description : ""}
             </h2>
             <div className="news-readMore flex flex-row absolute  md:-mt-3 left-3  md:left-5 ">
