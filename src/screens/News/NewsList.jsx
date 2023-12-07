@@ -18,7 +18,7 @@ const NewsList = () => {
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
 
-  const [newsData, setNewsData] = useState([{skeleton: true},{skeleton: true},{skeleton: true}]);
+  const [newsData, setNewsData] = useState([{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true}]);
   console.log(newsData);
   const [newsAllData, setNewsAllData] = useState([{skeleton: true},{skeleton: true},{skeleton: true}]);
   const [filterDiv, setFilterDiv] = useState(false);

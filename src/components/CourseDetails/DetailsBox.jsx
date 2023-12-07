@@ -33,15 +33,6 @@ const DetailsBox = ({
 }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [courseReserve, setCourseReserve] = useState(false);
-  const addReserve = () => {
-    const token = getItem("token");
-    if (token) {
-      addReserve(isCourseReseve == "1" ? courseReseveId : id, isCourseReseve);
-      setCourseReserve(!courseReserve);
-    } else {
-      showLoginModal.click();
-    }
-  };
   useEffect(() => {
     if (isCourseReseve == "1") {
       setCourseReserve(true);
@@ -49,13 +40,15 @@ const DetailsBox = ({
   }, [isCourseReseve]);
 
   // get Teacher info
-  const [teacherInfo, setTeacherInfo] = useState( {});
+  const [teacherInfo, setTeacherInfo] = useState({});
   const fetchTeacherData = useCallback(async () => {
     try {
-      const result = await Http.get('Home/GetTeacherDetails?TeacherId='+teacherId);
-      result !=undefined ? setTeacherInfo(result) :'';
+      const result = await Http.get(
+        "Home/GetTeacherDetails?TeacherId=" + teacherId
+      );
+      result != undefined ? setTeacherInfo(result) : "";
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }, []);
   useEffect(() => {
@@ -183,14 +176,20 @@ const DetailsBox = ({
         </div>
         <div className="mx-6 mt-3 mb-8 lg:mb-0 ">
           <input
-            onClick={addReserve}
+            onClick={() => {
+              addReserve(
+                isCourseReseve == "1" ? courseReseveId : id,
+                isCourseReseve
+              );
+              setCourseReserve(!courseReserve);
+            }}
             type="submit"
             value={courseReserve ? " رزرو شده " : "ثبت نام در این دوره"}
-            className="gradient w-full py-4 lg:mb-10 mb-4 rounded-md cursor-pointer"
+            className={"gradient w-full py-4 lg:mb-10 mb-4 rounded-md cursor-pointer "+(courseReserve && 'bg-[#5800FF]')}
           />
         </div>
       </div>
-      <Link to={"/TeacherProfile/" + teacherId} >
+      <Link to={"/TeacherProfile/" + teacherId}>
         <div className="rounded-lg relative shadow-shadow-Course-details h-[140px] bg-[#D7D5FF] lg:mt-16 dark:bg-[#34239f]">
           <div className="flex flex-row absolute right-32 md:right-36 mt-8 ">
             <h2 className="text-lg md:text-xl text-darkblue dark:text-whitePink">
@@ -201,11 +200,15 @@ const DetailsBox = ({
             </h2>
           </div>
           <h2 className="text-md text-darkblue right-32  md:right-36 mt-20 absolute opacity-80 dark:text-whitePink">
-            { "مهندس نرم افزار"}{" "}
+            {"مهندس نرم افزار"}{" "}
           </h2>
           <div className="w-24 h-24 rounded-full  right-6 mt-6 absolute">
             <img
-              src={teacherInfo.pictureAddress ? teacherInfo.pictureAddress : teacher}
+              src={
+                teacherInfo.pictureAddress
+                  ? teacherInfo.pictureAddress
+                  : teacher
+              }
               className="rounded-full w-24 h-24 object-cover"
               alt=""
             />
