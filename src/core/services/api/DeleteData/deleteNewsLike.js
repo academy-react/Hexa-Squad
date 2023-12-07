@@ -8,7 +8,7 @@ const handleNewsDeleteLike = async (newsLikeId, changeLikeColor, setChangeLikeCo
     showLoginModal.click();
   } else {
         try {
-            const result = await http.delete("/Course/DeleteCourseLike/",{newsLikeId: newsLikeId});
+            const result = await http.delete("/Course/DeleteCourseLike/",{data:{newsLikeId: newsLikeId}});
             if (result.success == true) {
                 toast.success("لایک این خبر با موفقیت حذف شد")
                 setChangeLikeColor(!changeLikeColor);
