@@ -5,6 +5,9 @@ import getProfileInfo from "../../core/services/api/GetData/getProfileInfo";
 
 import { motion } from "framer-motion";
 import { getItem } from "../../core/services/local-storage/storage.services";
+
+import pic from '../../assets/image/user-circle-icon-white.png';
+
 const SideBar = ({ listItem, mapList, openSide }) => {
   const navigator = useNavigate();
   const variants = {
@@ -29,7 +32,7 @@ const SideBar = ({ listItem, mapList, openSide }) => {
       <div className="side-bar-container">
         <div className="side-bar-image">
           <img
-            src={userInfo.currentPictureAddress}
+            src={userInfo.currentPictureAddress === "Not-set" ? pic : userInfo.currentPictureAddress}
             alt=" profile image "
             className="my w-32 h-32 object-cover"
           />

@@ -1,8 +1,9 @@
 import React, { Fragment, useState, useRef } from "react";
 import { toast } from "react-toastify";
 import http from "../../../../core/services/interceptor";
+import getProfileInfo from "../../../../core/services/api/GetData/getProfileInfo";
 
-const AddImageModal = () => {
+const AddImageModal = (setUserInfo) => {
   const [images, setImages] = useState([]);
   const [imageFile, setImageFile] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
@@ -106,9 +107,14 @@ const AddImageModal = () => {
     // console.log('formData: ', data);
 
     try {
-      const result = await http.post("/SharePanel/AddProfileImage", data);
+      const result = await  toast.promise( http.post("/SharePanel/AddProfileImage", data),
+      {
+        pending: "در حال اضافه کردن عکس ها ",
+      }
+      )
       if (result.success) {
         toast.success(result.message);
+        // getProfileInfo(setUserInfo)
       } else if (!result.success) {
         toast.error(result.message);
       }

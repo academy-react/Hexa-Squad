@@ -258,7 +258,12 @@ const NewsDetails = () => {
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
                 میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
               </h2>
-              <Rate id={data} handleRate={handleNewsRate} />
+              <Rate 
+                id={data} 
+                handleRate={handleNewsRate} 
+                currentUserSetRate={data.currentUserSetRate}
+                currentUserRateNumber={data.currentUserRateNumber}
+              />
             </div>
           </div>
           <AddNewsComment  uid={comment.id} newsId={comment.newsId} setComment={setComment} />

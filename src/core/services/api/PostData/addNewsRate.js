@@ -12,7 +12,11 @@ const handleNewsRate = async (data, stars) => {
           `/News/NewsRate?NewsId=${data.id}&RateNumber=${stars}`
         );
         if (result.success === true) {
-          toast.success(result.message)
+          if(result.message === "هشدار ایجاد هرزنامه در دیتابیش"){
+            toast.error(result.message)
+          } else {
+            toast.success(result.message)
+          }
           // setNewsRate(stars);
         } else {
           toast.error(result.message)
