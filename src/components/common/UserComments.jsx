@@ -175,7 +175,7 @@ const UserComments = ({
             </h2>
             <span
               className={` cursor-pointer  absolute left-[120px]  lg:bottom-4  ${
-                currentUserEmotion === "LIKED"
+                currentUserEmotion === "LIKED" ||changeLikeColor === true
                   ? `bbi bi-hand-thumbs-up-fill  text-zinc-600 dark:text-indigo-300`
                   : `bi bi-hand-thumbs-up  text-zinc-600 dark:text-indigo-300`
               }`}
