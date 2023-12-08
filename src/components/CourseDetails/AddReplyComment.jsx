@@ -64,7 +64,7 @@ const AddReplyComment = ({
       </div>
       <Formik initialValues={initialValues} onSubmit={handle}>
         <Form>
-          <div className="flex flex-row bg-[#d0cdff] h-8 mt-6 ">
+          <div className="flex flex-row  h-8 mt-6 ">
             {/* <div className="flex flex-col">
               <label htmlFor="Title" className="hidden">
                 Title
@@ -87,7 +87,7 @@ const AddReplyComment = ({
               id="Describe"
               name="Describe"
               placeholder="نظر خود را وارد کنید"
-              className="h-full px-2  rounded-s-lg text-xs  w-full lg:w-[250px] py-2 bg-[#dbd9ff]   text-darkblue2 dark:text-[#7e7cb1] border-2 border-indigo-400 dark:border-[#3d3d70]   dark:bg-darkblue6 focus-visible:outline-2 focus-visible:border-2 dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800 focus-visible:outline focus-visible:outline-lightblue"
+              className="h-full px-2   rounded-s-lg text-xs  w-full lg:w-[250px]  py-2 bg-[#dbd9ff] text-darkblue2 dark:text-[#7e7cb1] border-2 border-indigo-400 dark:border-[#3d3d70]   dark:bg-darkblue6 focus-visible:outline-2 focus-visible:border-2 dark:focus-visible:outline dark:focus-visible:border-2 dark:focus-visible:outline-indigo-800 focus-visible:outline focus-visible:outline-lightblue"
             />
             <ErrorMessage name="Describe" component="div" />
 

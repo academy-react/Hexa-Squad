@@ -53,7 +53,7 @@ const AddNewsReply = ({
       </div>
       <Formik initialValues={initialValues} onSubmit={handle}>
         <Form>
-          <div className="flex flex-row bg-[#d0cdff] h-8 mt-6 ">
+          <div className="flex flex-row h-8 mt-6 ">
             <label htmlFor="describe" className="hidden">
               describe
             </label>
