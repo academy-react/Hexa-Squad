@@ -94,7 +94,6 @@ const AddReplyComment = ({
             <button
               type="submit"
               className="border px-2  border-indigo-400 hover:bg-lightblue cursor-pointer bg-[#7c75ff]  rounded-none rounded-e-md md:w-[100px]  lg:w-12 h-full  lg:mb-20"
-              onClick={handle}
             >
               <h2 class="bi bi-send text-sm"></h2>
             </button>
