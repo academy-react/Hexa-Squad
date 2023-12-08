@@ -18,9 +18,20 @@ const NewsList = () => {
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
 
-  const [newsData, setNewsData] = useState([{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true}]);
+  const [newsData, setNewsData] = useState([
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+  ]);
   console.log(newsData);
-  const [newsAllData, setNewsAllData] = useState([{skeleton: true},{skeleton: true},{skeleton: true}]);
+  const [newsAllData, setNewsAllData] = useState([
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+  ]);
   const [filterDiv, setFilterDiv] = useState(false);
   const [itemOffset, setItemOffset] = useState(0);
   const countInPage = 5;
@@ -28,7 +39,7 @@ const NewsList = () => {
   const currentItems = newsData.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(newsData.length / countInPage);
   const [isLoading, setIsLoading] = useState(false);
-  const [sortCal, setSortCal] = useState(undefined);
+  const [sortCal, setSortCal] = useState("Active");
   const [sortType, setSortType] = useState("DESC");
   const [Query, setQueryV] = useState(undefined);
 
@@ -45,13 +56,18 @@ const NewsList = () => {
 
   // get News data from api and fetch
   useEffect(() => {
-    getNewsApi(setNewsData, setNewsAllData, pageCount, 1000, setIsLoading, filterParams );
+    getNewsApi(
+      setNewsData,
+      setNewsAllData,
+      pageCount,
+      countInPage,
+      setIsLoading,
+      filterParams
+    );
     return () => {
       setFilterDiv(false);
     };
-  }, 
-    [getNewsApi]
-  );
+  }, [sortCal, Query]);
 
   const newsCardsMapper = currentItems.map((item, index) => {
     return (
@@ -103,8 +119,11 @@ const NewsList = () => {
               setData={setNewsData}
               filterDiv={filterDiv}
             />
-            {isLoading ? ( <LoadingSpinner/> ) : <div className="news-card">{newsCardsMapper}</div>}
-            
+            {isLoading ? (
+              <LoadingSpinner />
+            ) : (
+              <div className="news-card">{newsCardsMapper}</div>
+            )}
           </section>
           <ReactPaginate
             breakLabel="..."
