@@ -49,7 +49,7 @@ const CoursePhoto = ({
         <h2
           className={`bi bi-${
             isFavorite ? "heart-fill" : "heart"
-          } text-3xl text-[#ffff] left-3 mt-4 absolute  hover:text-violet-700 hover:scale-110 transition-all cursor-pointer `}
+          } text-3xl text-violet-700 left-3 mt-4 absolute  hover:scale-110 transition-all cursor-pointer `}
           alt="wishlist"
           onClick={addFavorite}
         />
@@ -93,6 +93,7 @@ const CoursePhoto = ({
                       likeCount,
                       changeLikeColor,
                       setChangeLikeColor,
+                      setAddLike
                     )
                 : () =>
                     handleCourseDeleteLike(

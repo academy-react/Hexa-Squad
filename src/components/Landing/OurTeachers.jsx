@@ -28,7 +28,7 @@ const OurTeachers = () => {
     try {
       const result = await http.get("/Home/GetTeachers");
       console.log(result);
-      setTeacherList(result.slice(result.length - 3, result.length));
+      setTeacherList(result.slice(0 , 3));
     } catch (error) {
       console.log(error);
     }

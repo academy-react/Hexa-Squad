@@ -35,7 +35,7 @@ const NewsCard = ({ name, img, description, views, date, id, skeleton }) => {
             <h2 className="news-description whitespace-pre-wrap md:text-base h-[80px] w-[95%] text-justify text-sm md:my-2 mt-2 pl-6 text-lightblue skeleton-handler dark:text-[#cbc7ff] dark:opacity-90 dark:group-hover:text-[#DEDCFF] opacity-60">
               {description ? description : ""}
             </h2>
-            <div className="news-readMore flex flex-row absolute  md:-mt-3 left-3  md:left-5 ">
+            <div className="news-readMore flex flex-row absolute  md:-mt-5 left-3  md:left-5 ">
               <h2 className=" text-newPurple text-xs md:text-base group-hover:text-[#9100DB] dark:text-indigo-300 dark:group-hover:text-[#B882FF] ">
                 {" "}
                 ادامه مطلب
