@@ -18,7 +18,7 @@ const InputComment = ({ question, name, setComment, accept }) => {
     Title: name,
     Describe: question,
   };
-  
+
   const addComment = async (value) => {
     try {
       let formData = new FormData();
@@ -63,7 +63,7 @@ const InputComment = ({ question, name, setComment, accept }) => {
       </h2>
       <div>
         <p className="inline text-base md:text-xl lg:text-xl text-darkblue2 dark:text-[#9996F9] lg:pr-4">
-          {userInfo.fName + " " + userInfo.lName}
+          {userInfo ? " " : userInfo.fName + " " + userInfo.lName}
         </p>
       </div>
       <Formik initialValues={initialValues} onSubmit={handle}>
@@ -73,7 +73,6 @@ const InputComment = ({ question, name, setComment, accept }) => {
               Title
             </label>
             <Field
-              
               id="Title"
               name="Title"
               placeholder=" عنوان پیام را وارد کنید"

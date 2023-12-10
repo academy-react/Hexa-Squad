@@ -25,7 +25,7 @@ const AddNewsComment = ({ question, name, uid, NewsId, setComment }) => {
         title: value.title,
         describe: value.describe,
       });
-      
+
       console.log(response);
       if (response.success) {
         toast.success(" کامنت شما ثبت شد");
@@ -66,7 +66,7 @@ const AddNewsComment = ({ question, name, uid, NewsId, setComment }) => {
         </h2>
         <div>
           <p className="inline text-base md:text-xl lg:text-xl text-darkblue2 dark:text-[#9996F9] lg:pr-4">
-            {userInfo.fName + " " + userInfo.lName}
+            {userInfo ? " " : userInfo.fName + " " + userInfo.lName}
           </p>
         </div>
         <Formik initialValues={initialValues} onSubmit={handle}>
