@@ -7,10 +7,10 @@ import { CheckboxInput } from "../../../common";
 import AddImageModal from "./AddImageModal";
 // import AddImageDropzoneModal from "./AddImageDropzoneModal";
 // import UploadMultipleImage from "./UploadMultipleImage";
+import getProfileInfo from "../../../../core/services/api/GetData/getProfileInfo";
 
 import pic from '../../../../assets/image/user-circle-icon.png';
 import darkPic from "../../../../assets/image/user-circle-icon-white.png";
-import getProfileInfo from "../../../../core/services/api/GetData/getProfileInfo";
 
 const EditImageModal = ({userInfo, setUserInfo}) => {
 
@@ -23,7 +23,11 @@ const EditImageModal = ({userInfo, setUserInfo}) => {
         const data = onFormData(obj)
         
         try {
-           const result =  await http.post("/SharePanel/SelectProfileImage",data)
+           const result =  await  toast.promise( http.post("/SharePanel/SelectProfileImage",data),
+            {
+                pending: "در حال انتخاب عکس ",
+            }
+           )
            if (result.success) {
             toast.success(result.message);
             // setTimeout(() => {
@@ -47,7 +51,11 @@ const EditImageModal = ({userInfo, setUserInfo}) => {
         const data = onFormData(obj)
         
         try {
-           const result =  await http.delete("/SharePanel/DeleteProfileImage", {data: data})
+           const result =  await toast.promise( http.delete("/SharePanel/DeleteProfileImage", {data: data}),
+            {
+                pending: "در حال حذف کردن عکس ",
+            }
+           )
            if (result.success) {
             toast.success(result.message);
             // setTimeout(() => {
@@ -79,12 +87,12 @@ const EditImageModal = ({userInfo, setUserInfo}) => {
 
                     <div className="flex items-center justify-center w-40 h-40 mx-auto my-4">
                         <img 
-                            src={userInfo.currentPictureAddress ? userInfo.currentPictureAddress : pic} 
+                            src={userInfo.currentPictureAddress === "Not-set" ? pic : userInfo.currentPictureAddress} 
                             alt="image"  
                             className="dark:hidden w-full h-full rounded-full shadow-shadow-auth"
                         />
                         <img 
-                            src={userInfo.currentPictureAddress ? userInfo.currentPictureAddress : darkPic} 
+                            src={userInfo.currentPictureAddress === "Not-set" ? darkPic : userInfo.currentPictureAddress} 
                             alt="image"  
                             className="hidden dark:block w-full object-cover h-full rounded-full" 
                         />
@@ -124,7 +132,7 @@ const EditImageModal = ({userInfo, setUserInfo}) => {
                             <i class="bi bi-trash"></i>
                         </span> */}
                         <CheckboxInput name={"showSelectImageModal"} />
-                        <AddImageModal userInfo={userInfo} />
+                        <AddImageModal userInfo={userInfo} setUserInfo={setUserInfo} />
                         <span 
                             onClick={() => showSelectImageModal.click()} 
                             className="flex gap-x-3 mt-2 mr-4 cursor-pointer"

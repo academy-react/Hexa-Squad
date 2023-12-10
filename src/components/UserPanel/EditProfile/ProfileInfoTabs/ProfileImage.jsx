@@ -30,8 +30,8 @@ const ProfileImage = () => {
 
                 <input id="input-file" type='file' onChange={handleImage}  className="hidden" disabled={disable} />
             </label> */}
-          <img src={userInfo.currentPictureAddress ? userInfo.currentPictureAddress : pic} alt="image"  className="dark:hidden w-full object-cover h-full rounded-full" />
-          <img src={userInfo.currentPictureAddress ? userInfo.currentPictureAddress : darkPic} alt="image"  className="hidden dark:block w-full object-cover h-full rounded-full" />
+          <img src={userInfo.currentPictureAddress === "Not-set" ? pic : userInfo.currentPictureAddress} alt="image"  className="dark:hidden w-full object-cover h-full rounded-full" />
+          <img src={userInfo.currentPictureAddress === "Not-set" ? darkPic : userInfo.currentPictureAddress} alt="image"  className="hidden dark:block w-full object-cover h-full rounded-full" />
 
         </div>
 

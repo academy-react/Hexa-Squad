@@ -6,12 +6,11 @@ const Rate = (
     id, 
     handleRate, 
     currentUserSetRate, 
-    currentUserRateNumber
+    currentUserRateNumber,
   }
   ) => {
 
   const [stars, setStars] = useState();
-  // console.log("data.currentUserSetRate=", currentUserRateNumber)
 
   const ratingChanged = (newRating) => {
     setStars(newRating);
