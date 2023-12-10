@@ -1,20 +1,18 @@
 import React, { Fragment, useState } from 'react';
 import Select from "react-select";
-import NewsestNews from '../../core/services/api/GetData/getNewsData/NewestNews';
-import MostVisitedNews from '../../core/services/api/GetData/getNewsData/MostVisitedNews';
-import fetchNewsApi from '../../core/services/api/GetData/getNewsData/allNewsApi';
-import FavoritesNews from '../../core/services/api/GetData/getNewsData/FavoritesNews';
 
-const NewsSortSelect = ({setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading}) => {
+
+const NewsSortSelect = () => {
   const [selectedOptions, setSelectedOption] = useState(null);
   const [options, setOptions] = useState([
-    { value: "", label: "همه" },
-    { value: "mostPopular", label: "محبوب ترین ها" },
-    { value: "mostVisited", label: "پربازدید ترین ها" },
-    { value: "newsest", label: "جدید ترین ها" },
+    { value: "InsertDate", label: "همه" },
+    { value: "CurrentRate", label: "محبوب ترین ها" },
+    { value: "CurrentView", label: "پربازدید ترین ها" },
+    { value: "UpdateDate", label: "جدید ترین ها" },
   ]);
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
+    // () => setSortCal(options.value)
   };
 
   return (

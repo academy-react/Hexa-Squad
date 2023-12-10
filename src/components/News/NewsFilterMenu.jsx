@@ -1,49 +1,19 @@
 import React from "react";
 import { CheckboxInput, SearchBox } from "../common";
 import NewsSortSelect from "./NewsSortSelect";
-import NewsestNews from "../../core/services/api/GetData/getNewsData/NewestNews";
-// import MostVisitedNews from '../../core/services/api/GetData/getNewsData/MostVisitedNews';
-import fetchNewsApi from "../../core/services/api/GetData/getNewsData/allNewsApi";
-import FavoritesNews from "../../core/services/api/GetData/getNewsData/FavoritesNews";
-import getNewsApi from "../../core/services/api/GetData/getNewsData/allNewsApi";
 
 const NewsFilterMenu = ({
-  setIsLoading,
   newsData,
   filterDiv,
   setFilterDiv,
   setNewsData,
-  setNewsAllData,
-  pageCount,
-  countInPage,
-  filterParams,
   setSortCal,
-  sortCal,
 }) => {
   const filterSearch = (value) => {
     let filteredData = newsData.filter((item) => {
       return item.title.toLowerCase().indexOf(value.toLowerCase()) != -1;
     });
     setNewsData(filteredData);
-  };
-
-  // const FavoritesNews = () => {
-  //   setSortCal("currentRate");
-  //   getNewsApi(setNewsData, setNewsAllData, pageCount, countInPage, setIsLoading, filterParams );
-  //   console.log("sortCal=",sortCal)
-  // }
-
-  const MostVisitedNews = () => {
-    setSortCal("currentView");
-    // getNewsApi(
-    //   setNewsData,
-    //   setNewsAllData,
-    //   pageCount,
-    //   countInPage,
-    //   setIsLoading,
-    //   filterParams
-    // );
-    console.log("sortCal=", sortCal);
   };
 
   return (
@@ -68,10 +38,16 @@ const NewsFilterMenu = ({
         >
           همه
         </li>
-        <li className="news-menu-box" onClick={() => setSortCal("CurrentRate")}>
+        <li 
+          className="news-menu-box" 
+          onClick={() => setSortCal("CurrentRate")}
+        >
           محبوب ترین ها
         </li>
-        <li className="news-menu-box" onClick={() => setSortCal("CurrentView")}>
+        <li 
+          className="news-menu-box" 
+          onClick={() => setSortCal("CurrentView")}
+        >
           پربازدید ترین ها
         </li>
         <li
@@ -96,13 +72,7 @@ const NewsFilterMenu = ({
           </label>
         </div>
         <div className="block lg:hidden w-full md:w-5/12">
-          <NewsSortSelect
-            setNewsData={setNewsData}
-            setNewsAllData={setNewsAllData}
-            pageCount={pageCount}
-            countInPage={countInPage}
-            setIsLoading={setIsLoading}
-          />
+          <NewsSortSelect/>
         </div>
         <SearchBox
           placeholder={"جستجو..."}

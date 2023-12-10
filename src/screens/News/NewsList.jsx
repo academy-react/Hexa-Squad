@@ -39,7 +39,7 @@ const NewsList = () => {
   const currentItems = newsData.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(newsData.length / countInPage);
   const [isLoading, setIsLoading] = useState(false);
-  const [sortCal, setSortCal] = useState("Active");
+  const [sortCal, setSortCal] = useState("InsertDate");
   const [sortType, setSortType] = useState("DESC");
   const [Query, setQueryV] = useState(undefined);
 
@@ -104,13 +104,7 @@ const NewsList = () => {
             filterDiv={filterDiv}
             setFilterDiv={setFilterDiv}
             setNewsData={setNewsData}
-            setNewsAllData={setNewsAllData}
-            pageCount={pageCount}
-            countInPage={countInPage}
-            setIsLoading={setIsLoading}
-            sortCal={sortCal}
             setSortCal={setSortCal}
-            filterParams={filterParams}
           />
           <section className="flex flex-row">
             <NewsCategoriesFilter
