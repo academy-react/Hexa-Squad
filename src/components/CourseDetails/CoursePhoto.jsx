@@ -54,7 +54,11 @@ const CoursePhoto = ({
           onClick={addFavorite}
         />
         <img
-          src={imageAddress == null ? NullImage : imageAddress}
+          src={
+            imageAddress === null || imageAddress === "<string>"
+              ? NullImage
+              : imageAddress
+          }
           className="w-full h-[300px] md:h-[400px]  lg:h-[420px]  rounded-lg "
           alt="course image"
         />
@@ -72,10 +76,10 @@ const CoursePhoto = ({
           <h2 className="lg:text-lg text-sm mt-1 dark:text-indigo-400 text-[#302064]">
             میزان رضایت مندی خود نسبت به این دوره را ثبت نمایید!
           </h2>
-          <Rate 
-            id={courseId} 
-            handleRate={handleCourseRate} 
-            currentUserSetRate={currentUserSetRate} 
+          <Rate
+            id={courseId}
+            handleRate={handleCourseRate}
+            currentUserSetRate={currentUserSetRate}
             currentUserRateNumber={currentUserRateNumber}
           />
         </div>
