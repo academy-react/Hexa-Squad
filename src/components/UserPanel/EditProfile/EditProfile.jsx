@@ -1,14 +1,14 @@
 import React, { Fragment, useState, useEffect, useCallback } from "react";
-import getProfileInfo from "../../../../core/services/api/GetData/getProfileInfo";
+import getProfileInfo from "../../../core/services/api/GetData/getProfileInfo";
 import EditProfileInfo from "./EditProfileInfo";
-import http from "../../../../core/services/interceptor";
-import onFormData from "../../../../core/services/api/FormData";
+import http from "../../../core/services/interceptor";
+import onFormData from "../../../core/services/api/FormData";
 import { toast } from "react-toastify";
 
 const EditProfile = () => {
   const [userInfo, setUserInfo] = useState([]);
 
-  // get Profile information
+  // // get Profile information
   useEffect(() => {
     getProfileInfo(setUserInfo);
   }, []);

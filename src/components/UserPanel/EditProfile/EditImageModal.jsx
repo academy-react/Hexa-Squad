@@ -1,18 +1,20 @@
-import React, { Fragment, useCallback } from "react";
+import React, { Fragment, useEffect ,useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import http from "../../../../core/services/interceptor";
-import onFormData from "../../../../core/services/api/FormData";
-import { CheckboxInput } from "../../../common";
+import http from "../../../core/services/interceptor";
+import onFormData from "../../../core/services/api/FormData";
+import { CheckboxInput } from "../../common";
 import AddImageModal from "./AddImageModal";
-// import AddImageDropzoneModal from "./AddImageDropzoneModal";
-// import UploadMultipleImage from "./UploadMultipleImage";
-import getProfileInfo from "../../../../core/services/api/GetData/getProfileInfo";
+import getProfileInfo from "../../../core/services/api/GetData/getProfileInfo";
 
-import pic from '../../../../assets/image/user-circle-icon.png';
-import darkPic from "../../../../assets/image/user-circle-icon-white.png";
+import pic from '../../../assets/image/user-circle-icon.png';
+import darkPic from "../../../assets/image/user-circle-icon-white.png";
 
 const EditImageModal = ({userInfo, setUserInfo}) => {
+
+    // useEffect(() => {
+    //     getProfileInfo(setUserInfo);
+    // }, [getProfileInfo]);
 
     const navigate = useNavigate();
     // Select Profile Image API
@@ -57,11 +59,7 @@ const EditImageModal = ({userInfo, setUserInfo}) => {
             }
            )
            if (result.success) {
-            toast.success(result.message);
-            // setTimeout(() => {
-            //     navigate("/userPanel");
-            //   }, 2000);
-            
+            toast.success(result.message);            
             getProfileInfo(setUserInfo)
 
            } else if (!result.success) {
@@ -70,7 +68,7 @@ const EditImageModal = ({userInfo, setUserInfo}) => {
         } catch (error){
             console.log(error);
         }
-    }) 
+    })
 
     return(
         <Fragment>

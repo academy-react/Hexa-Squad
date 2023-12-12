@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useRef } from "react";
 import { toast } from "react-toastify";
-import http from "../../../../core/services/interceptor";
-import getProfileInfo from "../../../../core/services/api/GetData/getProfileInfo";
+import http from "../../../core/services/interceptor";
+import getProfileInfo from "../../../core/services/api/GetData/getProfileInfo";
 
 const AddImageModal = (setUserInfo) => {
   const [images, setImages] = useState([]);
@@ -71,28 +71,6 @@ const AddImageModal = (setUserInfo) => {
 
   // Add Image
   const onSubmit = async () => {
-    // let formData = new FormData();
-
-    // formData.append("formFile", images);
-    // console.log('formData: ', formData)
-
-    // const imagess = [
-    //     {name:"ss",url:"http", file: File},
-    //     {name:"ss",url:"http", file: File},
-    //     {name:"ss",url:"http", file: File},
-    //     {name:"ss",url:"http", file: File},
-    // ]
-
-    // const obj = {
-    //     formFile: images.map(m => m.file)
-    // }
-
-    // const obj = {
-    //     formFile: imageFile
-    // }
-    // const data = onFormData(obj)
-    // ;
-
     const data = new FormData();
     try {
         Object.keys(imageFile).map(m => imageFile[m]).map((image) => {
@@ -101,10 +79,6 @@ const AddImageModal = (setUserInfo) => {
     } catch (error) {
         console.log(error)
     }
-    // data.append("formFile", imageFile);
-
-    console.log("Images: ", data);
-    // console.log('formData: ', data);
 
     try {
       const result = await  toast.promise( http.post("/SharePanel/AddProfileImage", data),
@@ -114,7 +88,7 @@ const AddImageModal = (setUserInfo) => {
       )
       if (result.success) {
         toast.success(result.message);
-        // getProfileInfo(setUserInfo)
+        // getProfileInfo(setUserInfo);
       } else if (!result.success) {
         toast.error(result.message);
       }
@@ -128,7 +102,9 @@ const AddImageModal = (setUserInfo) => {
     <Fragment>
       <div className="selectImageModal dark:bg-indigo-800">
         <label htmlFor="showSelectImageModal" className="cursor-pointer">
-          <i className="bi bi-x absolute top-2 z-50 right-5 text-slate-600 dark:text-semiWhite2 text-4xl"></i>
+          <i 
+            className="bi bi-x absolute top-2 z-50 right-5 text-slate-600 dark:text-semiWhite2 text-4xl"
+          ></i>
         </label>
 
         <div className="card p-4 rounded-md overflow-hidden">
@@ -180,9 +156,6 @@ const AddImageModal = (setUserInfo) => {
                 >
                   &times;
                 </span>
-                {/* <i 
-                      className="bi bi-plus-square delete absolute  left-2 cursor-pointer z-50 text-blue-700"
-                    ></i> */}
                 <img
                   src={images.url}
                   alt={images.name}

@@ -1,9 +1,10 @@
 import React, { Fragment, useState} from 'react';
 import { Tab } from '@headlessui/react';
 import TitleSection from '../../components/UserPanel/TitleSection';
-import ChangePassword from '../../components/UserPanel/EditProfile/ProfileInfoTabs/ChangePassword';
-import EditProfile from '../../components/UserPanel/EditProfile/ProfileInfoTabs/EditProfile';
-import ProfileImage from '../../components/UserPanel/EditProfile/ProfileInfoTabs/ProfileImage';
+import ChangePassword from '../../components/UserPanel/EditProfile/ChangePassword';
+import EditProfile from '../../components/UserPanel/EditProfile/EditProfile';
+import ProfileImage from '../../components/UserPanel/EditProfile/ProfileImage';
+import getProfileInfo from '../../core/services/api/GetData/getProfileInfo';
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(' ')
@@ -11,9 +12,9 @@ const classNames = (...classes) => {
 
 const ProfileInfoTabs = () => {
 
-    const [categories, setCategories] = useState([
-        "ویرایش اطلاعات", "تغییر رمز عبور"
-    ]);
+  const [categories, setCategories] = useState([
+    "ویرایش اطلاعات", "تغییر رمز عبور"
+  ]); 
 
   return (
     <Fragment>

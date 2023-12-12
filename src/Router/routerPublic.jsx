@@ -23,8 +23,7 @@ import AllCourse from "../screens/Panel/AllCourse";
 import WhishList from "../screens/Panel/WhishList";
 import MyCourses from "../screens/Panel/MyCourses";
 import LogOut from "../screens/Panel/logOut";
-import ChangePassword from "../screens/Panel/ChangePassword";
-import EditProfile from "../screens/Panel/EditProfile";
+import ChangePassword from "../components/UserPanel/EditProfile/ChangePassword";
 import UserDashboard from "../screens/Panel/UserDashboard";
 import ProfileInfoTabs from "../screens/Panel/ProfileInfoTabs";
 import NewsFavorite from "../screens/Panel/NewsFavorite";
@@ -91,7 +90,7 @@ export const routerPublic = createBrowserRouter([
       { path: "/userPanel/NewsFavorite", element: <NewsFavorite /> },
       { path: "/userPanel/ChangePassword", element: <ChangePassword /> },
       { path: "/userPanel/myCoursesReserve", element: <MyCoursesReserve /> },
-      { path: "/userPanel/editProfile", element: <EditProfile /> },
+      // { path: "/userPanel/editProfile", element: <EditProfile /> },
       { path: "/userPanel/logOut", element: <LogOut /> },
       { path: "/userPanel/ProfileInfoTabs", element: <ProfileInfoTabs /> },
     ],

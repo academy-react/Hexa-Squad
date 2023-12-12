@@ -15,7 +15,7 @@ const NewsFavoriteTable = ({ data, addIcon }) => {
   return (
     visible && (
       <tr className="text-[#36353B] dark:text-semiPink bg-[#CECCFF50] dark:bg-[#3f3fea45]  hover:bg-[#CECCFF80] pagination-table-tr ">
-        <td className="whitespace-nowrap pl-12 py-4 text-xl">
+        <td className="whitespace-nowrap pl-8 py-4 text-xl">
           <i
             onClick={() => {
               deleteFavoriteNews(data.favoriteId);
@@ -48,7 +48,7 @@ const NewsFavoriteTable = ({ data, addIcon }) => {
                 ? article
                 : data.currentImageAddressTumb
             }
-            className="min-w-[70px] w-[140px] h-16 rounded-lg "
+            className="min-w-[70px] w-[100px] h-16 rounded-lg "
             alt={data.title}
           />{" "}
         </td>
