@@ -1,13 +1,12 @@
 import React from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
-import TitleSection from "../../components/UserPanel/TitleSection";
-import { validation } from "../../core/validations/validations";
+import { validation } from "../../../core/validations/validations";
+
 const ChangePassword = () => {
   return (
     <div>
-      <TitleSection title={"تغییر رمزعبور"} />
-      <div className="flex justify-center items-center pt-28">
+      <div className="flex justify-center items-center pt-20">
         <Formik
           initialValues={{ lastPassword: "", password: "", rePassword: "" }}
           validationSchema={validation}

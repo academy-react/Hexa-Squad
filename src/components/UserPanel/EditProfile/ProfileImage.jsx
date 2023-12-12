@@ -1,11 +1,10 @@
 import React, { Fragment, useState, useEffect } from "react";
-import onSubmit from "../../../../core/services/api/PostData/addProfileImage";
-import { CheckboxInput } from "../../../common";
+import { CheckboxInput } from "../../common";
 import EditImageModal from "./EditImageModal";
-import getProfileInfo from "../../../../core/services/api/GetData/getProfileInfo";
+import getProfileInfo from "../../../core/services/api/GetData/getProfileInfo";
 
-import pic from "../../../../assets/image/user-circle-icon.png";
-import darkPic from "../../../../assets/image/user-circle-icon-white.png";
+import pic from "../../../assets/image/user-circle-icon.png";
+import darkPic from "../../../assets/image/user-circle-icon-white.png";
 
 
 const ProfileImage = () => {
@@ -20,7 +19,12 @@ const ProfileImage = () => {
   const [userInfo, setUserInfo] = useState([]);
   useEffect(() => {
     getProfileInfo(setUserInfo);
-  }, []);
+  }, [getProfileInfo]);
+
+  const onSubmit = () => {
+    getProfileInfo(setUserInfo)
+    showEditImageModal.click()
+  }
 
   return (
     <Fragment>
@@ -40,7 +44,7 @@ const ProfileImage = () => {
         <span 
           className="flex gap-x-3 mt-8 text-slate-600/90 dark:text-semiWhite2 justify-center cursor-pointer"
           dir="ltr"
-          onClick={() => showEditImageModal.click()} 
+          onClick={onSubmit} 
         >
           ویرایش عکس
           <i class="bi bi-pencil-square"></i>

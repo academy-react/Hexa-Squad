@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
-import { EditProfileValidation } from "../../../../core/validations/EditProfileValidation";
-import PersianCalendar from "../../../common/PersianCalendar";
+import { EditProfileValidation } from "../../../core/validations/EditProfileValidation";
+import PersianCalendar from "../../common/PersianCalendar";
 // import PersianCalendarNew from "../../../common/newDatePicker/PersianCalendarNew";
 // import MakeDatePickerDatePersian from "../../../common/newDatePicker/MakeDatePickerDatePersian";
 // import MakeDateEnglish from "../../../common/newDatePicker/MakeDateEnglish";
