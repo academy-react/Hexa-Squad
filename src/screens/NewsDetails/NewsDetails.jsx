@@ -33,10 +33,10 @@ const NewsDetails = () => {
   const [urlParam, setUrlParam] = useState(useParams());
   const [data, setData] = useState({});
   const [comment, setComment] = useState([]);
-  const [currentUserIsLike, setCurrentUserIsLike] = useState();
+  // const [currentUserIsLike, setCurrentUserIsLike] = useState();
   const [changeLikeColor, setChangeLikeColor] = useState(0);
   const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
-  const [newsLikeId, setNewsLikeId] = useState();
+  // const [newsLikeId, setNewsLikeId] = useState();
   const [isFavorite, setIsFavorite] = useState(false);
 
   const { scrollYProgress } = useScroll();
@@ -70,8 +70,6 @@ const NewsDetails = () => {
       const result = await http.get("/News/" + urlParam.id);
       setData(result.detailsNewsDto);
       setComment(result.commentDtos);
-      setCurrentUserIsLike(result.detailsNewsDto.currentUserIsLike)
-      setNewsLikeId(result.detailsNewsDto.likeId)
     } catch (error) {
       console.log(error);
     }

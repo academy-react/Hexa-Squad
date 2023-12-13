@@ -35,8 +35,8 @@ const Courses = () => {
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / countInPage);
   const filterObj = {
-    SortingCol: sortCal,
-    SortType: sortType,
+    SortingCol: sortType ,
+    SortType: sortCal,
     Query: Query,
     CostDown: costDown,
     CostUp: costUp,
@@ -48,6 +48,8 @@ const Courses = () => {
   const typeWriterWords = [
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
+
+  console.log(data)
 
   const setQuery = (e) => {
     clearTimeout(searchRef.current);
