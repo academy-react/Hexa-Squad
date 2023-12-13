@@ -97,7 +97,6 @@ const CoursePhoto = ({
                       likeCount,
                       changeLikeColor,
                       setChangeLikeColor,
-                      setAddLike
                     )
                 : () =>
                     handleCourseDeleteLike(
