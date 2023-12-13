@@ -28,7 +28,8 @@ const OurTeachers = () => {
     try {
       const result = await http.get("/Home/GetTeachers");
       console.log(result);
-      setTeacherList(result.slice(0 , 3));
+      // setTeacherList(result.slice(0 , 3));
+      setTeacherList(result.filter(teacher=>(teacher.teacherId === 9 || teacher.teacherId === 1 ||teacher.teacherId=== 12)));
     } catch (error) {
       console.log(error);
     }
@@ -42,7 +43,7 @@ const OurTeachers = () => {
     return (
       <TeacherCard
         key={index}
-        courseCount={item.courseCount}
+        courseCount={item.courseCounts}
         pictureAddress={item.pictureAddress}
         title={item.fullName}
         description={item.teacherId}

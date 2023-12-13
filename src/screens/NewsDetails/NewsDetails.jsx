@@ -87,7 +87,7 @@ const NewsDetails = () => {
     data.isCurrentUserFavorite && setIsFavorite(true);
   }, []);
 
-  console.log("data.data.likeId",newsLikeId)
+  // console.log("data.data.likeId",newsLikeId)
 
   return (
     <Fragment>

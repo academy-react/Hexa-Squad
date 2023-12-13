@@ -16,7 +16,7 @@ const News = () => {
       );
       const recivedData = result.news;
       setNewsList(
-        recivedData.slice(recivedData.length - 2, recivedData.length)
+        recivedData.slice(5,7)
       );
     } catch (error) {
       console.log(error);
