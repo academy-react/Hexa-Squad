@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 import http from "../../core/services/interceptor";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -76,7 +79,20 @@ const Login = () => {
             <div className="bg-[#ECE9FF] dark:bg-darkblue2 rounded-md rounded-e-xl -top-10 md:top-0 w-[400px] h-[540px] md:block md:w-[800px] lg:h-full absolute">
               <Link to="/">
                 {" "}
-                <h1 className="bi bi-house-door md:text-2xl  text-xl dark:text-indigo-200 text-[#6652eb] absolute left-4 top-4"></h1>
+                <h1
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content=" بازگشت به خانه"
+                  className="bi bi-house-door md:text-2xl   text-xl dark:text-indigo-200 text-[#6652eb] absolute left-4 top-4"
+                ></h1>
+              </Link>
+              <Link to="http://localhost:3000/">
+                {" "}
+                <h1
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content="ورود ادمین"
+                  className="bi bi-person-check md:text-2xl  text-xl dark:text-indigo-200 text-[#6652eb] absolute left-24 top-4"
+                ></h1>
+                <Tooltip id="my-tooltip" />
               </Link>
 
               <h2

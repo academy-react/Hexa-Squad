@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Http from "../../core/services/interceptor";
 import TeacherInfo from "./TeacherProfile/TeacherInfo";
-
 const TeacherProfile = () => {
   const [urlParam, setUrlParam] = useState(useParams());
   const [teacherInfo, setTeacherInfo] = useState({

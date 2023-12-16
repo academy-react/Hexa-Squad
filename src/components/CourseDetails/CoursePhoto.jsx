@@ -8,6 +8,8 @@ import Rate from "../common/Rate";
 import handleCourseRate from "../../core/services/api/PostData/addCourseRate";
 
 import NullImage from "../../assets/image/Images-for-null 2.svg";
+import { toast } from "react-toastify";
+import DeleteCourseDissLike from "../../core/services/api/DeleteData/deleteCourseDissLike";
 
 const CoursePhoto = ({
   id,
@@ -24,6 +26,7 @@ const CoursePhoto = ({
   miniDescribe,
   currentUserSetRate,
   currentUserRateNumber,
+  setData
 }) => {
   const [changeLikeColor, setChangeLikeColor] = useState(0);
   const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
@@ -38,6 +41,109 @@ const CoursePhoto = ({
   }, [isUserFavorite]);
 
   // const [currentUserIsLike, setCurrentUserIsLike] = useState(currentUserLike);
+
+  // Afshin
+  const [userIsLiked, setUserIsLiked] = useState(currentUserLike); // Initialize with api
+  const [like, setLike] = useState(likeCount);
+  const [userIsDissLiked, setUserIsDissLiked] = useState(currentUserDissLike); // Initialize with api
+  const [dissLike, setDissLike] = useState(dissLikeCount);
+
+  console.log("like=",like)
+
+  let likeClasses = userIsLiked === "1" || changeLikeColor
+    ? "bbi bi-hand-thumbs-up-fill text-indigo-950"
+    : "bi bi-hand-thumbs-up text-indigo-950";
+
+  let dissLikeClasses = userIsDissLiked === "1" || changeDisLikeColor
+    ? "bbi bi-hand-thumbs-down-fill text-zinc-500"
+    : "bbi bi-hand-thumbs-down text-zinc-500";
+
+  function handleLike() {
+    if (userIsLiked === "1") {
+      //call delete like api
+      handleCourseDeleteLike(
+        userLikeId,
+        changeLikeColor,
+        setChangeLikeColor,
+        id,
+        setData
+      )
+
+      const response = true;
+      if (response) {
+        setUserIsLiked("0");
+        setLike(like - 1);
+        setChangeLikeColor(0);
+      } else {
+        alert("Can't reach the api");
+      }
+      return;
+    }
+    // Call Like api
+    handleCourseAddLike(
+      courseId,
+      likeCount,
+      changeLikeColor,
+      setChangeLikeColor,
+      setData
+    )
+
+    const response = true;
+    if (response) {
+      setUserIsLiked("1");
+      setLike(like + 1);
+      if (userIsDissLiked === "1") {
+        setUserIsDissLiked("0");
+        setDissLike(dissLike - 1);
+        setChangeDisLikeColor(0)
+      }
+    } else {
+      alert("Can't reach the api");
+    }
+  }
+  function handleDissLike() {
+    if (userIsDissLiked === "1") {
+      //call delete dissLike api
+      DeleteCourseDissLike(
+        userLikeId,
+        changeDisLikeColor,
+        setChangeDisLikeColor,
+        id,
+        setData
+      )
+      const response = true;
+      if (response) {
+        setUserIsDissLiked("0");
+        setDissLike(dissLike - 1);
+        // setChangeDisLikeColor(0)
+      } else {
+        alert("Can't reach the api");
+      }
+      return;
+    }
+
+    // Call DissLike api
+    handleCourseDisLike(
+      courseId,
+      changeDisLikeColor,
+      setChangeDisLikeColor,
+      setData
+    )
+
+    const response = true;
+    if (response) {
+      setUserIsDissLiked("1");
+      setDissLike(dissLike + 1);
+      if (userIsLiked === "1") {
+        setUserIsLiked("0");
+        setLike(like - 1);
+        setChangeLikeColor(0);
+      }
+    } else {
+      alert("Can't reach the api");
+    }
+  }
+
 
   return (
     <div
@@ -76,12 +182,12 @@ const CoursePhoto = ({
           <h2 className="lg:text-lg text-sm mt-1 dark:text-indigo-400 text-[#302064]">
             میزان رضایت مندی خود نسبت به این دوره را ثبت نمایید!
           </h2>
-          <Rate
+          {courseId && <Rate
             id={courseId}
             handleRate={handleCourseRate}
             currentUserSetRate={currentUserSetRate}
             currentUserRateNumber={currentUserRateNumber}
-          />
+          />}
         </div>
         <div className="flex flex-row mt-8">
           <h2 className="lg:text-base text-sm mt-1 dark:text-indigo-400 text-[#302064]">
@@ -89,54 +195,32 @@ const CoursePhoto = ({
           </h2>
           <div
             className="course-like-box py-2 mr-4 bg-[#e3deff] "
-            onClick={
-              currentUserLike === "0"
-                ? () =>
-                    handleCourseAddLike(
-                      courseId,
-                      likeCount,
-                      changeLikeColor,
-                      setChangeLikeColor,
-                      setAddLike
-                    )
-                : () =>
-                    handleCourseDeleteLike(
-                      userLikeId,
-                      changeLikeColor,
-                      setChangeLikeColor
-                    )
-            }
+            onClick={handleLike}
           >
             <span
               className={` cursor-pointer ${
-                changeLikeColor || currentUserLike === "1"
+                changeLikeColor || currentUserLike === "1" || userIsLiked === "1"
                   ? `bbi bi-hand-thumbs-up-fill text-indigo-950 `
                   : `bi bi-hand-thumbs-up text-indigo-950`
               }`}
             >
               {" "}
-              {likeCount}
+              {like}
             </span>
           </div>
           <div
             className="course-like-box py-2 mr-4 bg-[#e3deff] "
-            onClick={() =>
-              handleCourseDisLike(
-                courseId,
-                changeDisLikeColor,
-                setChangeDisLikeColor
-              )
-            }
+            onClick={handleDissLike}
           >
             <span
               className={` cursor-pointer ${
-                changeDisLikeColor || currentUserDissLike === "1"
+                changeDisLikeColor || currentUserDissLike === "1" || userIsDissLiked === "1"
                   ? `bbi bi-hand-thumbs-down-fill text-zinc-500 `
                   : `bbi bi-hand-thumbs-down text-zinc-500`
               }`}
             >
               {" "}
-              {dissLikeCount}
+              {dissLike}
             </span>
           </div>
         </div>

@@ -1,13 +1,8 @@
-import React, { useState, Fragment, useEffect, useCallback } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState, Fragment, useEffect } from "react";
+import {  useParams } from "react-router-dom";
 import { motion, useScroll, useSpring } from "framer-motion";
 
-import http from "../../core/services/interceptor";
 import LoadingSpinner from "../../components/common/loadingSpinner";
-import UserComments from "../../components/common/UserComments";
-import InputComment from "../../components/common/InputComment";
-import AdminComments from "../../components/common/AdminComments";
-import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
 import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike";
 import handleNewsDisLike from "../../core/services/api/PostData/addNewsDisLike";
 import handleNewsDeleteLike from "../../core/services/api/DeleteData/deleteNewsLike";
@@ -28,15 +23,13 @@ import "../../components/Landing/common.css";
 import addNewsFavorite from "../../core/services/api/PostData/addNewsFavorite";
 import NewsComments from "../../components/NewsDetails/NewsComments";
 import AddNewsComment from "../../components/NewsDetails/AddNewsComment";
+import GetNewsDetails from "../../core/services/api/GetData/getNewsData/getNewsDetailsById";
+import NewsLikeDissLike from "../../components/NewsDetails/NewsLikeDissLike";
 
 const NewsDetails = () => {
   const [urlParam, setUrlParam] = useState(useParams());
   const [data, setData] = useState({});
   const [comment, setComment] = useState([]);
-  const [currentUserIsLike, setCurrentUserIsLike] = useState();
-  const [changeLikeColor, setChangeLikeColor] = useState(0);
-  const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
-  const [newsLikeId, setNewsLikeId] = useState();
   const [isFavorite, setIsFavorite] = useState(false);
 
   const { scrollYProgress } = useScroll();
@@ -64,20 +57,9 @@ const NewsDetails = () => {
       />
     );
   });
-  const fetchData = useCallback(async () => {
-    try {
-      const result = await http.get("/News/" + urlParam.id);
-      setData(result.detailsNewsDto);
-      setComment(result.commentDtos);
-      setCurrentUserIsLike(result.detailsNewsDto.currentUserIsLike);
-      setNewsLikeId(result.detailsNewsDto.likeId);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    GetNewsDetails(urlParam.id, setData, setComment);
+  }, [GetNewsDetails]);
 
   // Add News Favorite
   const addFavorite = async () => {
@@ -87,8 +69,6 @@ const NewsDetails = () => {
   useEffect(() => {
     data.isCurrentUserFavorite && setIsFavorite(true);
   }, []);
-
-  console.log("data.data.likeId", newsLikeId);
 
   return (
     <Fragment>
@@ -193,73 +173,26 @@ const NewsDetails = () => {
             </div>
           </div>
           <div className="flex lg:flex-row flex-col gap-y-6 justify-between border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70] py-8">
-            <div className="flex flex-row">
-              <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
-                آیا از این مقاله راضی بودید؟
-              </h2>
-              <div
-                className="course-like-box py-2 mr-4 bg-[#e3deff] "
-                // onClick={() => handleNewsLikeClick(urlParam, currentUserIsLike, changeLikeColor, setChangeLikeColor)}
-                onClick={
-                  data.currentUserIsLike === false
-                    ? () =>
-                        handleNewsLikeClick(
-                          urlParam,
-                          currentUserIsLike,
-                          changeLikeColor,
-                          setChangeLikeColor
-                        )
-                    : () =>
-                        handleNewsDeleteLike(
-                          newsLikeId,
-                          changeLikeColor,
-                          setChangeLikeColor
-                        )
-                }
-              >
-                <span
-                  className={` cursor-pointer ${
-                    changeLikeColor || data.currentUserIsLike === true
-                      ? `bbi bi-hand-thumbs-up-fill text-indigo-950 `
-                      : `bi bi-hand-thumbs-up text-indigo-950`
-                  }`}
-                >
-                  {" "}
-                  {data.currentLikeCount}
-                </span>
-              </div>
-              <div
-                className="course-like-box py-2 mr-4 bg-[#e3deff] "
-                onClick={() =>
-                  handleNewsDisLike(
-                    urlParam,
-                    changeDisLikeColor,
-                    setChangeDisLikeColor
-                  )
-                }
-              >
-                <span
-                  className={` cursor-pointer ${
-                    changeDisLikeColor || data.currentUserIsDissLike === true
-                      ? `bbi bi-hand-thumbs-down-fill text-zinc-500 `
-                      : `bbi bi-hand-thumbs-down text-zinc-500`
-                  }`}
-                >
-                  {" "}
-                  {data.currentDissLikeCount}
-                </span>
-              </div>
-            </div>
+            {data.id && <NewsLikeDissLike
+              data={data}
+              id={urlParam.id}
+              newsLikeId={data.likeId}
+              currentUserLike={data.currentUserIsLike}
+              currentUserDissLike={data.currentUserIsDissLike}
+              likeCount={data.currentLikeCount}
+              dissLikeCount={data.currentDissLikeCount}
+              setData={setData}
+            />}
             <div className="flex md:flex-row flex-wrap gap-x-4">
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
                 میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
               </h2>
-              <Rate
-                id={data}
-                handleRate={handleNewsRate}
+              {data.id && <Rate 
+                id={data} 
+                handleRate={handleNewsRate} 
                 currentUserSetRate={data.currentUserSetRate}
                 currentUserRateNumber={data.currentUserRateNumber}
-              />
+              />}
             </div>
           </div>
           <AddNewsComment

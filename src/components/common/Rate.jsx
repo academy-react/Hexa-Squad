@@ -20,7 +20,18 @@ const Rate = (
 
   return (
     <div dir="ltr">
-      {currentUserSetRate ?
+      <ReactStars
+        count={5}         
+        size={28}
+        isHalf={true}
+        emptyIcon={<i className="far fa-star"></i>}
+        halfIcon={<i className="fa fa-star-half-alt"></i>}
+        fullIcon={<i className="fa fa-star"></i>}
+        activeColor="#ffd700"
+        onChange={(e) => ratingChanged(e)}
+        value={currentUserSetRate ? currentUserRateNumber : ""}
+      />
+      {/* {currentUserSetRate ?
         currentUserRateNumber && 
         <ReactStars
           count={5}         
@@ -31,7 +42,7 @@ const Rate = (
           fullIcon={<i className="fa fa-star"></i>}
           activeColor="#ffd700"
           onChange={(e) => ratingChanged(e)}
-          value={ currentUserRateNumber}
+          value={currentUserSetRate ? currentUserRateNumber : ""}
         /> :
         <ReactStars
           count={5}         
@@ -43,7 +54,7 @@ const Rate = (
           activeColor="#ffd700"
           onChange={(e) => ratingChanged(e)}
         />
-      }
+      } */}
     </div>
   );
 };

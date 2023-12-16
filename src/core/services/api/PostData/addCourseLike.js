@@ -1,8 +1,9 @@
 import http from "../../interceptor";
 import { toast } from "react-toastify";
 import { getProfile } from "../GetData/profile";
+import GetCourseDetails from "../GetData/getCourseDetailsById";
 
-const handleCourseAddLike = async (courseId,likeCount, changeLikeColor, setChangeLikeColor) => {
+const handleCourseAddLike = async (courseId,likeCount, changeLikeColor, setChangeLikeColor, setData) => {
   const user = await getProfile();
   if (user == false) {
     showLoginModal.click();
@@ -12,6 +13,7 @@ const handleCourseAddLike = async (courseId,likeCount, changeLikeColor, setChang
         if (result.success == true) {
           toast.success(result.message)
           setChangeLikeColor(!changeLikeColor);
+          GetCourseDetails(courseId, setData)
         //   setNewLikeCount(likeCount+1)
         } else if (result.success == false) {
           toast.error(result.message)

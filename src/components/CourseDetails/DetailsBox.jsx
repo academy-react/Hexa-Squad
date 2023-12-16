@@ -16,6 +16,7 @@ import studentDark from "../../assets/icons/studentDark.svg";
 import teacher from "../../assets/image/teacher'sProfile.jpg";
 import GregorianToSolar from "../../core/utility/GregorianToSolar/GregorianToSolar";
 import { getItem } from "../../core/services/local-storage/storage.services";
+import userCommentPic from "../../assets/image/usercommentpic.svg";
 
 const DetailsBox = ({
   id,

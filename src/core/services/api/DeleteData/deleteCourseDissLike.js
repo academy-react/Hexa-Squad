@@ -4,10 +4,10 @@ import { getProfile } from "../GetData/profile";
 import onFormData from "../FormData";
 import GetCourseDetails from "../GetData/getCourseDetailsById";
 
-const handleCourseDeleteLike = async (
+const DeleteCourseDissLike = async (
   userLikeId,
-  changeLikeColor,
-  setChangeLikeColor,
+  changeDisLikeColor,
+  setChangeDisLikeColor,
   courseId,
   setData
 ) => {
@@ -26,8 +26,8 @@ const handleCourseDeleteLike = async (
         headers: { "Content-Type": "multipart/form-data" },
       });
       if (result.success == true) {
-        toast.success("لایک این دوره با موفقیت حذف شد");
-        setChangeLikeColor(!changeLikeColor);
+        toast.success("دیسلایک این دوره با موفقیت حذف شد");
+        setChangeDisLikeColor(!changeDisLikeColor);
         GetCourseDetails(courseId, setData)
       } else if (result.success == false) {
         toast.error(result.message);
@@ -37,4 +37,4 @@ const handleCourseDeleteLike = async (
     }
   }
 };
-export default handleCourseDeleteLike;
+export default DeleteCourseDissLike;

@@ -10,6 +10,8 @@ import Course from "../../components/course/Course";
 import TabsContent from "../../components/CourseDetails/TabsContent";
 import LoadingSpinner from "../../components/common/loadingSpinner";
 
+import GetCourseDetails from "../../core/services/api/GetData/getCourseDetailsById";
+
 const CourseDetails = () => {
   const [coursesWhishList, setCoursesWhishList] = useState([]);
   const [urlParam, setUrlParam] = useState(useParams());
@@ -39,36 +41,19 @@ const CourseDetails = () => {
     );
   });
 
-  const fetchData = useCallback(async () => {
-    try {
-      const result = await http.get(
-        `/Home/GetCourseDetails?CourseId=` + urlParam.id
-      );
-      setData(result);
-      console.log(result.teacherId);
-      setTeacherId(result.teacherId);
-    } catch (error) {}
-  }, []);
-  const fetchTeacherData = useCallback(async () => {
-    try {
-      console.log("teacherId", teacherId);
-      const result = await http.get(
-        "Home/GetTeacherDetails?TeacherId=" + teacherId
-      );
-      console.log(result);
-      if (result.success) {
-        setTeacherInfo(result);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-  useEffect(() => {
-    teacherId !== undefined && fetchTeacherData();
-  }, [teacherId]);
+  // const fetchData = useCallback(async () => {
+  //   try {
+  //     const result = await http.get(
+  //       `/Home/GetCourseDetails?CourseId=` +
+  //         urlParam.id
+  //     );
+  //     setData(result);
+  //   } catch (error) {}
+  // }, []);
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
+    GetCourseDetails(urlParam.id, setData)
     fetchTopCourses(3, setCoursesWhishList);
   }, []);
 
@@ -78,7 +63,7 @@ const CourseDetails = () => {
       <div className="mx-auto flex mb-20 ">
         <div className="w-[90%] h-full overflow-hidden lg:max-w-[1260px] mx-auto mt-36 bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6">
           <div className="flex flex-col lg:flex-row">
-            <CoursePhoto
+          {data.courseId && <CoursePhoto
               courseId={data.courseId}
               title={data.title}
               describe={data.describe}
@@ -95,7 +80,8 @@ const CourseDetails = () => {
               miniDescribe={data.miniDescribe}
               currentUserSetRate={data.currentUserSetRate}
               currentUserRateNumber={data.currentUserRateNumber}
-            />
+              setData={setData}
+            />}
 
             {/* moshakhasat */}
             <DetailsBox
