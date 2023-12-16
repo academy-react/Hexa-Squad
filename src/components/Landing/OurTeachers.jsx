@@ -29,7 +29,7 @@ const OurTeachers = () => {
       const result = await http.get("/Home/GetTeachers");
       console.log(result);
       // setTeacherList(result.slice(0 , 3));
-      setTeacherList(result.filter(teacher=>(teacher.teacherId === 9 || teacher.teacherId === 1 ||teacher.teacherId=== 12)));
+      setTeacherList(result.filter(teacher=>(teacher.teacherId === 9 || teacher.teacherId === 1 ||teacher.teacherId === 36)));
     } catch (error) {
       console.log(error);
     }
