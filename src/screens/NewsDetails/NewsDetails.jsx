@@ -3,9 +3,6 @@ import {  useParams } from "react-router-dom";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 import LoadingSpinner from "../../components/common/loadingSpinner";
-import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike";
-import handleNewsDisLike from "../../core/services/api/PostData/addNewsDisLike";
-import handleNewsDeleteLike from "../../core/services/api/DeleteData/deleteNewsLike";
 import Rate from "../../components/common/Rate";
 import handleNewsRate from "../../core/services/api/PostData/addNewsRate";
 
