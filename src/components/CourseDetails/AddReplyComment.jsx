@@ -45,6 +45,10 @@ const AddReplyComment = ({
   const handle = async (value) => {
     if (accept === true) {
       addReplyComment(value);
+      let result = await http.get(
+        `/Course/GetCourseReplyCommnets/${courseId}/${uid}`
+      );
+      setAdminComment(result);
     } else {
       toast.error(" به کامنت اکسپت نشده نمیتوان ریپلای کرد ");
     }

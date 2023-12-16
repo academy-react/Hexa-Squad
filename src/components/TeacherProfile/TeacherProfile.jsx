@@ -2,25 +2,26 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Http from "../../core/services/interceptor";
 import TeacherInfo from "./TeacherProfile/TeacherInfo";
-
 const TeacherProfile = () => {
-  const [urlParam, setUrlParam] = useState(useParams())
-  const [teacherInfo, setTeacherInfo] = useState( {
-    "skills": [''],
-    "histories": [''],
-    "teacherId": null,
-    "fullName": "",
-    "linkdinProfileLink": "",
-    "pictureAddress": null,
-    "courseCounts": null,
-    "newsCount": null
-});
+  const [urlParam, setUrlParam] = useState(useParams());
+  const [teacherInfo, setTeacherInfo] = useState({
+    skills: [""],
+    histories: [""],
+    teacherId: null,
+    fullName: "",
+    linkdinProfileLink: "",
+    pictureAddress: null,
+    courseCounts: null,
+    newsCount: null,
+  });
   const fetchTeacherData = useCallback(async () => {
     try {
-      const result = await Http.get('Home/GetTeacherDetails?TeacherId='+urlParam.id);
-      result !=undefined ? setTeacherInfo(result) :'';
+      const result = await Http.get(
+        "Home/GetTeacherDetails?TeacherId=" + urlParam.id
+      );
+      result != undefined ? setTeacherInfo(result) : "";
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }, []);
 
@@ -42,7 +43,6 @@ const TeacherProfile = () => {
           courseCounts={teacherInfo.courseCounts}
           newsCount={teacherInfo.newsCount}
         />
-       
       </div>
     </div>
   );

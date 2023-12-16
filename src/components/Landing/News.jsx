@@ -15,9 +15,17 @@ const News = () => {
         "/News?PageNumber=1&RowsOfPage=200&SortingCol=InsertDate&SortType=DESC&Query="
       );
       const recivedData = result.news;
+      // setNewsList(
+      //   recivedData.slice(5,7)
+      // );
       setNewsList(
-        recivedData.slice(5,7)
+        recivedData.filter(
+          (teacher) =>
+            teacher.title === "آشنایی با برنامه‌ نویسی" ||
+            teacher.title === "برنامه نویسی چیست؟"
+        )
       );
+      console.log(result);
     } catch (error) {
       console.log(error);
     }

@@ -36,7 +36,7 @@ const TabsContent = ({ describe }) => {
       />
     );
   });
-  console.log(userComments)
+  console.log(userComments);
   const fetchCommentData = useCallback(async () => {
     try {
       const result = await http.get(`/Course/GetCourseCommnets/` + urlParam.id);
