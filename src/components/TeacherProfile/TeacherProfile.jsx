@@ -33,8 +33,8 @@ const TeacherProfile = () => {
       <div className="w-[90%] lg:max-w-[1260px] py-12 md:pr-12 lg:pr-20 mx-auto bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6">
         <TeacherInfo
           title={teacherInfo.fullName}
-          education={teacherInfo.skills[0]}
-          experiences={teacherInfo.skills[0]}
+          education={teacherInfo.skills}
+          experiences={teacherInfo.skills}
           number={teacherInfo.number}
           linkdin={teacherInfo.linkdinProfileLink}
           email={teacherInfo.email}
