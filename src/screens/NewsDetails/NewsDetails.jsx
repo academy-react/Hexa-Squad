@@ -8,7 +8,7 @@ import UserComments from "../../components/common/UserComments";
 import InputComment from "../../components/common/InputComment";
 import AdminComments from "../../components/common/AdminComments";
 import { addWishList } from "../../core/services/api/PostData/addCourseWishList";
-import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike"; 
+import handleNewsLikeClick from "../../core/services/api/PostData/addNewsLike";
 import handleNewsDisLike from "../../core/services/api/PostData/addNewsDisLike";
 import handleNewsDeleteLike from "../../core/services/api/DeleteData/deleteNewsLike";
 import Rate from "../../components/common/Rate";
@@ -61,7 +61,6 @@ const NewsDetails = () => {
         pictureAddress={item.pictureAddress}
         currentUserIsLike={item.currentUserIsLike}
         currentUserIsDissLike={item.currentUserIsDissLike}
-        
       />
     );
   });
@@ -70,8 +69,8 @@ const NewsDetails = () => {
       const result = await http.get("/News/" + urlParam.id);
       setData(result.detailsNewsDto);
       setComment(result.commentDtos);
-      setCurrentUserIsLike(result.detailsNewsDto.currentUserIsLike)
-      setNewsLikeId(result.detailsNewsDto.likeId)
+      setCurrentUserIsLike(result.detailsNewsDto.currentUserIsLike);
+      setNewsLikeId(result.detailsNewsDto.likeId);
     } catch (error) {
       console.log(error);
     }
@@ -89,7 +88,7 @@ const NewsDetails = () => {
     data.isCurrentUserFavorite && setIsFavorite(true);
   }, []);
 
-  console.log("data.data.likeId",newsLikeId)
+  console.log("data.data.likeId", newsLikeId);
 
   return (
     <Fragment>
@@ -140,13 +139,10 @@ const NewsDetails = () => {
               <h2 className="text-[#3B3CA7] dark:text-whitePink text-lg md:text-3xl mb-6">
                 {data.title == undefined ? "" : data.title}
               </h2>
-              <Link
-                to={"/TeacherProfile"}
-                className="inline text-[#403393] dark:text-[#8E8EAA] text-sm "
-              >
+              <span className="inline text-[#403393] dark:text-[#8E8EAA] text-sm ">
                 {userSvg}
                 {data.addUserFullName == undefined ? "" : data.addUserFullName}
-              </Link>
+              </span>
               <p className="news-details-text mt-6">
                 {data.miniDescribe == undefined ? "" : data.miniDescribe}
               </p>
@@ -206,19 +202,19 @@ const NewsDetails = () => {
                 // onClick={() => handleNewsLikeClick(urlParam, currentUserIsLike, changeLikeColor, setChangeLikeColor)}
                 onClick={
                   data.currentUserIsLike === false
-                  ? () => 
-                    handleNewsLikeClick(
-                      urlParam, 
-                      currentUserIsLike, 
-                      changeLikeColor, 
-                      setChangeLikeColor
-                    )
-                  : () => 
-                    handleNewsDeleteLike(
-                      newsLikeId, 
-                      changeLikeColor, 
-                      setChangeLikeColor
-                    )
+                    ? () =>
+                        handleNewsLikeClick(
+                          urlParam,
+                          currentUserIsLike,
+                          changeLikeColor,
+                          setChangeLikeColor
+                        )
+                    : () =>
+                        handleNewsDeleteLike(
+                          newsLikeId,
+                          changeLikeColor,
+                          setChangeLikeColor
+                        )
                 }
               >
                 <span
@@ -258,15 +254,19 @@ const NewsDetails = () => {
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
                 میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
               </h2>
-              <Rate 
-                id={data} 
-                handleRate={handleNewsRate} 
+              <Rate
+                id={data}
+                handleRate={handleNewsRate}
                 currentUserSetRate={data.currentUserSetRate}
                 currentUserRateNumber={data.currentUserRateNumber}
               />
             </div>
           </div>
-          <AddNewsComment  uid={comment.id} newsId={comment.newsId} setComment={setComment} />
+          <AddNewsComment
+            uid={comment.id}
+            newsId={comment.newsId}
+            setComment={setComment}
+          />
           <div className="my-10 border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70]">
             <img src={commentImg} className="inline pl-4" />
             <h2 className="text-xl md:text-2xl text-darkblue4 dark:text-[#6974FF] inline">

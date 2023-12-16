@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import http from "../../core/services/interceptor/index"
+import http from "../../core/services/interceptor/index";
 import { useParams } from "react-router-dom";
 
 import fetchTopCourses from "../../core/services/api/GetData/getTopCourses";
@@ -13,6 +13,8 @@ import LoadingSpinner from "../../components/common/loadingSpinner";
 const CourseDetails = () => {
   const [coursesWhishList, setCoursesWhishList] = useState([]);
   const [urlParam, setUrlParam] = useState(useParams());
+  const [teacherInfo, setTeacherInfo] = useState();
+  const [teacherId, setTeacherId] = useState(false);
   const [data, setData] = useState([]);
   console.log(data);
   const mapCourses = coursesWhishList.map((item, index) => {
@@ -33,7 +35,6 @@ const CourseDetails = () => {
         width={"lg:w-[24%]"}
         image={item.tumbImageAddress}
         courseRate={item.courseRate}
-        
       />
     );
   });
@@ -41,12 +42,30 @@ const CourseDetails = () => {
   const fetchData = useCallback(async () => {
     try {
       const result = await http.get(
-        `/Home/GetCourseDetails?CourseId=` +
-          urlParam.id
+        `/Home/GetCourseDetails?CourseId=` + urlParam.id
       );
       setData(result);
+      console.log(result.teacherId);
+      setTeacherId(result.teacherId);
     } catch (error) {}
   }, []);
+  const fetchTeacherData = useCallback(async () => {
+    try {
+      console.log("teacherId", teacherId);
+      const result = await http.get(
+        "Home/GetTeacherDetails?TeacherId=" + teacherId
+      );
+      console.log(result);
+      if (result.success) {
+        setTeacherInfo(result);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+  useEffect(() => {
+    teacherId !== undefined && fetchTeacherData();
+  }, [teacherId]);
 
   useEffect(() => {
     fetchData();
@@ -55,7 +74,7 @@ const CourseDetails = () => {
 
   return (
     <div>
-      <LoadingSpinner/>
+      <LoadingSpinner />
       <div className="mx-auto flex mb-20 ">
         <div className="w-[90%] h-full overflow-hidden lg:max-w-[1260px] mx-auto mt-36 bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6">
           <div className="flex flex-col lg:flex-row">
@@ -92,7 +111,8 @@ const CourseDetails = () => {
               cost={data.cost}
               isCourseReseve={data.isCourseReseve}
               courseReseveId={data.courseReseveId}
-              teacherId={data.teacherId}
+              teacherInfo={teacherInfo && teacherInfo}
+              teacherId={teacherId}
             />
           </div>
           <TabsContent describe={data.describe} />
@@ -100,7 +120,7 @@ const CourseDetails = () => {
 
           <div className="lg:max-w-full md:max-w-[750px] sm:min-w-[640px] ml-8 mt-16 mb-12 md:ml-2 md:mx-12 lg:mt-40">
             <h2 className="text-xl md:text-lg lg:text-2xl mr-4 text-newPurple3 dark:text-whitePink mb-10  lg:mb-10">
-              دوره های مرتبط :
+               دیگر دوره های ما :
             </h2>
             <div className="flex flex-wrap lg:flex-row mr-8 md:-mr-12">
               {mapCourses}

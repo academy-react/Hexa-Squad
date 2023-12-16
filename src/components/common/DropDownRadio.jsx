@@ -11,13 +11,14 @@ const DropDown = ({
   height,
   filterList,
   pushList,
+  setList,
 }) => {
   const [checkedData, setCheckedData] = useState(false);
   const dataMapper = data.map((item, index) => (
     <div className="flex p-2" key={index}>
       <input
         type={checkBoxType}
-        name={name}
+        name={"checkbox-" + name}
         className="m-1 accent-cyan-950"
         id={name + index}
         onChange={(e) => {
@@ -50,8 +51,10 @@ const DropDown = ({
             " bi bi-x absolute top-[33%] left-5 text-xl text-red-500 cursor-pointer"
           }
           onClick={() => {
-            setListV(undefined);
-            setCount(undefined);
+            setListV && setListV(undefined);
+            setCount && setCount(undefined);
+            setList && setList([]);
+            pushList && pushList(null);
             setCheckedData(false);
           }}
         >

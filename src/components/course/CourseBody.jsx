@@ -40,7 +40,10 @@ const CourseBody = ({
 
   return (
     <div className="course-body mt-6 whitespace-nowrap select-none">
-      <Link to={"/CourseDetails/" + courseId}>
+      <Link
+        to={"/CourseDetails/" + courseId}
+        className=" text-ellipsis overflow-hidden whitespace-nowrap w-full block"
+      >
         <h2 className="course-name">{title}</h2>
       </Link>
       <div className="">
@@ -64,9 +67,9 @@ const CourseBody = ({
       <div className="pt-8 flex justify-between whitespace-nowrap">
         <div className="professor-name w-40 whitespace-nowrap overflow-hidden text-ellipsis skeleton-handler">
           {graduationCapSvg}
-          <Link to={"/TeacherProfile"} className="course-info text-sm">
+          <span to={"/TeacherProfile/"} className="course-info text-sm">
             {professorName}
-          </Link>
+          </span>
         </div>
         <div className="likes-box">
           <div
@@ -125,14 +128,14 @@ const CourseBody = ({
           {studentCount && peopleSvg}
           <h3 className="course-info text-sm">{studentCount}</h3>
         </div> */}
-          {courseRate !== undefined && (
-            <div className="course-like-box mr-4 bg-transparent text-zinc-500 skeleton-handler">
-              <span className={"bi bi-star ml-3 "}></span>
-              {courseRate}
-            </div>
-          )}
+        {courseRate !== undefined && (
+          <div className="course-like-box mr-4 bg-transparent text-zinc-500 skeleton-handler">
+            <span className={"bi bi-star ml-3 "}></span>
+            {courseRate}
+          </div>
+        )}
         <h3 className="inline text-xl text-newPurple4 mr-10 skeleton-handler">
-          {price && SeparationPrice(price.toString())}
+          {price && SeparationPrice(price)}
           <span className="text-slate-600 dark:text-[#9996F9] text-base mr-3">
             {price && "تومان"}
           </span>

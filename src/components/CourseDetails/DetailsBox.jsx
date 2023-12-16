@@ -30,30 +30,18 @@ const DetailsBox = ({
   isCourseReseve,
   courseReseveId,
   teacherId,
+  teacherInfo,
 }) => {
-  const [isLogin, setIsLogin] = useState(false);
+  console.log(teacherInfo);
   const [courseReserve, setCourseReserve] = useState(false);
   useEffect(() => {
     if (isCourseReseve == "1") {
       setCourseReserve(true);
     }
   }, [isCourseReseve]);
-
-  // get Teacher info
-  const [teacherInfo, setTeacherInfo] = useState({});
-  const fetchTeacherData = useCallback(async () => {
-    try {
-      const result = await Http.get(
-        "Home/GetTeacherDetails?TeacherId=" + teacherId
-      );
-      result != undefined ? setTeacherInfo(result) : "";
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
   useEffect(() => {
-    fetchTeacherData();
-  }, [fetchTeacherData]);
+    console.log(teacherInfo);
+  }, [teacherInfo]);
 
   return (
     <div className=" lg:w-[620px]  md:w-[500px] w-full mx-auto lg:ml-14  ">
@@ -185,7 +173,10 @@ const DetailsBox = ({
             }}
             type="submit"
             value={courseReserve ? " رزرو شده " : "ثبت نام در این دوره"}
-            className={"gradient w-full py-4 lg:mb-10 mb-4 rounded-md cursor-pointer "+(courseReserve && 'bg-[#5800FF]')}
+            className={
+              "gradient w-full py-4 lg:mb-10 mb-4 rounded-md cursor-pointer " +
+              (courseReserve && "bg-[#5800FF]")
+            }
           />
         </div>
       </div>
@@ -205,8 +196,8 @@ const DetailsBox = ({
           <div className="w-24 h-24 rounded-full  right-6 mt-6 absolute">
             <img
               src={
-                teacherInfo.pictureAddress
-                  ? teacherInfo.pictureAddress
+                teacherInfo?.pictureAddress
+                  ? teacherInfo?.pictureAddress
                   : teacher
               }
               className="rounded-full w-24 h-24 object-cover"

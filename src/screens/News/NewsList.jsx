@@ -25,6 +25,13 @@ const NewsList = () => {
     { skeleton: true },
     { skeleton: true },
     { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
   ]);
   console.log(newsData);
   const [newsAllData, setNewsAllData] = useState([
@@ -42,11 +49,13 @@ const NewsList = () => {
   const [sortCal, setSortCal] = useState("InsertDate");
   const [sortType, setSortType] = useState("DESC");
   const [Query, setQueryV] = useState(undefined);
+  const [categoryCount, setCategoryCount] = useState(undefined);
 
   const filterParams = {
     SortingCol: sortCal,
     SortType: sortType,
     Query: Query,
+    NewsCategoryId: categoryCount,
   };
 
   const handlePageClick = (event) => {
@@ -54,20 +63,28 @@ const NewsList = () => {
     setItemOffset(newOffset);
   };
 
+  // Check the input type checkbox and that function
+  const pushList = (value) => {
+    setCategoryCount(value);
+  };
+
   // get News data from api and fetch
   useEffect(() => {
     getNewsApi(
       setNewsData,
       setNewsAllData,
-      pageCount,
-      countInPage,
+      1,
+      100000,
       setIsLoading,
       filterParams
     );
+  }, [sortCal, Query, categoryCount]);
+
+  useEffect(() => {
     return () => {
       setFilterDiv(false);
     };
-  }, [sortCal, Query]);
+  }, []);
 
   const newsCardsMapper = currentItems.map((item, index) => {
     return (
@@ -112,6 +129,7 @@ const NewsList = () => {
               setFilterDiv={setFilterDiv}
               setData={setNewsData}
               filterDiv={filterDiv}
+              pushList={pushList}
             />
             {isLoading ? (
               <LoadingSpinner />
@@ -129,7 +147,7 @@ const NewsList = () => {
             renderOnZeroPageCount={null}
             pageLinkClassName=" paginationLink"
             activeLinkClassName="active"
-            containerClassName=" border-[#0001] w-full flex justify-center gap-4 mt-16 p-5"
+            containerClassName=" border-[#0001] relative z-10 w-full flex justify-center gap-4 mt-16 p-5"
           />
         </div>
       </div>

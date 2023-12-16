@@ -14,7 +14,14 @@ const Courses = () => {
   const searchRef = useRef();
   const [showGrid, setShowGrid] = useState(false);
   const [filterDiv, setFilterDiv] = useState(false);
-  const [data, setData] = useState([{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true},{skeleton: true}]);
+  const [data, setData] = useState([
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+    { skeleton: true },
+  ]);
 
   console.log(data);
 
@@ -26,11 +33,11 @@ const Courses = () => {
   const [costDown, setCostDown] = useState(0);
   const [costUp, setCostUp] = useState(10000000);
   const [techCount, setTechCount] = useState(undefined);
-  const [listTech, setListTechV] = useState(undefined);
+  const [listTech, setListTechV] = useState(null);
   const [courseLevelId, setCourseLevelId] = useState(undefined);
   const [courseTypeId, setCourseTypeId] = useState(undefined);
   const [itemOffset, setItemOffset] = useState(0);
-  const countInPage = 6;
+  const countInPage = 8;
   const endOffset = itemOffset + countInPage;
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / countInPage);
@@ -97,7 +104,7 @@ const Courses = () => {
   };
   // get courses data from api and fetch on data variable
   useEffect(() => {
-    fetchCoursesApi(setData, pageCount, countInPage, setAllData, filterObj);
+    fetchCoursesApi(setData, 1, 10000, setAllData, filterObj);
     return () => {
       setFilterDiv(false);
       setShowGrid(false);
@@ -105,7 +112,7 @@ const Courses = () => {
   }, []);
 
   useEffect(() => {
-    fetchCoursesApi(setData, pageCount, countInPage, setAllData, filterObj);
+    fetchCoursesApi(setData, 1, 10000, setAllData, filterObj);
   }, [
     sortCal,
     sortType,
