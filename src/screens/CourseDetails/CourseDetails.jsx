@@ -18,7 +18,7 @@ const CourseDetails = () => {
   const [teacherInfo, setTeacherInfo] = useState();
   const [teacherId, setTeacherId] = useState(false);
   const [data, setData] = useState([]);
-  console.log(data);
+  console.log("coursesWhishList", coursesWhishList);
   const mapCourses = coursesWhishList.map((item, index) => {
     return (
       <Course
@@ -53,7 +53,7 @@ const CourseDetails = () => {
 
   useEffect(() => {
     // fetchData();
-    GetCourseDetails(urlParam.id, setData)
+    GetCourseDetails(urlParam.id, setData);
     fetchTopCourses(3, setCoursesWhishList);
   }, []);
 
@@ -63,25 +63,27 @@ const CourseDetails = () => {
       <div className="mx-auto flex mb-20 ">
         <div className="w-[90%] h-full overflow-hidden lg:max-w-[1260px] mx-auto mt-36 bg-[#D7D5FF] shadow-shadow-Categories-box rounded-2xl dark:bg-darkblue6">
           <div className="flex flex-col lg:flex-row">
-          {data.courseId && <CoursePhoto
-              courseId={data.courseId}
-              title={data.title}
-              describe={data.describe}
-              id={data.courseId}
-              courseReseveId={data.courseReseveId}
-              isCourseReseve={data.isCourseReseve}
-              imageAddress={data.imageAddress}
-              currentUserDissLike={data.currentUserDissLike}
-              currentUserLike={data.currentUserLike}
-              isUserFavorite={data.isUserFavorite}
-              userLikeId={data.userLikeId}
-              likeCount={data.likeCount}
-              dissLikeCount={data.dissLikeCount}
-              miniDescribe={data.miniDescribe}
-              currentUserSetRate={data.currentUserSetRate}
-              currentUserRateNumber={data.currentUserRateNumber}
-              setData={setData}
-            />}
+            {data.courseId && (
+              <CoursePhoto
+                courseId={data.courseId}
+                title={data.title}
+                describe={data.describe}
+                id={data.courseId}
+                courseReseveId={data.courseReseveId}
+                isCourseReseve={data.isCourseReseve}
+                imageAddress={data.imageAddress}
+                currentUserDissLike={data.currentUserDissLike}
+                currentUserLike={data.currentUserLike}
+                isUserFavorite={data.isUserFavorite}
+                userLikeId={data.userLikeId}
+                likeCount={data.likeCount}
+                dissLikeCount={data.dissLikeCount}
+                miniDescribe={data.miniDescribe}
+                currentUserSetRate={data.currentUserSetRate}
+                currentUserRateNumber={data.currentUserRateNumber}
+                setData={setData}
+              />
+            )}
 
             {/* moshakhasat */}
             <DetailsBox
@@ -106,7 +108,7 @@ const CourseDetails = () => {
 
           <div className="lg:max-w-full md:max-w-[750px] sm:min-w-[640px] ml-8 mt-16 mb-12 md:ml-2 md:mx-12 lg:mt-40">
             <h2 className="text-xl md:text-lg lg:text-2xl mr-4 text-newPurple3 dark:text-whitePink mb-10  lg:mb-10">
-               دیگر دوره های ما :
+              دیگر دوره های ما :
             </h2>
             <div className="flex flex-wrap lg:flex-row mr-8 md:-mr-12">
               {mapCourses}

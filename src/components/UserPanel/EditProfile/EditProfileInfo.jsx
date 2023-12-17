@@ -55,7 +55,7 @@ const EditProfileInfo = (
                 telegramLink: telegramLink,
             }}
             enableReinitialize={true}
-            validationSchema={EditProfileValidation}
+            // validationSchema={EditProfileValidation}
             onSubmit={(value) => {handleEditProfileInfo(value)}}
         >
             <Form className="flex flex-wrap gap-5 pb-8 justify-center text-[#3F3F47aa] dark:text-semiWhite2" dir="rtl">

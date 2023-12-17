@@ -26,57 +26,113 @@ const UserComments = ({
   const [comment, setComment] = useState({});
   const [disLikes, setDislikes] = useState(0);
   const [removeLike, setRemoveLike] = useState(0);
-  const [changeDisLikeColor, setChangeDisLikeColor] = useState(false);
-  const [changeLikeColor, setChangeLikeColor] = useState(false);
-  const [liked, setLiked] = useState(false);
+  const [changeDisLikeColor, setChangeDisLikeColor] = useState(0);
+  const [changeLikeColor, setChangeLikeColor] = useState(0);
+  const [userIsLiked, setUserIsLiked] = useState(currentUserEmotion);
   const [urlParam, setUrlParam] = useState(useParams());
-  console.log(currentUserEmotion);
+
+  console.log(userIsLiked);
   // console.log(currentUserLikeId);
-  const handleLikeClick = async () => {
-    if (currentUserEmotion === "LIKED") {
+  let likeClasses =
+    userIsLiked === "LIKED" || changeLikeColor
+      ? "bbi bi-hand-thumbs-up-fill text-indigo-950"
+      : "bi bi-hand-thumbs-up text-indigo-950";
+
+  let dissLikeClasses =
+    userIsLiked === "DISSLIKED" || changeDisLikeColor
+      ? "bbi bi-hand-thumbs-down-fill text-zinc-500"
+      : "bbi bi-hand-thumbs-down text-zinc-500";
+
+  const handleLike = async () => {
+    if (userIsLiked === "LIKED") {
+      //call delete like api
       try {
         const response = await http.delete(
           "/Course/DeleteCourseCommentLike?CourseCommandId=" + currentUserLikeId
         );
         setComment(response);
-        setChangeLikeColor(!changeLikeColor);
-        setAddLike((old) => old - 1);
-
-        return false;
-      } catch (error) {
-        console.error(error);
-      }
-    } else {
-      try {
-        const response = await http.post(
-          "/Course/AddCourseCommentLike?CourseCommandId=" + uid
-        );
-        setComment(response);
-        setChangeLikeColor(!changeLikeColor);
-
-        if (response.success) {
-          setAddLike((old) => old + 1);
-          toast.success("🎉 نظر شما ثبت شد");
-        } else {
-          toast.error(" شما یکبار این کامنت را لایک کردید");
+        // setChangeLikeColor(!changeLikeColor);
+        // setAddLike((old) => old - 1);
+        if (response) {
+          setUserIsLiked("DISSLIKED");
+          setAddLike((old) => old - 1);
+          setChangeLikeColor(0);
         }
-        return false;
       } catch (error) {
         console.error(error);
       }
+      return;
+    }
+    // Call Like api
+    try {
+      const response = await http.post(
+        "/Course/AddCourseCommentLike?CourseCommandId=" + uid
+      );
+      setComment(response);
+      // setChangeLikeColor(!changeLikeColor);
+
+      if (response.success) {
+        toast.success("🎉 نظر شما ثبت شد");
+
+        setUserIsLiked("LIKED");
+        setAddLike((old) => old + 1);
+        if (userIsLiked === "DISSLIKED") {
+          setUserIsLiked("LIKED");
+          setAddDislike((old) => old - 1);
+          setChangeDisLikeColor(0);
+        }
+      } else {
+        toast.error(" شما یکبار این کامنت را لایک کردید");
+      }
+      return false;
+    } catch (error) {
+      console.error(error);
     }
   };
 
-  const handleDisLikeClick = async () => {
+  const handleDissLike = async () => {
+    if (userIsLiked === "DISSLIKED") {
+      //call delete dissLike api
+      try {
+        const response = await http.delete(
+          "/Course/DeleteCourseCommentLike?CourseCommandId=" + currentUserLikeId
+        );
+        setComment(response);
+        // setChangeLikeColor(!changeLikeColor);
+        // setAddLike((old) => old - 1);
+        if (response) {
+          setUserIsLiked("LIKED");
+          setAddDislike((old) => old - 1);
+
+          // setChangeDisLikeColor(0)
+        } else {
+          alert("Can't reach the api");
+        }
+        return;
+      } catch (error) {
+        console.error(error);
+        // alert("Can't reach the api");
+      }
+    }
+
     try {
       const response = await http.post(
         "/Course/AddCourseCommentDissLike?CourseCommandId=" + uid
       );
       setDislikes(response);
-      setChangeDisLikeColor(!changeDisLikeColor);
+      // setChangeDisLikeColor(!changeDisLikeColor);
       if (response.success) {
+        setUserIsLiked("DISSLIKED");
         setAddDislike((old) => old + 1);
         toast.success("نظر شما ثبت شد");
+
+        if (userIsLiked === "LIKED") {
+          setUserIsLiked("DISSLIKED");
+          setAddLike((old) => old - 1);
+          setChangeLikeColor(0);
+        } else {
+          alert("Can't reach the api");
+        }
       } else {
         toast.error(" شما قبلا نظر خود را درباره ی این دیدگاه ثبت کردید");
       }
@@ -85,6 +141,60 @@ const UserComments = ({
       console.error(error);
     }
   };
+
+  // const handleLikeClick = async () => {
+  //   if (currentUserEmotion === "LIKED") {
+  //     try {
+  //       const response = await http.delete(
+  //         "/Course/DeleteCourseCommentLike?CourseCommandId=" + currentUserLikeId
+  //       );
+  //       setComment(response);
+  //       setChangeLikeColor(!changeLikeColor);
+  //       setAddLike((old) => old - 1);
+
+  //       return false;
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   } else {
+  //     try {
+  //       const response = await http.post(
+  //         "/Course/AddCourseCommentLike?CourseCommandId=" + uid
+  //       );
+  //       setComment(response);
+  //       setChangeLikeColor(!changeLikeColor);
+
+  //       if (response.success) {
+  //         setAddLike((old) => old + 1);
+  //         toast.success("🎉 نظر شما ثبت شد");
+  //       } else {
+  //         toast.error(" شما یکبار این کامنت را لایک کردید");
+  //       }
+  //       return false;
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+  // };
+
+  // const handleDisLikeClick = async () => {
+  //   try {
+  //     const response = await http.post(
+  //       "/Course/AddCourseCommentDissLike?CourseCommandId=" + uid
+  //     );
+  //     setDislikes(response);
+  //     setChangeDisLikeColor(!changeDisLikeColor);
+  //     if (response.success) {
+  //       setAddDislike((old) => old + 1);
+  //       toast.success("نظر شما ثبت شد");
+  //     } else {
+  //       toast.error(" شما قبلا نظر خود را درباره ی این دیدگاه ثبت کردید");
+  //     }
+  //     return false;
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const [adminComment, setAdminComment] = useState([]);
   const fetchAdminCommentData = useCallback(async () => {
@@ -176,22 +286,25 @@ const UserComments = ({
             </h2>
             <span
               className={` cursor-pointer  absolute left-[120px]  lg:bottom-4  ${
-                currentUserEmotion === "LIKED" || changeLikeColor === true
+                currentUserEmotion === "LIKED" ||
+                changeLikeColor === true ||
+                userIsLiked === "LIKED"
                   ? `bbi bi-hand-thumbs-up-fill  text-zinc-600 dark:text-indigo-300`
                   : `bi bi-hand-thumbs-up  text-zinc-600 dark:text-indigo-300`
               }`}
-              onClick={handleLikeClick}
+              onClick={handleLike}
             >
               {addLike}
             </span>
             <span
               className={` cursor-pointer absolute left-[83px]  lg:bottom-4 ${
                 currentUserEmotion === "DISSLIKED" ||
-                changeDisLikeColor === true
+                changeDisLikeColor === true ||
+                userIsLiked === "DISSLIKED"
                   ? `bbi bi-hand-thumbs-down-fill text-zinc-600  dark:text-slate-400`
                   : `bi bi-hand-thumbs-down text-zinc-600 dark:text-slate-400`
               }`}
-              onClick={handleDisLikeClick}
+              onClick={handleDissLike}
             >
               {addDislike}
             </span>

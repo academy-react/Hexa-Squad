@@ -42,7 +42,7 @@ const Courses = () => {
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / countInPage);
   const filterObj = {
-    SortingCol: sortType ,
+    SortingCol: sortType,
     SortType: sortCal,
     Query: Query,
     CostDown: costDown,
@@ -56,7 +56,7 @@ const Courses = () => {
     "آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است. برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای کامپیوتری را ایجاد و توسعه دهند. ",
   ];
 
-  console.log(data)
+  console.log(data);
 
   const setQuery = (e) => {
     clearTimeout(searchRef.current);
@@ -81,11 +81,13 @@ const Courses = () => {
     setList(filteredObj);
     if (filteredObj.length === 0) {
       filteredObj = undefined;
-      setTechCount(filteredObj);
-      setListTechV(filteredObj);
+      setTechCount(null);
+      setListTechV(null);
+      console.log("filteredObj", filteredObj);
     }
     if (filteredObj !== undefined) {
       let listMapped = filteredObj.toString();
+      console.log("listMapped", listMapped);
       setListTechV(listMapped);
     }
   };
@@ -96,6 +98,7 @@ const Courses = () => {
     let newList = [...list, value];
     let listMapped = newList.toString();
     setTechCount(1);
+    console.log(listMapped);
     setListTechV(listMapped);
   };
 
@@ -187,6 +190,7 @@ const Courses = () => {
               setTechCount={setTechCount}
               setListTechV={setListTechV}
               pushList={pushList}
+              setList={setList}
               setCostDown={setCostDown}
               setCostUp={setCostUp}
               filterDiv={filterDiv}
