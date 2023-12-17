@@ -57,7 +57,7 @@ const FiltersBTN = ({
       </div>
       <div className="flex gap-5 w-full lg:pr-6">
         <SearchBox
-          placeholder={"جستجو ..."}
+          placeholder={"جستجو براساس موضوع و استاد ..."}
           SearchFunction={(e)=>{setQuery(e)}}
           addClass={"my-4"}
           inputClass={"focus:border-2 border-blue-800"}
