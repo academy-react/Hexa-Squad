@@ -26,14 +26,14 @@ const CourseAutoplaySlider = () => {
           like={item.likeCount}
           dissLike={item.dissLikeCount}
           courseRate={item.courseRate}
-          userFavorite={item.userFavorite}
+          userFavorite={item.isUserFavorite}
           userIsLiked={item.userIsLiked}
           userIsDissLiked={item.userIsDissLiked}
           studentCount={item.currentRegistrants}
           price={item.cost}
           width={"lg:w-[24%]"}
           image={item.tumbImageAddress}
-          userFavoriteId={item.userFavoriteId}
+          userFavoriteId={item.userFavoriteId}        
         />
       </SwiperSlide>
     );

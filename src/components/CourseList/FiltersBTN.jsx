@@ -16,7 +16,7 @@ const FiltersBTN = ({
     { value: "Active", label: "دوره های فعال" },
     { value: "LastUpdate", label: "آخرین تغییرات" },
     { value: "Cost", label: "بر اساس قیمت" },
-    { value: "CourseRate", label: "بر اساس نمره " },
+    { value: "CourseRate", label: "بر اساس محبوبیت " },
   ]);
   const [SortingCal, setSortingCal] = useState([
     { value: "ASC", label: "صعودی" },

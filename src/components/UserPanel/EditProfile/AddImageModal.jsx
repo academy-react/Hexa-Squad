@@ -88,7 +88,7 @@ const AddImageModal = (setUserInfo) => {
       )
       if (result.success) {
         toast.success(result.message);
-        // getProfileInfo(setUserInfo);
+        getProfileInfo(setUserInfo);
       } else if (!result.success) {
         toast.error(result.message);
       }
