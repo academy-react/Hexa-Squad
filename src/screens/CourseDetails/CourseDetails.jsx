@@ -50,6 +50,9 @@ const CourseDetails = () => {
   //     setData(result);
   //   } catch (error) {}
   // }, []);
+  useEffect(() => {
+    setTeacherId(data.teacherId);
+  }, [data]);
 
   useEffect(() => {
     // fetchData();
