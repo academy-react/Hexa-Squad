@@ -1,23 +1,30 @@
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import FieldInput from "../common/FieldInput";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { validation } from "../../core/validations/validations";
-import instance from "../../core/services/interceptor";
+import http from "../../core/services/interceptor";
 import { setItem } from "../../core/services/local-storage/storage.services";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const onSubmitLogin = async (value) => {
     console.log(value);
     try {
-      const result = await instance.post("/Sign/Login", {
-        phoneOrGmail: value.phoneOrGmail,
-        password: value.password,
-        rememberMe: value.rememberMe,
-      });
+      const result = await await toast.promise(
+        http.post("/Sign/Login", {
+          phoneOrGmail: value.phoneOrGmail,
+          password: value.password,
+          rememberMe: value.rememberMe,
+        }),
+        {
+          pending: "در حال وارد شدن ، لطفا منتظر بمانید",
+          success: "با موفقیت وارد شدید",
+        }
+      );
       setItem("token", result.token);
       if (result.success) {
-        window.location.pathname = "/";
+        window.location.reload();
       } else {
         toast.error(result.errors == null ? result.message : result.errors[0]);
       }
@@ -60,10 +67,7 @@ const Login = () => {
               id="remember"
               className="w-4 h-4 border-2  rounded-sm mt-1 bg-semiWhite cursor-pointer "
             />
-            <label
-              htmlFor="remember"
-              className="md:text-base text-sm"
-            >
+            <label htmlFor="remember" className="md:text-base text-sm">
               مرا به خاطر بسپار
             </label>
           </div>

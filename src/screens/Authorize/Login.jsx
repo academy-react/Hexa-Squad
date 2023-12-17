@@ -35,11 +35,17 @@ const Login = () => {
   };
   const onSubmitLogin = async (value) => {
     try {
-      const result = await http.post("/Sign/Login", {
-        phoneOrGmail: value.phoneOrGmail,
-        password: value.password,
-        rememberMe: value.rememberMe,
-      });
+      const result = await toast.promise(
+        http.post("/Sign/Login", {
+          phoneOrGmail: value.phoneOrGmail,
+          password: value.password,
+          rememberMe: value.rememberMe,
+        }),
+        {
+          pending: "در حال وارد شدن ، لطفا منتظر بمانید",
+          success: "با موفقیت وارد شدید",
+        }
+      );
       setItem("token", result.token);
       if (result.success) {
         window.location.pathname = "/";
