@@ -6,12 +6,17 @@ import onFormData from "../../../core/services/api/FormData";
 import { toast } from "react-toastify";
 
 const EditProfile = () => {
-  const [userInfo, setUserInfo] = useState([]);
+  const [userInfo, setUserInfo] = useState({});
+  const [birthDay, setBirthDay] = useState();
 
   // // get Profile information
   useEffect(() => {
     getProfileInfo(setUserInfo);
   }, []);
+  useEffect(() => {
+    setBirthDay(userInfo.birthDay);
+    console.log(userInfo.birthDay);
+  }, [userInfo]);
 
   // Edit User Profile Info
   const handleEditProfileInfo = async (value) => {
@@ -24,15 +29,18 @@ const EditProfile = () => {
       homeAdderess: value.homeAdderess,
       nationalCode: value.nationalCode,
       gender: value.gender,
-      birthDay: value.birthDay,
+      birthDay: birthDay,
       latitude: "0",
-      longitude: "1"
+      longitude: "1",
     };
     const data = onFormData(obj);
-    console.log("formData=", data)
+    console.log("formData=", data);
 
     try {
-      const result = await http.put("/SharePanel/UpdateProfileInfo", data);
+      const result = await toast.promise(
+        http.put("/SharePanel/UpdateProfileInfo", data),
+        { pending: " در حال ویرایش اطلاعات ، منتظر بمانید ." }
+      );
       setUserInfo(result);
       console.log("result is:", result);
       if (result.success) {
@@ -54,7 +62,8 @@ const EditProfile = () => {
           lName={userInfo.lName}
           fName={userInfo.fName}
           nationalCode={userInfo.nationalCode}
-          birthDay={userInfo.birthDay}
+          birthDay={birthDay}
+          setBirthDay={setBirthDay}
           userAbout={userInfo.userAbout}
           homeAdderess={userInfo.homeAdderess}
           gender={userInfo.gender}

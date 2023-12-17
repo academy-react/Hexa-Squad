@@ -1,8 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import FieldInput from "../common/FieldInput";
-import { Link, useParams } from "react-router-dom";
-import { validation } from "../../core/validations/validations";
+import { Link } from "react-router-dom";
 import http from "../../core/services/interceptor";
 import { setItem } from "../../core/services/local-storage/storage.services";
 import { toast } from "react-toastify";

@@ -17,7 +17,7 @@ const persianNumbers = [
     /۶/g,
     /۷/g,
     /۸/g,
-    /۹/g
+    /۹/g,
   ],
   arabicNumbers = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g],
   fixNumbers = function (str) {
@@ -28,9 +28,8 @@ const persianNumbers = [
     }
     return str;
   };
-export default function PersianCalendar(birthDate) {
-  const [date, setDate] = useState({});
-
+export default function PersianCalendar({ date, setDate }) {
+  console.log(date);
   // show Default Date
   // const defaultDate = birthDate.birthDate
   // const year = defaultDate.slice(0, 4)
@@ -38,36 +37,50 @@ export default function PersianCalendar(birthDate) {
   // const day = defaultDate.slice(8, 10)
 
   return (
-    <div >
+    <div>
       <DatePicker
-        calendar={persian}
-        locale={persian_fa}
+        // calendar={persian}
+        // locale={persian_fa}
         value={date}
         // defaultValue={new Date(2020, 1, 1)}
         onChange={(date) => {
-          if (date) {
-            setDate(date);
-          }
+          setDate(date.year + "-" + date.month.number + "-" + date.day);
         }}
-        render={<InputMask year={"2023"} month={"11"} day={"22"} />}
+        render={
+          date && (
+            <InputMask
+              year={date.slice(0, 4)}
+              month={date.slice(5, 7)}
+              day={date.slice(8, 10)}
+            />
+          )
+        }
       />
     </div>
   );
 }
 
-function InputMask({ year, month, day, value, handleValueChange, openCalendar }) {
+function InputMask({
+  year,
+  month,
+  day,
+  value,
+  handleValueChange,
+  openCalendar,
+}) {
   const valueFinal = value ? fixNumbers(value.toString()) : null;
 
   return (
-            <Input  dir="ltr"
-                className="editProf-field-input w-[300px] pl-48"
-                locale={persian_fa}
-                mask="9999/99/99"
-                maskChar="-"
-                onFocus={openCalendar}
-                onChange={handleValueChange}
-                value={valueFinal} 
-                defaultValue={`${year}${month}${day}`}
-            />    
+    <Input
+      dir="ltr"
+      className="editProf-field-input w-[300px] pl-48"
+      // locale={persian_fa}
+      mask="9999/99/99"
+      maskChar="-"
+      onFocus={openCalendar}
+      onChange={handleValueChange}
+      value={valueFinal}
+      defaultValue={`${year}${month}${day}`}
+    />
   );
 }

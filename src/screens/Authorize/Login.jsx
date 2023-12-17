@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { Link } from "react-router-dom";
-import * as yup from "yup";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
-import { Tooltip as ReactTooltip } from "react-tooltip";
 import http from "../../core/services/interceptor";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +13,6 @@ import loginImage from "../../assets/image/Login11.svg";
 import loginDark from "../../assets/image/loginDark.svg";
 import { setItem } from "../../core/services/local-storage/storage.services";
 import LoadingSpinner from "../../components/common/loadingSpinner";
-import axios from "axios";
 import { toast } from "react-toastify";
 
 const Login = () => {
