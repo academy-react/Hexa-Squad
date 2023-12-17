@@ -14,6 +14,7 @@ const FiltersOptions = ({
   pushList,
   filterDiv,
   setListTechV,
+  setList,
   setTechCount,
   setFilterDiv,
   setCostDown,
@@ -56,6 +57,7 @@ const FiltersOptions = ({
       <DropDown
         name={"category"}
         setData={setData}
+        setList={setList}
         courseData={data}
         filterList={filterList}
         pushList={pushList}

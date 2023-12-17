@@ -54,7 +54,7 @@ const DropDown = ({
             setListV && setListV(undefined);
             setCount && setCount(undefined);
             setList && setList([]);
-            pushList && pushList(null);
+            setList == undefined && pushList(null);
             setCheckedData(false);
           }}
         >

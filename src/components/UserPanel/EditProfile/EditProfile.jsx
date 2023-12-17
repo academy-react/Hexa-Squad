@@ -37,7 +37,7 @@ const EditProfile = () => {
       console.log("result is:", result);
       if (result.success) {
         toast.success(result.message);
-      } else if (!result.success) {
+      } else {
         toast.error(result.errors);
       }
     } catch (error) {

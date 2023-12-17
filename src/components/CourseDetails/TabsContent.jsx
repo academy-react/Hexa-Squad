@@ -10,6 +10,7 @@ import UserComments from "../common/UserComments";
 import http from "../../core/services/interceptor/index";
 import comments from "../../assets/image/comments.svg";
 import { MdOutlinePreview } from "react-icons/md";
+import Describe from "./Describe";
 
 const TabsContent = ({ describe }) => {
   const [comment, setComment] = useState([]);
@@ -53,15 +54,7 @@ const TabsContent = ({ describe }) => {
     <div>
       <Tabs>
         <Tab label="توضیحات ">
-          <div className="py-4">
-            <h2 className="text-lg font-medium mb-2 hidden">توضیحات</h2>
-
-            <div className="text-gray-700 w-full mt-6 ">
-              <p className=" text-zinc-700 mt-3 leading-10  lg:ml-8 md:mx-2  dark:text-indigo-200 text-justify">
-                {describe}
-              </p>
-            </div>
-          </div>
+          <Describe describe={describe} />
         </Tab>
         <Tab label="پیش نمایش ها">
           <div className="py-4 ">
