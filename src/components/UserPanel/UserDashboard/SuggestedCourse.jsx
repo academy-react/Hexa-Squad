@@ -2,8 +2,8 @@ import React from "react";
 
 import NullImage from "../../../assets/image/Images-for-null 2.svg";
 import { Link } from "react-router-dom";
-const SuggestedCourse = ({id,title,professorName,image}) => {
-
+import SeparationPrice from "../../../core/utility/SeparationPrice/SeparationPrice";
+const SuggestedCourse = ({ id, title, professorName, image, price }) => {
   return (
     <Link
       to={"/CourseDetails/" + id}
@@ -16,9 +16,19 @@ const SuggestedCourse = ({id,title,professorName,image}) => {
           alt=""
         />
 
-        <h2 className="text-base  text-darkblue3 dark:text-semiWhite2 absolute md:right-32 right-4  mt-3 hover:text-newPurple2 cursor-pointer">
+        <h2
+          dir="rtl"
+          className="text-base  text-darkblue3 dark:text-semiWhite2 absolute md:right-32 right-4  mt-3 hover:text-newPurple2 cursor-pointer"
+        >
           {" "}
           {title}
+        </h2>
+
+        <h2
+          dir="rtl"
+          className="text-base  text-indigo-700 dark:text-indigo-300 absolute md:right-32 right-4  mt-9 hover:text-newPurple2 cursor-pointer"
+        >
+          {SeparationPrice(price)} تومان
         </h2>
 
         <div className="flex flex-row-reverse">
