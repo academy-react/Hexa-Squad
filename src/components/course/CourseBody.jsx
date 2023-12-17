@@ -87,7 +87,7 @@ const CourseBody = ({
               className={` cursor-pointer text-indigo-950 bi ${
                 changeLikeColor || userIsLiked === true
                   ? ` bi-hand-thumbs-up-fill `
-                  : likeCount && ` bi-hand-thumbs-up `
+                  : ` bi-hand-thumbs-up `
               }`}
             >
               {" "}

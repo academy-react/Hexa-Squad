@@ -27,7 +27,7 @@ const Courses = () => {
 
   const [allData, setAllData] = useState([]);
   const [list, setList] = useState([]);
-  const [sortCal, setSortCal] = useState("ASC");
+  const [sortCal, setSortCal] = useState("DESC");
   const [sortType, setSortType] = useState("Active");
   const [Query, setQueryV] = useState(undefined);
   const [costDown, setCostDown] = useState(0);
@@ -146,6 +146,8 @@ const Courses = () => {
         image={data.tumbImageAddress}
         userIsLiked={data.userIsLiked}
         userIsDissLiked={data.currentUserDissLike}
+        userFavorite={data.userFavorite}
+        userFavoriteId={data.userFavoriteId}
       />
     );
   });
