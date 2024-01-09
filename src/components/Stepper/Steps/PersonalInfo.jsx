@@ -94,7 +94,7 @@ const PersonalInfo = ({ phoneNumberValue, handleClick }) => {
             </div> */}
             <input
               type="submit"
-              value="تایید کد یک بار مصرف"
+              value="ثبت اطلاعات"
               className="md:w-72 py-[12px] mx-auto block rounded-md text-xs md:text-sm text-[#f4f1ff] bg-gradient-to-tr  from-[#7a0cff] to-[#4739ff] cursor-pointer hover:bg-gradient-to-tr hover:from-[#4739ff] hover:to-[#7a0cff]"
             />
             {/* <Link to={"/authorize/login"} className="pointer w-100 h-100 d-inline-block">ورود به سایت</Link> */}

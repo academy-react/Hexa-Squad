@@ -118,7 +118,7 @@ const NewsLikeDissLike = ({
                 آیا از این مقاله راضی بودید؟
             </h2>
             <div
-                className="course-like-box py-2 mr-4 bg-[#e3deff] "
+                className="course-like-box py-2 mr-4 bg-violet-300/50 "
                 onClick={handleLike}
                 // onClick={
                 //     currentUserIsLike === false
@@ -149,7 +149,7 @@ const NewsLikeDissLike = ({
                 </span>
             </div>
             <div
-                className="course-like-box py-2 mr-4 bg-[#e3deff] "
+                className="course-like-box py-2 mr-4 bg-violet-300/50"
                 onClick={handleDissLike}
                 // onClick={() =>
                 //     handleNewsDisLike(

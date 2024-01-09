@@ -18,9 +18,9 @@ const AllCoursesTable = ({ data, addIcon }) => {
         {SeparationPrice(data.cost)} تومان
       </td>
       <td className="whitespace-nowrap pl-12 py-4">{data.statusName}</td>
-      <td className="whitespace-nowrap pl-12 py-4">{data.teacherName}</td>
+      <td className="whitespace-nowrap pl-12 py-4">{data.teacherName || data.fullName}</td>
       <td className="whitespace-nowrap pl-12 py-4" dir="rtl">
-        {data.title}
+        {data.title || data.courseTitle}
       </td>
       <td className="whitespace-nowrap pl-12 py-4 font-medium">
         {" "}

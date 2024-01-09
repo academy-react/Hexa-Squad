@@ -73,7 +73,7 @@ const CourseBody = ({
         </div>
         <div className="likes-box">
           <div
-            className="course-like-box py-2 mr-4 bg-[#e3deff] skeleton-handler"
+            className="course-like-box py-2 mr-4 bg-violet-300/50 skeleton-handler"
             onClick={() =>
               handleCourseAddLike(
                 courseId,
@@ -95,7 +95,7 @@ const CourseBody = ({
             </span>
           </div>
           <div
-            className="course-like-box py-2 mr-4 bg-[#e3deff] skeleton-handler "
+            className="course-like-box py-2 mr-4 bg-violet-300/50 skeleton-handler "
             onClick={() =>
               handleCourseDisLike(
                 courseId,

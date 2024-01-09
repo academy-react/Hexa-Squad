@@ -194,7 +194,7 @@ const CoursePhoto = ({
             آیا از این دوره راضی بودید؟
           </h2>
           <div
-            className="course-like-box py-2 mr-4 bg-[#e3deff] "
+            className="course-like-box py-2 mr-4 bg-violet-300/50"
             onClick={handleLike}
           >
             <span
@@ -209,7 +209,7 @@ const CoursePhoto = ({
             </span>
           </div>
           <div
-            className="course-like-box py-2 mr-4 bg-[#e3deff] "
+            className="course-like-box py-2 mr-4 bg-violet-300/50"
             onClick={handleDissLike}
           >
             <span
