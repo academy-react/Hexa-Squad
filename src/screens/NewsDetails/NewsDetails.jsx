@@ -1,5 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 import LoadingSpinner from "../../components/common/loadingSpinner";
@@ -66,7 +66,24 @@ const NewsDetails = () => {
   useEffect(() => {
     data.isCurrentUserFavorite && setIsFavorite(true);
   }, []);
-
+const newsDetail = [
+  data.isCurrentUserFavorite,
+  data.currentImageAddress,
+  data.title,
+  data.insertDate,
+  data.currentView,
+  data.addUserFullName,
+  data.miniDescribe,
+  data.describe,
+  data.addUserFullName,
+  data.likeId,
+  data.currentUserIsLike,
+  data.currentUserIsDissLike,
+  data.currentLikeCount,
+  data.currentDissLikeCount,
+  data.currentUserSetRate,
+  data.currentUserRateNumber,
+];
   return (
     <Fragment>
       <LoadingSpinner />
@@ -170,26 +187,30 @@ const NewsDetails = () => {
             </div>
           </div>
           <div className="flex lg:flex-row flex-col gap-y-6 justify-between border-b-2 border-b-[#3F40EA33] dark:border-b-[#3d3d70] py-8">
-            {data.id && <NewsLikeDissLike
-              data={data}
-              id={urlParam.id}
-              newsLikeId={data.likeId}
-              currentUserLike={data.currentUserIsLike}
-              currentUserDissLike={data.currentUserIsDissLike}
-              likeCount={data.currentLikeCount}
-              dissLikeCount={data.currentDissLikeCount}
-              setData={setData}
-            />}
+            {data.id && (
+              <NewsLikeDissLike
+                data={data}
+                id={urlParam.id}
+                newsLikeId={data.likeId}
+                currentUserLike={data.currentUserIsLike}
+                currentUserDissLike={data.currentUserIsDissLike}
+                likeCount={data.currentLikeCount}
+                dissLikeCount={data.currentDissLikeCount}
+                setData={setData}
+              />
+            )}
             <div className="flex md:flex-row flex-wrap gap-x-4">
               <h2 className="text-xl mt-1 dark:text-indigo-400 text-[#302064]">
                 میزان رضایت مندی خود نسبت به این مقاله را ثبت نمایید!
               </h2>
-              {data.id && <Rate 
-                id={data} 
-                handleRate={handleNewsRate} 
-                currentUserSetRate={data.currentUserSetRate}
-                currentUserRateNumber={data.currentUserRateNumber}
-              />}
+              {data.id && (
+                <Rate
+                  id={data}
+                  handleRate={handleNewsRate}
+                  currentUserSetRate={data.currentUserSetRate}
+                  currentUserRateNumber={data.currentUserRateNumber}
+                />
+              )}
             </div>
           </div>
           <AddNewsComment

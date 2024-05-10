@@ -22,6 +22,7 @@
     "framer-motion": "^10.16.4",
     "jalaali-js": "^1.2.6",
     "leaflet": "^1.9.4",
+    "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-accessible-accordion": "^5.0.0",
     "react-circular-progressbar": "^2.1.0",
